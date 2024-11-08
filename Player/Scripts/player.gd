@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
-signal hit
-
+signal hit 
+# BEN testing
 # His method of doing this. Apparently not important. Is default direction of player(?).
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
