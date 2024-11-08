@@ -13,7 +13,7 @@ var screen_size
 @onready var animation_player: AnimationPlayer = $Player/AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Player/Sprite2D
 
-
+#chinchin
 
 
 # Called when the node enters the scene tree for the first time.
