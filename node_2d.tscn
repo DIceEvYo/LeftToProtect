@@ -1,7 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://grorgbd6ob8d"]
+[gd_scene load_steps=6 format=3 uid="uid://grorgbd6ob8d"]
 
 [ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_ixyvk"]
+[ext_resource type="Texture2D" uid="uid://bc8aitbbhwaqv" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_8xxyp"]
+[ext_resource type="Script" path="res://Maid/Scripts/maid.gd" id="2_troxp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnhhb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8xxyp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gksph"]
+height = 24.0
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ixyvk")]
+
+[node name="Maid" type="RigidBody2D" parent="."]
+script = ExtResource("2_troxp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Maid"]
+sprite_frames = SubResource("SpriteFrames_qnhhb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maid"]
+light_mask = 0
+shape = SubResource("CapsuleShape2D_gksph")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Maid"]
