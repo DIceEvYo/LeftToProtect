@@ -21,9 +21,12 @@ height = 24.0
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ixyvk")]
+position = Vector2(333, 206)
 
 [node name="Maid" type="RigidBody2D" parent="."]
+position = Vector2(242, 138)
 script = ExtResource("2_troxp")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Maid"]
 sprite_frames = SubResource("SpriteFrames_qnhhb")
