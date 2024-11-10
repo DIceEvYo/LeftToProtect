@@ -1,24 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dr0mq7pb3fqgx"]
+[gd_scene load_steps=15 format=3 uid="uid://dr0mq7pb3fqgx"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_cbm76"]
 [ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="2_v0uyh"]
-
-[sub_resource type="Animation" id="Animation_mt44o"]
-resource_name = "idle_down"
-length = 0.4
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 0, 0]
-}
+[ext_resource type="Script" path="res://Player/Scripts/state_idle.gd" id="3_6s2qx"]
+[ext_resource type="Script" path="res://Player/Scripts/player_state_machine.gd" id="3_jk55v"]
+[ext_resource type="Script" path="res://Player/Scripts/state_walk.gd" id="4_rcqbb"]
 
 [sub_resource type="Animation" id="Animation_3jnvy"]
 length = 0.001
@@ -35,8 +21,8 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_7w064"]
-resource_name = "idle_up"
+[sub_resource type="Animation" id="Animation_mt44o"]
+resource_name = "idle_down"
 length = 0.4
 loop_mode = 2
 tracks/0/type = "value"
@@ -69,9 +55,9 @@ tracks/0/keys = {
 "values": [0, 0, 0]
 }
 
-[sub_resource type="Animation" id="Animation_ghjrd"]
-resource_name = "walk_up"
-length = 0.3
+[sub_resource type="Animation" id="Animation_7w064"]
+resource_name = "idle_up"
+length = 0.4
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -80,10 +66,10 @@ tracks/0/path = NodePath("Player/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0]
+"values": [0, 0, 0]
 }
 
 [sub_resource type="Animation" id="Animation_x7w50"]
@@ -105,6 +91,23 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ygxjc"]
 resource_name = "walk_side"
+length = 0.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_ghjrd"]
+resource_name = "walk_up"
 length = 0.3
 loop_mode = 2
 tracks/0/type = "value"
@@ -152,3 +155,12 @@ texture = ExtResource("2_v0uyh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, -20)
 shape = SubResource("CapsuleShape2D_g3rdk")
+
+[node name="StateMachine" type="Node" parent="Player"]
+script = ExtResource("3_jk55v")
+
+[node name="Idle" type="Node" parent="Player/StateMachine"]
+script = ExtResource("3_6s2qx")
+
+[node name="Walk" type="Node" parent="Player/StateMachine"]
+script = ExtResource("4_rcqbb")
