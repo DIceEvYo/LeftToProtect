@@ -4,7 +4,7 @@ var MaidBullet = preload("res://Maid/MaidBullet.tscn")
 
 #General Variables
 var speed = 0
-var dir = Vector2.ZERO #Resets direction to default.
+var dir = Vector2.ZERO #Resets direction to default
 var screen_size #Size of game window
 var waiting = true
 
