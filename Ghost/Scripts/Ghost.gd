@@ -1,6 +1,7 @@
 extends RigidBody2D
 
-var MaidBullet = preload("res://Maid/MaidBullet.tscn")
+var GhostBullet = preload("res://Maid/MaidBullet.tscn")
+#var GhostBullet = preload("res://Ghost/GhostBullet.tscn")
 
 #General Variables
 var speed = 0
@@ -79,20 +80,7 @@ func _on_timer_2_timeout():
 		shoot()
 
 func shoot():
-	var bullet = MaidBullet.instantiate()
-	bullet.position = position
-	bullet.dir = (Vector2(0, 1)).normalized()
-	get_parent().add_child(bullet)
-
-
-# When called, kills maid.
-func kill():
-	get_tree().reload_current_scene()
-	
-	
-################ Come back to edit what it checks. 'bullet' is too vague.
-func _on_body_entered(body: Node) -> void:
-	if "bullet" in body.name:
-		kill()
-		
-	pass # Replace with function body.
+	var gbullet = GhostBullet.instantiate()
+	gbullet.position = position
+	gbullet.dir = (Vector2(0, 1)).normalized()
+	get_parent().add_child(gbullet)
