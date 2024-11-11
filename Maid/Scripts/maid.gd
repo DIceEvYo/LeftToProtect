@@ -1,4 +1,7 @@
 extends RigidBody2D
+
+var MaidBullet = preload("res://Maid/MaidBullet.tscn")
+
 #General Vars
 var speed = 0
 var dir = Vector2.ZERO #Resets direction to default.
@@ -6,8 +9,12 @@ var screen_size #Size of game window
 var waiting = true
 
 #Time specific Vars
+#Dir Change
 var change_dir_timer = 2.0 #How many seconds it takes for direction to change
-var time_elapsed = 0.0
+var time_elapsed_dir = 0.0
+#Shooting
+var shoot_count = 0
+var shoot_limit = 5
 
 func _ready():
 	# Finds size of game window
@@ -21,13 +28,15 @@ func _process(delta):
 		#speed and direction on a given 2d plane. 
 		linear_velocity = dir*speed
 		#Uses delta (frame time) to calculate time elapsed
-		time_elapsed += delta
+		time_elapsed_dir += delta
 		check_bounds()
-		if time_elapsed > change_dir_timer:
+		if time_elapsed_dir > change_dir_timer:
 			change_dir()
-			time_elapsed = 0
+			time_elapsed_dir = 0
 		#Prevents enemy from leaving the screen.
-		position = position.clamp(Vector2.ZERO, screen_size)
+		#position = position.clamp(Vector2.ZERO, screen_size)
+	else:
+		linear_velocity = Vector2.ZERO
 
 #Reverses direction if touching edge.
 func check_bounds():
@@ -54,11 +63,23 @@ func change_dir():
 	dir = Vector2(cos(angle), sin(angle)).normalized()
 
 func wait():
-	#Makes maid wait 1 second.
+	waiting = true
 	speed = 0
 	dir = Vector2.ZERO
+	#Makes maid wait 1 second.
 	get_node("Timer").start()
+	get_node("Timer2").start()
 	
 func _on_timer_timeout():
-	speed = 100
 	waiting = false
+	speed = 100
+	
+func _on_timer_2_timeout():
+	if waiting:
+		shoot()
+
+func shoot():
+	var bullet = MaidBullet.instantiate()
+	bullet.position = position
+	bullet.dir = (Vector2(0, 1)).normalized()
+	get_parent().add_child(bullet)
