@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_cbm76"]
 [ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="2_v0uyh"]
-
+[ext_resource type="Script" path="res://Player/Scripts/state_idle.gd" id="3_6s2qx"]
+[ext_resource type="Script" path="res://Player/Scripts/player_state_machine.gd" id="3_jk55v"]
+[ext_resource type="Script" path="res://Player/Scripts/state_walk.gd" id="4_rcqbb"]
 [sub_resource type="Animation" id="Animation_3jnvy"]
 length = 0.001
 tracks/0/type = "value"
@@ -152,3 +154,10 @@ texture = ExtResource("2_v0uyh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, -20)
 shape = SubResource("CapsuleShape2D_g3rdk")
+
+[node name="StateMachine" type="Node" parent="Player"]
+script = ExtResource("3_jk55v")
+[node name="Idle" type="Node" parent="Player/StateMachine"]
+script = ExtResource("3_6s2qx")
+[node name="Walk" type="Node" parent="Player/StateMachine"]
+script = ExtResource("4_rcqbb")
