@@ -2,13 +2,13 @@ extends RigidBody2D
 
 var MaidBullet = preload("res://Maid/MaidBullet.tscn")
 
-#General Vars
+#General Variables
 var speed = 0
 var dir = Vector2.ZERO #Resets direction to default.
 var screen_size #Size of game window
 var waiting = true
 
-#Time specific Vars
+#Time specific Variables
 #Dir Change
 var change_dir_timer = 2.0 #How many seconds it takes for direction to change
 var time_elapsed_dir = 0.0
