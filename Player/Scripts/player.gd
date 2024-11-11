@@ -4,16 +4,19 @@ signal hit
 # His method of doing this. Apparently not important. Is default direction of player(?).
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
-
+var move_speed : float = 100.0
+# Temporary way to make state. Covered in next video.
+var state : String = "idle"
 # Size of game window
 var screen_size
+
+# Bullet-related information
+var bullet_speed : int = 1000
+var bullet = preload("res://Player/bullet.tscn")
 
 @onready var animation_player: AnimationPlayer = $Player/AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Player/Sprite2D
 @onready var state_machine: PlayerStateMachine = $Player/StateMachine
-
-
-
 
 #gehenners
 
@@ -32,14 +35,15 @@ func _process(delta: float) -> void:
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	
-	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	look_at(get_global_mouse_position())
 	
 	pass
 
 
 # The physics part of game.
 func _physics_process(delta):
+	if Input.is_action_just_pressed("shoot"):
+		fire()
 	move_and_slide()
 	
 	
@@ -87,3 +91,11 @@ func AnimDirection() -> String:
 		return "up"
 	else:
 		return "side"
+
+
+func fire():
+	var bullet_instance = bullet.instantiate()
+	bullet_instance.position = get_global_position()
+	bullet_instance.rotation_degrees = rotation_degrees
+	bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated(rotation))
+	get_tree().get_root().call_deferred("add_child", bullet_instance)
