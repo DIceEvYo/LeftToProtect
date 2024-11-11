@@ -16,12 +16,15 @@ var bullet = preload("res://Player/bullet.tscn")
 
 @onready var animation_player: AnimationPlayer = $Player/AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Player/Sprite2D
+@onready var state_machine: PlayerStateMachine = $Player/StateMachine
+
 
 #gehenners
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	state_machine.Initialize(self)
 	# Finds size of game window
 	screen_size = get_viewport_rect().size
 	pass # Replace with function body.
@@ -96,7 +99,7 @@ func SetState() -> bool:
 	
 	
 # Plays correct animation.
-func UpdateAnimation() -> void:
+func UpdateAnimation( state : String) -> void:
 	# (state is temp for now) 
 	# animation_player is what we want played, so we call the play() function, and it plays the 
 	# specified animation, in this case being "idle_down/up/side"
