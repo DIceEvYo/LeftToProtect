@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://grorgbd6ob8d"]
+[gd_scene load_steps=6 format=3 uid="uid://grorgbd6ob8d"]
 
 [ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_ixyvk"]
-[ext_resource type="Texture2D" uid="uid://bc8aitbbhwaqv" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_8xxyp"]
+[ext_resource type="Texture2D" uid="uid://d2vwhx6oclggs" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_8xxyp"]
 [ext_resource type="Script" path="res://Maid/Scripts/maid.gd" id="2_troxp"]
-[ext_resource type="PackedScene" uid="uid://bdyvxgrmdx8dy" path="res://Maid/MaidBullet.tscn" id="4_m7iwp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qnhhb"]
 animations = [{
@@ -22,14 +21,9 @@ height = 24.0
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ixyvk")]
-position = Vector2(333, 206)
 
 [node name="Maid" type="RigidBody2D" parent="."]
-position = Vector2(242, 138)
-collision_mask = 0
-gravity_scale = 0.0
 script = ExtResource("2_troxp")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Maid"]
 sprite_frames = SubResource("SpriteFrames_qnhhb")
@@ -38,12 +32,4 @@ sprite_frames = SubResource("SpriteFrames_qnhhb")
 light_mask = 0
 shape = SubResource("CapsuleShape2D_gksph")
 
-[node name="Timer" type="Timer" parent="Maid"]
-
-[node name="Timer2" type="Timer" parent="Maid"]
-wait_time = 0.1
-
-[node name="MaidBullet" parent="." instance=ExtResource("4_m7iwp")]
-
-[connection signal="timeout" from="Maid/Timer" to="Maid" method="_on_timer_timeout"]
-[connection signal="timeout" from="Maid/Timer2" to="Maid" method="_on_timer_2_timeout"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Maid"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0qd4vqv4l77i"]
+
+[ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="1_7cgjk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svsrk"]
+size = Vector2(6, 12)
+
+[node name="bullet" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_svsrk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_7cgjk")

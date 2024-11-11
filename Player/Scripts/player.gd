@@ -4,23 +4,24 @@ signal hit
 # His method of doing this. Apparently not important. Is default direction of player(?).
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
-
+var move_speed : float = 100.0
+# Temporary way to make state. Covered in next video.
+var state : String = "idle"
 # Size of game window
 var screen_size
 
+# Bullet-related information
+var bullet_speed : int = 1000
+var bullet = preload("res://Player/bullet.tscn")
+
 @onready var animation_player: AnimationPlayer = $Player/AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Player/Sprite2D
-@onready var state_machine: PlayerStateMachine = $Player/StateMachine
-
-
-
 
 #gehenners
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	state_machine.Initialize(self)
 	# Finds size of game window
 	screen_size = get_viewport_rect().size
 	pass # Replace with function body.
@@ -32,14 +33,25 @@ func _process(delta: float) -> void:
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	
+	# Velocity. Used by _physics_process().
+	velocity = direction * move_speed
+	
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
+	
+	# Runs if state has been changed (returned true). Updates animation selection.
+	if SetState() == true || SetDirection() == true:
+		UpdateAnimation()
+		
+	look_at(get_global_mouse_position())
 	
 	pass
 
 
 # The physics part of game.
 func _physics_process(delta):
+	if Input.is_action_just_pressed("shoot"):
+		fire()
 	move_and_slide()
 	
 	
@@ -69,8 +81,22 @@ func SetDirection() -> bool:
 	return true
 	
 	
+# Sets state of Player between "idle" and "walk".
+func SetState() -> bool:
+	# set new_state to "idle" if no movement, else set to "walk".
+	var new_state : String = "idle" if direction == Vector2.ZERO else "walk"
+	
+	# Checks if state has changed. If so, no need to update animation, therefore return false.
+	if new_state == state:
+		return false
+		
+	# If different, set state to new_state, and return true, signifying change in animation.
+	state = new_state
+	return true
+	
+	
 # Plays correct animation.
-func UpdateAnimation( state : String) -> void:
+func UpdateAnimation() -> void:
 	# (state is temp for now) 
 	# animation_player is what we want played, so we call the play() function, and it plays the 
 	# specified animation, in this case being "idle_down/up/side"
@@ -87,3 +113,11 @@ func AnimDirection() -> String:
 		return "up"
 	else:
 		return "side"
+
+
+func fire():
+	var bullet_instance = bullet.instantiate()
+	bullet_instance.position = get_global_position()
+	bullet_instance.rotation_degrees = rotation_degrees
+	bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated(rotation))
+	get_tree().get_root().call_deferred("add_child", bullet_instance)
