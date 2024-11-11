@@ -83,3 +83,16 @@ func shoot():
 	bullet.position = position
 	bullet.dir = (Vector2(0, 1)).normalized()
 	get_parent().add_child(bullet)
+
+
+# When called, kills maid.
+func kill():
+	get_tree().reload_current_scene()
+	
+	
+################ Come back to edit what it checks. 'bullet' is too vague.
+func _on_body_entered(body: Node) -> void:
+	if "bullet" in body.name:
+		kill()
+		
+	pass # Replace with function body.
