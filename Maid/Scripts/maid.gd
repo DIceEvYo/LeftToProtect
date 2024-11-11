@@ -4,7 +4,7 @@ var MaidBullet = preload("res://Maid/MaidBullet.tscn")
 
 #General Variables
 var speed = 0
-var dir = Vector2.ZERO #Resets direction to default.
+var dir = Vector2.ZERO #Resets direction to default
 var screen_size #Size of game window
 var waiting = true
 
@@ -17,7 +17,7 @@ var shoot_count = 0
 var shoot_limit = 5
 
 func _ready():
-	# Finds size of game window
+	#Finds size of game window
 	screen_size = get_viewport_rect().size
 	randomize()
 	change_dir()
