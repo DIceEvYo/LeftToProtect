@@ -10,7 +10,7 @@ var state : String = "idle"
 # Size of game window
 var screen_size
 
-# Bullet-related information
+# Bullet-related information perhaps
 var bullet_speed : int = 1000
 var bullet = preload("res://Player/bullet.tscn")
 
