@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://grorgbd6ob8d"]
 
 [ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_ixyvk"]
-[ext_resource type="Texture2D" uid="uid://d3s2cbmgv54nn" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_8xxyp"]
+[ext_resource type="Texture2D" uid="uid://cy0u2thplj456" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_8xxyp"]
 [ext_resource type="Script" path="res://Maid/Scripts/maid.gd" id="2_troxp"]
 [ext_resource type="PackedScene" uid="uid://bdyvxgrmdx8dy" path="res://Maid/MaidBullet.tscn" id="4_m7iwp"]
 [ext_resource type="PackedScene" uid="uid://bqibpfbltye48" path="res://Ghost/GhostBullet.tscn" id="5_ab1ke"]
 [ext_resource type="Script" path="res://Ghost/Scripts/Ghost.gd" id="6_pyoki"]
-[ext_resource type="Texture2D" uid="uid://covt2k7rufej3" path="res://Ghost/Sprites/ghost.png" id="7_gjxpp"]
+[ext_resource type="Texture2D" uid="uid://dov2cjtee8frb" path="res://Ghost/Sprites/ghost.png" id="7_gjxpp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qnhhb"]
 animations = [{
@@ -62,9 +62,6 @@ wait_time = 0.1
 
 [node name="MaidBullet" parent="." instance=ExtResource("4_m7iwp")]
 
-
-[connection signal="body_entered" from="Maid" to="Maid" method="_on_body_entered"]
-
 [node name="GhostBullet" parent="." instance=ExtResource("5_ab1ke")]
 gravity_scale = 1.0
 
@@ -83,6 +80,7 @@ shape = SubResource("CapsuleShape2D_qdpig")
 
 [node name="Timer2" type="Timer" parent="Ghost"]
 
+[connection signal="body_entered" from="Maid" to="Maid" method="_on_body_entered"]
 [connection signal="timeout" from="Maid/Timer" to="Maid" method="_on_timer_timeout"]
 [connection signal="timeout" from="Maid/Timer2" to="Maid" method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Ghost/Timer" to="Ghost" method="_on_timer_timeout"]
