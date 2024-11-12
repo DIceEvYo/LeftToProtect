@@ -164,3 +164,5 @@ script = ExtResource("3_6s2qx")
 
 [node name="Walk" type="Node" parent="Player/StateMachine"]
 script = ExtResource("4_rcqbb")
+
+[connection signal="body_entered" from="Player" to="." method="_on_player_body_entered"]

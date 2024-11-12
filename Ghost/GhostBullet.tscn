@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqibpfbltye48"]
+
+[ext_resource type="Script" path="res://Ghost/Scripts/GhostBullet.gd" id="1_n4mtc"]
+[ext_resource type="Texture2D" uid="uid://cxh4rsqbyjo7e" path="res://Ghost/Sprites/Bullets/pixil-frame-0.png" id="2_at3cl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_co6oj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_at3cl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tiv1p"]
+radius = 3.0
+height = 10.0
+
+[node name="GhostBullet" type="RigidBody2D"]
+position = Vector2(78, 55)
+gravity_scale = 0.0
+script = ExtResource("1_n4mtc")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+sprite_frames = SubResource("SpriteFrames_co6oj")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(9.53674e-07, -7.45058e-07)
+scale = Vector2(0.325, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_tiv1p")

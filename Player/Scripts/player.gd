@@ -10,7 +10,7 @@ var state : String = "idle"
 # Size of game window
 var screen_size
 
-# Bullet-related information
+# Bullet-related information perhaps
 var bullet_speed : int = 1000
 var bullet = preload("res://Player/bullet.tscn")
 
@@ -93,9 +93,23 @@ func AnimDirection() -> String:
 		return "side"
 
 
+# Player shoots. Sends projectile.
 func fire():
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.position = get_global_position()
 	bullet_instance.rotation_degrees = rotation_degrees
 	bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child", bullet_instance)
+
+
+# When called, kills the player and reloads the page.
+func kill():
+	get_tree().reload_current_scene()
+
+
+# Kills/refreshes player/scene when 'Maid' or 'bullet' object interacts with Player.
+func _on_player_body_entered(body: Node2D) -> void:
+	if "Maid" in body.name or "bullet" in body.name:
+		kill()
+	
+	pass # Replace with function body.

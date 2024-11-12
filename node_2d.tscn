@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://grorgbd6ob8d"]
+[gd_scene load_steps=12 format=3 uid="uid://grorgbd6ob8d"]
 
 [ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_ixyvk"]
-[ext_resource type="Texture2D" uid="uid://dnva5nehlrd1m" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_8xxyp"]
+[ext_resource type="Texture2D" uid="uid://d3s2cbmgv54nn" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_8xxyp"]
 [ext_resource type="Script" path="res://Maid/Scripts/maid.gd" id="2_troxp"]
 [ext_resource type="PackedScene" uid="uid://bdyvxgrmdx8dy" path="res://Maid/MaidBullet.tscn" id="4_m7iwp"]
+[ext_resource type="PackedScene" uid="uid://bqibpfbltye48" path="res://Ghost/GhostBullet.tscn" id="5_ab1ke"]
+[ext_resource type="Script" path="res://Ghost/Scripts/Ghost.gd" id="6_pyoki"]
+[ext_resource type="Texture2D" uid="uid://covt2k7rufej3" path="res://Ghost/Sprites/ghost.png" id="7_gjxpp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qnhhb"]
 animations = [{
@@ -17,6 +20,20 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gksph"]
+height = 24.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jur2e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_gjxpp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qdpig"]
 height = 24.0
 
 [node name="Node2D" type="Node2D"]
@@ -45,5 +62,28 @@ wait_time = 0.1
 
 [node name="MaidBullet" parent="." instance=ExtResource("4_m7iwp")]
 
+
+[connection signal="body_entered" from="Maid" to="Maid" method="_on_body_entered"]
+
+[node name="GhostBullet" parent="." instance=ExtResource("5_ab1ke")]
+gravity_scale = 1.0
+
+[node name="Ghost" type="RigidBody2D" parent="."]
+position = Vector2(109, 45)
+script = ExtResource("6_pyoki")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ghost"]
+sprite_frames = SubResource("SpriteFrames_jur2e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ghost"]
+shape = SubResource("CapsuleShape2D_qdpig")
+
+[node name="Timer" type="Timer" parent="Ghost"]
+
+[node name="Timer2" type="Timer" parent="Ghost"]
+
 [connection signal="timeout" from="Maid/Timer" to="Maid" method="_on_timer_timeout"]
 [connection signal="timeout" from="Maid/Timer2" to="Maid" method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Ghost/Timer" to="Ghost" method="_on_timer_timeout"]
+[connection signal="timeout" from="Ghost/Timer2" to="Ghost" method="_on_timer_2_timeout"]
