@@ -17,7 +17,7 @@ var shoot_count = 0
 var shoot_limit = 5
 
 func _ready():
-	#Finds size of game window
+	#Finds size of game window.
 	screen_size = get_viewport_rect().size
 	randomize()
 	change_dir()
