@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var MaidBullet = preload("res://Maid/MaidBullet.tscn")
 
-#General Variables
+#General Vars
 var speed = 0
 var dir = Vector2.ZERO #Resets direction to default
 var screen_size #Size of game window
