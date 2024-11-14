@@ -1,7 +1,6 @@
 extends RigidBody2D
 
-var GhostBullet = preload("res://Maid/MaidBullet.tscn")
-#var GhostBullet = preload("res://Ghost/GhostBullet.tscn")
+var GhostBullet = preload("res://Ghost/GhostBullet.tscn")
 
 #General Variables
 var speed = 0
