@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bdyvxgrmdx8dy"]
 
 [ext_resource type="Script" path="res://Maid/Scripts/MaidBullet.gd" id="1_on35d"]
-[ext_resource type="Texture2D" uid="uid://1mjy2lwbwx2q" path="res://Maid/Sprites/Maid_Bullets/pixil-frame-0.png" id="2_f3ihr"]
+[ext_resource type="Texture2D" uid="uid://be07r342bffhx" path="res://Maid/Sprites/Maid_Bullets/pixil-frame-0.png" id="2_f3ihr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j28ms"]
 animations = [{
