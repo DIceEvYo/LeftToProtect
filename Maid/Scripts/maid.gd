@@ -3,6 +3,7 @@ extends RigidBody2D
 var MaidBullet = preload("res://Maid/MaidBullet.tscn")
 
 #General Vars
+var health = 30
 var speed = 0
 var dir = Vector2.ZERO #Resets direction to default
 var screen_size #Size of game window
@@ -89,10 +90,14 @@ func shoot():
 func kill():
 	get_tree().reload_current_scene()
 	
-	
-################ Come back to edit what it checks. 'bullet' is too vague.
-func _on_body_entered(body: Node) -> void:
-	if "bullet" in body.name:
-		kill()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if "Bullet" == body.name:
+		# Call invincible frame function.
 		
+		# Reduce health.
+		health -= 10
+		
+	if health <= 0:
+		kill()
 	pass # Replace with function body.

@@ -10,6 +10,9 @@ var state : String = "idle"
 # Size of game window
 var screen_size
 
+# Player stats
+var health = 50
+
 # Bullet-related information perhaps
 var bullet_speed : int = 1000
 var bullet = preload("res://Player/bullet.tscn")
@@ -34,8 +37,6 @@ func _process(delta: float) -> void:
 	# Changes direction based on selected direction (set in Project Settings -> Input map.)
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
-	
-	look_at(get_global_mouse_position())
 	
 	pass
 
@@ -94,14 +95,27 @@ func AnimDirection() -> String:
 
 
 # Player shoots. Sends projectile.
+"""
 func fire():
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.position = get_global_position()
 	bullet_instance.rotation_degrees = rotation_degrees
 	bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child", bullet_instance)
-
-
+"""
+# Player shoots. Sends projectile.
+func fire():
+	# New bullet
+	var bullet_instance = bullet.instantiate()
+	
+	# Calculates direction of mouse position.
+	var target_position = get_global_mouse_position()
+	bullet_instance.direction = (target_position - position).normalized()
+	
+	# Bullet placed at player position before added to scene (check def later)
+	bullet_instance.position = position
+	get_parent().add_child(bullet_instance)
+	
 # When called, kills the player and reloads the page.
 func kill():
 	get_tree().reload_current_scene()
@@ -110,6 +124,12 @@ func kill():
 # Kills/refreshes player/scene when 'Maid' or 'bullet' object interacts with Player.
 func _on_player_body_entered(body: Node2D) -> void:
 	if "Maid" in body.name or "bullet" in body.name:
+		# Call invincible frame function
+		
+		# Reduce health.
+		health -= 10
+		
+	if health <= 0:
 		kill()
 	
 	pass # Replace with function body.

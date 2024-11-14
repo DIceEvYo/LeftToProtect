@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://grorgbd6ob8d"]
 
 [ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_ixyvk"]
-[ext_resource type="Texture2D" uid="uid://bly6su7cdpw0n" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_8xxyp"]
+[ext_resource type="Texture2D" uid="uid://curmhr3ibwict" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_8xxyp"]
 [ext_resource type="Script" path="res://Maid/Scripts/maid.gd" id="2_troxp"]
 [ext_resource type="PackedScene" uid="uid://bdyvxgrmdx8dy" path="res://Maid/MaidBullet.tscn" id="4_m7iwp"]
 
@@ -34,18 +34,20 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Maid"]
 sprite_frames = SubResource("SpriteFrames_qnhhb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Maid"]
-light_mask = 0
-shape = SubResource("CapsuleShape2D_gksph")
-
 [node name="Timer" type="Timer" parent="Maid"]
 
 [node name="Timer2" type="Timer" parent="Maid"]
 wait_time = 0.1
 
+[node name="Area2D" type="Area2D" parent="Maid"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maid/Area2D"]
+light_mask = 0
+shape = SubResource("CapsuleShape2D_gksph")
+
 [node name="MaidBullet" parent="." instance=ExtResource("4_m7iwp")]
 visible = false
 
-[connection signal="body_entered" from="Maid" to="Maid" method="_on_body_entered"]
 [connection signal="timeout" from="Maid/Timer" to="Maid" method="_on_timer_timeout"]
 [connection signal="timeout" from="Maid/Timer2" to="Maid" method="_on_timer_2_timeout"]
+[connection signal="body_entered" from="Maid/Area2D" to="Maid" method="_on_area_2d_body_entered"]
