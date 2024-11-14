@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dk5lifukbd4o7"]
+
+[ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_kiusu"]
+[ext_resource type="Script" path="res://Ghost/Scripts/Ghost.gd" id="2_6m41i"]
+[ext_resource type="Texture2D" uid="uid://82npqi4tbbfc" path="res://Ghost/Sprites/ghost.png" id="3_w1lyx"]
+[ext_resource type="PackedScene" uid="uid://bqibpfbltye48" path="res://Ghost/GhostBullet.tscn" id="4_3nfw1"]
+[ext_resource type="AudioStream" uid="uid://c1g06xu1w77a6" path="res://Ghost/Music/NightXPhantom.wav" id="5_80er0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n1vui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w1lyx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hejlh"]
+height = 24.0
+
+[node name="GhostLevel" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_kiusu")]
+position = Vector2(333, 206)
+
+[node name="Ghost" type="RigidBody2D" parent="."]
+position = Vector2(242, 138)
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("2_6m41i")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ghost"]
+sprite_frames = SubResource("SpriteFrames_n1vui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ghost"]
+light_mask = 0
+shape = SubResource("CapsuleShape2D_hejlh")
+
+[node name="Timer" type="Timer" parent="Ghost"]
+
+[node name="Timer2" type="Timer" parent="Ghost"]
+wait_time = 0.1
+
+[node name="GhostBullet" parent="." instance=ExtResource("4_3nfw1")]
+visible = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_80er0")
+autoplay = true
+
+[connection signal="body_entered" from="Ghost" to="Ghost" method="_on_body_entered"]
+[connection signal="timeout" from="Ghost/Timer" to="Ghost" method="_on_timer_timeout"]
+[connection signal="timeout" from="Ghost/Timer2" to="Ghost" method="_on_timer_2_timeout"]

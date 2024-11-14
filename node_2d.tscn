@@ -1,12 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://grorgbd6ob8d"]
+[gd_scene load_steps=7 format=3 uid="uid://grorgbd6ob8d"]
 
 [ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_ixyvk"]
 [ext_resource type="Texture2D" uid="uid://bly6su7cdpw0n" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_8xxyp"]
 [ext_resource type="Script" path="res://Maid/Scripts/maid.gd" id="2_troxp"]
 [ext_resource type="PackedScene" uid="uid://bdyvxgrmdx8dy" path="res://Maid/MaidBullet.tscn" id="4_m7iwp"]
-[ext_resource type="PackedScene" uid="uid://bqibpfbltye48" path="res://Ghost/GhostBullet.tscn" id="5_ab1ke"]
-[ext_resource type="Script" path="res://Ghost/Scripts/Ghost.gd" id="6_pyoki"]
-[ext_resource type="Texture2D" uid="uid://82npqi4tbbfc" path="res://Ghost/Sprites/ghost.png" id="7_gjxpp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qnhhb"]
 animations = [{
@@ -22,18 +19,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gksph"]
 height = 24.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_pjr2j"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_gjxpp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[node name="Node2D" type="Node2D"]
+[node name="MaidLevel" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ixyvk")]
 position = Vector2(333, 206)
@@ -57,32 +43,9 @@ shape = SubResource("CapsuleShape2D_gksph")
 [node name="Timer2" type="Timer" parent="Maid"]
 wait_time = 0.1
 
-[node name="Ghost" type="RigidBody2D" parent="."]
-position = Vector2(242, 138)
-collision_mask = 0
-gravity_scale = 0.0
-script = ExtResource("6_pyoki")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ghost"]
-sprite_frames = SubResource("SpriteFrames_pjr2j")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ghost"]
-light_mask = 0
-shape = SubResource("CapsuleShape2D_gksph")
-
-[node name="Timer" type="Timer" parent="Ghost"]
-
-[node name="Timer2" type="Timer" parent="Ghost"]
-wait_time = 0.1
-
 [node name="MaidBullet" parent="." instance=ExtResource("4_m7iwp")]
-
-[node name="GhostBullet" parent="." instance=ExtResource("5_ab1ke")]
+visible = false
 
 [connection signal="body_entered" from="Maid" to="Maid" method="_on_body_entered"]
 [connection signal="timeout" from="Maid/Timer" to="Maid" method="_on_timer_timeout"]
 [connection signal="timeout" from="Maid/Timer2" to="Maid" method="_on_timer_2_timeout"]
-[connection signal="body_entered" from="Ghost" to="Ghost" method="_on_body_entered"]
-[connection signal="timeout" from="Ghost/Timer" to="Ghost" method="_on_timer_timeout"]
-[connection signal="timeout" from="Ghost/Timer2" to="Ghost" method="_on_timer_2_timeout"]
