@@ -4,14 +4,14 @@ signal hit
 # His method of doing this. Apparently not important. Is default direction of player(?).
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
-var move_speed : float = 100.0
-# Temporary way to make state. Covered in next video.
-var state : String = "idle"
+
 # Size of game window
 var screen_size
 
 # Player stats
 var health = 50
+var shield_active = false
+var invincible = false
 
 # Bullet-related information perhaps
 var bullet_speed : int = 1000
@@ -95,15 +95,6 @@ func AnimDirection() -> String:
 
 
 # Player shoots. Sends projectile.
-"""
-func fire():
-	var bullet_instance = bullet.instantiate()
-	bullet_instance.position = get_global_position()
-	bullet_instance.rotation_degrees = rotation_degrees
-	bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated(rotation))
-	get_tree().get_root().call_deferred("add_child", bullet_instance)
-"""
-# Player shoots. Sends projectile.
 func fire():
 	# New bullet
 	var bullet_instance = bullet.instantiate()
@@ -116,20 +107,61 @@ func fire():
 	bullet_instance.position = position
 	get_parent().add_child(bullet_instance)
 	
+	
+# Golem second ability. Creates sheild that blocks one attack. Destroyed afterwards. Can take 3-5 seconds to create another.
+func shield() -> void:
+	pass
+	
+	
+# Called when player is hita. Stays invincible for a bit.
+func invincibility_frame() -> void:
+	invincible = true
+	print("Enter")
+	get_node("Invincible_Frame_Timer").start()
+	
+	# Flashes for duration of invincibility.
+	for flash in range(10): 
+		$Player/Sprite2D.visible = false
+		await get_tree().create_timer(0.1).timeout  # Wait briefly
+		$Player/Sprite2D.visible = true
+		await get_tree().create_timer(0.1).timeout  # Wait briefly
+		$Player/Sprite2D.visible = false
+		await get_tree().create_timer(0.1).timeout  # Wait briefly
+		$Player/Sprite2D.visible = true
+
+	return
+	
+	
+# Timer for invincible frame. Sets to false at end
+func _on_invincible_frame_timer_timeout() -> void:
+	# Maybe display different sprite.
+	invincible = false
+	print("Exit")
+	return
+
+	
 # When called, kills the player and reloads the page.
-func kill():
+func kill() -> void:
 	get_tree().reload_current_scene()
+	return
 
 
 # Kills/refreshes player/scene when 'Maid' or 'bullet' object interacts with Player.
 func _on_player_body_entered(body: Node2D) -> void:
 	if "Maid" in body.name or "bullet" in body.name:
-		# Call invincible frame function
+		# Checks if invincible
+		if invincible:
+			return
+		# Mitigate damage if has shield.
+		elif shield_active:
+			return
 		
 		# Reduce health.
 		health -= 10
+		invincibility_frame()
 		
 	if health <= 0:
+		
 		kill()
 	
-	pass # Replace with function body.
+	return
