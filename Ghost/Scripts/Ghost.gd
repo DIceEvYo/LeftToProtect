@@ -7,6 +7,7 @@ var speed = 0
 var dir = Vector2.ZERO #Resets direction to default
 var screen_size #Size of game window
 var waiting = true
+var angle = 0
 
 #Time specific Variables
 #Dir Change
@@ -20,9 +21,13 @@ func _ready():
 	#Finds size of game window
 	screen_size = get_viewport_rect().size
 	randomize()
-	change_dir()
+	attack_sequence()
+	#change_dir()
 
 func _process(delta):
+	linear_velocity = dir * speed
+	#print(position.y)
+"""
 	if not waiting:
 		#Linear Velocity is a var specific to RigidBody2d that controls 
 		#speed and direction on a given 2d plane. 
@@ -37,6 +42,7 @@ func _process(delta):
 		#position = position.clamp(Vector2.ZERO, screen_size)
 	else:
 		linear_velocity = Vector2.ZERO
+"""
 
 #Reverses direction if touching edge.
 func check_bounds():
@@ -62,6 +68,55 @@ func change_dir():
 	#Normalized keeps vector at length of 1 to prevent any side effects.
 	dir = Vector2(cos(angle), sin(angle)).normalized()
 
+func attack_sequence():
+	#Dialogue stuff
+	await wait_for_timer(3.0)
+	
+	#Ghost initializes her position
+	speed = 600
+	custom_dir(0)
+	await wait_for_timer(0.34)
+	#First attack
+	$BackgroundMusic.play()
+	speed = 0
+	await wait_for_timer(0.25)
+	#Move to center (2nd position)
+	speed = 600
+	custom_dir(PI)
+	await wait_for_timer(0.68)
+	#Second Attack
+	speed = 0
+	await wait_for_timer(0.25)
+	#Move to left (3rd position)
+	speed = 600
+	custom_dir((PI)/11)
+	await wait_for_timer(0.34)
+	#Third Attack
+	speed = 0
+	await wait_for_timer(.25)
+	#Move down (4th position)
+	speed = 600
+	custom_dir((PI)/2)
+	await wait_for_timer(.28)
+	#Fourth Attack
+	speed = 0
+	await wait_for_timer(.25)
+	#Move up (before main set)
+	speed = 200
+	custom_dir((3*PI)/2)
+	await wait_for_timer(.5)
+	speed = 150
+	await wait_for_timer(.8)
+	speed = 0
+	
+func wait_for_timer(duration):
+	$WaitTimer.start(duration)  #Start the timer with the specified duration
+	await $WaitTimer.timeout    #Wait until the timeout signal is emitted
+	
+#More control to direction change
+func custom_dir(angle):
+	dir = Vector2(cos(angle), sin(angle)).normalized()
+
 func wait():
 	waiting = true
 	speed = 0
@@ -83,3 +138,4 @@ func shoot():
 	gbullet.position = position
 	gbullet.dir = (Vector2(0, 1)).normalized()
 	get_parent().add_child(gbullet)
+
