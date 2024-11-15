@@ -101,7 +101,7 @@ func attack_sequence():
 	#Fourth Attack
 	speed = 0
 	await wait_for_timer(.25)
-	#Move up (before main set)
+	#Move up (before main set) As the ghost moves up, display attack illustration
 	speed = 200
 	custom_dir((3*PI)/2)
 	await wait_for_timer(.5)
@@ -139,3 +139,11 @@ func shoot():
 	gbullet.dir = (Vector2(0, 1)).normalized()
 	get_parent().add_child(gbullet)
 
+func umbrellaShot():
+	pass
+
+func uShotLeft1():
+	var gbullet = GhostBullet.instantiate()
+	gbullet.position.y = position.y
+	gbullet.position.x = position.x - 10
+	
