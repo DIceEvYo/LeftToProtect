@@ -116,7 +116,6 @@ func shield() -> void:
 # Called when player is hita. Stays invincible for a bit.
 func invincibility_frame() -> void:
 	invincible = true
-	print("Enter")
 	get_node("Invincible_Frame_Timer").start()
 	
 	# Flashes for duration of invincibility.
@@ -136,7 +135,6 @@ func invincibility_frame() -> void:
 func _on_invincible_frame_timer_timeout() -> void:
 	# Maybe display different sprite.
 	invincible = false
-	print("Exit")
 	return
 
 	
