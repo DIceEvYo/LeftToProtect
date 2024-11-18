@@ -1,7 +1,7 @@
 extends RigidBody2D
 #hello
 var MaidBullet = preload("res://Maid/MaidBullet.tscn")
-
+#hi
 #General Vars
 var health = 30
 var speed = 0
