@@ -1,7 +1,7 @@
 class_name State_Walk extends State
 
 # Speed moved here. Var shows up on inspector, and can be adjusted by looking at player (Under StateMachine-Walk)
-@export var move_speed : float = 100.0
+@export var move_speed : float = 1000
 
 # Reference here so that we can return different states.
 @onready var idle: State = $"../Idle"

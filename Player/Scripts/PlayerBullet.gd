@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var bullet_speed : int = 1000
+var bullet_speed : int = 3000
 var direction = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
