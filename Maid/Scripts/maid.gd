@@ -73,7 +73,7 @@ func wait():
 	
 func _on_timer_timeout():
 	waiting = false
-	speed = 100
+	speed = 1000
 	
 func _on_timer_2_timeout():
 	if waiting:

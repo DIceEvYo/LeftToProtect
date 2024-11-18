@@ -75,7 +75,7 @@ func attack_sequence():
 	#$AnimationPlayer.play("fade_out")
 	await wait_for_timer(1.0)
 	#Ghost initializes her position
-	speed = 600
+	speed = 2400
 	custom_dir(0)
 	await wait_for_timer(0.34)
 	#First attack
@@ -83,31 +83,31 @@ func attack_sequence():
 	speed = 0
 	await wait_for_timer(0.25)
 	#Move to center (2nd position)
-	speed = 600
+	speed = 2400
 	custom_dir(PI)
 	await wait_for_timer(0.68)
 	#Second Attack
 	speed = 0
 	await wait_for_timer(0.25)
 	#Move to left (3rd position)
-	speed = 600
+	speed = 2400
 	custom_dir((PI)/11)
 	await wait_for_timer(0.34)
 	#Third Attack
 	speed = 0
 	await wait_for_timer(.25)
 	#Move down (4th position)
-	speed = 600
+	speed = 2400
 	custom_dir((PI)/2)
 	await wait_for_timer(.28)
 	#Fourth Attack
 	speed = 0
 	await wait_for_timer(.25)
 	#Move up (before main set) As the ghost moves up, display attack illustration
-	speed = 200
+	speed = 800
 	custom_dir((3*PI)/2)
 	await wait_for_timer(.5)
-	speed = 150
+	speed = 600
 	await wait_for_timer(.8)
 	speed = 0
 	

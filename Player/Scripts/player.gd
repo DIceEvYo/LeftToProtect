@@ -69,7 +69,7 @@ func SetDirection() -> bool:
 	# Sets sprite to look left or right by flipping direction. This is one way to do so.
 	# The other way is to go to offset -> flip H.
 	# Can also have parent-child flip together by transform -> unlink (scale) -> scale.x = -1/1.
-	sprite_2d.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
+	sprite_2d.scale.x = -3 if cardinal_direction == Vector2.LEFT else 3
 	return true
 	
 	
