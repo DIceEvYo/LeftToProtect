@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_kiusu"]
 [ext_resource type="Script" path="res://Levels/ghost_level_bg.gd" id="1_nnrf6"]
 [ext_resource type="Script" path="res://Ghost/Scripts/Ghost.gd" id="2_6m41i"]
-[ext_resource type="Texture2D" uid="uid://csctcue1kq3hh" path="res://Ghost/test.PNG" id="2_l51bw"]
-[ext_resource type="Texture2D" uid="uid://82npqi4tbbfc" path="res://Ghost/Sprites/ghost.png" id="3_w1lyx"]
+[ext_resource type="Texture2D" uid="uid://c6bnnm5t84ac6" path="res://Ghost/test.PNG" id="2_l51bw"]
+[ext_resource type="Texture2D" uid="uid://dse7ldppq28kp" path="res://Ghost/Sprites/ghost.png" id="3_w1lyx"]
 [ext_resource type="PackedScene" uid="uid://bqibpfbltye48" path="res://Ghost/GhostBullet.tscn" id="4_3nfw1"]
-[ext_resource type="AudioStream" uid="uid://c1g06xu1w77a6" path="res://Ghost/Music/NightXPhantom.wav" id="5_80er0"]
+[ext_resource type="AudioStream" uid="uid://b4rw38f5ysivx" path="res://Ghost/Music/NightXPhantom.wav" id="5_80er0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n1vui"]
 animations = [{

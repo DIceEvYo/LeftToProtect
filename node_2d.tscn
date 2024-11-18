@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://grorgbd6ob8d"]
 
 [ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_ixyvk"]
-[ext_resource type="Texture2D" uid="uid://curmhr3ibwict" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_8xxyp"]
+[ext_resource type="Texture2D" uid="uid://c1566xv041gop" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_8xxyp"]
 [ext_resource type="Script" path="res://Maid/Scripts/maid.gd" id="2_troxp"]
 [ext_resource type="PackedScene" uid="uid://bdyvxgrmdx8dy" path="res://Maid/MaidBullet.tscn" id="4_m7iwp"]
 
@@ -17,16 +17,17 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gksph"]
-height = 24.0
+radius = 54.4872
+height = 108.974
 
 [node name="MaidLevel" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ixyvk")]
-position = Vector2(333, 206)
-collision_layer = 1
+position = Vector2(366, 181)
 
 [node name="Maid" type="RigidBody2D" parent="."]
 position = Vector2(242, 138)
+scale = Vector2(0.936, 0.936)
 collision_layer = 8
 collision_mask = 5
 gravity_scale = 0.0
@@ -34,6 +35,7 @@ script = ExtResource("2_troxp")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Maid"]
+scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_qnhhb")
 
 [node name="Timer" type="Timer" parent="Maid"]
@@ -47,11 +49,11 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Maid/Area2D"]
 light_mask = 0
+position = Vector2(2.13678, 0)
 shape = SubResource("CapsuleShape2D_gksph")
 
 [node name="MaidBullet" parent="." instance=ExtResource("4_m7iwp")]
 visible = false
-collision_layer = 16
 
 [connection signal="timeout" from="Maid/Timer" to="Maid" method="_on_timer_timeout"]
 [connection signal="timeout" from="Maid/Timer2" to="Maid" method="_on_timer_2_timeout"]

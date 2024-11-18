@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bdyvxgrmdx8dy"]
 
 [ext_resource type="Script" path="res://Maid/Scripts/MaidBullet.gd" id="1_on35d"]
-[ext_resource type="Texture2D" uid="uid://be07r342bffhx" path="res://Maid/Sprites/Maid_Bullets/pixil-frame-0.png" id="2_f3ihr"]
+[ext_resource type="Texture2D" uid="uid://c2qdhwjr8qxwv" path="res://Maid/Sprites/Maid_Bullets/pixil-frame-0.png" id="2_f3ihr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j28ms"]
 animations = [{
@@ -24,10 +24,12 @@ script = ExtResource("1_on35d")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_j28ms")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(242, 138)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_hwnac")
