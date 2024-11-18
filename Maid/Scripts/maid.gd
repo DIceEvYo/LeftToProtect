@@ -90,14 +90,21 @@ func shoot():
 func kill():
 	get_tree().reload_current_scene()
 	
+	
+func take_damage() -> void:
+	health -= 10
+	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if "Bullet" == body.name:
-		# Call invincible frame function.
 		
 		# Reduce health.
-		health -= 10
+		take_damage()
+		
+	# Calls for player to take damage.
+	elif "Player" == body.name:
+		body.take_damage()
 		
 	if health <= 0:
 		kill()
-	pass # Replace with function body.
+		
