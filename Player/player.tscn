@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dr0mq7pb3fqgx"]
+[gd_scene load_steps=16 format=3 uid="uid://dr0mq7pb3fqgx"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_cbm76"]
 [ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="2_v0uyh"]
@@ -135,12 +135,19 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g3rdk"]
+radius = 15.0
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ascc1"]
+radius = 15.0
 height = 60.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cbm76")
 
 [node name="Player" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 24
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 root_node = NodePath("../..")
@@ -168,6 +175,10 @@ script = ExtResource("4_rcqbb")
 [node name="Invincible_Frame_Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -20)
+shape = SubResource("CapsuleShape2D_ascc1")
 
 [connection signal="body_entered" from="Player" to="." method="_on_player_body_entered"]
 [connection signal="timeout" from="Invincible_Frame_Timer" to="." method="_on_invincible_frame_timer_timeout"]
