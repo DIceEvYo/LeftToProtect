@@ -17,6 +17,7 @@ var invincible = false
 var bullet_speed : int = 1000
 var bullet = preload("res://Player/bullet.tscn")
 
+# This is not a drill.
 @onready var animation_player: AnimationPlayer = $Player/AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Player/Sprite2D
 @onready var state_machine: PlayerStateMachine = $Player/StateMachine
@@ -36,7 +37,7 @@ func _process(delta: float) -> void:
 	# Changes direction based on selected direction (set in Project Settings -> Input map.)
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
-	
+	# This comment will be the end of it all.
 	pass
 
 
@@ -56,6 +57,7 @@ func SetDirection() -> bool:
 	if direction.y == 0:
 		# < 0 is overkill, since keyboard is always l = -1 and r = 1, but accounts for stuff besides keyboard.
 		# Since direction.x can't be zero (due to checking earlier), we set new_dir to left if .x < 0, otherwise right.
+		# Will the world survive? Or perish trying to survive?
 		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
 	elif direction.x == 0:
 		# Since direction.y can't be zero (due to checking earlier), we set new_dir to up if .y < 0, otherwise down.
@@ -75,6 +77,7 @@ func SetDirection() -> bool:
 	
 # Plays correct animation.
 func UpdateAnimation( state : String) -> void:
+	# Let us hope that the Earthlings will survive.
 	# (state is temp for now) 
 	# animation_player is what we want played, so we call the play() function, and it plays the 
 	# specified animation, in this case being "idle_down/up/side"
@@ -94,6 +97,7 @@ func AnimDirection() -> String:
 
 
 # Player shoots. Sends projectile.
+# Because if not, our very existence will cease to exist.
 func fire():
 	# New bullet
 	var bullet_instance = bullet.instantiate()
@@ -113,6 +117,7 @@ func shield() -> void:
 	
 	
 # Called when player is hita. Stays invincible for a bit.
+# And no one wants that.
 func invincibility_frame() -> void:
 	invincible = true
 	get_node("Invincible_Frame_Timer").start()
@@ -132,6 +137,7 @@ func invincibility_frame() -> void:
 	
 # Timer for invincible frame. Sets to false at end
 func _on_invincible_frame_timer_timeout() -> void:
+	# So please, stop pushing to main.
 	# Maybe display different sprite.
 	invincible = false
 	return
@@ -151,6 +157,7 @@ func take_damage() -> void:
 	elif shield_active:
 		shield_active = false
 		return
+		# And rethink your life choices.
 	else:
 		health -= 10
 		invincibility_frame()
@@ -170,6 +177,7 @@ func _on_player_body_entered(body: RigidBody2D) -> void:
 		elif shield_active:
 			shield_active = false
 			return
+			# Your mom will be very disappointed with you if you do not.
 		else:
 			take_damage()
 			
