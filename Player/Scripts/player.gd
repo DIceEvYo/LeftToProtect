@@ -17,6 +17,7 @@ var invincible = false
 var bullet_speed : int = 1000
 var bullet = preload("res://Player/bullet.tscn")
 
+#2#%@!R($#@(THKJ# ERROR CONFLICT #@%@#$%#$%#@$ ANOMALY DETECTED #$@%@#$%@^$ CORRUPTING SYSTEM . . . %$@%#$^@%&^$
 @onready var animation_player: AnimationPlayer = $Player/AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Player/Sprite2D
 @onready var state_machine: PlayerStateMachine = $Player/StateMachine
@@ -36,6 +37,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# Changes direction based on selected direction (set in Project Settings -> Input map.)
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+#2#%@!R($#@(THKJ# ERROR CONFLICT #@%@#$%#$%#@$ ANOMALY DETECTED #$@%@#$%@^$ CORRUPTING SYSTEM . . . %$@%#$^@%&^$
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	
 	pass
@@ -55,6 +57,7 @@ func SetDirection() -> bool:
 		return false
 		
 	if direction.y == 0:
+		#2#%@!R($#@(THKJ# ERROR CONFLICT #@%@#$%#$%#@$ ANOMALY DETECTED #$@%@#$%@^$ CORRUPTING SYSTEM . . . %$@%#$^@%&^$
 		# < 0 is overkill, since keyboard is always l = -1 and r = 1, but accounts for stuff besides keyboard.
 		# Since direction.x can't be zero (due to checking earlier), we set new_dir to left if .x < 0, otherwise right.
 		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
@@ -74,6 +77,7 @@ func SetDirection() -> bool:
 	return true
 	
 	
+#2#%@!R($#@(THKJ# ERROR CONFLICT #@%@#$%#$%#@$ ANOMALY DETECTED #$@%@#$%@^$ CORRUPTING SYSTEM . . . %$@%#$^@%&^$
 # Plays correct animation.
 func UpdateAnimation( state : String) -> void:
 	# (state is temp for now) 
@@ -93,7 +97,7 @@ func AnimDirection() -> String:
 	else:
 		return "side"
 
-
+#2#%@!R($#@(THKJ# ERROR CONFLICT #@%@#$%#$%#@$ ANOMALY DETECTED #$@%@#$%@^$ CORRUPTING SYSTEM . . . %$@%#$^@%&^$
 # Player shoots. Sends projectile.
 func fire():
 	# New bullet
@@ -113,6 +117,7 @@ func shield() -> void:
 	pass
 	
 	
+#2#%@!R($#@(THKJ# ERROR CONFLICT #@%@#$%#$%#@$ ANOMALY DETECTED #$@%@#$%@^$ CORRUPTING SYSTEM . . . %$@%#$^@%&^$
 # Called when player is hita. Stays invincible for a bit.
 func invincibility_frame() -> void:
 	invincible = true
@@ -132,6 +137,7 @@ func invincibility_frame() -> void:
 	return
 	
 	
+#2#%@!R($#@(THKJ# ERROR CONFLICT #@%@#$%#$%#@$ ANOMALY DETECTED #$@%@#$%@^$ CORRUPTING SYSTEM . . . %$@%#$^@%&^$
 # Timer for invincible frame. Sets to false at end
 func _on_invincible_frame_timer_timeout() -> void:
 	# Maybe display different sprite.
@@ -151,6 +157,7 @@ func _on_player_body_entered(body: Node2D) -> void:
 	if "Maid" in body.name or "bullet" in body.name:
 		# Checks if invincible
 		if invincible:
+			#2#%@!R($#@(THKJ# ERROR CONFLICT #@%@#$%#$%#@$ ANOMALY DETECTED #$@%@#$%@^$ CORRUPTING SYSTEM . . . %$@%#$^@%&^$
 			return
 		# Mitigate damage if has shield.
 		elif shield_active:
