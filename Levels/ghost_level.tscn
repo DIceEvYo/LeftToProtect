@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dk5lifukbd4o7"]
+[gd_scene load_steps=14 format=3 uid="uid://dk5lifukbd4o7"]
 
 [ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_kiusu"]
+[ext_resource type="Script" path="res://Levels/ghost_level_bg.gd" id="1_nnrf6"]
 [ext_resource type="Script" path="res://Ghost/Scripts/Ghost.gd" id="2_6m41i"]
+[ext_resource type="Texture2D" uid="uid://csctcue1kq3hh" path="res://Ghost/test.PNG" id="2_l51bw"]
 [ext_resource type="Texture2D" uid="uid://82npqi4tbbfc" path="res://Ghost/Sprites/ghost.png" id="3_w1lyx"]
 [ext_resource type="PackedScene" uid="uid://bqibpfbltye48" path="res://Ghost/GhostBullet.tscn" id="4_3nfw1"]
 [ext_resource type="AudioStream" uid="uid://c1g06xu1w77a6" path="res://Ghost/Music/NightXPhantom.wav" id="5_80er0"]
@@ -20,19 +22,77 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hejlh"]
 height = 24.0
 
+[sub_resource type="Animation" id="Animation_ntf7p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GhostIllust:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_obwk1"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GhostIllust:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v0cll"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GhostIllust:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0m3t6"]
+_data = {
+"RESET": SubResource("Animation_ntf7p"),
+"fade_in": SubResource("Animation_obwk1"),
+"fade_out": SubResource("Animation_v0cll")
+}
+
 [node name="GhostLevel" type="Node2D"]
+script = ExtResource("1_nnrf6")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_80er0")
 
 [node name="Player" parent="." instance=ExtResource("1_kiusu")]
 position = Vector2(333, 206)
 
 [node name="Ghost" type="RigidBody2D" parent="."]
-position = Vector2(245, 19)
+position = Vector2(960, 111)
+scale = Vector2(0.936, 1)
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("2_6m41i")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ghost"]
+scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_n1vui")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ghost"]
@@ -47,15 +107,21 @@ wait_time = 0.1
 [node name="WaitTimer" type="Timer" parent="Ghost"]
 wait_time = 0.5
 
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="Ghost"]
-position = Vector2(-245, -19)
-stream = ExtResource("5_80er0")
-
 [node name="StaticGhostBullet" parent="." instance=ExtResource("4_3nfw1")]
 visible = false
 
-[node name="DynamicGhostBullet2" parent="." instance=ExtResource("4_3nfw1")]
-visible = false
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0m3t6")
+}
+
+[node name="GhostIllust" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960.25, 550.382)
+scale = Vector2(0.322941, 0.322941)
+texture = ExtResource("2_l51bw")
+
+[node name="WaitTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="Ghost" to="Ghost" method="_on_body_entered"]
 [connection signal="timeout" from="Ghost/Timer" to="Ghost" method="_on_timer_timeout"]

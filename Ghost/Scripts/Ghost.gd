@@ -70,14 +70,16 @@ func change_dir():
 
 func attack_sequence():
 	#Dialogue stuff
+	#$AnimationPlayer.play("fade_in")
 	await wait_for_timer(3.0)
-	
+	#$AnimationPlayer.play("fade_out")
+	await wait_for_timer(1.0)
 	#Ghost initializes her position
 	speed = 600
 	custom_dir(0)
 	await wait_for_timer(0.34)
 	#First attack
-	$BackgroundMusic.play()
+	#$BackgroundMusic.play()
 	speed = 0
 	await wait_for_timer(0.25)
 	#Move to center (2nd position)
