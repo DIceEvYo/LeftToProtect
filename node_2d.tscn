@@ -17,7 +17,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gksph"]
-radius = 54.4872
+radius = 54.487
 height = 108.974
 
 [node name="MaidLevel" type="Node2D"]

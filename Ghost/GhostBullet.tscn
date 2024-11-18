@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqibpfbltye48"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/GhostBullet.gd" id="1_n4mtc"]
-[ext_resource type="Texture2D" uid="uid://1bjgxljqfuy" path="res://Ghost/Sprites/Bullets/pixil-frame-0.png" id="2_at3cl"]
+[ext_resource type="Texture2D" uid="uid://dy7g8jp2pdb51" path="res://Ghost/Sprites/Bullets/pixil-frame-0.png" id="2_at3cl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_co6oj"]
 animations = [{
@@ -20,6 +20,8 @@ height = 10.0
 
 [node name="GhostBullet" type="RigidBody2D"]
 position = Vector2(78, 55)
+collision_layer = 16
+collision_mask = 2
 script = ExtResource("1_n4mtc")
 metadata/_edit_group_ = true
 

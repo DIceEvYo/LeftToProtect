@@ -86,16 +86,21 @@ position = Vector2(333, 206)
 [node name="Ghost" type="RigidBody2D" parent="."]
 position = Vector2(960, 111)
 scale = Vector2(0.936, 1)
-collision_mask = 0
+collision_layer = 8
+collision_mask = 5
 gravity_scale = 0.0
 script = ExtResource("2_6m41i")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ghost"]
+[node name="Area2D" type="Area2D" parent="Ghost"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ghost/Area2D"]
 scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_n1vui")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ghost"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ghost/Area2D"]
 light_mask = 0
 position = Vector2(3.2052, 0)
 scale = Vector2(4.55263, -4.94242)
@@ -126,6 +131,7 @@ texture = ExtResource("2_l51bw")
 [node name="WaitTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="Ghost" to="Ghost" method="_on_body_entered"]
+[connection signal="body_entered" from="Ghost/Area2D" to="Ghost" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Ghost/Timer" to="Ghost" method="_on_timer_timeout"]
 [connection signal="timeout" from="Ghost/Timer2" to="Ghost" method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Ghost/WaitTimer" to="Ghost" method="_on_timer_3_timeout"]
