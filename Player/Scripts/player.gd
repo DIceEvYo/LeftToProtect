@@ -23,7 +23,6 @@ var bullet = preload("res://Player/bullet.tscn")
 
 #gehenners
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	state_machine.Initialize(self)
@@ -116,7 +115,6 @@ func shield() -> void:
 # Called when player is hita. Stays invincible for a bit.
 func invincibility_frame() -> void:
 	invincible = true
-	print("Enter")
 	get_node("Invincible_Frame_Timer").start()
 	
 	# Flashes for duration of invincibility.
@@ -136,7 +134,6 @@ func invincibility_frame() -> void:
 func _on_invincible_frame_timer_timeout() -> void:
 	# Maybe display different sprite.
 	invincible = false
-	print("Exit")
 	return
 
 	
@@ -144,24 +141,39 @@ func _on_invincible_frame_timer_timeout() -> void:
 func kill() -> void:
 	get_tree().reload_current_scene()
 	return
+	
+	
+func take_damage() -> void:
+	# Checks if invincible
+	if invincible:
+		return
+	# Mitigate damage if has shield.
+	elif shield_active:
+		shield_active = false
+		return
+	else:
+		health -= 10
+		invincibility_frame()
+		
+	if health <= 0:
+		kill()
+	
 
 
 # Kills/refreshes player/scene when 'Maid' or 'bullet' object interacts with Player.
-func _on_player_body_entered(body: Node2D) -> void:
+func _on_player_body_entered(body: RigidBody2D) -> void:
 	if "Maid" in body.name or "bullet" in body.name:
 		# Checks if invincible
 		if invincible:
 			return
 		# Mitigate damage if has shield.
 		elif shield_active:
+			shield_active = false
 			return
+		else:
+			take_damage()
+			
+		if health <= 0:
+			kill()
 		
-		# Reduce health.
-		health -= 10
-		invincibility_frame()
-		
-	if health <= 0:
-		
-		kill()
-	
 	return
