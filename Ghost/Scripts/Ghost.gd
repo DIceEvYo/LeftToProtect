@@ -8,6 +8,8 @@ var dir = Vector2.ZERO #Resets direction to default
 var screen_size #Size of game window
 var waiting = true
 var angle = 0
+# Temporary health variable.
+var health = 100
 
 #Time specific Variables
 #Dir Change
@@ -149,3 +151,22 @@ func uShotLeft1():
 	gbullet.position.y = position.y
 	gbullet.position.x = position.x - 10
 	
+	
+# When called, kills maid.
+func kill():
+	get_tree().reload_current_scene()
+	
+	
+func take_damage() -> void:
+	print("Ghost health: ", health)
+	health -= 10
+	
+	
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if "Bullet" == body.name:
+		# Reduce health.
+		take_damage()
+		
+	# Calls for player to take damage.
+	elif "Player" == body.name:
+		body.take_damage()
