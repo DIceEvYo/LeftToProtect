@@ -20,7 +20,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hejlh"]
-height = 24.0
+height = 21.8517
 
 [sub_resource type="Animation" id="Animation_ntf7p"]
 length = 0.001
@@ -97,6 +97,8 @@ sprite_frames = SubResource("SpriteFrames_n1vui")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ghost"]
 light_mask = 0
+position = Vector2(3.2052, 0)
+scale = Vector2(4.55263, -4.94242)
 shape = SubResource("CapsuleShape2D_hejlh")
 
 [node name="Timer" type="Timer" parent="Ghost"]
