@@ -158,7 +158,6 @@ func kill():
 	
 	
 func take_damage() -> void:
-	print("Ghost health: ", health)
 	health -= 10
 	
 	
@@ -170,3 +169,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	# Calls for player to take damage.
 	elif "Player" == body.name:
 		body.take_damage()
+		
+	if health <= 0:
+		kill()
