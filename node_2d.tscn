@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://grorgbd6ob8d"]
 
 [ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_ixyvk"]
-[ext_resource type="Texture2D" uid="uid://c1566xv041gop" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_8xxyp"]
+[ext_resource type="Texture2D" uid="uid://bkgvkc6a7g6y6" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_8xxyp"]
 [ext_resource type="Script" path="res://Maid/Scripts/maid.gd" id="2_troxp"]
 [ext_resource type="PackedScene" uid="uid://bdyvxgrmdx8dy" path="res://Maid/MaidBullet.tscn" id="4_m7iwp"]
 
@@ -17,7 +17,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gksph"]
-radius = 54.4872
+radius = 54.487
 height = 108.974
 
 [node name="MaidLevel" type="Node2D"]

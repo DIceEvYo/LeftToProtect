@@ -1,5 +1,5 @@
 extends RigidBody2D
-
+#hello
 var MaidBullet = preload("res://Maid/MaidBullet.tscn")
 
 #General Vars
