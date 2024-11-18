@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var speed = 300
+var speed = 300 #bullets go brrrr#
 var dir = Vector2.ZERO
 
 func _ready():
