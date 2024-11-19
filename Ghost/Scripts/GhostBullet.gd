@@ -1,17 +1,12 @@
 extends RigidBody2D
-
-var initial_speed = 200               # Initial horizontal speed to the left
-var downward_acceleration = 50        # Acceleration for the downward curve
-var velocity = Vector2(-initial_speed, 0)  # Start moving left
-
+var speed = 300
+var dir = Vector2.ZERO
 func _ready():
-	# Set the initial velocity to move leftward
-	linear_velocity = velocity
-
-func _physics_process(delta):
-	# Gradually add downward velocity to create a curve
-	linear_velocity.y += downward_acceleration * delta
-
-	# Optional: Delete the bullet if it goes off screen
-	if position.y > get_viewport().size.y:
+	#Allows bullet to leave the screen bounds.
+	$AnimatedSprite2D.play("flame")
+	set_as_top_level(true)
+func _process(delta):
+	position += dir * speed * delta
+	#Removes bullet when it leaves the screen.
+	if !get_viewport_rect().has_point(position):
 		queue_free()
