@@ -22,6 +22,7 @@ var shoot_limit = 5
 func _ready():
 	#Finds size of game window
 	screen_size = get_viewport_rect().size
+	$Area2D/AnimatedSprite2D.play("idle")
 	randomize()
 	attack_sequence()
 	#change_dir()
