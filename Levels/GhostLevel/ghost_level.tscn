@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://Levels/GhostLevel/ghost_level_bg.gd" id="1_nnrf6"]
 [ext_resource type="Script" path="res://Ghost/Scripts/Ghost.gd" id="2_6m41i"]
 [ext_resource type="AudioStream" uid="uid://b18nh28r0ifmk" path="res://Ghost/Music/PhantomMemory.wav" id="3_hxp8u"]
-[ext_resource type="Texture2D" uid="uid://dhfdrmvs7l831" path="res://Ghost/Sprites/ghost.png" id="3_w1lyx"]
+[ext_resource type="Texture2D" uid="uid://dhfdrmvs7l831" path="res://Ghost/Sprites/Character/Idle/ghost-idle.png" id="3_w1lyx"]
 [ext_resource type="PackedScene" uid="uid://bqibpfbltye48" path="res://Ghost/Scenes/GhostBullet.tscn" id="4_3nfw1"]
 [ext_resource type="AudioStream" uid="uid://dofa3kx7rm6mk" path="res://Ghost/Music/NightXPhantom.wav" id="5_80er0"]
-[ext_resource type="Texture2D" uid="uid://blr83yc71i43x" path="res://Ghost/Sprites/ghost-1.png" id="6_atgj6"]
+[ext_resource type="Texture2D" uid="uid://blr83yc71i43x" path="res://Ghost/Sprites/Character/Idle/ghost-idle-1.png" id="6_atgj6"]
 [ext_resource type="Texture2D" uid="uid://2ccu7imw0y2x" path="res://Ghost/幽霊イラスト/真面目/名称未設定のアートワーク(1).png" id="9_yf23d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n1vui"]

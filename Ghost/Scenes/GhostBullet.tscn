@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqibpfbltye48"]
 
-[ext_resource type="Script" path="res://Ghost/Scripts/GhostBullet.gd" id="1_n4mtc"]
-[ext_resource type="Texture2D" uid="uid://cpqysi5d1f58t" path="res://Ghost/Sprites/Bullets/pixil-frame-0.png" id="2_at3cl"]
-[ext_resource type="Texture2D" uid="uid://bu34ivlm88prk" path="res://Ghost/Sprites/Bullets/pixil-frame-1.png" id="3_sec3k"]
-[ext_resource type="Texture2D" uid="uid://b2eh6edluvudk" path="res://Ghost/Sprites/Bullets/pixil-frame-2.png" id="4_x0a8y"]
+[ext_resource type="Script" path="res://Ghost/Scripts/Bullets/GhostBullet.gd" id="1_f7lhb"]
+[ext_resource type="Texture2D" uid="uid://cpqysi5d1f58t" path="res://Ghost/Sprites/Bullets/Flame/flame-0.png" id="2_at3cl"]
+[ext_resource type="Texture2D" uid="uid://bu34ivlm88prk" path="res://Ghost/Sprites/Bullets/Flame/flame-1.png" id="3_sec3k"]
+[ext_resource type="Texture2D" uid="uid://b2eh6edluvudk" path="res://Ghost/Sprites/Bullets/Flame/flame-2.png" id="4_x0a8y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_co6oj"]
 animations = [{
@@ -32,7 +32,7 @@ collision_layer = 16
 collision_mask = 2
 mass = 186.38
 gravity_scale = 5.057
-script = ExtResource("1_n4mtc")
+script = ExtResource("1_f7lhb")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
