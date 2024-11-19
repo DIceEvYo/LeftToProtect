@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_kiusu"]
 [ext_resource type="Script" path="res://Levels/ghost_level_bg.gd" id="1_nnrf6"]
 [ext_resource type="Script" path="res://Ghost/Scripts/Ghost.gd" id="2_6m41i"]
-[ext_resource type="Texture2D" uid="uid://c6bnnm5t84ac6" path="res://Ghost/test.PNG" id="2_l51bw"]
-[ext_resource type="Texture2D" uid="uid://dse7ldppq28kp" path="res://Ghost/Sprites/ghost.png" id="3_w1lyx"]
+[ext_resource type="Texture2D" uid="uid://c3poew7mg4o76" path="res://Ghost/test.PNG" id="2_l51bw"]
+[ext_resource type="Texture2D" uid="uid://dhfdrmvs7l831" path="res://Ghost/Sprites/ghost.png" id="3_w1lyx"]
 [ext_resource type="PackedScene" uid="uid://bqibpfbltye48" path="res://Ghost/GhostBullet.tscn" id="4_3nfw1"]
-[ext_resource type="AudioStream" uid="uid://b4rw38f5ysivx" path="res://Ghost/Music/NightXPhantom.wav" id="5_80er0"]
+[ext_resource type="AudioStream" uid="uid://dofa3kx7rm6mk" path="res://Ghost/Music/NightXPhantom.wav" id="5_80er0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n1vui"]
 animations = [{
@@ -106,16 +106,14 @@ position = Vector2(3.2052, 0)
 scale = Vector2(4.55263, -4.94242)
 shape = SubResource("CapsuleShape2D_hejlh")
 
-[node name="Timer" type="Timer" parent="Ghost"]
-
-[node name="Timer2" type="Timer" parent="Ghost"]
-wait_time = 0.1
-
 [node name="WaitTimer" type="Timer" parent="Ghost"]
 wait_time = 0.5
 
-[node name="StaticGhostBullet" parent="." instance=ExtResource("4_3nfw1")]
+[node name="ShootTimer" type="Timer" parent="Ghost"]
+
+[node name="GhostBullet" parent="." instance=ExtResource("4_3nfw1")]
 visible = false
+gravity_scale = 5.514
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -132,6 +130,4 @@ texture = ExtResource("2_l51bw")
 
 [connection signal="body_entered" from="Ghost" to="Ghost" method="_on_body_entered"]
 [connection signal="body_entered" from="Ghost/Area2D" to="Ghost" method="_on_area_2d_body_entered"]
-[connection signal="timeout" from="Ghost/Timer" to="Ghost" method="_on_timer_timeout"]
-[connection signal="timeout" from="Ghost/Timer2" to="Ghost" method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Ghost/WaitTimer" to="Ghost" method="_on_timer_3_timeout"]

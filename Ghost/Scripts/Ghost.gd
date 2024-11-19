@@ -63,7 +63,6 @@ func check_bounds():
 		
 #Changes direction to a random angle upon call.
 func change_dir():
-	wait()
 	#Randf generates random floating-point num between 0&1. TAU is 2π.
 	#In other words angle selects a rand angle from 0 to 2π.
 	var angle = randf() * TAU
@@ -83,6 +82,7 @@ func attack_sequence():
 	#First attack
 	#$BackgroundMusic.play()
 	speed = 0
+	danmaku(4, .05)
 	await wait_for_timer(0.25)
 	#Move to center (2nd position)
 	speed = 2400
@@ -90,6 +90,7 @@ func attack_sequence():
 	await wait_for_timer(0.68)
 	#Second Attack
 	speed = 0
+	danmaku(4, .05)
 	await wait_for_timer(0.25)
 	#Move to left (3rd position)
 	speed = 2400
@@ -117,29 +118,26 @@ func wait_for_timer(duration):
 	$WaitTimer.start(duration)  #Start the timer with the specified duration
 	await $WaitTimer.timeout    #Wait until the timeout signal is emitted
 	
+func shoot_timer(duration):
+	$ShootTimer.start(duration)  #Start the timer with the specified duration
+	await $ShootTimer.timeout    #Wait until the timeout signal is emitted
+	
 #More control to direction change
 func custom_dir(angle):
 	dir = Vector2(cos(angle), sin(angle)).normalized()
 
-func wait():
-	waiting = true
-	speed = 0
-	dir = Vector2.ZERO
-	#Makes maid wait 1 second.
-	get_node("Timer").start()
-	get_node("Timer2").start()
-	
-func _on_timer_timeout():
-	waiting = false
-	speed = 100
-	
-func _on_timer_2_timeout():
-	if waiting:
-		shoot()
+func danmaku(bullets_to_shoot, shoot_delay):
+	for i in range(0, bullets_to_shoot):
+		await shoot_timer(shoot_delay)
+		shoot(0)
+		shoot(70)
+		shoot(-70)
+		
 
-func shoot():
+func shoot(pos_offset):
 	var gbullet = GhostBullet.instantiate()
 	gbullet.position = position
+	gbullet.position.x = position.x + pos_offset
 	gbullet.dir = (Vector2(0, 1)).normalized()
 	get_parent().add_child(gbullet)
 
