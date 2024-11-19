@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dk5lifukbd4o7"]
+[gd_scene load_steps=15 format=3 uid="uid://dk5lifukbd4o7"]
 
 [ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_kiusu"]
 [ext_resource type="Script" path="res://Levels/ghost_level_bg.gd" id="1_nnrf6"]
@@ -7,16 +7,20 @@
 [ext_resource type="Texture2D" uid="uid://dhfdrmvs7l831" path="res://Ghost/Sprites/ghost.png" id="3_w1lyx"]
 [ext_resource type="PackedScene" uid="uid://bqibpfbltye48" path="res://Ghost/GhostBullet.tscn" id="4_3nfw1"]
 [ext_resource type="AudioStream" uid="uid://dofa3kx7rm6mk" path="res://Ghost/Music/NightXPhantom.wav" id="5_80er0"]
+[ext_resource type="Texture2D" uid="uid://blr83yc71i43x" path="res://Ghost/Sprites/ghost-1.png" id="6_atgj6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n1vui"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_w1lyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_atgj6")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"idle",
+"speed": 6.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hejlh"]
@@ -99,6 +103,8 @@ collision_mask = 5
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ghost/Area2D"]
 scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_n1vui")
+animation = &"idle"
+frame_progress = 0.261636
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ghost/Area2D"]
 light_mask = 0
