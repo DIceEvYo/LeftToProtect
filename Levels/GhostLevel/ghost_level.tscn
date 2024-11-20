@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dk5lifukbd4o7"]
+[gd_scene load_steps=20 format=3 uid="uid://dk5lifukbd4o7"]
 
 [ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_kiusu"]
 [ext_resource type="Script" path="res://Levels/GhostLevel/ghost_level_bg.gd" id="1_nnrf6"]
@@ -9,7 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://dofa3kx7rm6mk" path="res://Ghost/Music/NightXPhantom.wav" id="5_80er0"]
 [ext_resource type="Texture2D" uid="uid://blr83yc71i43x" path="res://Ghost/Sprites/Character/Idle/ghost-idle-1.png" id="6_atgj6"]
 [ext_resource type="Texture2D" uid="uid://2ccu7imw0y2x" path="res://Ghost/幽霊イラスト/真面目/名称未設定のアートワーク(1).png" id="9_yf23d"]
+[ext_resource type="PackedScene" uid="uid://6tkb611hby83" path="res://Ghost/Scenes/Bullets/PhantomIce.tscn" id="10_misgi"]
+[ext_resource type="PackedScene" uid="uid://ce160tgmftu4p" path="res://Ghost/Scenes/Bullets/BakudanBullet.tscn" id="10_w41e7"]
 [ext_resource type="PackedScene" uid="uid://2nwwx6y0ffql" path="res://Ghost/Scenes/Bullets/GhostOrb.tscn" id="10_xc0mj"]
+[ext_resource type="PackedScene" uid="uid://doy7obdeh3hqo" path="res://Ghost/Scenes/Bullets/ItazuraFlame.tscn" id="13_e43wj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n1vui"]
 animations = [{
@@ -147,8 +150,21 @@ texture = ExtResource("9_yf23d")
 
 [node name="WaitTimer" type="Timer" parent="."]
 
+[node name="BakudanBullet" parent="." instance=ExtResource("10_w41e7")]
+visible = false
+position = Vector2(-674, -387)
+
+[node name="PhantomIce" parent="." instance=ExtResource("10_misgi")]
+visible = false
+position = Vector2(-191, -126)
+
 [node name="GhostOrb" parent="." instance=ExtResource("10_xc0mj")]
 visible = false
+position = Vector2(93, -111)
+
+[node name="ItazuraFlame" parent="." instance=ExtResource("13_e43wj")]
+visible = false
+position = Vector2(-439, -375)
 
 [connection signal="body_entered" from="Ghost" to="Ghost" method="_on_body_entered"]
 [connection signal="body_entered" from="Ghost/Area2D" to="Ghost" method="_on_area_2d_body_entered"]

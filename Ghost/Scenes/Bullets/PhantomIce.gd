@@ -1,11 +1,11 @@
 extends Node2D
 
-const speed = 1000
+const speed = 500
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimatedSprite2D.play("orb")
+	$AnimatedSprite2D.play("ice")
 	set_as_top_level(true)
 
 
