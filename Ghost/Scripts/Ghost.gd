@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var GhostBullet = preload("res://Ghost/Scenes/GhostBullet.tscn")
+var GhostBullet = preload("res://Ghost/Scenes/Bullets/GravityBullet.tscn")
 
 #General Variables
 var speed = 0
@@ -8,6 +8,14 @@ var dir = Vector2.ZERO #Resets direction to default
 var screen_size #Size of game window
 var waiting = true
 var angle = 0
+
+#Rotator Related Bullet Patterns
+var ghost_orb_scene = preload("res://Ghost/Scenes/Bullets/GhostOrb.tscn")
+@onready var shoot_timer2 = $ShootTimer2
+@onready var rotater = $Rotater
+var rotate_speed = 100
+var rs_mode = false
+
 # Temporary health variable.
 var health = 100
 
@@ -27,9 +35,34 @@ func _ready():
 	attack_sequence()
 	#change_dir()
 
+func rotational_shoot(set_rotate_speed, shoot_timer_wait_time, amount_to_shoot, radius):
+	if rs_mode:
+		rotate_speed = set_rotate_speed
+		var rotate_step = 2*PI/amount_to_shoot
+		for i in range(0, amount_to_shoot):
+			var spawn_point = Node2D.new()
+			var pos = Vector2(radius, 0).rotated(rotate_step*i)
+			spawn_point.position = pos
+			spawn_point.rotation = pos.angle()
+			rotater.add_child(spawn_point)
+		shoot_timer2.wait_time = shoot_timer2.wait_time
+		shoot_timer2.start()
+
+func _on_shoot_timer_2_timeout():
+	if rs_mode:
+		for s in rotater.get_children():
+			var ghost_orb = ghost_orb_scene.instantiate()
+			get_tree().root.add_child(ghost_orb)
+			ghost_orb.position = position
+			ghost_orb.rotation = s.global_rotation
+
 func _process(delta):
 	linear_velocity = dir * speed
 	#print(position.y)
+	#rotater.position = position
+	if rs_mode:
+		var new_rotation = rotater.rotation_degrees + rotate_speed * delta
+		rotater.rotation_degrees = fmod(new_rotation, 360)
 """
 	if not waiting:
 		#Linear Velocity is a var specific to RigidBody2d that controls 
@@ -83,31 +116,43 @@ func attack_sequence():
 	#First attack
 	#$BackgroundMusic.play()
 	speed = 0
+	rs_mode = true
+	rotational_shoot(300, 0.1, 12, 100)
 	danmaku(4, .05)
 	await wait_for_timer(0.25)
 	#Move to center (2nd position)
+	rs_mode = false
 	speed = 2400
 	custom_dir(PI)
 	await wait_for_timer(0.68)
 	#Second Attack
 	speed = 0
 	danmaku(4, .05)
+	rs_mode = true
+	rotational_shoot(-300, 0.1, 12, 100)
 	await wait_for_timer(0.25)
 	#Move to left (3rd position)
+	rs_mode = false
 	speed = 2400
 	custom_dir((PI)/11)
 	await wait_for_timer(0.34)
 	#Third Attack
 	speed = 0
+	rs_mode = true
+	rotational_shoot(500, 0.1, 20, 100)
 	await wait_for_timer(.25)
 	#Move down (4th position)
+	rs_mode = false
 	speed = 2400
 	custom_dir((PI)/2)
 	await wait_for_timer(.28)
 	#Fourth Attack
 	speed = 0
+	rs_mode = true
+	rotational_shoot(500, 0.1, 20, 100)
 	await wait_for_timer(.25)
 	#Move up (before main set) As the ghost moves up, display attack illustration
+	rs_mode = false
 	speed = 800
 	custom_dir((3*PI)/2)
 	await wait_for_timer(.5)
@@ -139,7 +184,6 @@ func shoot(pos_offset):
 	var gbullet = GhostBullet.instantiate()
 	gbullet.position = position
 	gbullet.position.x = position.x + pos_offset
-	gbullet.dir = (Vector2(0, 1)).normalized()
 	get_parent().add_child(gbullet)
 
 func umbrellaShot():

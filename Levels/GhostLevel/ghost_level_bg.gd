@@ -9,9 +9,9 @@ func _process(delta):
 func attack_sequence():
 	#Dialogue stuff
 	$DialogueBG.play()
-	$AnimationPlayer.play("fade_in")
+	#$AnimationPlayer.play("fade_in")
 	await wait_for_timer(3.0)
-	$AnimationPlayer.play("fade_out")
+	#$AnimationPlayer.play("fade_out")
 	await wait_for_timer(1.0)
 	await wait_for_timer(0.34)
 	$DialogueBG.stop()

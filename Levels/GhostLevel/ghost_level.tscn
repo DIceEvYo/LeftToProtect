@@ -1,14 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://dk5lifukbd4o7"]
+[gd_scene load_steps=17 format=3 uid="uid://dk5lifukbd4o7"]
 
 [ext_resource type="PackedScene" uid="uid://dr0mq7pb3fqgx" path="res://Player/player.tscn" id="1_kiusu"]
 [ext_resource type="Script" path="res://Levels/GhostLevel/ghost_level_bg.gd" id="1_nnrf6"]
 [ext_resource type="Script" path="res://Ghost/Scripts/Ghost.gd" id="2_6m41i"]
 [ext_resource type="AudioStream" uid="uid://b18nh28r0ifmk" path="res://Ghost/Music/PhantomMemory.wav" id="3_hxp8u"]
 [ext_resource type="Texture2D" uid="uid://dhfdrmvs7l831" path="res://Ghost/Sprites/Character/Idle/ghost-idle.png" id="3_w1lyx"]
-[ext_resource type="PackedScene" uid="uid://bqibpfbltye48" path="res://Ghost/Scenes/GhostBullet.tscn" id="4_3nfw1"]
+[ext_resource type="PackedScene" uid="uid://bqibpfbltye48" path="res://Ghost/Scenes/Bullets/GravityBullet.tscn" id="4_3nfw1"]
 [ext_resource type="AudioStream" uid="uid://dofa3kx7rm6mk" path="res://Ghost/Music/NightXPhantom.wav" id="5_80er0"]
 [ext_resource type="Texture2D" uid="uid://blr83yc71i43x" path="res://Ghost/Sprites/Character/Idle/ghost-idle-1.png" id="6_atgj6"]
 [ext_resource type="Texture2D" uid="uid://2ccu7imw0y2x" path="res://Ghost/幽霊イラスト/真面目/名称未設定のアートワーク(1).png" id="9_yf23d"]
+[ext_resource type="PackedScene" uid="uid://2nwwx6y0ffql" path="res://Ghost/Scenes/Bullets/GhostOrb.tscn" id="10_xc0mj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n1vui"]
 animations = [{
@@ -100,6 +101,11 @@ gravity_scale = 0.0
 script = ExtResource("2_6m41i")
 metadata/_edit_group_ = true
 
+[node name="Rotater" type="Node2D" parent="Ghost"]
+visible = false
+position = Vector2(960, 111)
+scale = Vector2(1.06838, 1)
+
 [node name="Area2D" type="Area2D" parent="Ghost"]
 collision_layer = 8
 collision_mask = 5
@@ -121,7 +127,10 @@ wait_time = 0.5
 
 [node name="ShootTimer" type="Timer" parent="Ghost"]
 
-[node name="GhostBullet" parent="." instance=ExtResource("4_3nfw1")]
+[node name="ShootTimer2" type="Timer" parent="Ghost"]
+wait_time = 0.2
+
+[node name="GravityBullet" parent="." instance=ExtResource("4_3nfw1")]
 visible = false
 gravity_scale = 5.514
 
@@ -138,6 +147,10 @@ texture = ExtResource("9_yf23d")
 
 [node name="WaitTimer" type="Timer" parent="."]
 
+[node name="GhostOrb" parent="." instance=ExtResource("10_xc0mj")]
+visible = false
+
 [connection signal="body_entered" from="Ghost" to="Ghost" method="_on_body_entered"]
 [connection signal="body_entered" from="Ghost/Area2D" to="Ghost" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Ghost/WaitTimer" to="Ghost" method="_on_timer_3_timeout"]
+[connection signal="timeout" from="Ghost/ShootTimer2" to="Ghost" method="_on_shoot_timer_2_timeout"]
