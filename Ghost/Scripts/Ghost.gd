@@ -11,10 +11,13 @@ var angle = 0
 
 #Rotator Related Bullet Patterns
 var ghost_orb_scene = preload("res://Ghost/Scenes/Bullets/GhostOrb.tscn")
+var phantom_ice_scene = preload("res://Ghost/Scenes/Bullets/PhantomIce.tscn")
+var bakudan_bullet_scene = preload("res://Ghost/Scenes/Bullets/BakudanBullet.tscn")
 @onready var shoot_timer2 = $ShootTimer2
 @onready var rotater = $Rotater
 var rotate_speed = 100
 var rs_mode = false
+var ice = false
 
 # Temporary health variable.
 var health = 100
@@ -51,10 +54,17 @@ func rotational_shoot(set_rotate_speed, shoot_timer_wait_time, amount_to_shoot, 
 func _on_shoot_timer_2_timeout():
 	if rs_mode:
 		for s in rotater.get_children():
-			var ghost_orb = ghost_orb_scene.instantiate()
-			get_tree().root.add_child(ghost_orb)
-			ghost_orb.position = position
-			ghost_orb.rotation = s.global_rotation
+			if(ice):
+				var phantom_ice = phantom_ice_scene.instantiate()
+				get_tree().root.add_child(phantom_ice)
+				phantom_ice.position = position
+				phantom_ice.rotation = s.global_rotation
+			else:
+				var ghost_orb = ghost_orb_scene.instantiate()
+				get_tree().root.add_child(ghost_orb)
+				ghost_orb.position = position
+				ghost_orb.rotation = s.global_rotation
+			ice = !ice
 
 func _process(delta):
 	linear_velocity = dir * speed
@@ -112,22 +122,24 @@ func attack_sequence():
 	#Ghost initializes her position
 	speed = 2400
 	custom_dir(0)
+	drop_bakudan(5, 0.1)
 	await wait_for_timer(0.34)
 	#First attack
 	#$BackgroundMusic.play()
 	speed = 0
 	rs_mode = true
 	rotational_shoot(300, 0.1, 12, 100)
-	danmaku(4, .05)
+	#danmaku(4, .05)
 	await wait_for_timer(0.25)
 	#Move to center (2nd position)
 	rs_mode = false
 	speed = 2400
 	custom_dir(PI)
+	drop_bakudan(5, 0.1)
 	await wait_for_timer(0.68)
 	#Second Attack
 	speed = 0
-	danmaku(4, .05)
+	#danmaku(4, .05)
 	rs_mode = true
 	rotational_shoot(-300, 0.1, 12, 100)
 	await wait_for_timer(0.25)
@@ -135,6 +147,7 @@ func attack_sequence():
 	rs_mode = false
 	speed = 2400
 	custom_dir((PI)/11)
+	drop_bakudan(5, 0.1)
 	await wait_for_timer(0.34)
 	#Third Attack
 	speed = 0
@@ -186,8 +199,13 @@ func shoot(pos_offset):
 	gbullet.position.x = position.x + pos_offset
 	get_parent().add_child(gbullet)
 
-func umbrellaShot():
-	pass
+func drop_bakudan(bullets_to_shoot, shoot_delay):
+	for i in range(0, bullets_to_shoot):
+		await shoot_timer(shoot_delay)
+		var bakudan = bakudan_bullet_scene.instantiate()
+		get_tree().root.add_child(bakudan)
+		bakudan.position = position
+		bakudan.rotation = (PI)/2
 
 func uShotLeft1():
 	var gbullet = GhostBullet.instantiate()

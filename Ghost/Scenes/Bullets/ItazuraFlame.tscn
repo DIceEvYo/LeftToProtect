@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://doy7obdeh3hqo"]
+
+[ext_resource type="Script" path="res://Ghost/Scenes/Bullets/ItazuraFlame.gd" id="1_vkce2"]
+[ext_resource type="Texture2D" uid="uid://cvt1s7hpp7hmq" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-0.png" id="2_777v2"]
+[ext_resource type="Texture2D" uid="uid://dse8t0t5weuac" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-1.png" id="3_ti34g"]
+[ext_resource type="Texture2D" uid="uid://gga7ojaulrak" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-2.png" id="4_1rw80"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yrcvv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_777v2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ti34g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1rw80")
+}],
+"loop": true,
+"name": &"itazura",
+"speed": 11.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4txb"]
+radius = 3.55556
+height = 12.0
+
+[node name="ItazuraFlame" type="Node2D"]
+position = Vector2(51, 48)
+script = ExtResource("1_vkce2")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_yrcvv")
+animation = &"itazura"
+frame_progress = 0.805409
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+shape = SubResource("CapsuleShape2D_l4txb")
+
+[node name="SwitchTimer" type="Timer" parent="."]
+wait_time = 0.4
+
+[connection signal="timeout" from="SwitchTimer" to="." method="_on_switch_timer_timeout"]
