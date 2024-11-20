@@ -1,12 +1,10 @@
 extends RigidBody2D
-var speed = 300
-var dir = Vector2.ZERO
+
 func _ready():
 	#Allows bullet to leave the screen bounds.
 	$AnimatedSprite2D.play("flame")
 	set_as_top_level(true)
-func _process(delta):
-	position += dir * speed * delta
+func _process(_delta):
 	#Removes bullet when it leaves the screen.
 	if !get_viewport_rect().has_point(position):
 		queue_free()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqibpfbltye48"]
 
-[ext_resource type="Script" path="res://Ghost/Scripts/Bullets/GhostBullet.gd" id="1_f7lhb"]
+[ext_resource type="Script" path="res://Ghost/Scripts/Bullets/GravityBullet.gd" id="1_f7lhb"]
 [ext_resource type="Texture2D" uid="uid://cpqysi5d1f58t" path="res://Ghost/Sprites/Bullets/Flame/flame-0.png" id="2_at3cl"]
 [ext_resource type="Texture2D" uid="uid://bu34ivlm88prk" path="res://Ghost/Sprites/Bullets/Flame/flame-1.png" id="3_sec3k"]
 [ext_resource type="Texture2D" uid="uid://b2eh6edluvudk" path="res://Ghost/Sprites/Bullets/Flame/flame-2.png" id="4_x0a8y"]
@@ -26,7 +26,7 @@ animations = [{
 radius = 3.0
 height = 10.0
 
-[node name="GhostBullet" type="RigidBody2D"]
+[node name="GravityBullet" type="RigidBody2D"]
 position = Vector2(408, 336)
 collision_layer = 16
 collision_mask = 2
@@ -41,10 +41,6 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_co6oj")
 animation = &"flame"
 frame_progress = 0.33893
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(9.53674e-07, -7.45058e-07)
-scale = Vector2(0.325, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_tiv1p")
