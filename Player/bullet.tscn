@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Player/Scripts/PlayerBullet.gd" id="1_xwlmo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mopg8"]
-size = Vector2(32, 59)
+size = Vector2(32, 61)
 
 [node name="Bullet" type="RigidBody2D"]
 collision_layer = 4
