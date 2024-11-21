@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://cn8mjfnyj7r7w"]
+
+[ext_resource type="Script" path="res://Ghost/Scripts/Ghost.gd" id="1_bxn27"]
+[ext_resource type="Texture2D" uid="uid://d321ai6ynrfud" path="res://Ghost/Sprites/Character/Idle/ghost-idle.png" id="2_e6ba6"]
+[ext_resource type="Texture2D" uid="uid://ceck8jca2dwgv" path="res://Ghost/Sprites/Character/Idle/ghost-idle-1.png" id="3_q6jen"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n1vui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e6ba6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q6jen")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hejlh"]
+height = 21.8517
+
+[node name="Ghost" type="RigidBody2D"]
+position = Vector2(960, 111)
+scale = Vector2(0.936, 1)
+collision_layer = 8
+collision_mask = 5
+gravity_scale = 0.0
+script = ExtResource("1_bxn27")
+metadata/_edit_group_ = true
+
+[node name="Rotater" type="Node2D" parent="."]
+visible = false
+position = Vector2(960, 111)
+scale = Vector2(1.06838, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_n1vui")
+animation = &"idle"
+frame_progress = 0.261636
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 0
+position = Vector2(3.2052, 0)
+scale = Vector2(4.55263, -4.94242)
+shape = SubResource("CapsuleShape2D_hejlh")
+
+[node name="WaitTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="ShootTimer2" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_timer_3_timeout"]
+[connection signal="timeout" from="ShootTimer2" to="." method="_on_shoot_timer_2_timeout"]
