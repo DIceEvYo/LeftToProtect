@@ -114,12 +114,8 @@ func change_dir():
 	dir = Vector2(cos(angle), sin(angle)).normalized()
 
 func attack_sequence():
-	#Dialogue stuff
-	#$AnimationPlayer.play("fade_in")
-	await wait_for_timer(3.0)
-	#$AnimationPlayer.play("fade_out")
-	await wait_for_timer(1.0)
 	#Ghost initializes her position
+	await wait_for_timer(.5)
 	speed = 2400
 	custom_dir(0)
 	drop_bakudan(5, 0.1)

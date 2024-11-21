@@ -15,7 +15,7 @@ var dialog_3 = [
 	"WHO DA HECK ARE YOU!?",	
 ]
 var dialog_4 = [
-	"HUH-!? You saw me sleeping-???",
+	"HUH-!? You saw me sleeping THIS ENTIRE TIME-???",
 ]
 var dialog_4_5 = [
 	"You're kind of weird for that, but NO-!"
@@ -74,6 +74,13 @@ func _ready():
 	$GhostIllust.texture = facial_expression
 	await read_dialog(dialog_6)
 	$AnimationPlayer.play("fade_out")
+	await $AnimationPlayer.animation_finished
+	while ($Dialog_Box.modulate.a>0):
+		$Dialog_Box.modulate.a -= 0.05
+		$Name.modulate.a -= 0.05
+		$Timer.start(.01)
+		await $Timer.timeout
+	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
