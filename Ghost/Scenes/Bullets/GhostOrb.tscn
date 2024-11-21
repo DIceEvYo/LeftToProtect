@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://2nwwx6y0ffql"]
 
 [ext_resource type="Script" path="res://Ghost/Scenes/Bullets/GhostOrb.gd" id="1_wd58w"]
-[ext_resource type="Texture2D" uid="uid://bknhw8q030gx7" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb-1.png" id="2_bfmb4"]
-[ext_resource type="Texture2D" uid="uid://dnodo4f1d74it" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb-2.png" id="3_qlryh"]
-[ext_resource type="Texture2D" uid="uid://cdf4gvgxrdvil" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb-3.png" id="4_3sbnw"]
-[ext_resource type="Texture2D" uid="uid://ciglk51vmt8dj" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb.png" id="5_adbga"]
+[ext_resource type="Texture2D" uid="uid://chcpag68jlnj8" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb-1.png" id="2_bfmb4"]
+[ext_resource type="Texture2D" uid="uid://ckiohafr1chcv" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb-2.png" id="3_qlryh"]
+[ext_resource type="Texture2D" uid="uid://dytnt7b0uny4c" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb-3.png" id="4_3sbnw"]
+[ext_resource type="Texture2D" uid="uid://bmceqt75ykwb2" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb.png" id="5_adbga"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q3je0"]
 animations = [{

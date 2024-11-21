@@ -91,16 +91,20 @@ func kill():
 	get_tree().reload_current_scene()
 	
 	
-func take_damage() -> void:
-	health -= 10
+func take_damage( value : int ) -> void:
+	print(value)
+	health -= value
+	
+	if health <= 0:
+		kill()
 	
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if "Bullet" == body.name:
+	if "Bullet" in body.name:
 		
 		# Reduce health.
-		take_damage()
+		take_damage(10)
 		
 	# Calls for player to take damage.
 	elif "Player" == body.name:

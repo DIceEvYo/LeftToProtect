@@ -10,10 +10,24 @@ var screen_size
 
 # Player stats
 var health = 50
-var shield_active = false
 var invincible = false
 
-# Bullet-related information perhaps
+########################### Player abilities.
+# 1. Shield. Blocks one hit. 5 second cooldown.
+var shield_active = false
+var shield_cooldown = false
+
+# 2. Spinning Golem bullet. Comes out spinning, every enemy bullet it hits increases its size. 
+var spinning_bullet = preload("res://Player/SpinningPlayerBullet.tscn")
+var spinning_bullet_cooldown = false
+
+# 3. Spawn Golem 'Power Rangers.' Load five different-colored Golem sprites to reuse code. Have them slowly advance towards enemy and shoot.
+
+
+# 4. Heat-seeking baby-golems that blow up and do damage on contact.
+
+
+# Bullet-related information. Perhaps have mode where shoot rapid fast or accurate slow.
 var bullet_speed : int = 1000
 var bullet = preload("res://Player/bullet.tscn")
 
@@ -42,8 +56,23 @@ func _process(delta: float) -> void:
 
 # The physics part of game.
 func _physics_process(delta):
+	# Shoots bullet if player presses space or LMB.
 	if Input.is_action_just_pressed("shoot"):
-		fire()
+		fire("shoot")
+		
+	# Activates shield if player presses E.
+	if Input.is_action_just_pressed("shield"):
+		shield()
+		
+	if Input.is_action_just_pressed("spinning_bullet"):
+		fire("spinning_bullet")
+		
+	if Input.is_action_just_pressed("spawn_golems"):
+		pass
+		
+	if Input.is_action_just_pressed("heat_seeking_golems"):
+		pass
+		
 	move_and_slide()
 	
 	
@@ -79,7 +108,6 @@ func UpdateAnimation( state : String) -> void:
 	# animation_player is what we want played, so we call the play() function, and it plays the 
 	# specified animation, in this case being "idle_down/up/side"
 	animation_player.play(state + "_" + AnimDirection())
-	pass
 
 
 # Function allows for dynamic change of direction.
@@ -94,9 +122,16 @@ func AnimDirection() -> String:
 
 
 # Player shoots. Sends projectile.
-func fire():
-	# New bullet
-	var bullet_instance = bullet.instantiate()
+func fire( attack : String ):
+	var bullet_instance
+	
+	if attack == "shoot":
+		# New regular bullet.
+		bullet_instance = bullet.instantiate()
+		
+	elif attack == "spinning_bullet":
+		# New spinning bullet.
+		bullet_instance = spinning_bullet.instantiate()
 	
 	# Calculates direction of mouse position.
 	var target_position = get_global_mouse_position()
@@ -106,11 +141,40 @@ func fire():
 	bullet_instance.position = position
 	get_parent().add_child(bullet_instance)
 	
+	return
 	
-# Golem second ability. Creates sheild that blocks one attack. Destroyed afterwards. Can take 3-5 seconds to create another.
+	
+######### Golem first ability. Creates sheild that blocks one attack. Destroyed afterwards. Can take 3-5 seconds to create another.
 func shield() -> void:
+	if shield_cooldown:
+		print("Shield on cooldown.")
+		return
+	
+	shield_active = true
+	shield_cooldown = true
+	print("Shield activated.")
+	get_node("Shield_Cooldown_Timer").start()
+	return
+	
+	
+func _on_shield_cooldown_timer_timeout() -> void:
+	# Cooldown is 5 seconds.
+	shield_cooldown = false
+	print("Shield ready.")
+	return
+	
+
+######## Golem second ability. A spinning golem bullet is shot, and grows bigger the more enemy bullets it absorbs.
+func spinning_golem_bullet() -> void:
+	fire("spinning_bullet")
+
+	
+######## Golem third ability. 'Power ranger golems'. On use, spawns several golemns to fight alongside you.
+func golem_spawn() -> void:
 	pass
 	
+	
+######## Golem fourth ability. Heat-seekers. Several shot out and move towards enemy. On contact, blows up and damages them.
 	
 # Called when player is hita. Stays invincible for a bit.
 func invincibility_frame() -> void:
