@@ -31,7 +31,7 @@ position = Vector2(408, 336)
 collision_layer = 16
 collision_mask = 2
 mass = 186.38
-gravity_scale = 5.057
+gravity_scale = 7.114
 script = ExtResource("1_f7lhb")
 metadata/_edit_group_ = true
 

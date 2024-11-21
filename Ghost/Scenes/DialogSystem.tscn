@@ -1,0 +1,132 @@
+[gd_scene load_steps=13 format=3 uid="uid://ckivw7x1wkiuv"]
+
+[ext_resource type="Script" path="res://Ghost/Scripts/DialogSystem.gd" id="1_2kx7h"]
+[ext_resource type="Texture2D" uid="uid://d4ivtrlfj7ia2" path="res://Ghost/Sprites/Dialog/Box.png" id="1_4oouj"]
+[ext_resource type="AudioStream" uid="uid://b17njy3ig0pg5" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="2_bkqnw"]
+[ext_resource type="FontFile" uid="uid://db5nt6hs53wk" path="res://Ghost/Fonts/Akronim-Regular.ttf" id="2_f574k"]
+[ext_resource type="AudioStream" uid="uid://ddw8uro2fjhgk" path="res://Ghost/Music/PhantomMemory.wav" id="4_v2pad"]
+[ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="5_7aeq0"]
+[ext_resource type="Texture2D" uid="uid://hknpjr4djmow" path="res://Ghost/幽霊イラスト/真面目/まじ？.png" id="6_tjst8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_am7qi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4oouj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_ntf7p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GhostIllust:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_obwk1"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GhostIllust:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v0cll"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GhostIllust:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0m3t6"]
+_data = {
+"RESET": SubResource("Animation_ntf7p"),
+"fade_in": SubResource("Animation_obwk1"),
+"fade_out": SubResource("Animation_v0cll")
+}
+
+[node name="DialogSystem" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 960.0
+offset_top = 857.0
+offset_right = 1000.0
+offset_bottom = 897.0
+script = ExtResource("1_2kx7h")
+metadata/_edit_group_ = true
+
+[node name="Name" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = -679.0
+offset_top = -147.0
+offset_right = -272.0
+offset_bottom = -49.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_f574k")
+theme_override_font_sizes/normal_font_size = 76
+text = "Yuuki Sentaku"
+
+[node name="Voice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bkqnw")
+volume_db = -20.0
+
+[node name="Dialog" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = -674.0
+offset_top = -53.0
+offset_right = 681.0
+offset_bottom = 177.0
+theme_override_fonts/normal_font = ExtResource("2_f574k")
+theme_override_font_sizes/normal_font_size = 51
+
+[node name="Dialog_Box" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.31231, 1.17143)
+sprite_frames = SubResource("SpriteFrames_am7qi")
+
+[node name="DialogueBG" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_v2pad")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0m3t6")
+}
+
+[node name="GhostIllust" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = -1
+position = Vector2(0, -300)
+scale = Vector2(0.322941, 0.322941)
+texture = ExtResource("6_tjst8")
+script = ExtResource("5_7aeq0")
+
+[connection signal="finished" from="Voice" to="." method="_on_voice_finished"]
