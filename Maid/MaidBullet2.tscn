@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://doh2x7m4t2evk"]
+
+[ext_resource type="Script" path="res://Maid/Scripts/MaidBullet2.gd" id="1_itbtw"]
+[ext_resource type="Texture2D" uid="uid://cgr17pkgg47oj" path="res://Maid/Sprites/Maid_Bullets/maidbullet2.png" id="2_6spjq"]
+
+[node name="MaidBullet2" type="Node2D"]
+script = ExtResource("1_itbtw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("2_6spjq")
