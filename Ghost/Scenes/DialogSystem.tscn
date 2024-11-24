@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckivw7x1wkiuv"]
+[gd_scene load_steps=15 format=3 uid="uid://ckivw7x1wkiuv"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/DialogSystem.gd" id="1_2kx7h"]
 [ext_resource type="Texture2D" uid="uid://d4ivtrlfj7ia2" path="res://Ghost/Sprites/Dialog/Box.png" id="1_4oouj"]
 [ext_resource type="AudioStream" uid="uid://b17njy3ig0pg5" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="2_bkqnw"]
 [ext_resource type="FontFile" uid="uid://db5nt6hs53wk" path="res://Ghost/Fonts/Akronim-Regular.ttf" id="2_f574k"]
+[ext_resource type="FontFile" uid="uid://djtaseu7j6y7j" path="res://Ghost/Fonts/YujiBoku-Regular.ttf" id="3_bqdob"]
 [ext_resource type="AudioStream" uid="uid://ddw8uro2fjhgk" path="res://Ghost/Music/PhantomMemory.wav" id="4_v2pad"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="5_7aeq0"]
+[ext_resource type="FontFile" uid="uid://dso6vjo56337y" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_rt3m0"]
 [ext_resource type="Texture2D" uid="uid://hknpjr4djmow" path="res://Ghost/幽霊イラスト/真面目/まじ？.png" id="6_tjst8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_am7qi"]
@@ -81,7 +83,7 @@ offset_bottom = 897.0
 script = ExtResource("1_2kx7h")
 metadata/_edit_group_ = true
 
-[node name="Name" type="RichTextLabel" parent="."]
+[node name="Name_en" type="RichTextLabel" parent="."]
 z_index = 1
 layout_mode = 0
 offset_left = -679.0
@@ -92,6 +94,18 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("2_f574k")
 theme_override_font_sizes/normal_font_size = 76
 text = "Yuuki Sentaku"
+
+[node name="Name_jp" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = -679.0
+offset_top = -147.0
+offset_right = -272.0
+offset_bottom = -49.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_bqdob")
+theme_override_font_sizes/normal_font_size = 65
+text = "幽鬼爓魄"
 
 [node name="Voice" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_bkqnw")
@@ -105,6 +119,16 @@ offset_top = -53.0
 offset_right = 681.0
 offset_bottom = 177.0
 theme_override_fonts/normal_font = ExtResource("2_f574k")
+theme_override_font_sizes/normal_font_size = 51
+
+[node name="DialogJP" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = -674.0
+offset_top = -53.0
+offset_right = 681.0
+offset_bottom = 177.0
+theme_override_fonts/normal_font = ExtResource("5_rt3m0")
 theme_override_font_sizes/normal_font_size = 51
 
 [node name="Dialog_Box" type="AnimatedSprite2D" parent="."]

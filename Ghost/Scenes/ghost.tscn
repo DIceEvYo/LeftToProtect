@@ -31,8 +31,6 @@ script = ExtResource("1_bxn27")
 metadata/_edit_group_ = true
 
 [node name="Rotater" type="Node2D" parent="."]
-visible = false
-position = Vector2(960, 111)
 scale = Vector2(1.06838, 1)
 
 [node name="Area2D" type="Area2D" parent="."]
