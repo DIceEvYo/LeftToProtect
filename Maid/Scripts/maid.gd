@@ -2,6 +2,15 @@ extends RigidBody2D
 
 var MaidBullet = preload("res://Maid/MaidBullet.tscn")
 
+#Rotating bullet
+var MaidBullet2 = preload("res://Maid/MaidBullet2.tscn")
+@onready var shoot_timer3 = $Timer3
+@onready var rotater = $Rotater
+var rotate_speed = 100
+var shooter_timer_wait_time = 0.2
+var spawn_point_count = 8
+var radius = 100
+
 #General Vars
 var health = 30
 var speed = 0
@@ -24,6 +33,9 @@ func _ready():
 	change_dir()
 
 func _process(delta):
+	var new_rotation = rotater.rotation_degrees + rotate_speed * delta
+	rotater.rotation_degrees = fmod(new_rotation, 360)
+	
 	if not waiting:
 		#Linear Velocity is a var specific to RigidBody2d that controls 
 		#speed and direction on a given 2d plane. 
@@ -84,6 +96,18 @@ func shoot():
 	bullet.position = position
 	bullet.dir = (Vector2(0, 1)).normalized()
 	get_parent().add_child(bullet)
+	
+	var step = 2 * PI / spawn_point_count
+	
+	for i in range(spawn_point_count):
+		var spawn_point = Node2D.new()
+		var pos = Vector2(radius, 0).rotated(step * i)
+		spawn_point.position = pos
+		spawn_point.rotation = pos.angle()
+		rotater.add_child(spawn_point)
+		
+	shoot_timer3.wait_time = shooter_timer_wait_time
+	shoot_timer3.start()
 
 
 # When called, kills maid.
@@ -112,4 +136,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 	if health <= 0:
 		kill()
-		
+
+func _on_timer_3_timeout() -> void:
+	for s in rotater.get_children():
+		var bullet = MaidBullet2.instantiate()
+		get_tree().root.add_child(bullet)
+		bullet.position = s.global_position
+		bullet.rotation = s.global_rotation
