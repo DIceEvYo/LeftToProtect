@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfw617wuhkn2m"]
 
-[ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="1_jgmdq"]
 [ext_resource type="Script" path="res://Player/Scripts/PlayerBullet.gd" id="1_xwlmo"]
+[ext_resource type="Texture2D" uid="uid://befy3hbubs17" path="res://Player/Sprites/GolemSprite-0002.png" id="2_j0j11"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mopg8"]
-size = Vector2(32, 61)
+size = Vector2(60, 32)
 
 [node name="Bullet" type="RigidBody2D"]
 collision_layer = 4
@@ -12,8 +12,7 @@ collision_mask = 8
 script = ExtResource("1_xwlmo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_mopg8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_jgmdq")
+texture = ExtResource("2_j0j11")

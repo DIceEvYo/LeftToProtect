@@ -88,7 +88,7 @@ func shoot():
 
 # When called, kills maid.
 func kill():
-	get_tree().reload_current_scene()
+	queue_free()
 	
 	
 func take_damage( value : int ) -> void:

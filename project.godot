@@ -83,6 +83,7 @@ heat_seeking_golems={
 2d_physics/layer_3="PlayerBullet"
 2d_physics/layer_4="Enemies"
 2d_physics/layer_5="EnemyBullets"
+2d_physics/layer_6="BabyGolem"
 
 [rendering]
 

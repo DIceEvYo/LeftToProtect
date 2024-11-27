@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Player/Scripts/SpinningGolemBullet.gd" id="1_3fof4"]
 [ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="2_wwt7t"]
-[ext_resource type="Texture2D" uid="uid://4rfn5rh75w54" path="res://Player/Sprites/GolemSprite-0002.png" id="3_v8rm6"]
-[ext_resource type="Texture2D" uid="uid://cg7e0qnf6b3h5" path="res://Player/Sprites/GolemSprite-0003.png" id="4_gjyxk"]
-[ext_resource type="Texture2D" uid="uid://chqosk2qlp7pk" path="res://Player/Sprites/GolemSprite-0004.png" id="5_4jcji"]
+[ext_resource type="Texture2D" uid="uid://befy3hbubs17" path="res://Player/Sprites/GolemSprite-0002.png" id="3_v8rm6"]
+[ext_resource type="Texture2D" uid="uid://chmf478k2e8th" path="res://Player/Sprites/GolemSprite-0003.png" id="4_gjyxk"]
+[ext_resource type="Texture2D" uid="uid://hm3qhjhqsfyr" path="res://Player/Sprites/GolemSprite-0004.png" id="5_4jcji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sl6qv"]
 size = Vector2(61, 62)
