@@ -13,22 +13,22 @@ var health = 50
 var invincible = false
 
 ########################### Player abilities.
-# 1. Shield. Blocks one hit. 5 second cooldown.
+###### 1. Shield. Blocks one hit. 5 second cooldown.
 var shield_active = false
 var shield_cooldown = false
 
-# 2. Spinning Golem bullet. Comes out spinning, every enemy bullet it hits increases its size. 
+###### 2. Spinning Golem bullet. Comes out spinning, every enemy bullet it hits increases its size. 
 var spinning_bullet = preload("res://Player/SpinningPlayerBullet.tscn")
 var spinning_bullet_cooldown = false
 
-# 3. Spawn Golem 'Power Rangers.' Load five different-colored Golem sprites to reuse code. Have them slowly advance towards enemy and shoot.
+###### 3. Spawn Golem 'Power Rangers.' Spawn single baby golem that follows and shoots at enemy. Despawns after 15 seconds.
+var golem_spawner = preload("res://Player/BabyGolem.tscn")
+var golem_spawner_cooldown = false
 
-
-# 4. Heat-seeking baby-golems that blow up and do damage on contact.
+###### 4. Heat-seeking baby-golems that blow up and do damage on contact.
 
 
 # Bullet-related information. Perhaps have mode where shoot rapid fast or accurate slow.
-var bullet_speed : int = 1000
 var bullet = preload("res://Player/bullet.tscn")
 
 @onready var animation_player: AnimationPlayer = $Player/AnimationPlayer
@@ -42,7 +42,6 @@ func _ready() -> void:
 	state_machine.Initialize(self)
 	# Finds size of game window
 	screen_size = get_viewport_rect().size
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,8 +49,6 @@ func _process(delta: float) -> void:
 	# Changes direction based on selected direction (set in Project Settings -> Input map.)
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
-	
-	pass
 
 
 # The physics part of game.
@@ -68,7 +65,7 @@ func _physics_process(delta):
 		fire("spinning_bullet")
 		
 	if Input.is_action_just_pressed("spawn_golems"):
-		pass
+		golem_spawn()
 		
 	if Input.is_action_just_pressed("heat_seeking_golems"):
 		pass
@@ -130,8 +127,13 @@ func fire( attack : String ):
 		bullet_instance = bullet.instantiate()
 		
 	elif attack == "spinning_bullet":
+		if spinning_bullet_cooldown == true:
+			print("Sping cooldown.")
+			return
 		# New spinning bullet.
 		bullet_instance = spinning_bullet.instantiate()
+		spinning_bullet_cooldown = true
+		get_node("Spinning_Bullet_Timer").start()
 	
 	# Calculates direction of mouse position.
 	var target_position = get_global_mouse_position()
@@ -167,11 +169,40 @@ func _on_shield_cooldown_timer_timeout() -> void:
 ######## Golem second ability. A spinning golem bullet is shot, and grows bigger the more enemy bullets it absorbs.
 func spinning_golem_bullet() -> void:
 	fire("spinning_bullet")
+	return
+	
+	
+func _on_spinning_bullet_timer_timeout() -> void:
+	# Cooldown is 5 seconds.
+	spinning_bullet_cooldown = false
+	print("Spin ready.")
+	return
 
 	
-######## Golem third ability. 'Power ranger golems'. On use, spawns several golemns to fight alongside you.
+######## Golem third ability. Spawns baby golem that moves towards enemy while shooting at them. Despawns after 15 seconds.
 func golem_spawn() -> void:
-	pass
+	if golem_spawner_cooldown:
+		print("Baby golem on cooldown.")
+		return
+		
+	var golem = golem_spawner.instantiate()
+	
+	golem.position = position
+	golem.direction = (golem.position - position).normalized()
+	
+	# Bullet placed at player position before added to scene (check def later)
+	golem.position = position
+	get_parent().add_child(golem)
+	
+	get_node("Baby_Golem_Timer").start()
+	golem_spawner_cooldown = true
+	return
+	
+	
+func _on_baby_golem_timer_timeout() -> void:
+	golem_spawner_cooldown = false
+	print("Baby Golem ready.")
+	return
 	
 	
 ######## Golem fourth ability. Heat-seekers. Several shot out and move towards enemy. On contact, blows up and damages them.
@@ -221,6 +252,8 @@ func take_damage() -> void:
 		
 	if health <= 0:
 		kill()
+		
+	return
 	
 
 
