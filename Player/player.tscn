@@ -177,6 +177,9 @@ script = ExtResource("4_rcqbb")
 wait_time = 3.0
 one_shot = true
 
+[node name="Baby_Golem_Timer" type="Timer" parent="."]
+wait_time = 20.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -20)
 scale = Vector2(3, 3)
@@ -184,3 +187,4 @@ shape = SubResource("CapsuleShape2D_ascc1")
 
 [connection signal="body_entered" from="Player" to="." method="_on_player_body_entered"]
 [connection signal="timeout" from="Invincible_Frame_Timer" to="." method="_on_invincible_frame_timer_timeout"]
+[connection signal="timeout" from="Baby_Golem_Timer" to="." method="_on_baby_golem_timer_timeout"]
