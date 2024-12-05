@@ -7,6 +7,7 @@
 script = ExtResource("1_nnrf6")
 
 [node name="WaitTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_80er0")

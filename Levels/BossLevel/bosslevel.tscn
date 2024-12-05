@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctqqfkdvifbh6"]
+
+[ext_resource type="Script" path="res://Levels/BossLevel/bosslevel.gd" id="1_8d3dd"]
+[ext_resource type="AudioStream" uid="uid://bjuxovnrxmxqr" path="res://JasmineCha/Music/Sacrificial Tea Ceremony Xtended.mp3" id="2_deye6"]
+[ext_resource type="Texture2D" uid="uid://b82laj5i56ikb" path="res://JasmineCha/Background/tea-house.png" id="4_ck0dy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1luo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ck0dy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4ff1"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"cloud1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"cloud2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"cloud3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"cloud4",
+"speed": 5.0
+}]
+
+[node name="BossLevel" type="Node2D"]
+script = ExtResource("1_8d3dd")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_deye6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -2
+position = Vector2(991.541, 540.25)
+scale = Vector2(3.93416, 3.93416)
+sprite_frames = SubResource("SpriteFrames_f1luo")
+
+[node name="Clouds" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Clouds"]
+sprite_frames = SubResource("SpriteFrames_f4ff1")
+animation = &"cloud1"

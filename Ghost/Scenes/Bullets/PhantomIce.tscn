@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://6tkb611hby83"]
 
-[ext_resource type="Script" path="res://Ghost/Scenes/Bullets/PhantomIce.gd" id="1_r2w1n"]
-[ext_resource type="Texture2D" uid="uid://dvg5ipy5ngfmr" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-0.png" id="2_8w1pp"]
-[ext_resource type="Texture2D" uid="uid://it7vyd038fuu" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-1.png" id="3_r0eov"]
-[ext_resource type="Texture2D" uid="uid://dc25eguj4om0v" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-2.png" id="4_3fyp7"]
-[ext_resource type="Texture2D" uid="uid://dkkw50bi8s736" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-3.png" id="5_eorsm"]
+[ext_resource type="Script" path="res://Ghost/Scripts/Bullets/PhantomIce.gd" id="1_2gwdu"]
+[ext_resource type="Texture2D" uid="uid://cjr2togyg0cfy" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-0.png" id="2_8w1pp"]
+[ext_resource type="Texture2D" uid="uid://df75oafe2mhgq" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-1.png" id="3_r0eov"]
+[ext_resource type="Texture2D" uid="uid://7l5jlbpb5gc7" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-2.png" id="4_3fyp7"]
+[ext_resource type="Texture2D" uid="uid://b1r7qurylvkdj" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-3.png" id="5_eorsm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywee3"]
 animations = [{
@@ -30,7 +30,7 @@ animations = [{
 radius = 4.24555
 
 [node name="PhantomIce" type="Node2D"]
-script = ExtResource("1_r2w1n")
+script = ExtResource("1_2gwdu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.5, 4.5)

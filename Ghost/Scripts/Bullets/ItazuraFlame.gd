@@ -1,6 +1,6 @@
 extends Node2D
 
-const speed = 800
+var speed = 800
 var GhostBullet = preload("res://Ghost/Scenes/Bullets/GravityBullet.tscn")
 
 # Called when the node enters the scene tree for the first time.

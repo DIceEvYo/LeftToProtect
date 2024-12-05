@@ -51,11 +51,14 @@ shape = SubResource("CapsuleShape2D_hejlh")
 
 [node name="WaitTimer" type="Timer" parent="."]
 wait_time = 0.5
+one_shot = true
 
 [node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="ShootTimer2" type="Timer" parent="."]
 wait_time = 0.2
+one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
