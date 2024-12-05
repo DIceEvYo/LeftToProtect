@@ -2,6 +2,8 @@ extends RigidBody2D
 
 var GhostBullet = preload("res://Ghost/Scenes/Bullets/GravityBullet.tscn")
 
+var player = null
+
 #General Variables
 var speed = 0
 var dir = Vector2.ZERO #Resets direction to default
@@ -13,6 +15,8 @@ var angle = 0
 var ghost_orb_scene = preload("res://Ghost/Scenes/Bullets/GhostOrb.tscn")
 var phantom_ice_scene = preload("res://Ghost/Scenes/Bullets/PhantomIce.tscn")
 var bakudan_bullet_scene = preload("res://Ghost/Scenes/Bullets/BakudanBullet.tscn")
+var itazura_bullet_scene = preload("res://Ghost/Scenes/Bullets/ItazuraFlame.tscn")
+var targetted_bullet_scene = preload("res://Ghost/Scenes/Bullets/TargettedBullet.tscn")
 @onready var shoot_timer2 = $ShootTimer2
 @onready var rotater = $Rotater
 var rotate_speed = 100
@@ -168,6 +172,48 @@ func attack_sequence():
 	speed = 600
 	await wait_for_timer(.8)
 	speed = 0
+	itazura(8, 0.05, 5)
+	drop_bakudan(5, 0.1)
+	await wait_for_timer(.8)
+	itazura(8, 0.05, 5)
+	drop_bakudan(5, 0.1)
+	await wait_for_timer(2)
+	diagonal_trick(8, 0.05, 5)
+	drop_bakudan(5, 0.1)
+	await wait_for_timer(2)
+	rotate_me(20, 80, 10)
+	rs_mode = true
+	rotational_shoot(500, 0.1, 40, 100)
+	await wait_for_timer(1)
+	rotational_shoot(500, 0.1, 40, 100)
+	await wait_for_timer(1)
+	rs_mode = false
+	target_shot(5, 0.4, 90)
+	await wait_for_timer(.5)
+	rs_mode = true
+	rotational_shoot(500, 0.1, 40, 100)
+	rotate_me(20, 80, -10)
+	await wait_for_timer(1)
+	rotational_shoot(500, 0.1, 40, 100)
+	await wait_for_timer(1)
+	rs_mode = false
+	target_shot(5, 0.4, 90)
+	await wait_for_timer(.5)	
+	
+func rotate_me(steps, radius, rot_speed):
+	var angle = 0.0  #Current angle for circular motion
+	var step_angle = rot_speed * (PI/180)  #Convert step angle to radians for smooth rotation
+	for i in range(0, steps):
+		await shoot_timer(0.08)  #Delay between each step (smoothness depends on this value)
+		#Increment the angle
+		angle += step_angle
+		#Calculate the new position using the angle and radius
+		var new_x = radius * cos(angle)
+		var new_y = radius * sin(angle)
+		#Set the position to move smoothly to the new target
+		position += Vector2(new_x, new_y)
+
+			
 	
 func wait_for_timer(duration):
 	$WaitTimer.start(duration)  #Start the timer with the specified duration
@@ -188,7 +234,21 @@ func danmaku(bullets_to_shoot, shoot_delay):
 		shoot(70)
 		shoot(-70)
 		
-
+func target_shot(bullets_to_shoot, shoot_delay, pos_offset):
+	for i in range(0, bullets_to_shoot):
+		await shoot_timer(shoot_delay)
+		var target_bullet_l = targetted_bullet_scene.instantiate()
+		target_bullet_l.position = position
+		target_bullet_l.position.x = position.x+pos_offset
+		target_bullet_l.direction = global_position.direction_to(player.global_position)
+		var target_bullet_r = targetted_bullet_scene.instantiate()
+		target_bullet_r.position = position
+		target_bullet_r.position.x = position.x-pos_offset
+		target_bullet_r.direction = global_position.direction_to(player.global_position)
+		get_parent().add_child(target_bullet_l)
+		get_parent().add_child(target_bullet_r)
+		
+	
 func shoot(pos_offset):
 	var gbullet = GhostBullet.instantiate()
 	gbullet.position = position
@@ -202,6 +262,40 @@ func drop_bakudan(bullets_to_shoot, shoot_delay):
 		get_tree().root.add_child(bakudan)
 		bakudan.position = position
 		bakudan.rotation = (PI)/2
+
+func itazura(bullets_to_shoot, shoot_delay, rain):
+	var speed = 200*bullets_to_shoot
+	for i in range (0, bullets_to_shoot):
+		await shoot_timer(shoot_delay)
+		var itazura_flame_l = itazura_bullet_scene.instantiate()
+		itazura_flame_l.speed += speed
+		itazura_flame_l.position = position
+		itazura_flame_l.rotation = PI
+		var itazura_flame_r = itazura_bullet_scene.instantiate()
+		itazura_flame_r.speed += speed
+		itazura_flame_r.position = position
+		itazura_flame_r.rotation = 0
+		for j in range(0, rain):
+			get_parent().add_child(itazura_flame_l)
+			get_parent().add_child(itazura_flame_r)
+		speed -= 200
+		
+func diagonal_trick(bullets_to_shoot, shoot_delay, rain):
+	var speed = 200*bullets_to_shoot
+	for i in range (0, bullets_to_shoot):
+		await shoot_timer(shoot_delay)
+		var itazura_flame_l = itazura_bullet_scene.instantiate()
+		itazura_flame_l.speed += speed
+		itazura_flame_l.position = position
+		itazura_flame_l.rotation = (5*PI)/6
+		var itazura_flame_r = itazura_bullet_scene.instantiate()
+		itazura_flame_r.speed += speed
+		itazura_flame_r.position = position
+		itazura_flame_r.rotation = (PI)/6
+		for j in range(0, rain):
+			get_parent().add_child(itazura_flame_l)
+			get_parent().add_child(itazura_flame_r)
+		speed -= 200
 
 func uShotLeft1():
 	var gbullet = GhostBullet.instantiate()
