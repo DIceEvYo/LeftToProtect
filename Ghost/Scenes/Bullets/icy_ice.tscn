@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://dcoj8qkw6qw37"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/Bullets/icy_ice.gd" id="1_vyerw"]
-[ext_resource type="Texture2D" uid="uid://b1l6k4tclddab" path="res://Ghost/Sprites/Bullets/IcyIce/icyice-01.png" id="2_tq7dv"]
-[ext_resource type="Texture2D" uid="uid://ow3wa3v1niy6" path="res://Ghost/Sprites/Bullets/IcyIce/icyice-02.png" id="3_6qhdk"]
-[ext_resource type="Texture2D" uid="uid://cpm4sbsuo4bqe" path="res://Ghost/Sprites/Bullets/IcyIce/icyice-03.png" id="4_4nfg8"]
-[ext_resource type="Texture2D" uid="uid://b3c7ee3xlqbh0" path="res://Ghost/Sprites/Bullets/IcyIce/icyice-04.png" id="5_bi8k2"]
+[ext_resource type="Texture2D" uid="uid://d3s8p7da2cltd" path="res://Ghost/Sprites/Bullets/IcyIce/icyice-01.png" id="2_tq7dv"]
+[ext_resource type="Texture2D" uid="uid://ctkkqgjfmorhq" path="res://Ghost/Sprites/Bullets/IcyIce/icyice-02.png" id="3_6qhdk"]
+[ext_resource type="Texture2D" uid="uid://ddsq3sponaqhe" path="res://Ghost/Sprites/Bullets/IcyIce/icyice-03.png" id="4_4nfg8"]
+[ext_resource type="Texture2D" uid="uid://dybod5jos628" path="res://Ghost/Sprites/Bullets/IcyIce/icyice-04.png" id="5_bi8k2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s6sj4"]
 animations = [{
@@ -35,3 +35,8 @@ scale = Vector2(12, 12)
 sprite_frames = SubResource("SpriteFrames_s6sj4")
 animation = &"ice"
 frame_progress = 0.891559
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
