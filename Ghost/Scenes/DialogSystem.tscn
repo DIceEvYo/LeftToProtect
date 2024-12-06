@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://ddw8uro2fjhgk" path="res://Ghost/Music/PhantomMemory.wav" id="4_v2pad"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="5_7aeq0"]
 [ext_resource type="FontFile" uid="uid://dso6vjo56337y" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_rt3m0"]
-[ext_resource type="Texture2D" path="res://Ghost/幽霊イラスト/真面目/まじ？.png" id="6_tjst8"]
+[ext_resource type="Texture2D" uid="uid://ccvtoxhw1ueax" path="res://Ghost/Illustrations/serious/seriously.png" id="6_tjst8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_am7qi"]
 animations = [{
