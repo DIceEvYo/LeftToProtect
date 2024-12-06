@@ -128,7 +128,6 @@ func fire( attack : String ):
 		
 	elif attack == "spinning_bullet":
 		if spinning_bullet_cooldown == true:
-			print("Sping cooldown.")
 			return
 		# New spinning bullet.
 		bullet_instance = spinning_bullet.instantiate()
@@ -149,12 +148,11 @@ func fire( attack : String ):
 ######### Golem first ability. Creates sheild that blocks one attack. Destroyed afterwards. Can take 3-5 seconds to create another.
 func shield() -> void:
 	if shield_cooldown:
-		print("Shield on cooldown.")
 		return
 	
 	shield_active = true
 	shield_cooldown = true
-	print("Shield activated.")
+	modulate = Color(1, 1, 0)
 	get_node("Shield_Cooldown_Timer").start()
 	return
 	
@@ -162,7 +160,6 @@ func shield() -> void:
 func _on_shield_cooldown_timer_timeout() -> void:
 	# Cooldown is 5 seconds.
 	shield_cooldown = false
-	print("Shield ready.")
 	return
 	
 
@@ -175,14 +172,12 @@ func spinning_golem_bullet() -> void:
 func _on_spinning_bullet_timer_timeout() -> void:
 	# Cooldown is 5 seconds.
 	spinning_bullet_cooldown = false
-	print("Spin ready.")
 	return
 
 	
 ######## Golem third ability. Spawns baby golem that moves towards enemy while shooting at them. Despawns after 15 seconds.
 func golem_spawn() -> void:
 	if golem_spawner_cooldown:
-		print("Baby golem on cooldown.")
 		return
 		
 	var golem = golem_spawner.instantiate()
@@ -201,7 +196,6 @@ func golem_spawn() -> void:
 	
 func _on_baby_golem_timer_timeout() -> void:
 	golem_spawner_cooldown = false
-	print("Baby Golem ready.")
 	return
 	
 	
@@ -246,6 +240,7 @@ func take_damage() -> void:
 	# Mitigate damage if has shield.
 	elif shield_active:
 		shield_active = false
+		modulate = Color(1, 1, 1)
 		return
 	else:
 		health -= 10
