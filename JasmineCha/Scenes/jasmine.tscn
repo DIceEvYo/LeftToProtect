@@ -1,23 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://y73nwrrjx57y"]
+[gd_scene load_steps=5 format=3 uid="uid://y73nwrrjx57y"]
 
 [ext_resource type="Texture2D" uid="uid://cdqja54yubppr" path="res://JasmineCha/Sprites/jasmine-cha.png" id="1_duqev"]
+[ext_resource type="Script" path="res://JasmineCha/Scripts/jasmine.gd" id="1_ff27l"]
+[ext_resource type="Texture2D" uid="uid://dy78yomxdoao3" path="res://JasmineCha/Sprites/jasmine-cha-1.png" id="2_d108f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3wmcd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_duqev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d108f")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [node name="Jasmine" type="Node2D"]
 position = Vector2(850, 350)
+script = ExtResource("1_ff27l")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_3wmcd")
 animation = &"idle"
+frame_progress = 0.149446
+
+[node name="WaitTimer" type="Timer" parent="."]
+
+[node name="ShootTimer" type="Timer" parent="."]
