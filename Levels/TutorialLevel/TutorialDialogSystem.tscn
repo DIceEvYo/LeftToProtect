@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://nahiaanmaaht"]
 
 [ext_resource type="Script" path="res://Levels/TutorialLevel/Scripts/TutorialDialogSystem.gd" id="1_h8c1m"]
-[ext_resource type="AudioStream" uid="uid://cvpkgmae2qkpd" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_j05gu"]
-[ext_resource type="FontFile" uid="uid://dfuae01lg0h4e" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_blfry"]
-[ext_resource type="AudioStream" uid="uid://dib5odaabka8j" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="5_i57ns"]
-[ext_resource type="Texture2D" uid="uid://c6n3sqr5vo7fb" path="res://Ghost/Sprites/Dialog/Box.png" id="6_ql6uo"]
+[ext_resource type="AudioStream" uid="uid://cb45fi172ghu7" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_j05gu"]
+[ext_resource type="FontFile" uid="uid://deomk7g7j80fo" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_blfry"]
+[ext_resource type="AudioStream" uid="uid://c7d8ku4kskf5k" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="5_i57ns"]
+[ext_resource type="Texture2D" uid="uid://tjwfkdabymm5" path="res://Ghost/Sprites/Dialog/Box.png" id="6_ql6uo"]
 [ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="6_wkhw7"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="9_txhm0"]
 
@@ -154,6 +154,9 @@ sprite_frames = SubResource("SpriteFrames_am7qi")
 frame_progress = 0.791521
 
 [node name="DialogueBG" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_i57ns")
+
+[node name="DialogueBG2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_i57ns")
 
 [node name="Timer" type="Timer" parent="."]

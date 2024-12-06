@@ -1,5 +1,9 @@
 extends Control
 
+# Signals to check when training.
+signal move_entered
+signal shoot_entered
+
 var player_ref = preload("res://Player/player.tscn")
 var minion = preload("res://Player/BabyGolem.tscn")
 var enemy_bullet = preload("res://Maid/MaidBullet.tscn")
@@ -27,11 +31,6 @@ var dialog_21
 var dialog_22
 var dialog_23
 var dialog_24
-var dialog_25
-var dialog_26
-var dialog_27
-var dialog_28
-var dialog_29
 
 
 func load_dialog():
@@ -123,6 +122,39 @@ func load_dialog():
 		"*sigh. Looks like it's back to square one. Alright, follow me out, metalbrain. It's time for some training..."
 	]
 
+	
+	########## Training area dialog ###########
+	dialog_20 = [
+		"Let's see here. The training handbook says...",
+		"\"Use WASD or the arrows to move around.\""
+	]
+	
+	dialog_21 = [
+		"If you didn't know that one, we woulda had a problem.. Next one.",
+		"\"To use your weapon, press the SPACE bar or LMB (Left Mouse Button).\"",
+	]
+	
+	dialog_22 = [
+		"Hhmm. Seems like you have no ammunition. Eh, I'll take care of that. ",
+		"\"You have several unique abilities as a Golem. They include the following: \"",
+		"\"1. A temporary shield that blocks a singular projectile.\"",
+		"\"2. A special projectile that absorbs enemy projectiles, whilst making itself more larger and powerful.\"",
+		"\"3. The ability to spawn a minature combat-oriented golem to aid you in battle.\"",
+		"\"Press the respective number on your keyboard to activate each one.\"",
+		"\"Beware, these abilities take time to recharge/replenish themselves. Use the wisely. \"",
+	]	
+	
+	dialog_23 = [
+		"I say go ham on those buttons. Forget this useless book.",
+		"It's not like you didn't know any of this already, right? RIGHT???"
+	]
+	
+	dialog_24 = [
+		"I say drop the book, and just go test your abilities in the field.",
+		"That way, you'll remember what these abilities do AND you can fulfill your \"duty\". Two stones with one bird, or something like that.",
+		"Just curious, what IS your all-important \"duty\"? We minions were never informed of such important matters.",
+	]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_dialog()
@@ -138,7 +170,7 @@ func _ready():
 	#$DialogueBG.play()
 	
 	# Intro bard
-	#await read_dialog(dialog_bard)
+	await read_dialog(dialog_bard)
 	
 	
 	# Golem
@@ -153,16 +185,16 @@ func _ready():
 	golem1.scale.y = 2
 	$Bard.modulate.a = 0
 	$"???".modulate.a = 100
-	#await read_dialog(dialog_1)
+	await read_dialog(dialog_1)
 	
 	
 	# Golem
-	#await read_dialog(dialog_2)
+	await read_dialog(dialog_2)
 	
 	
 	# Golem Minion
 	$"???".modulate.a = 0
-	#await read_dialog(dialog_3)
+	await read_dialog(dialog_3)
 	
 	
 	# Golem Minion
@@ -212,10 +244,8 @@ func _ready():
 	$DialogueBG.stop()
 	
 	############## Training Area ###############
+	$DialogueBG2.play()
 	$Golem_Minion.modulate.a = 100
-	
-	golem1.set_process(true)
-	golem1.set_physics_process(true)
 	
 	# Change positions and scale of both Golem and Golem Minion.
 	golem1.position.x = 0
@@ -235,6 +265,43 @@ func _ready():
 	# Golem Minion
 	await read_dialog(dialog_20)
 	
+	$Golem_Minion.modulate.a = 0
+	golem1.set_process(true)
+	golem1.set_physics_process(true)
+	
+	await move_entered
+	$Transition_Time.start()
+	await $Transition_Time.timeout
+	golem1.set_process(false)
+	golem1.set_physics_process(false)
+	
+	$Golem_Minion.modulate.a = 100
+	
+	await read_dialog(dialog_21)
+	
+	$Golem_Minion.modulate.a = 0
+	golem1.set_process(true)
+	golem1.set_physics_process(true)
+	
+	await shoot_entered
+	$Golem_Minion.modulate.a = 100
+	
+	await read_dialog(dialog_22)
+	
+	$Golem_Minion.modulate.a = 0
+	$Transition_Time.start()
+	await $Transition_Time.timeout
+	$Golem_Minion.modulate.a = 100
+	
+	await read_dialog(dialog_23)
+	
+	await read_dialog(dialog_24)
+	
+	$Transition_Time.start()
+	await $Transition_Time.timeout
+	$Golem_Minion.modulate.a = 0
+	$DialogueBG2.stop()
+	
 	#$AnimationPlayer.play("fade_out")
 	#await $AnimationPlayer.animation_finished
 	#while ($Dialog_Box.modulate.a>0):
@@ -249,7 +316,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
+	
+func _input(event):
+	if event.is_action_pressed("up") or event.is_action_pressed("down") or event.is_action_pressed("left") or event.is_action_pressed("right"):
+		move_entered.emit()
+		
+	if event.is_action_pressed("shoot"):
+		shoot_entered.emit()
+		
 func read_dialog(dialog):
 	for line in dialog:
 		dialog_sys.clear()
