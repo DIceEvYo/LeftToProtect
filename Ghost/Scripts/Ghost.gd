@@ -12,12 +12,12 @@ var waiting = true
 var angle = 0
 
 #Rotator Related Bullet Patterns
-var ghost_orb_scene = preload("res://Ghost/Scenes/Bullets/GhostOrb.tscn")
-var phantom_ice_scene = preload("res://Ghost/Scenes/Bullets/PhantomIce.tscn")
+var ghost_orb_scene = preload("res://Ghost/Scenes/Bullets/GhostOrbBullet.tscn")
+var phantom_ice_scene = preload("res://Ghost/Scenes/Bullets/PhantomIceBullet.tscn")
 var bakudan_bullet_scene = preload("res://Ghost/Scenes/Bullets/BakudanBullet.tscn")
-var itazura_bullet_scene = preload("res://Ghost/Scenes/Bullets/ItazuraFlame.tscn")
+var itazura_bullet_scene = preload("res://Ghost/Scenes/Bullets/ItazuraFlameBullet.tscn")
 var targetted_bullet_scene = preload("res://Ghost/Scenes/Bullets/TargettedBullet.tscn")
-var icy_scene = preload("res://Ghost/Scenes/Bullets/icy_ice.tscn")
+var icy_scene = preload("res://Ghost/Scenes/Bullets/icy_iceBullet.tscn")
 @onready var shoot_timer2 = $ShootTimer2
 @onready var rotater = $Rotater
 var rotate_speed = 100

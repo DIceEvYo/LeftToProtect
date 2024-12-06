@@ -28,9 +28,19 @@ func _ready():
 	var jasmine2 = jasmine_scene.instantiate()
 	jasmine2.position.x = 850
 	jasmine2.position.y = 350
-	jasmine2.intro = false
 	jasmine2.player = player
+	jasmine2.build_up = true
 	add_child(jasmine2)
+	await wait_for_timer(12)
+	var angle = [0,  PI/4,  PI/2,  3*PI/4,  PI, 5*PI/4,  3*PI/2,  7*PI/4,  2*PI]
+	for a in angle:
+		var jasmine3 = jasmine_scene.instantiate()
+		jasmine3.position.x = 960
+		jasmine3.position.y = 550
+		jasmine3.dir = Vector2(cos(a), sin(a)).normalized()
+		jasmine3.player = player
+		jasmine3.yabai = true
+		add_child(jasmine3)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

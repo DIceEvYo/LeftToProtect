@@ -1,7 +1,7 @@
 extends Node2D
 
 const speed = 500
-var itazura_flame_scene = preload("res://Ghost/Scenes/Bullets/ItazuraFlame.tscn")
+var itazura_flame_scene = preload("res://Ghost/Scenes/Bullets/ItazuraFlameBullet.tscn")
 var finalAnim = false
 
 # Called when the node enters the scene tree for the first time.

@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqibpfbltye48"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/Bullets/GravityBullet.gd" id="1_f7lhb"]
-[ext_resource type="Texture2D" uid="uid://dodp8soxdb76x" path="res://Ghost/Sprites/Bullets/Flame/flame-0.png" id="2_at3cl"]
-[ext_resource type="Texture2D" uid="uid://ctr3xiltw8cjo" path="res://Ghost/Sprites/Bullets/Flame/flame-1.png" id="3_sec3k"]
-[ext_resource type="Texture2D" uid="uid://dgxmaerki052f" path="res://Ghost/Sprites/Bullets/Flame/flame-2.png" id="4_x0a8y"]
+[ext_resource type="Texture2D" uid="uid://dyxvsgnigamhy" path="res://Ghost/Sprites/Bullets/Flame/flame-0.png" id="2_at3cl"]
+[ext_resource type="Texture2D" uid="uid://nin5a203won3" path="res://Ghost/Sprites/Bullets/Flame/flame-1.png" id="3_sec3k"]
+[ext_resource type="Texture2D" uid="uid://crwb7temdnay1" path="res://Ghost/Sprites/Bullets/Flame/flame-2.png" id="4_x0a8y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_co6oj"]
 animations = [{
