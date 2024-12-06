@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Levels/TutorialLevel/Scripts/TutorialDialogSystem.gd" id="1_h8c1m"]
 [ext_resource type="AudioStream" uid="uid://cvpkgmae2qkpd" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_j05gu"]
 [ext_resource type="FontFile" uid="uid://dfuae01lg0h4e" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_blfry"]
+[ext_resource type="AudioStream" uid="uid://dib5odaabka8j" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="5_i57ns"]
 [ext_resource type="Texture2D" uid="uid://c6n3sqr5vo7fb" path="res://Ghost/Sprites/Dialog/Box.png" id="6_ql6uo"]
-[ext_resource type="AudioStream" uid="uid://dr6goalekhwtt" path="res://Ghost/Music/PhantomMemory.wav" id="7_hecsv"]
-[ext_resource type="Texture2D" uid="uid://8rij8vhxvqpc" path="res://Ghost/幽霊イラスト/真面目/まじ？.png" id="8_npls4"]
+[ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="6_wkhw7"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="9_txhm0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_am7qi"]
@@ -81,6 +81,28 @@ offset_bottom = 897.0
 script = ExtResource("1_h8c1m")
 metadata/_edit_group_ = true
 
+[node name="Bard" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = -679.0
+offset_top = -147.0
+offset_right = -191.0
+offset_bottom = -51.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 70
+text = "Bard"
+
+[node name="???" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = -679.0
+offset_top = -147.0
+offset_right = -545.0
+offset_bottom = -37.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 70
+text = "???"
+
 [node name="Golem" type="RichTextLabel" parent="."]
 z_index = 1
 layout_mode = 0
@@ -132,9 +154,13 @@ sprite_frames = SubResource("SpriteFrames_am7qi")
 frame_progress = 0.791521
 
 [node name="DialogueBG" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_hecsv")
+stream = ExtResource("5_i57ns")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Transition_Time" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -145,8 +171,8 @@ libraries = {
 modulate = Color(1, 1, 1, 0)
 z_index = -1
 position = Vector2(0, -300)
-scale = Vector2(0.322941, 0.322941)
-texture = ExtResource("8_npls4")
+scale = Vector2(5, 5)
+texture = ExtResource("6_wkhw7")
 script = ExtResource("9_txhm0")
 
 [connection signal="finished" from="Voice" to="." method="_on_voice_finished"]
