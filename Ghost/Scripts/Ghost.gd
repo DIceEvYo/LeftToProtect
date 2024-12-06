@@ -148,7 +148,7 @@ func attack_sequence():
 	speed = 2400
 	custom_dir((PI)/11)
 	drop_bakudan(5, 0.1)
-	await wait_for_timer(0.34)
+	await wait_for_timer(0.355)
 	#Third Attack
 	speed = 0
 	rs_mode = true
@@ -198,8 +198,103 @@ func attack_sequence():
 	await wait_for_timer(1)
 	rs_mode = false
 	target_shot(5, 0.4, 90)
-	await wait_for_timer(.5)	
-	
+	await wait_for_timer(.5)
+	rs_mode = true
+	rotational_shoot(500, 0.1, 30, 20)	
+	await wait_for_timer(.5)
+	rotational_shoot(800, 0.1, 40, 50)	
+	await wait_for_timer(.5)
+	rotational_shoot(900, 0.1, 50, 80)	
+	await wait_for_timer(.5)
+	rotational_shoot(1000, 0.1, 70, 100)	
+	await wait_for_timer(.5)
+	rotational_shoot(1100, 0.1, 80, 100)
+	await wait_for_timer(.5)
+	rs_mode = false
+	speed = 800
+	custom_dir((PI)/2)
+	await wait_for_timer(1)
+	speed = 0
+	await wait_for_timer(1)
+	rs_mode = true
+	rotational_shoot(500, 0.1, 30, 20)	
+	await wait_for_timer(.5)
+	rotational_shoot(800, 0.1, 40, 50)	
+	await wait_for_timer(.5)
+	rotational_shoot(900, 0.1, 50, 80)	
+	await wait_for_timer(.5)
+	rotational_shoot(1000, 0.1, 70, 100)	
+	await wait_for_timer(.5)
+	rotational_shoot(1100, 0.1, 80, 100)
+	await wait_for_timer(.5)
+	rs_mode = false
+	speed = 800
+	custom_dir(0)
+	await wait_for_timer(1.5)
+	speed = 0
+	await wait_for_timer(1)
+	rs_mode = true
+	rotational_shoot(500, 0.1, 30, 20)	
+	await wait_for_timer(.5)
+	rotational_shoot(800, 0.1, 40, 50)	
+	await wait_for_timer(.5)
+	rotational_shoot(900, 0.1, 50, 80)	
+	await wait_for_timer(.5)
+	rotational_shoot(1000, 0.1, 70, 100)	
+	await wait_for_timer(.5)
+	rotational_shoot(1100, 0.1, 80, 100)
+	await wait_for_timer(.5)
+	speed = 800
+	custom_dir((3*PI)/2)
+	await wait_for_timer(1)
+	speed = 0
+	await wait_for_timer(1)
+	rs_mode = true
+	rotational_shoot(500, 0.1, 30, 20)	
+	await wait_for_timer(.5)
+	rotational_shoot(800, 0.1, 40, 50)	
+	await wait_for_timer(.5)
+	rotational_shoot(900, 0.1, 50, 80)	
+	await wait_for_timer(.5)
+	rotational_shoot(1000, 0.1, 70, 100)	
+	await wait_for_timer(.5)
+	rotational_shoot(1100, 0.1, 80, 100)
+	await wait_for_timer(.5)
+	rs_mode = false
+	await wait_for_timer(1)
+	rs_mode = true
+	rotational_shoot(500, 0.1, 30, 20)	
+	speed = 400
+	custom_dir(PI)
+	drop_bakudan(40, 0.05)
+	drop_bakudan(40, 0.05)
+	await wait_for_timer(2)
+	rotational_shoot(500, 0.1, 30, 20)	
+	drop_bakudan(40, 0.05)
+	drop_bakudan(40, 0.05)
+	await wait_for_timer(2)
+	custom_dir(0)
+	rotational_shoot(500, 0.1, 30, 20)	
+	drop_bakudan(40, 0.05)
+	drop_bakudan(40, 0.05)
+	await wait_for_timer(2)
+	rotational_shoot(500, 0.1, 30, 20)	
+	drop_bakudan(40, 0.05)
+	drop_bakudan(40, 0.05)
+	await wait_for_timer(2)
+	rotational_shoot(500, 0.1, 30, 20)	
+	speed = 400
+	custom_dir(PI)
+	drop_bakudan(40, 0.05)
+	drop_bakudan(40, 0.05)
+	await wait_for_timer(1.85)
+	speed = 0
+	rotational_shoot(500, 0.1, 30, 20)	
+	await wait_for_timer(.5)
+	rotational_shoot(800, 0.1, 50, 40)	
+	await wait_for_timer(.5)
+	rotational_shoot(1000, 0.1, 80, 60)	
+		
 func rotate_me(steps, radius, rot_speed):
 	var angle = 0.0  #Current angle for circular motion
 	var step_angle = rot_speed * (PI/180)  #Convert step angle to radians for smooth rotation
@@ -276,8 +371,8 @@ func itazura(bullets_to_shoot, shoot_delay, rain):
 		itazura_flame_r.position = position
 		itazura_flame_r.rotation = 0
 		for j in range(0, rain):
-			get_parent().add_child(itazura_flame_l)
-			get_parent().add_child(itazura_flame_r)
+			add_child(itazura_flame_l)
+			add_child(itazura_flame_r)
 		speed -= 200
 		
 func diagonal_trick(bullets_to_shoot, shoot_delay, rain):
@@ -293,8 +388,8 @@ func diagonal_trick(bullets_to_shoot, shoot_delay, rain):
 		itazura_flame_r.position = position
 		itazura_flame_r.rotation = (PI)/6
 		for j in range(0, rain):
-			get_parent().add_child(itazura_flame_l)
-			get_parent().add_child(itazura_flame_r)
+			add_child(itazura_flame_l)
+			add_child(itazura_flame_r)
 		speed -= 200
 
 func uShotLeft1():
