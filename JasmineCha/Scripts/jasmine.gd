@@ -359,9 +359,12 @@ func attack_sequence():
 		await wait_for_timer(0.1)
 		position.x = 850
 		position.y = 350
-		rotational_shoot("purple", 100, 0.1, 30, 30)
-		
-		
+		speed=5
+		custom_dir(PI/2)
+		rotational_shoot("target", 100, 0.1, 30, 30)
+		rotational_shoot2("flower", 100, 0.1, 50, 50)
+		await wait_for_timer(.5)
+		rotational_shoot2("purple", 100, 0.1, 50, 50)
 
 
 

@@ -101,36 +101,36 @@ func load_dialog():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_dialog()
-	facial_expression = load("res://Ghost/幽霊イラスト/寝ている/怠け者.png")
+	facial_expression = load("res://Ghost/Illustrations/sleepy/lazy.png")
 	$GhostIllust.texture = facial_expression
 	$AnimationPlayer.play("fade_in")
 	$DialogueBG.play()
 	await read_dialog(dialog_1)
-	facial_expression = load("res://Ghost/幽霊イラスト/へえええ？？/来るな！.png")
+	facial_expression = load("res://Ghost/Illustrations/Whaaat？？/dontcomeclose!.png")
 	$GhostIllust.texture = facial_expression
 	await read_dialog(dialog_2)
-	facial_expression = load("res://Ghost/幽霊イラスト/へえええ？？/あれれれ？？.png")
+	facial_expression = load("res://Ghost/Illustrations/Whaaat？？/arerere.png")
 	$GhostIllust.texture = facial_expression
 	await read_dialog(dialog_3)
-	facial_expression = load("res://Ghost/幽霊イラスト/悲しい!！/うわっ！.png")
+	facial_expression = load("res://Ghost/Illustrations/sad!!/uwah!.png")
 	$GhostIllust.texture = facial_expression
 	await read_dialog(dialog_4)
-	facial_expression = load("res://Ghost/幽霊イラスト/怒っている/頭にくる！.png")
+	facial_expression = load("res://Ghost/Illustrations/angry/pissed.png")
 	$GhostIllust.texture = facial_expression
 	await read_dialog(dialog_4_5)
-	facial_expression = load("res://Ghost/幽霊イラスト/ふんん。。。？/なんだ？.png")
+	facial_expression = load("res://Ghost/Illustrations/hmmm？/what are you saying.png")
 	$GhostIllust.texture = facial_expression
 	await read_dialog(dialog_4_7)
-	facial_expression = load("res://Ghost/幽霊イラスト/ニヤニヤ/目を瞑っている.png")
+	facial_expression = load("res://Ghost/Illustrations/angry/pissed.png")
 	$GhostIllust.texture = facial_expression
 	await read_dialog(dialog_5)	
-	facial_expression = load("res://Ghost/幽霊イラスト/ニヤニヤ/只管２.png")
+	facial_expression = load("res://Ghost/Illustrations/smile/smirk.png")
 	$GhostIllust.texture = facial_expression
 	await read_dialog(dialog_5_1)	
-	facial_expression = load("res://Ghost/幽霊イラスト/ニヤニヤ/只管１.png")
+	facial_expression = load("res://Ghost/Illustrations/smile/smug1.png")
 	$GhostIllust.texture = facial_expression
 	await read_dialog(dialog_5_2)	
-	facial_expression = load("res://Ghost/幽霊イラスト/ふん！/仏頂面.png")
+	facial_expression = load("res://Ghost/Illustrations/hmph!/pouty.png")
 	$GhostIllust.texture = facial_expression
 	await read_dialog(dialog_6)
 	$AnimationPlayer.play("fade_out")
