@@ -1,16 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgqkv5qtr6hj1"]
+[gd_scene load_steps=12 format=3 uid="uid://bgqkv5qtr6hj1"]
 
 [ext_resource type="Script" path="res://Maid/Scripts/maid.gd" id="1_nsybm"]
-[ext_resource type="Texture2D" uid="uid://cll6o5tbhgaut" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_rc0mu"]
+[ext_resource type="Texture2D" uid="uid://dm6y765ljywb4" path="res://Maid/Sprites/maididle.png" id="2_i3psy"]
+[ext_resource type="Texture2D" uid="uid://bqa31itbxvf0h" path="res://Maid/Sprites/maidspecial.png" id="3_y51d2"]
+[ext_resource type="Texture2D" uid="uid://iu5lwdrb4d4p" path="res://Maid/Sprites/maidspecialstatic.png" id="4_bvqby"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqm3y"]
+atlas = ExtResource("2_i3psy")
+region = Rect2(0, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uby5"]
+atlas = ExtResource("2_i3psy")
+region = Rect2(32, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8afdq"]
+atlas = ExtResource("3_y51d2")
+region = Rect2(0, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56utq"]
+atlas = ExtResource("3_y51d2")
+region = Rect2(32, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdc0x"]
+atlas = ExtResource("3_y51d2")
+region = Rect2(64, 0, 32, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qnhhb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_rc0mu")
+"texture": SubResource("AtlasTexture_uqm3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uby5")
 }],
 "loop": true,
 "name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8afdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56utq")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_vdc0x")
+}],
+"loop": true,
+"name": &"special",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bvqby")
+}],
+"loop": true,
+"name": &"special_static",
 "speed": 5.0
 }]
 
@@ -31,6 +78,8 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_qnhhb")
+animation = &"special"
+frame_progress = 0.0200554
 
 [node name="Timer" type="Timer" parent="."]
 
