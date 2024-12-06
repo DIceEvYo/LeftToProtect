@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bom45202eq8i5"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/Bullets/TargettedBullet.gd" id="1_3cpyl"]
-[ext_resource type="Texture2D" uid="uid://c2jq08ogdy74y" path="res://Ghost/Sprites/Bullets/Target/target-0.png" id="2_172ia"]
-[ext_resource type="Texture2D" uid="uid://4toccf4suscq" path="res://Ghost/Sprites/Bullets/Target/target-1.png" id="3_6r4d0"]
-[ext_resource type="Texture2D" uid="uid://dn3ry48xhbm33" path="res://Ghost/Sprites/Bullets/Target/target-2.png" id="4_lv1tq"]
-[ext_resource type="Texture2D" uid="uid://c6lovjncwpwdr" path="res://Ghost/Sprites/Bullets/Target/target-3.png" id="5_kv1ui"]
+[ext_resource type="Texture2D" uid="uid://dv5yfmvthapd1" path="res://Ghost/Sprites/Bullets/Target/target-0.png" id="2_172ia"]
+[ext_resource type="Texture2D" uid="uid://bk6e1cidecuwr" path="res://Ghost/Sprites/Bullets/Target/target-1.png" id="3_6r4d0"]
+[ext_resource type="Texture2D" uid="uid://bk6g4fmpqr43h" path="res://Ghost/Sprites/Bullets/Target/target-2.png" id="4_lv1tq"]
+[ext_resource type="Texture2D" uid="uid://6f277e82khr8" path="res://Ghost/Sprites/Bullets/Target/target-3.png" id="5_kv1ui"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rf8tw"]
 animations = [{
@@ -38,8 +38,10 @@ sprite_frames = SubResource("SpriteFrames_rf8tw")
 animation = &"comet"
 frame_progress = 0.052559
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(4.5, 4.5)
+collision_layer = 16
 
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
-[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

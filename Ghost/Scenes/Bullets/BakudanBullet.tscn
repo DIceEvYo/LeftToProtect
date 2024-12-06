@@ -1,21 +1,21 @@
 [gd_scene load_steps=19 format=3 uid="uid://ce160tgmftu4p"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/Bullets/BakudanBullet.gd" id="1_h5fue"]
-[ext_resource type="Texture2D" uid="uid://b4rwj7rowhhbi" path="res://Ghost/Sprites/Bullets/Bakudan/bakudanflame-0.png" id="1_l6qag"]
-[ext_resource type="Texture2D" uid="uid://cqfsyogrjlbbv" path="res://Ghost/Sprites/Bullets/Bakudan/bakudanflame-1.png" id="2_uis7q"]
-[ext_resource type="Texture2D" uid="uid://bq2kqj48dys7q" path="res://Ghost/Sprites/Bullets/Bakudan/bakudanflame-2.png" id="3_txpcu"]
-[ext_resource type="Texture2D" uid="uid://c43rcnu3gn16m" path="res://Ghost/Sprites/Bullets/Bakudan/bakudanflame-3.png" id="4_s08ob"]
-[ext_resource type="Texture2D" uid="uid://c8ypy7ibewkqd" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-0.png" id="6_fij3s"]
-[ext_resource type="Texture2D" uid="uid://bth4l0v8mgtqh" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-1.png" id="7_6qi8y"]
-[ext_resource type="Texture2D" uid="uid://wk8r35ajwdwi" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-2.png" id="8_mrvuh"]
-[ext_resource type="Texture2D" uid="uid://bowxrfy3fiox8" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-3.png" id="9_h68dl"]
-[ext_resource type="Texture2D" uid="uid://ddy5kt72qecvd" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-4.png" id="10_6nhw8"]
-[ext_resource type="Texture2D" uid="uid://dk3rnw18aeewb" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-5.png" id="11_wxqov"]
-[ext_resource type="Texture2D" uid="uid://bdwf8d8v6lfh" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-6.png" id="12_8cxfu"]
-[ext_resource type="Texture2D" uid="uid://cpedhg0j8to8j" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-7.png" id="13_tdwq6"]
-[ext_resource type="Texture2D" uid="uid://djafdbblqoci6" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-8.png" id="14_6ho0r"]
-[ext_resource type="Texture2D" uid="uid://dmamyil3cvgr6" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-9.png" id="15_ngbee"]
-[ext_resource type="Texture2D" uid="uid://b3n6mwxy7k27g" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-10.png" id="16_4rplo"]
+[ext_resource type="Texture2D" uid="uid://bu8j1vg4jnq0d" path="res://Ghost/Sprites/Bullets/Bakudan/bakudanflame-0.png" id="1_l6qag"]
+[ext_resource type="Texture2D" uid="uid://bl1ea3euec3ep" path="res://Ghost/Sprites/Bullets/Bakudan/bakudanflame-1.png" id="2_uis7q"]
+[ext_resource type="Texture2D" uid="uid://chfdl5kgicrvw" path="res://Ghost/Sprites/Bullets/Bakudan/bakudanflame-2.png" id="3_txpcu"]
+[ext_resource type="Texture2D" uid="uid://c55sbr16gnq4s" path="res://Ghost/Sprites/Bullets/Bakudan/bakudanflame-3.png" id="4_s08ob"]
+[ext_resource type="Texture2D" uid="uid://bxhqnokcs1wid" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-0.png" id="6_fij3s"]
+[ext_resource type="Texture2D" uid="uid://befwm134fkb0i" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-1.png" id="7_6qi8y"]
+[ext_resource type="Texture2D" uid="uid://ud70ywy3625c" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-2.png" id="8_mrvuh"]
+[ext_resource type="Texture2D" uid="uid://dd3s42430sdau" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-3.png" id="9_h68dl"]
+[ext_resource type="Texture2D" uid="uid://qm6ftcl4fw53" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-4.png" id="10_6nhw8"]
+[ext_resource type="Texture2D" uid="uid://dgb3q8gngu8iw" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-5.png" id="11_wxqov"]
+[ext_resource type="Texture2D" uid="uid://pba7f05t2x0p" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-6.png" id="12_8cxfu"]
+[ext_resource type="Texture2D" uid="uid://cncjfa57ygr3a" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-7.png" id="13_tdwq6"]
+[ext_resource type="Texture2D" uid="uid://dn5cwipinolvb" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-8.png" id="14_6ho0r"]
+[ext_resource type="Texture2D" uid="uid://dshbsekgep3cv" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-9.png" id="15_ngbee"]
+[ext_resource type="Texture2D" uid="uid://8d8rvspwvrv4" path="res://Ghost/Sprites/Bullets/Bakudan/bakuhatsu/bakuhatsuflame-10.png" id="16_4rplo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vblno"]
 animations = [{
@@ -88,12 +88,16 @@ scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_vblno")
 animation = &"bakuhatsu"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
-shape = SubResource("CircleShape2D_3dchk")
-
 [node name="BakudanTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(4.5, 4.5)
+shape = SubResource("CircleShape2D_3dchk")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="BakudanTimer" to="." method="_on_bakudan_timer_timeout"]

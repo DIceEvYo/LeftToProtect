@@ -154,6 +154,7 @@ func shield() -> void:
 	
 	shield_active = true
 	shield_cooldown = true
+	modulate = Color(1, 1, 0)
 	print("Shield activated.")
 	get_node("Shield_Cooldown_Timer").start()
 	return
@@ -246,6 +247,7 @@ func take_damage() -> void:
 	# Mitigate damage if has shield.
 	elif shield_active:
 		shield_active = false
+		modulate = Color(1, 1, 1)
 		return
 	else:
 		health -= 10
@@ -260,7 +262,7 @@ func take_damage() -> void:
 
 # Kills/refreshes player/scene when 'Maid' or 'bullet' object interacts with Player.
 func _on_player_body_entered(body: RigidBody2D) -> void:
-	if "Maid" in body.name or "bullet" in body.name:
+	if "Maid" in body.name or "Bullet" in body.name:
 		# Checks if invincible
 		if invincible:
 			return

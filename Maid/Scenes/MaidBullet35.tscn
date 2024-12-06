@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://clbxbkhrbux53"]
 
 [ext_resource type="Script" path="res://Maid/Scripts/MaidBullet35.gd" id="1_wo8jq"]
-[ext_resource type="Texture2D" uid="uid://cgwemfcudpfa7" path="res://Maid/Sprites/Maid_Bullets/MaidBullet35.png" id="2_5ly0t"]
+[ext_resource type="Texture2D" uid="uid://cpxrw3hi4bfe3" path="res://Maid/Sprites/Maid_Bullets/MaidBullet35.png" id="2_5ly0t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xg0pj"]
 atlas = ExtResource("2_5ly0t")
@@ -32,3 +32,7 @@ script = ExtResource("1_wo8jq")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_lbhpl")
 frame_progress = 0.608007
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
