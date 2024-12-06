@@ -1,10 +1,12 @@
 extends Node2D
 
-var speed = 150
+var speed = 200
 
-func _ready():
-	#Allows bullet to leave the screen bounds.
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$AnimatedSprite2D.play("default")
 	set_as_top_level(true)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
