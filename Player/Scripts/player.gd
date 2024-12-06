@@ -214,13 +214,14 @@ func invincibility_frame() -> void:
 	
 	# Flashes for duration of invincibility.
 	for flash in range(10): 
-		$Player/Sprite2D.visible = false
-		await get_tree().create_timer(0.1).timeout  # Wait briefly
-		$Player/Sprite2D.visible = true
-		await get_tree().create_timer(0.1).timeout  # Wait briefly
-		$Player/Sprite2D.visible = false
-		await get_tree().create_timer(0.1).timeout  # Wait briefly
-		$Player/Sprite2D.visible = true
+		if is_inside_tree():
+			$Player/Sprite2D.visible = false
+			await get_tree().create_timer(0.1).timeout  # Wait briefly
+			$Player/Sprite2D.visible = true
+			await get_tree().create_timer(0.1).timeout  # Wait briefly
+			$Player/Sprite2D.visible = false
+			await get_tree().create_timer(0.1).timeout  # Wait briefly
+			$Player/Sprite2D.visible = true
 
 	return
 	

@@ -1,6 +1,6 @@
 extends Node2D
 
-const speed = 50
+const speed = 20
 var direction = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.

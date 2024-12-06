@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://ckivw7x1wkiuv"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/DialogSystem.gd" id="1_2kx7h"]
-[ext_resource type="Texture2D" uid="uid://c6n3sqr5vo7fb" path="res://Ghost/Sprites/Dialog/Box.png" id="1_4oouj"]
-[ext_resource type="AudioStream" uid="uid://cvpkgmae2qkpd" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="2_bkqnw"]
-[ext_resource type="FontFile" uid="uid://de0cdqwkvrdvv" path="res://Ghost/Fonts/Akronim-Regular.ttf" id="2_f574k"]
-[ext_resource type="FontFile" uid="uid://bqk07ge78exxi" path="res://Ghost/Fonts/YujiBoku-Regular.ttf" id="3_bqdob"]
-[ext_resource type="AudioStream" uid="uid://dr6goalekhwtt" path="res://Ghost/Music/PhantomMemory.wav" id="4_v2pad"]
+[ext_resource type="Texture2D" uid="uid://d4ivtrlfj7ia2" path="res://Ghost/Sprites/Dialog/Box.png" id="1_4oouj"]
+[ext_resource type="AudioStream" uid="uid://b17njy3ig0pg5" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="2_bkqnw"]
+[ext_resource type="FontFile" uid="uid://db5nt6hs53wk" path="res://Ghost/Fonts/Akronim-Regular.ttf" id="2_f574k"]
+[ext_resource type="FontFile" uid="uid://djtaseu7j6y7j" path="res://Ghost/Fonts/YujiBoku-Regular.ttf" id="3_bqdob"]
+[ext_resource type="AudioStream" uid="uid://ddw8uro2fjhgk" path="res://Ghost/Music/PhantomMemory.wav" id="4_v2pad"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="5_7aeq0"]
-[ext_resource type="FontFile" uid="uid://dfuae01lg0h4e" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_rt3m0"]
-[ext_resource type="Texture2D" uid="uid://8rij8vhxvqpc" path="res://Ghost/幽霊イラスト/真面目/まじ？.png" id="6_tjst8"]
+[ext_resource type="FontFile" uid="uid://dso6vjo56337y" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_rt3m0"]
+[ext_resource type="Texture2D" uid="uid://hknpjr4djmow" path="res://Ghost/幽霊イラスト/真面目/まじ？.png" id="6_tjst8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_am7qi"]
 animations = [{
