@@ -33,6 +33,7 @@ var shoot_limit = 5
 
 func _ready():
 	#Finds size of game window.
+	$AnimatedSprite2D.play("default")
 	screen_size = get_viewport_rect().size
 	randomize()
 	#change_dir()
@@ -229,9 +230,11 @@ func fight():
 		rotational_shoot(300, 0.2, 12, 100)
 	target_bullets(3, 0.2)
 	await wait_for_timer(2.5)
+	$AnimatedSprite2D.play("special")
 	speed = 0
 	rotate = MaidBullet2
 	bullet = MaidBullet4
+	await wait_for_timer(0.2)
 	for i in range(10):
 		await wait_for_timer(0.5)
 		rotational_shoot(1200, 0.2, 15, 100)
@@ -239,11 +242,14 @@ func fight():
 		rotational_shoot(300, 0.2, 7, 100)
 		if i % 2 == 1:
 			target_bullets(7, 0.1)
+		if i == 1:
+			$AnimatedSprite2D.play("special_static")
 	rotational_shoot(100, 0.1, 6, 100)
 	await wait_for_timer(2)
 	rotate = MaidBullet5
 	rotational_shoot(300, 0.3, 8, 100)
 	await wait_for_timer(1.5)
+	$AnimatedSprite2D.play("default")
 	rotate = MaidBullet3
 	bullet = MaidBullet
 	speed = 300
@@ -291,6 +297,7 @@ func fight():
 		await wait_for_timer(0.5)
 		rotational_shoot(300, 0.1, 10, 100)
 	await wait_for_timer(1.3)
+	$AnimatedSprite2D.play("special")
 	rotate = MaidBullet2
 	bullet = MaidBullet4
 	for i in range(15):
@@ -300,6 +307,10 @@ func fight():
 		rotational_shoot(300, 0.2, 7, 100)
 		if i % 2 == 1:
 			target_bullets(7, 0.1)
+		if i == 1:
+			$AnimatedSprite2D.play("special_static")
+	await wait_for_timer(0.2)
+	$AnimatedSprite2D.play("default")
 		
 		
 		
