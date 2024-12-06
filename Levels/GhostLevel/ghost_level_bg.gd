@@ -7,12 +7,12 @@ var revolving_bg_scene = preload("res://Background/Scenes/revolving_bg.tscn")
 
 func _ready():
 	
-	#var dialog = dialog_scene.instantiate()
-	#add_child(dialog)
-	#await dialog.tree_exited
+	var dialog = dialog_scene.instantiate()
+	add_child(dialog)
+	await dialog.tree_exited
 	
 	var revolving_bg = revolving_bg_scene.instantiate()
-	revolving_bg.limit = 10
+	revolving_bg.limit = 14
 	add_child(revolving_bg)
 	var player = player_scene.instantiate()
 	player.position.x = 960
@@ -25,8 +25,12 @@ func _ready():
 	add_child(ghost)
 	add_child(player)
 	$BackgroundMusic.play()
-	
-	
+	await $BackgroundMusic.finished
+	ghost.modulate.a -= 1
+	player.modulate.a -= 1
+	await wait_for_timer(2)
+	remove_child(ghost)
+	remove_child(player)
 
 func _process(delta):
 	pass
