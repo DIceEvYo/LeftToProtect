@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjjjiwfxp6ghl"]
 
-[ext_resource type="Script" path="res://JasmineCha/Scripts/blue.gd" id="1_ocrn0"]
-[ext_resource type="Texture2D" uid="uid://cbjgu3vvttgbc" path="res://JasmineCha/Sprites/Bullets/thorn.png" id="2_p8yn2"]
+[ext_resource type="Script" path="res://JasmineCha/Scripts/blue.gd" id="1_bg1m7"]
+[ext_resource type="Texture2D" uid="uid://cbjgu3vvttgbc" path="res://JasmineCha/Sprites/Bullets/thorn.png" id="2_0cuvf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cfiea"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_p8yn2")
+"texture": ExtResource("2_0cuvf")
 }],
 "loop": true,
 "name": &"default",
@@ -16,7 +16,7 @@ animations = [{
 
 [node name="Thorn" type="Node2D"]
 scale = Vector2(1.06838, 1)
-script = ExtResource("1_ocrn0")
+script = ExtResource("1_bg1m7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)

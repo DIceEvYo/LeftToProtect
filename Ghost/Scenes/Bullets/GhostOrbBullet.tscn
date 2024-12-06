@@ -1,25 +1,25 @@
 [gd_scene load_steps=8 format=3 uid="uid://2nwwx6y0ffql"]
 
-[ext_resource type="Script" path="res://Ghost/Scripts/Bullets/GhostOrb.gd" id="1_wnt63"]
-[ext_resource type="Texture2D" uid="uid://cbeaiv5ndf5kj" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb-1.png" id="2_bfmb4"]
-[ext_resource type="Texture2D" uid="uid://hqx7jdp1ht6i" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb-2.png" id="3_qlryh"]
-[ext_resource type="Texture2D" uid="uid://couv5cb53jql0" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb-3.png" id="4_3sbnw"]
-[ext_resource type="Texture2D" uid="uid://nb8g1swy5x4c" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb.png" id="5_adbga"]
+[ext_resource type="Script" path="res://Ghost/Scripts/Bullets/GhostOrb.gd" id="1_v4bej"]
+[ext_resource type="Texture2D" uid="uid://cqao1f2llsjtc" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb-1.png" id="2_jkdee"]
+[ext_resource type="Texture2D" uid="uid://dtq865qm85w5d" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb-2.png" id="3_ewtsu"]
+[ext_resource type="Texture2D" uid="uid://dddfi24d8buv4" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb-3.png" id="4_lyxia"]
+[ext_resource type="Texture2D" uid="uid://dr8oatvpsd7ri" path="res://Ghost/Sprites/Bullets/GhostOrb/ghost-orb.png" id="5_0qobu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q3je0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_bfmb4")
+"texture": ExtResource("2_jkdee")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_qlryh")
+"texture": ExtResource("3_ewtsu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_3sbnw")
+"texture": ExtResource("4_lyxia")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_adbga")
+"texture": ExtResource("5_0qobu")
 }],
 "loop": true,
 "name": &"orb",
@@ -30,7 +30,7 @@ animations = [{
 radius = 4.24555
 
 [node name="GhostOrb" type="Node2D"]
-script = ExtResource("1_wnt63")
+script = ExtResource("1_v4bej")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.5, 4.5)

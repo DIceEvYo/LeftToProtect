@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgcy7i7v3wxng"]
+
+[ext_resource type="Script" path="res://JasmineCha/Scripts/leaf.gd" id="1_dikt6"]
+[ext_resource type="Texture2D" uid="uid://bek8gnps1db5q" path="res://JasmineCha/Sprites/Bullets/leaf.png" id="2_2725k"]
+[ext_resource type="Texture2D" uid="uid://coxl548bbtwx2" path="res://JasmineCha/Sprites/Bullets/leaforange.png" id="3_85j1s"]
+[ext_resource type="Texture2D" uid="uid://bxc4s7rgwggj1" path="res://JasmineCha/Sprites/Bullets/leafred.png" id="4_wntql"]
+[ext_resource type="Texture2D" uid="uid://cgtp80wlcpki7" path="res://JasmineCha/Sprites/Bullets/leafyellow.png" id="5_r5skw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_up7vc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2725k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_85j1s")
+}],
+"loop": true,
+"name": &"orange",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wntql")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_r5skw")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
+}]
+
+[node name="Leaf" type="Node2D"]
+script = ExtResource("1_dikt6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_up7vc")

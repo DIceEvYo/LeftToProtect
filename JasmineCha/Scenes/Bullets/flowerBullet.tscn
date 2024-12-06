@@ -1,25 +1,25 @@
 [gd_scene load_steps=7 format=3 uid="uid://x10q5l56xp1y"]
 
-[ext_resource type="Script" path="res://JasmineCha/Scripts/flower.gd" id="1_s5vmv"]
-[ext_resource type="Texture2D" uid="uid://dt6yppw8o3dy3" path="res://JasmineCha/Sprites/Bullets/flower.png" id="2_ydena"]
-[ext_resource type="Texture2D" uid="uid://p2aseutwm31s" path="res://JasmineCha/Sprites/Bullets/flower - Copy.png" id="3_hrgdv"]
-[ext_resource type="Texture2D" uid="uid://ugquffbs7mq1" path="res://JasmineCha/Sprites/Bullets/flower - Copy (2).png" id="4_cpkjn"]
-[ext_resource type="Texture2D" uid="uid://d1eep3x0abuvm" path="res://JasmineCha/Sprites/Bullets/flower - Copy (3).png" id="5_uslds"]
+[ext_resource type="Script" path="res://JasmineCha/Scripts/flower.gd" id="1_ytq1s"]
+[ext_resource type="Texture2D" uid="uid://dt6yppw8o3dy3" path="res://JasmineCha/Sprites/Bullets/flower.png" id="2_igxtv"]
+[ext_resource type="Texture2D" uid="uid://p2aseutwm31s" path="res://JasmineCha/Sprites/Bullets/flower - Copy.png" id="3_1xl77"]
+[ext_resource type="Texture2D" uid="uid://ugquffbs7mq1" path="res://JasmineCha/Sprites/Bullets/flower - Copy (2).png" id="4_t20ow"]
+[ext_resource type="Texture2D" uid="uid://d1eep3x0abuvm" path="res://JasmineCha/Sprites/Bullets/flower - Copy (3).png" id="5_n8fcc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o62t5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ydena")
+"texture": ExtResource("2_igxtv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_hrgdv")
+"texture": ExtResource("3_1xl77")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_cpkjn")
+"texture": ExtResource("4_t20ow")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_uslds")
+"texture": ExtResource("5_n8fcc")
 }],
 "loop": true,
 "name": &"default",
@@ -28,7 +28,7 @@ animations = [{
 
 [node name="Flower" type="Node2D"]
 position = Vector2(724, 366)
-script = ExtResource("1_s5vmv")
+script = ExtResource("1_ytq1s")
 metadata/_edit_group_ = true
 
 [node name="WaitTimer" type="Timer" parent="."]

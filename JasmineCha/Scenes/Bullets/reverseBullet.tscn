@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://dipdbjwjbxf5l"]
 
-[ext_resource type="Script" path="res://JasmineCha/Scripts/reverse_bullet.gd" id="1_0ixm2"]
-[ext_resource type="Texture2D" uid="uid://c7t1in74g4rs3" path="res://JasmineCha/Sprites/Bullets/purple-bullet.png" id="2_avpji"]
-[ext_resource type="Texture2D" uid="uid://d2iem1hnjpffq" path="res://JasmineCha/Sprites/Bullets/red-bullet.png" id="3_a4g8x"]
+[ext_resource type="Script" path="res://JasmineCha/Scripts/reverse_bullet.gd" id="1_jgjge"]
+[ext_resource type="Texture2D" uid="uid://c7t1in74g4rs3" path="res://JasmineCha/Sprites/Bullets/purple-bullet.png" id="2_pmk50"]
+[ext_resource type="Texture2D" uid="uid://d2iem1hnjpffq" path="res://JasmineCha/Sprites/Bullets/red-bullet.png" id="3_pg6ue"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8o4pu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_avpji")
+"texture": ExtResource("2_pmk50")
 }],
 "loop": true,
 "name": &"default",
@@ -16,7 +16,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_a4g8x")
+"texture": ExtResource("3_pg6ue")
 }],
 "loop": true,
 "name": &"reverse",
@@ -24,7 +24,7 @@ animations = [{
 }]
 
 [node name="ReverseBullet" type="Node2D"]
-script = ExtResource("1_0ixm2")
+script = ExtResource("1_jgjge")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(8, 8)

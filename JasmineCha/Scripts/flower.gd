@@ -6,8 +6,8 @@ var new_rotation = 0
 @onready var rotation_st = $RotationShootTimer
 @onready var rotater = $Rotater
 
-var leaf_scene = preload("res://JasmineCha/Scenes/Bullets/leaf.tscn")
-var itazura_flame_scene = preload("res://Ghost/Scenes/Bullets/ItazuraFlame.tscn")
+var leaf_scene = preload("res://JasmineCha/Scenes/Bullets/leafBullet.tscn")
+var itazura_flame_scene = preload("res://Ghost/Scenes/Bullets/ItazuraFlameBullet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

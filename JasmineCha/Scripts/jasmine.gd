@@ -4,11 +4,19 @@ var speed = 2
 var speed_factor = 1
 var dir = Vector2.ZERO
 var intro = false
+var build_up = false
+var yabai = false
 var rotate_speed = 100
+var rotate_me = false
+var jas_rotate_speed = 100
 var new_rotation = 0
 var bullet_type = "green&blue"
 var bullet_type2 = "target"
 var green_blue_toggle = true
+var del = 0
+var a = dir.angle()
+var center = Vector2(960, 550)
+var radius = 100
 
 var player = null
 
@@ -17,12 +25,12 @@ var player = null
 @onready var rotater = $Rotater
 
 #Bullets
-var blue_scene = preload("res://JasmineCha/Scenes/Bullets/blue.tscn")
-var green_scene = preload("res://JasmineCha/Scenes/Bullets/green.tscn")
-var flower_scene = preload("res://JasmineCha/Scenes/Bullets/flower.tscn")
-var thorn_scene = preload("res://JasmineCha/Scenes/Bullets/thorn.tscn")
-var target_leaf_scene = preload("res://JasmineCha/Scenes/Bullets/target_leaf.tscn")
-var purple_scene = preload("res://JasmineCha/Scenes/Bullets/reverse_bullet.tscn")
+var blue_scene = preload("res://JasmineCha/Scenes/Bullets/blueBullet.tscn")
+var green_scene = preload("res://JasmineCha/Scenes/Bullets/greenBullet.tscn")
+var flower_scene = preload("res://JasmineCha/Scenes/Bullets/flowerBullet.tscn")
+var thorn_scene = preload("res://JasmineCha/Scenes/Bullets/thornBullet.tscn")
+var target_leaf_scene = preload("res://JasmineCha/Scenes/Bullets/target_leafBullet.tscn")
+var purple_scene = preload("res://JasmineCha/Scenes/Bullets/reverseBullet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,10 +39,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.y += dir.y * abs(speed)
-	position.x += dir.x * speed
 	new_rotation = rotater.rotation_degrees + rotate_speed * delta
 	rotater.rotation_degrees = fmod(new_rotation, 360)
+	if rotate_me: 
+		a += jas_rotate_speed * delta
+		a = fmod(a, TAU)
+		dir = Vector2(cos(a), sin(a)).normalized()
+		position = center + dir * radius
+	else:
+		position.y += dir.y * abs(speed)
+		position.x += dir.x * speed	
 
 func custom_dir(angle):
 	dir = Vector2(cos(angle), sin(angle)).normalized()
@@ -286,7 +300,7 @@ func attack_sequence():
 			speed *= speed_factor
 			for j in range(timer_vals.size()):
 				timer_vals[j] /= speed_factor
-	else:
+	elif build_up:
 		star_shot(50, 0.1, 0)
 		await wait_for_timer(0.5)
 		custom_dir(PI)
@@ -359,12 +373,35 @@ func attack_sequence():
 		await wait_for_timer(0.1)
 		position.x = 850
 		position.y = 350
-		speed=5
-		custom_dir(PI/2)
-		rotational_shoot("target", 100, 0.1, 30, 30)
-		rotational_shoot2("flower", 100, 0.1, 50, 50)
+		queue_free()
+	
+	elif yabai:
+		speed = 10
+		await wait_for_timer(.4)
+		rotational_shoot("purple", 100, 0.1, 10, 50)
+		speed = 0
+		await wait_for_timer(.1)
+		a = dir.angle()
+		jas_rotate_speed = 2
+		radius = 500
+		rotate_me = true
+		rotational_shoot("green&blueburst", 100, 0.1, 10, 50)
+		await wait_for_timer(.3)
+		rotational_shoot("purple", 100, 0.1, 10, 50)
+		rotational_shoot2("target", 100, 0.1, 10, 50)
+		jas_rotate_speed = -2
+		await wait_for_timer(.3)
+		rotational_shoot("green&blueburst", 100, 0.1, 10, 50)
+		jas_rotate_speed = -3
+		await wait_for_timer(.3)
+		rotational_shoot("blue", 100, 0.1, 10, 50)
+		star_shot(1, 0.1, 0)
+		jas_rotate_speed = 3
 		await wait_for_timer(.5)
-		rotational_shoot2("purple", 100, 0.1, 50, 50)
+		jas_rotate_speed = -4
+		rotational_shoot("flower", 100, 0.1, 10, 50)
+#		jas_rotate_speed = -500
+		#queue_free()
 
 
 
