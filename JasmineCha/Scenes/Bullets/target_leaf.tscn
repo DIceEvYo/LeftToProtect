@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://coquy0gucqid6"]
+
+[ext_resource type="Script" path="res://JasmineCha/Scripts/target_leaf.gd" id="1_ttoav"]
+[ext_resource type="Texture2D" uid="uid://ldlghwxirppx" path="res://JasmineCha/Sprites/Bullets/leafpink.png" id="2_u32vt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f5ki6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u32vt")
+}],
+"loop": true,
+"name": &"comet",
+"speed": 5.0
+}]
+
+[node name="TargetLeaf" type="Node2D"]
+script = ExtResource("1_ttoav")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_f5ki6")
+animation = &"comet"
+
+[node name="WaitTimer" type="Timer" parent="."]

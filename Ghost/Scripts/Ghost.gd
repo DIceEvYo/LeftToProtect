@@ -70,6 +70,7 @@ func _on_shoot_timer_2_timeout():
 				ghost_orb.position = position
 				ghost_orb.rotation = s.global_rotation
 			ice = !ice
+			rotater.remove_child(s)
 
 func _process(delta):
 	linear_velocity = dir * speed

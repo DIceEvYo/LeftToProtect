@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6iplyrbae36m"]
+
+[ext_resource type="Script" path="res://JasmineCha/Scripts/blue.gd" id="1_2lnuj"]
+[ext_resource type="Texture2D" uid="uid://dyf7hq40qd605" path="res://JasmineCha/Sprites/Bullets/blue-bullet.png" id="2_cmqbs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fshc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cmqbs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Blue" type="Node2D"]
+script = ExtResource("1_2lnuj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_1fshc")

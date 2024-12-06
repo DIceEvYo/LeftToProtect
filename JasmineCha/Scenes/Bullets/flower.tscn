@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://x10q5l56xp1y"]
+
+[ext_resource type="Script" path="res://JasmineCha/Scripts/flower.gd" id="1_s5vmv"]
+[ext_resource type="Texture2D" uid="uid://dt6yppw8o3dy3" path="res://JasmineCha/Sprites/Bullets/flower.png" id="2_ydena"]
+[ext_resource type="Texture2D" uid="uid://p2aseutwm31s" path="res://JasmineCha/Sprites/Bullets/flower - Copy.png" id="3_hrgdv"]
+[ext_resource type="Texture2D" uid="uid://ugquffbs7mq1" path="res://JasmineCha/Sprites/Bullets/flower - Copy (2).png" id="4_cpkjn"]
+[ext_resource type="Texture2D" uid="uid://d1eep3x0abuvm" path="res://JasmineCha/Sprites/Bullets/flower - Copy (3).png" id="5_uslds"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o62t5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ydena")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hrgdv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cpkjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uslds")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
+
+[node name="Flower" type="Node2D"]
+position = Vector2(724, 366)
+script = ExtResource("1_s5vmv")
+metadata/_edit_group_ = true
+
+[node name="WaitTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_o62t5")
+frame_progress = 0.181165
+
+[node name="BakudanTimer" type="Timer" parent="."]
+
+[node name="Rotater" type="Node2D" parent="."]
+scale = Vector2(1.06838, 1)
+
+[node name="RotationShootTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="BakudanTimer" to="." method="_on_bakudan_timer_timeout"]
+[connection signal="timeout" from="RotationShootTimer" to="." method="_on_rotation_shoot_timer_timeout"]
