@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgqkv5qtr6hj1"]
+
+[ext_resource type="Script" path="res://Maid/Scripts/maid.gd" id="1_nsybm"]
+[ext_resource type="Texture2D" uid="uid://cll6o5tbhgaut" path="res://Maid/Sprites/pixil-frame-0_1.png" id="2_rc0mu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnhhb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rc0mu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gksph"]
+radius = 54.487
+height = 108.974
+
+[node name="Maid" type="RigidBody2D"]
+z_index = 1
+position = Vector2(1004, 112)
+scale = Vector2(0.936, 0.936)
+collision_layer = 8
+collision_mask = 5
+gravity_scale = 0.0
+script = ExtResource("1_nsybm")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_qnhhb")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Rotater" type="Node2D" parent="."]
+scale = Vector2(1.06838, 1.06838)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 0
+position = Vector2(2.13678, 0)
+shape = SubResource("CapsuleShape2D_gksph")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
