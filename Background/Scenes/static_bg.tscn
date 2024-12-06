@@ -15,6 +15,7 @@ animations = [{
 }]
 
 [node name="StaticBG" type="AnimatedSprite2D"]
+z_index = -1
 scale = Vector2(3.96075, 3.96075)
 sprite_frames = SubResource("SpriteFrames_ilkss")
 animation = &"bg"

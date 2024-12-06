@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://Background/Scripts/revolving_bg.gd" id="1_frtfi"]
 
 [node name="RevolvingBG" type="Node2D"]
+z_index = -1
 script = ExtResource("1_frtfi")
