@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch8wjmffcdin0"]
+
+[ext_resource type="Texture2D" uid="uid://dflqtnf3an3v" path="res://Background/bg-art.png" id="1_4qpj1"]
+[ext_resource type="Script" path="res://Background/Scripts/static_bg.gd" id="2_udfrh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ilkss"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4qpj1")
+}],
+"loop": true,
+"name": &"bg",
+"speed": 5.0
+}]
+
+[node name="StaticBG" type="AnimatedSprite2D"]
+scale = Vector2(3.96075, 3.96075)
+sprite_frames = SubResource("SpriteFrames_ilkss")
+animation = &"bg"
+script = ExtResource("2_udfrh")
