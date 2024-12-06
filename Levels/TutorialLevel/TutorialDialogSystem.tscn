@@ -1,20 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://ckivw7x1wkiuv"]
+[gd_scene load_steps=13 format=3 uid="uid://nahiaanmaaht"]
 
-[ext_resource type="Script" path="res://Ghost/Scripts/DialogSystem.gd" id="1_2kx7h"]
-[ext_resource type="Texture2D" uid="uid://c6n3sqr5vo7fb" path="res://Ghost/Sprites/Dialog/Box.png" id="1_4oouj"]
-[ext_resource type="AudioStream" uid="uid://cvpkgmae2qkpd" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="2_bkqnw"]
-[ext_resource type="FontFile" uid="uid://de0cdqwkvrdvv" path="res://Ghost/Fonts/Akronim-Regular.ttf" id="2_f574k"]
-[ext_resource type="FontFile" uid="uid://bqk07ge78exxi" path="res://Ghost/Fonts/YujiBoku-Regular.ttf" id="3_bqdob"]
-[ext_resource type="AudioStream" uid="uid://dr6goalekhwtt" path="res://Ghost/Music/PhantomMemory.wav" id="4_v2pad"]
-[ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="5_7aeq0"]
-[ext_resource type="FontFile" uid="uid://dfuae01lg0h4e" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_rt3m0"]
-[ext_resource type="Texture2D" uid="uid://8rij8vhxvqpc" path="res://Ghost/幽霊イラスト/真面目/まじ？.png" id="6_tjst8"]
+[ext_resource type="Script" path="res://Levels/TutorialLevel/Scripts/TutorialDialogSystem.gd" id="1_h8c1m"]
+[ext_resource type="AudioStream" uid="uid://cvpkgmae2qkpd" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_j05gu"]
+[ext_resource type="FontFile" uid="uid://dfuae01lg0h4e" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_blfry"]
+[ext_resource type="Texture2D" uid="uid://c6n3sqr5vo7fb" path="res://Ghost/Sprites/Dialog/Box.png" id="6_ql6uo"]
+[ext_resource type="AudioStream" uid="uid://dr6goalekhwtt" path="res://Ghost/Music/PhantomMemory.wav" id="7_hecsv"]
+[ext_resource type="Texture2D" uid="uid://8rij8vhxvqpc" path="res://Ghost/幽霊イラスト/真面目/まじ？.png" id="8_npls4"]
+[ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="9_txhm0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_am7qi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_4oouj")
+"texture": ExtResource("6_ql6uo")
 }],
 "loop": true,
 "name": &"default",
@@ -73,17 +71,17 @@ _data = {
 "fade_out": SubResource("Animation_v0cll")
 }
 
-[node name="DialogSystem" type="Control"]
+[node name="TutorialDialogSystem" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 960.0
 offset_top = 857.0
 offset_right = 1000.0
 offset_bottom = 897.0
-script = ExtResource("1_2kx7h")
+script = ExtResource("1_h8c1m")
 metadata/_edit_group_ = true
 
-[node name="Name_en" type="RichTextLabel" parent="."]
+[node name="Golem" type="RichTextLabel" parent="."]
 z_index = 1
 layout_mode = 0
 offset_left = -679.0
@@ -91,24 +89,22 @@ offset_top = -147.0
 offset_right = -272.0
 offset_bottom = -49.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("2_f574k")
-theme_override_font_sizes/normal_font_size = 76
-text = "Yuuki Sentaku"
+theme_override_font_sizes/normal_font_size = 70
+text = "Golem"
 
-[node name="Name_jp" type="RichTextLabel" parent="."]
+[node name="Golem_Minion" type="RichTextLabel" parent="."]
 z_index = 1
 layout_mode = 0
 offset_left = -679.0
 offset_top = -147.0
-offset_right = -272.0
-offset_bottom = -49.0
+offset_right = -191.0
+offset_bottom = -51.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("3_bqdob")
-theme_override_font_sizes/normal_font_size = 65
-text = "幽鬼爓魄"
+theme_override_font_sizes/normal_font_size = 70
+text = "Golem Minion"
 
 [node name="Voice" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_bkqnw")
+stream = ExtResource("4_j05gu")
 volume_db = -20.0
 
 [node name="Dialog" type="RichTextLabel" parent="."]
@@ -118,7 +114,6 @@ offset_left = -674.0
 offset_top = -53.0
 offset_right = 681.0
 offset_bottom = 177.0
-theme_override_fonts/normal_font = ExtResource("2_f574k")
 theme_override_font_sizes/normal_font_size = 51
 
 [node name="DialogJP" type="RichTextLabel" parent="."]
@@ -128,15 +123,16 @@ offset_left = -674.0
 offset_top = -53.0
 offset_right = 681.0
 offset_bottom = 177.0
-theme_override_fonts/normal_font = ExtResource("5_rt3m0")
+theme_override_fonts/normal_font = ExtResource("5_blfry")
 theme_override_font_sizes/normal_font_size = 51
 
 [node name="Dialog_Box" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.31231, 1.17143)
 sprite_frames = SubResource("SpriteFrames_am7qi")
+frame_progress = 0.791521
 
 [node name="DialogueBG" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_v2pad")
+stream = ExtResource("7_hecsv")
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -150,7 +146,7 @@ modulate = Color(1, 1, 1, 0)
 z_index = -1
 position = Vector2(0, -300)
 scale = Vector2(0.322941, 0.322941)
-texture = ExtResource("6_tjst8")
-script = ExtResource("5_7aeq0")
+texture = ExtResource("8_npls4")
+script = ExtResource("9_txhm0")
 
 [connection signal="finished" from="Voice" to="." method="_on_voice_finished"]
