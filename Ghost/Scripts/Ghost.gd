@@ -17,6 +17,7 @@ var phantom_ice_scene = preload("res://Ghost/Scenes/Bullets/PhantomIce.tscn")
 var bakudan_bullet_scene = preload("res://Ghost/Scenes/Bullets/BakudanBullet.tscn")
 var itazura_bullet_scene = preload("res://Ghost/Scenes/Bullets/ItazuraFlame.tscn")
 var targetted_bullet_scene = preload("res://Ghost/Scenes/Bullets/TargettedBullet.tscn")
+var icy_scene = preload("res://Ghost/Scenes/Bullets/icy_ice.tscn")
 @onready var shoot_timer2 = $ShootTimer2
 @onready var rotater = $Rotater
 var rotate_speed = 100
@@ -293,7 +294,101 @@ func attack_sequence():
 	await wait_for_timer(.5)
 	rotational_shoot(800, 0.1, 50, 40)	
 	await wait_for_timer(.5)
-	rotational_shoot(1000, 0.1, 80, 60)	
+	rotational_shoot(1000, 0.1, 80, 60)
+	rs_mode = true
+	targetted_starfish(40,.08,70)
+	rotational_shoot(1000, 0.1, 80, 60)
+	icy_starfish(40,.1,70, (5*PI)/6, PI/6)
+	await wait_for_timer(1)
+	rotational_shoot(1000, 0.1, 80, 60)
+	await wait_for_timer(2)
+	icy_starfish(40,.5,70, (5*PI)/6, PI/6)
+	targetted_starfish(40,.08,70)
+	await wait_for_timer(1)
+	rotational_shoot(500, 0.1, 80, 60)
+	icy_starfish(40,.5,70, (3*PI)/4, PI/4)
+	targetted_starfish(40,.08,70)
+	await wait_for_timer(2)
+	rotational_shoot(1000, 0.1, 100, 60)
+	icy_starfish(40,.5,70, (5*PI)/6, PI/6)
+	icy_starfish(40,.5,70, (3*PI)/4, PI/4)
+	icy_starfish(40,.5,70, (2*PI)/3, PI/3)
+	targetted_starfish(40,.08,70)
+	await wait_for_timer(2)
+	drop_bakudan(10, 0.05)
+	rotational_shoot(1000, 0.1, 100, 60)
+	icy_starfish(40,.5,70, (5*PI)/6, PI/6)
+	icy_starfish(40,.5,70, (3*PI)/4, PI/4)
+	icy_starfish(40,.5,70, (2*PI)/3, PI/3)
+	diagonal_trick(8, 0.05, 5)	
+	targetted_starfish(40,.08,70)
+	await wait_for_timer(.5)
+	rotational_shoot(1000, 0.1, 200, 60)
+	await wait_for_timer(4)
+	rs_mode = false
+	speed = 100
+	custom_dir(0)
+	drop_bakudan(36, .25)
+	await wait_for_timer(9)
+	rs_mode = false
+	await wait_for_timer(1)
+	rs_mode = true
+	rotational_shoot(500, 0.1, 30, 20)	
+	speed = 400
+	custom_dir(PI)
+	drop_bakudan(40, 0.05)
+	drop_bakudan(40, 0.05)
+	icy_starfish(40,.5,70, (2*PI)/3, PI/3)
+	diagonal_trick(8, 0.05, 5)	
+	targetted_starfish(40,.08,70)
+	await wait_for_timer(1)
+	drop_bakudan(40, 0.05)
+	drop_bakudan(40, 0.05)
+	icy_starfish(40,.5,70, (2*PI)/3, PI/3)
+	diagonal_trick(8, 0.05, 5)	
+	targetted_starfish(40,.08,70)
+	await wait_for_timer(1)
+	rotational_shoot(500, 0.1, 30, 100)	
+	drop_bakudan(40, 0.05)
+	drop_bakudan(40, 0.05)
+	icy_starfish(40,.5,70, (5*PI)/6, PI/6)
+	await wait_for_timer(1)
+	rotational_shoot(500, 0.1, 30, 100)	
+	drop_bakudan(40, 0.05)
+	drop_bakudan(40, 0.05)
+	icy_starfish(40,.5,70, (5*PI)/6, PI/6)
+	await wait_for_timer(1)
+	custom_dir(0)
+	rotational_shoot(1000, 0.4, 30, 100)	
+	drop_bakudan(40, 0.05)
+	drop_bakudan(40, 0.05)
+	icy_starfish(40,.5,70, (3*PI)/4, PI/4)
+	await wait_for_timer(1)
+	rotational_shoot(1000, 0.4, 30, 100)	
+	drop_bakudan(40, 0.05)
+	drop_bakudan(40, 0.05)
+	icy_starfish(40,.5,70, (3*PI)/4, PI/4)
+	await wait_for_timer(1)
+	icy_starfish(40,.5,70, (5*PI)/6, PI/6)
+	rotational_shoot(1000, 0.4, 30, 100)	
+	drop_bakudan(40, 0.05)
+	drop_bakudan(40, 0.05)
+	targetted_starfish(40,.08,70)
+	await wait_for_timer(1)
+	icy_starfish(40,.5,70, (5*PI)/6, PI/6)
+	rotational_shoot(1000, 0.4, 30, 100)	
+	drop_bakudan(40, 0.05)
+	drop_bakudan(40, 0.05)
+	targetted_starfish(40,.08,70)
+	await wait_for_timer(1)
+	rotational_shoot(1000, 0.4, 30, 100)	
+	speed = 400
+	custom_dir(PI)
+	drop_bakudan(40, 0.05)
+	drop_bakudan(40, 0.05)
+	await wait_for_timer(1.85)
+	speed = 0
+	
 		
 func rotate_me(steps, radius, rot_speed):
 	var angle = 0.0  #Current angle for circular motion
@@ -391,6 +486,62 @@ func diagonal_trick(bullets_to_shoot, shoot_delay, rain):
 			add_child(itazura_flame_l)
 			add_child(itazura_flame_r)
 		speed -= 200
+
+func icy_starfish(bullets_to_shoot, shoot_delay, pos_offset, left_angle, right_angle):
+	for i in range(0, bullets_to_shoot):
+		await shoot_timer(shoot_delay)
+		var icy_tl = icy_scene.instantiate()
+		icy_tl.position = position
+		icy_tl.position.x = position.x+pos_offset
+		icy_tl.direction = Vector2(cos(left_angle), sin(left_angle)).normalized()
+		var icy_tr = icy_scene.instantiate()
+		icy_tr.position = position
+		icy_tr.position.x = position.x-pos_offset
+		icy_tr.direction = Vector2(cos(right_angle), sin(right_angle)).normalized()
+		var icy_dl = icy_scene.instantiate()
+		icy_dl.position = position
+		icy_dl.position.x = position.x+pos_offset
+		icy_dl.direction = Vector2(cos(left_angle), sin(left_angle)).normalized()
+		var icy_dr = icy_scene.instantiate()
+		icy_dr.position = position
+		icy_dr.position.x = position.x-pos_offset
+		icy_dr.direction = Vector2(cos(right_angle), sin(right_angle)).normalized()
+		get_parent().add_child(icy_tl)
+		get_parent().add_child(icy_tr)
+		get_parent().add_child(icy_dl)
+		get_parent().add_child(icy_dr)
+		icy_tl.direction += Vector2(cos((PI)/2), sin((PI)/2)).normalized()
+		icy_tr.direction += Vector2(cos((PI)/2), sin((PI)/2)).normalized()
+
+		
+func targetted_starfish(bullets_to_shoot, shoot_delay, pos_offset):
+	for i in range(0, bullets_to_shoot):
+		await shoot_timer(shoot_delay)
+		var target_bullet_tl = targetted_bullet_scene.instantiate()
+		target_bullet_tl.position = position
+		target_bullet_tl.position.x = position.x+pos_offset
+		target_bullet_tl.direction = Vector2(cos((5*PI)/6), sin((5*PI)/6)).normalized()
+		var target_bullet_tr = targetted_bullet_scene.instantiate()
+		target_bullet_tr.position = position
+		target_bullet_tr.position.x = position.x-pos_offset
+		target_bullet_tr.direction = Vector2(cos((PI)/6), sin((PI)/6)).normalized()
+		var target_bullet_dl = targetted_bullet_scene.instantiate()
+		target_bullet_dl.position = position
+		target_bullet_dl.position.x = position.x+pos_offset
+		target_bullet_dl.direction = Vector2(cos((5*PI)/6), sin((5*PI)/6)).normalized()
+		var target_bullet_dr = targetted_bullet_scene.instantiate()
+		target_bullet_dr.position = position
+		target_bullet_dr.position.x = position.x-pos_offset
+		target_bullet_dr.direction = Vector2(cos((PI)/6), sin((PI)/6)).normalized()
+		get_parent().add_child(target_bullet_tl)
+		get_parent().add_child(target_bullet_tr)
+		#get_parent().add_child(target_bullet_dl)
+		#get_parent().add_child(target_bullet_dr)
+		target_bullet_tl.direction += global_position.direction_to(player.global_position)
+		target_bullet_tr.direction += global_position.direction_to(player.global_position)
+		#target_bullet_dl.direction -= global_position.direction_to(player.global_position)
+		#target_bullet_dr.direction -= global_position.direction_to(player.global_position)
+
 
 func uShotLeft1():
 	var gbullet = GhostBullet.instantiate()
