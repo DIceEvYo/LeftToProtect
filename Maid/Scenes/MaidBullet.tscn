@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdyvxgrmdx8dy"]
+
+[ext_resource type="Script" path="res://Maid/Scripts/MaidBullet.gd" id="1_on35d"]
+[ext_resource type="Texture2D" uid="uid://tqavl1olbvvl" path="res://Maid/Sprites/Maid_Bullets/pixil-frame-0.png" id="2_f3ihr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j28ms"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f3ihr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwnac"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m52cg"]
+size = Vector2(30, 18)
+
+[node name="MaidBullet" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_on35d")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_j28ms")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(242, 138)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_hwnac")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_m52cg")

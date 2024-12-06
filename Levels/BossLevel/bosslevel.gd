@@ -10,12 +10,11 @@ func _ready():
 	player.position.y = 970
 	add_child(player)
 	var jasmine = jasmine_scene.instantiate()
-	#ghost.player = player
 	jasmine.position.x = 850
 	jasmine.position.y = 350
 	jasmine.intro = true
+	jasmine.player = player
 	var jasmine1 = jasmine_scene.instantiate()
-	#ghost.player = player
 	jasmine1.position.x = 850
 	jasmine1.position.y = 350
 	jasmine1.intro = true
@@ -27,10 +26,10 @@ func _ready():
 	remove_child(jasmine)
 	remove_child(jasmine1)
 	var jasmine2 = jasmine_scene.instantiate()
-	#ghost.player = player
 	jasmine2.position.x = 850
 	jasmine2.position.y = 350
 	jasmine2.intro = false
+	jasmine2.player = player
 	add_child(jasmine2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
