@@ -371,7 +371,7 @@ func attack_sequence():
 		position.x = 850
 		position.y = 350
 		# for reading
-		await  wait_for_timer(15)
+		await  wait_for_timer(8)
 		get_parent().check_reading()
 		get_tree().quit()
 		# end of reading

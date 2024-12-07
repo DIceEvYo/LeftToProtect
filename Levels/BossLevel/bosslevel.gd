@@ -74,7 +74,14 @@ func _physics_process(_delta):
 func check_reading() -> void:
 	var sum := 0.0
 	var average: float
+	var min: float
 	for frame_rate in frame_rate_readings:
 		sum += frame_rate
 	average = sum / frame_rate_readings.size()
-	print(average)
+	min = frame_rate_readings.min()
+	print("average framerate: " + str(average))
+	print("lowest framerate: " + str(min))
+	
+	#reading without improvements
+	#average: 48.9
+	#min: 1
