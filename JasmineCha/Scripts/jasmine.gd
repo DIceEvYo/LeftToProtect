@@ -6,6 +6,7 @@ var dir = Vector2.ZERO
 var intro = false
 var build_up = false
 var yabai = false
+var end = false
 var rotate_speed = 100
 var rotate_me = false
 var jas_rotate_speed = 100
@@ -399,9 +400,84 @@ func attack_sequence():
 		jas_rotate_speed = 3
 		await wait_for_timer(.5)
 		jas_rotate_speed = -4
+		await wait_for_timer(.5)
+		jas_rotate_speed = 5
 		rotational_shoot("flower", 100, 0.1, 10, 50)
-#		jas_rotate_speed = -500
-		#queue_free()
-
+		await wait_for_timer(.5)
+		jas_rotate_speed = 6
+		rotational_shoot("blue", 100, 0.1, 10, 50)
+		await wait_for_timer(.5)
+		jas_rotate_speed = 7
+		rotational_shoot("green", 100, 0.1, 10, 50)
+		await wait_for_timer(.5)
+		jas_rotate_speed = 8
+		rotational_shoot("green", 100, 0.1, 10, 50)
+		await wait_for_timer(.5)
+		jas_rotate_speed = 8
+		rotational_shoot2("target", 100, 0.1, 10, 50)
+		rotational_shoot("purple", 100, 0.1, 10, 50)
+		await wait_for_timer(.5)
+		jas_rotate_speed += 1
+		rotational_shoot("flower", 100, 0.1, 10, 50)
+		await wait_for_timer(3)
+		star_shot(1, 0.1, 0)
+		await wait_for_timer(.5)
+		jas_rotate_speed += 5
+		rotational_shoot2("target", 100, 0.1, 10, 50)
+		rotational_shoot("purple", 100, 0.1, 10, 50)
+		await wait_for_timer(4)
+		jas_rotate_speed += 100
+		rotational_shoot("green&blueburst", 100, 0.1, 10, 50)
+		rotational_shoot2("target", 100, 0.1, 10, 50)
+		await wait_for_timer(2)
+		star_shot(2, 0.1, 0)
+		rotational_shoot("flower", 100, 0.1, 10, 50)
+		rotational_shoot2("target", 100, 0.1, 10, 50)
+		await wait_for_timer(1)
+		rotate_me = false
+		speed = 3
+		await wait_for_timer(3)
+		queue_free()
+	if end:
+		var timer_vals = [2,2.5,4.5,2.5,2.8]
+		var amount_to_shoot = 10
+		var time_to_shoot = 0.4
+		var mode = "green&blue"
+		for i in range (0, 5):
+			if i==1: mode = "green&blueburst"
+			if i==2: 
+				mode = "flower"
+				amount_to_shoot = 10
+			if i > 2: mode = "blue"
+			rotational_shoot(mode, 100, time_to_shoot, amount_to_shoot, 100)	
+			custom_dir(PI)
+			await wait_for_timer(timer_vals[0]) 
+			rotational_shoot(mode, 100, time_to_shoot, amount_to_shoot, 100)	
+			custom_dir(PI/2)
+			await wait_for_timer(timer_vals[1]) 
+			rotational_shoot(mode, 100, time_to_shoot, amount_to_shoot, 100)	
+			custom_dir(0)
+			await wait_for_timer(timer_vals[2]) 
+			if i==2: 
+				mode = "flower"
+				amount_to_shoot = 20
+			rotational_shoot(mode, 100, time_to_shoot, amount_to_shoot, 100)	
+			custom_dir((3*PI)/2)
+			await wait_for_timer(timer_vals[3])
+			rotational_shoot("green&blue", 100, time_to_shoot, amount_to_shoot, 100)	
+			custom_dir(PI)
+			await wait_for_timer(timer_vals[4])
+			if i < 3:
+				speed_factor += .3
+			else:
+				speed_factor -= .3
+			time_to_shoot -= 0.05
+			amount_to_shoot += 5
+			if i < 3:
+				speed *= speed_factor
+			else:
+				speed -= .6
+			for j in range(timer_vals.size()):
+				timer_vals[j] /= speed_factor
 
 

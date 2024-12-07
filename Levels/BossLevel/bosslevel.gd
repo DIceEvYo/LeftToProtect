@@ -41,7 +41,23 @@ func _ready():
 		jasmine3.player = player
 		jasmine3.yabai = true
 		add_child(jasmine3)
-
+	await wait_for_timer(23)
+	jasmine = jasmine_scene.instantiate()
+	jasmine.position.x = 850
+	jasmine.position.y = 350
+	jasmine.end = true
+	jasmine.player = player
+	jasmine1 = jasmine_scene.instantiate()
+	jasmine1.position.x = 850
+	jasmine1.position.y = 350
+	jasmine1.end = true
+	jasmine1.speed = -2
+	add_child(jasmine)
+	add_child(jasmine1)
+	await wait_for_timer(43)
+	remove_child(jasmine)
+	remove_child(jasmine1)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
