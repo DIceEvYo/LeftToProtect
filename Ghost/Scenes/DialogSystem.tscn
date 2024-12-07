@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ckivw7x1wkiuv"]
+[gd_scene load_steps=21 format=3 uid="uid://ckivw7x1wkiuv"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/DialogSystem.gd" id="1_2kx7h"]
 [ext_resource type="Texture2D" uid="uid://bup5m1arpeubd" path="res://Ghost/Sprites/Dialog/Box.png" id="1_4oouj"]
@@ -9,6 +9,11 @@
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="5_7aeq0"]
 [ext_resource type="FontFile" uid="uid://b0rf0yqvqvi6a" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_rt3m0"]
 [ext_resource type="Texture2D" uid="uid://wjat67ukce5h" path="res://Ghost/Illustrations/serious/seriously.png" id="6_tjst8"]
+[ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="10_ig25j"]
+[ext_resource type="Texture2D" uid="uid://cww2ut2jn2m7o" path="res://Player/Sprites/GolemSprite-0002.png" id="11_q8ixv"]
+[ext_resource type="Texture2D" uid="uid://dwa1rxnsvj522" path="res://Player/Sprites/GolemSprite-0003.png" id="12_q1cbx"]
+[ext_resource type="Texture2D" uid="uid://dpumnykig4p67" path="res://Player/Sprites/GolemSprite-0004.png" id="13_o1n4t"]
+[ext_resource type="Script" path="res://Ghost/Scenes/MiniGolemThrow.gd" id="14_rcmgb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_am7qi"]
 animations = [{
@@ -73,6 +78,26 @@ _data = {
 "fade_out": SubResource("Animation_v0cll")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0egp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ig25j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_q8ixv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_q1cbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_o1n4t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
 [node name="DialogSystem" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -94,6 +119,28 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("2_f574k")
 theme_override_font_sizes/normal_font_size = 76
 text = "Yuuki Sentaku"
+
+[node name="Name_en2" type="RichTextLabel" parent="."]
+z_index = 1
+offset_left = -679.0
+offset_top = -147.0
+offset_right = -272.0
+offset_bottom = -49.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_f574k")
+theme_override_font_sizes/normal_font_size = 76
+text = "Golem"
+
+[node name="Name_en3" type="RichTextLabel" parent="."]
+z_index = 1
+offset_left = -679.0
+offset_top = -147.0
+offset_right = -272.0
+offset_bottom = -49.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_f574k")
+theme_override_font_sizes/normal_font_size = 76
+text = "GolemMinion"
 
 [node name="Name_jp" type="RichTextLabel" parent="."]
 z_index = 1
@@ -152,5 +199,12 @@ position = Vector2(0, -300)
 scale = Vector2(0.322941, 0.322941)
 texture = ExtResource("6_tjst8")
 script = ExtResource("5_7aeq0")
+
+[node name="MiniGolemThrow" type="AnimatedSprite2D" parent="."]
+position = Vector2(-900, 250)
+sprite_frames = SubResource("SpriteFrames_k0egp")
+frame = 3
+frame_progress = 0.914027
+script = ExtResource("14_rcmgb")
 
 [connection signal="finished" from="Voice" to="." method="_on_voice_finished"]
