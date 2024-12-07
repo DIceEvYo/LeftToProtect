@@ -31,6 +31,7 @@ func _ready():
 	await wait_for_timer(2)
 	remove_child(ghost)
 	remove_child(player)
+	queue_free()
 
 func _process(delta):
 	pass

@@ -310,7 +310,7 @@ func _ready():
 		#$Name_jp.modulate.a -= 0.05
 		#$Timer.start(.01)
 		#await $Timer.timeout
-	#queue_free()
+	queue_free()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

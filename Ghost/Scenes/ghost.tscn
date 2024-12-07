@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cn8mjfnyj7r7w"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/Ghost.gd" id="1_bxn27"]
-[ext_resource type="Texture2D" uid="uid://be4mpg551w2xq" path="res://Ghost/Sprites/Character/Idle/ghost-idle.png" id="2_e6ba6"]
-[ext_resource type="Texture2D" uid="uid://4nc016d4o5tq" path="res://Ghost/Sprites/Character/Idle/ghost-idle-1.png" id="3_q6jen"]
+[ext_resource type="Texture2D" uid="uid://d321ai6ynrfud" path="res://Ghost/Sprites/Character/Idle/ghost-idle.png" id="2_e6ba6"]
+[ext_resource type="Texture2D" uid="uid://ceck8jca2dwgv" path="res://Ghost/Sprites/Character/Idle/ghost-idle-1.png" id="3_q6jen"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n1vui"]
 animations = [{

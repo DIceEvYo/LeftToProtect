@@ -57,6 +57,7 @@ func _ready():
 	await wait_for_timer(43)
 	remove_child(jasmine)
 	remove_child(jasmine1)
+	queue_free()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

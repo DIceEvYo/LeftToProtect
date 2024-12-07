@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7axt5ftaoffc"]
 
 [ext_resource type="Script" path="res://Title Screen/title_screen.gd" id="1_ad2l4"]
-[ext_resource type="Texture2D" uid="uid://do5q6efy8wk4q" path="res://Title Screen/Title Image.png" id="2_mbeo3"]
+[ext_resource type="Texture2D" uid="uid://iix0s5c0fl7r" path="res://Title Screen/Title Image.png" id="2_mbeo3"]
 
 [sub_resource type="FontFile" id="FontFile_8plam"]
 cache/0/16/0/ascent = 0.0
@@ -9,6 +9,7 @@ cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [node name="Title Screen" type="Control"]
 layout_mode = 3
