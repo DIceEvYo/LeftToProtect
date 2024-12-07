@@ -2,6 +2,7 @@ extends Node2D
 
 var player_scene = preload("res://Player/player.tscn")
 var jasmine_scene = load("res://JasmineCha/Scenes/jasmine.tscn")
+@onready var frame_rate_label = $FrameRateLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -62,3 +63,7 @@ func _ready():
 func wait_for_timer(duration):
 	$WaitTimer.start(duration)  #Start the timer with the specified duration
 	await $WaitTimer.timeout    #Wait until the timeout signal is emitted
+
+# only used for getting frame rate
+func _physics_process(_delta):
+	frame_rate_label.text = "Frame rate: " + str(Engine.get_frames_per_second())

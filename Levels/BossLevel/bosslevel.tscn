@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctqqfkdvifbh6"]
+[gd_scene load_steps=7 format=3 uid="uid://ctqqfkdvifbh6"]
 
 [ext_resource type="Script" path="res://Levels/BossLevel/bosslevel.gd" id="1_8d3dd"]
 [ext_resource type="AudioStream" uid="uid://dqp4ph08ki4ks" path="res://JasmineCha/Music/Sacrificial Tea Ceremony Xtended.mp3" id="2_deye6"]
@@ -38,6 +38,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Theme" id="Theme_37giy"]
+default_font_size = 50
+
 [node name="BossLevel" type="Node2D"]
 script = ExtResource("1_8d3dd")
 
@@ -57,3 +60,9 @@ sprite_frames = SubResource("SpriteFrames_f4ff1")
 animation = &"cloud1"
 
 [node name="WaitTimer" type="Timer" parent="."]
+
+[node name="FrameRateLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_37giy")
+text = "Frame rate:"
