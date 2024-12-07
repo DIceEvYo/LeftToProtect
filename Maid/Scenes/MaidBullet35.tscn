@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://clbxbkhrbux53"]
+[gd_scene load_steps=7 format=3 uid="uid://clbxbkhrbux53"]
 
 [ext_resource type="Script" path="res://Maid/Scripts/MaidBullet35.gd" id="1_wo8jq"]
 [ext_resource type="Texture2D" uid="uid://cpxrw3hi4bfe3" path="res://Maid/Sprites/Maid_Bullets/MaidBullet35.png" id="2_5ly0t"]
@@ -25,6 +25,9 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqr5w"]
+size = Vector2(40, 40)
+
 [node name="MaidBullet35" type="Node2D"]
 script = ExtResource("1_wo8jq")
 
@@ -34,5 +37,7 @@ sprite_frames = SubResource("SpriteFrames_lbhpl")
 frame_progress = 0.608007
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_rqr5w")

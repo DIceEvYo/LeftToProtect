@@ -236,7 +236,7 @@ func _on_invincible_frame_timer_timeout() -> void:
 	
 # When called, kills the player and reloads the page.
 func kill() -> void:
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
 	return
 	
 	
@@ -260,9 +260,30 @@ func take_damage() -> void:
 	
 
 
-# Kills/refreshes player/scene when 'Maid' or 'bullet' object interacts with Player.
-func _on_player_body_entered(body: RigidBody2D) -> void:
-	if "Maid" in body.name or "Bullet" in body.name:
+## Kills/refreshes player/scene when 'Maid' or 'bullet' object interacts with Player.
+#func _on_player_body_entered(body: RigidBody2D) -> void:
+	#if "Maid" in body.name or "Bullet" in body.name:
+		## Checks if invincible
+		#if invincible:
+			#return
+		## Mitigate damage if has shield.
+		#elif shield_active:
+			#shield_active = false
+			#return
+		#else:
+			#take_damage()
+			#
+		#if health <= 0:
+			#kill()
+		#
+	#return
+	
+
+
+
+func _on_player_area_entered(area: Area2D) -> void:
+	if "Maid" in area.get_parent().name or "Ghost" in area.get_parent().name or "Bullet" in area.get_parent().name:
+		print("Entered")
 		# Checks if invincible
 		if invincible:
 			return

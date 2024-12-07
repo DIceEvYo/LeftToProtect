@@ -5,7 +5,6 @@ var MaidBullet = preload("res://Maid/Scenes/MaidBullet.tscn")
 var MaidBullet4 = preload("res://Maid/Scenes/MaidBullet4.tscn")
 var bullet = MaidBullet
 
-
 #Rotating bullet
 var MaidBullet2 = preload("res://Maid/Scenes/MaidBullet2.tscn")
 var MaidBullet3 = preload("res://Maid/Scenes/MaidBullet3.tscn")
@@ -192,7 +191,6 @@ func target_bullets(bullets_to_shoot, shoot_delay):
 			soda.position = position
 			soda.dir = global_position.direction_to(player.global_position)
 			get_parent().add_child(soda)
-
 func fight():
 	rotate = MaidBullet3
 	await wait_for_timer(1.5)

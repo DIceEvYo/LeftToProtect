@@ -193,6 +193,7 @@ position = Vector2(0, -20)
 scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_ascc1")
 
+[connection signal="area_entered" from="Player" to="." method="_on_player_area_entered"]
 [connection signal="body_entered" from="Player" to="." method="_on_player_body_entered"]
 [connection signal="timeout" from="Invincible_Frame_Timer" to="." method="_on_invincible_frame_timer_timeout"]
 [connection signal="timeout" from="Baby_Golem_Timer" to="." method="_on_baby_golem_timer_timeout"]

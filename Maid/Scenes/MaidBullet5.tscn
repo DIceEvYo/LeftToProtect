@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5btg01aat4v4"]
+[gd_scene load_steps=4 format=3 uid="uid://c5btg01aat4v4"]
 
 [ext_resource type="Texture2D" uid="uid://o6qnm0kg5tx" path="res://Maid/Sprites/Maid_Bullets/MaidBullet5.png" id="1_k0ktj"]
 [ext_resource type="Script" path="res://Maid/Scripts/MaidBullet5.gd" id="1_ql37w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpeuh"]
 
 [node name="MaidBullet5" type="Node2D"]
 scale = Vector2(3, 3)
@@ -11,5 +13,7 @@ script = ExtResource("1_ql37w")
 texture = ExtResource("1_k0ktj")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_hpeuh")
