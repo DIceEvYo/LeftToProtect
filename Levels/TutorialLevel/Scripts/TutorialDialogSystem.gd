@@ -6,7 +6,7 @@ signal shoot_entered
 
 var player_ref = preload("res://Player/player.tscn")
 var minion = preload("res://Player/BabyGolem.tscn")
-var enemy_bullet = preload("res://Maid/MaidBullet.tscn")
+var enemy_bullet = preload("res://Maid/Scenes/MaidBullet.tscn")
 
 var facial_expression
 

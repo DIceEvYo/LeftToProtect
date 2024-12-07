@@ -3,8 +3,14 @@ extends Node2D
 var player_scene = preload("res://Player/player.tscn")
 var revolving_background_scene = preload("res://Background/Scenes/revolving_bg.tscn")
 var maid_scene = preload("res://Maid/Scenes/Maid.tscn")
+var dialog_scene = preload("res://Maid/Scenes/MaidLevelDialogue.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var dialog = dialog_scene.instantiate()
+	add_child(dialog)
+	await dialog.tree_exited
+	
 	var player = player_scene.instantiate()
 	player.position.x = 960
 	player.position.y = 800
