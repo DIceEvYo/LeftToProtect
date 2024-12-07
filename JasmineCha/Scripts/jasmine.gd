@@ -72,9 +72,7 @@ func rotational_shoot(mode, set_rotate_speed, shoot_timer_wait_time, amount_to_s
 		spawn_point.position = pos
 		spawn_point.rotation = pos.angle()
 		rotater.add_child(spawn_point)
-	rotation_st.wait_time = rotation_st.wait_time
 	rotation_st.start()
-	rotation_st.timeout
 	
 func rotational_shoot2(mode, set_rotate_speed, shoot_timer_wait_time, amount_to_shoot, radius):
 	bullet_type2 = mode
@@ -86,9 +84,7 @@ func rotational_shoot2(mode, set_rotate_speed, shoot_timer_wait_time, amount_to_
 		spawn_point.position = pos
 		spawn_point.rotation = pos.angle()
 		rotater.add_child(spawn_point)
-	rotation_st2.wait_time = rotation_st2.wait_time
 	rotation_st2.start()
-	rotation_st2.timeout	
 
 func _on_rotation_shoot_timer_timeout():
 	for s in rotater.get_children():

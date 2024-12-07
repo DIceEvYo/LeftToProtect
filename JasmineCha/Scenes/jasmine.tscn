@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://y73nwrrjx57y"]
 
-[ext_resource type="Texture2D" uid="uid://cdqja54yubppr" path="res://JasmineCha/Sprites/jasmine-cha.png" id="1_duqev"]
+[ext_resource type="Texture2D" uid="uid://ik61hyubshgu" path="res://JasmineCha/Sprites/jasmine-cha.png" id="1_duqev"]
 [ext_resource type="Script" path="res://JasmineCha/Scripts/jasmine.gd" id="1_ff27l"]
-[ext_resource type="Texture2D" uid="uid://dy78yomxdoao3" path="res://JasmineCha/Sprites/jasmine-cha-1.png" id="2_d108f"]
+[ext_resource type="Texture2D" uid="uid://81uxg547rx0d" path="res://JasmineCha/Sprites/jasmine-cha-1.png" id="2_d108f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3wmcd"]
 animations = [{
@@ -21,7 +21,6 @@ animations = [{
 [node name="Jasmine" type="Node2D"]
 position = Vector2(850, 350)
 script = ExtResource("1_ff27l")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.5, 4.5)
