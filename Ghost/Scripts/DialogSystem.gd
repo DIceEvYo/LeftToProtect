@@ -15,6 +15,13 @@ var dialog_5_1
 var dialog_5_2
 var dialog_6
 var dialog_7
+var dialog_8
+var dialog_9
+var dialog_10
+var dialog_11
+var dialog_12
+var dialog_13
+var dialog_14
 
 func load_dialog():
 	if jp:
@@ -97,9 +104,33 @@ func load_dialog():
 		dialog_7 = [
 			"Anyway... What brings a nonhuman to the underrealm?"
 		]
+		dialog_8 = [
+			"Dirt."
+		]
+		dialog_9 = [
+			"Wha-?"
+		]
+		dialog_10 = [
+			"Did you just throw dirt at me?"
+		]
+		dialog_11 = [
+		"Why yes~ He just did~ Would you like some more?"	
+		]
+		dialog_12 = [
+			"EWWWWWWW!!!",
+			"GET AWAY FROM ME!!!!"
+		]
+		dialog_13 = [
+			"She actually meant to say 'WOOOAAH! THROW IT AT ME!'"
+		]
+		dialog_14 = [
+			"NOOOOOOOO!!!!"
+		]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Name_en2.modulate.a = 0
+	$Name_en3.modulate.a = 0
 	load_dialog()
 	facial_expression = load("res://Ghost/Illustrations/sleepy/lazy.png")
 	$GhostIllust.texture = facial_expression
@@ -133,6 +164,28 @@ func _ready():
 	facial_expression = load("res://Ghost/Illustrations/hmph!/pouty.png")
 	$GhostIllust.texture = facial_expression
 	await read_dialog(dialog_6)
+	$Name_en.modulate.a = 0
+	$Name_en2.modulate.a = 100
+	await read_dialog(dialog_7)
+	$Name_en.modulate.a = 100
+	$Name_en2.modulate.a = 0
+	await read_dialog(dialog_8)
+	$Name_en.modulate.a = 100
+	$Name_en2.modulate.a = 0
+	await read_dialog(dialog_9)
+	await read_dialog(dialog_10)
+	$Name_en3.modulate.a = 100
+	$Name_en.modulate.a = 0
+	await read_dialog(dialog_11)
+	$Name_en3.modulate.a = 0
+	$Name_en.modulate.a = 100
+	await read_dialog(dialog_12)
+	$Name_en3.modulate.a = 100
+	$Name_en.modulate.a = 0
+	await read_dialog(dialog_13)
+	$Name_en3.modulate.a = 0
+	$Name_en.modulate.a = 100
+	await read_dialog(dialog_14)
 	$AnimationPlayer.play("fade_out")
 	await $AnimationPlayer.animation_finished
 	while ($Dialog_Box.modulate.a>0):
