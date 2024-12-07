@@ -1,8 +1,6 @@
 # LeftToProtect 
 Fall 2024 Game Jam Project
 
-### [Getting Started Video Demo] ###
-https://www.youtube.com/watch?v=rLAGCwXTjRE
 
 ### [Commands To Know] ###
 Before executing command locate the terminal to your desired workspace:
