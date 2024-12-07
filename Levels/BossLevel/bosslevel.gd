@@ -3,6 +3,7 @@ extends Node2D
 var player_scene = preload("res://Player/player.tscn")
 var jasmine_scene = load("res://JasmineCha/Scenes/jasmine.tscn")
 @onready var frame_rate_label = $FrameRateLabel
+var frame_rate_readings: Array[float] 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -67,3 +68,13 @@ func wait_for_timer(duration):
 # only used for getting frame rate
 func _physics_process(_delta):
 	frame_rate_label.text = "Frame rate: " + str(Engine.get_frames_per_second())
+	frame_rate_readings.append(Engine.get_frames_per_second())
+
+
+func check_reading() -> void:
+	var sum := 0.0
+	var average: float
+	for frame_rate in frame_rate_readings:
+		sum += frame_rate
+	average = sum / frame_rate_readings.size()
+	print(average)

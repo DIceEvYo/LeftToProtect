@@ -18,7 +18,7 @@ var del = 0
 var a = dir.angle()
 var center = Vector2(960, 550)
 var radius = 100
-
+const CRACKHEAD_SPEED = 0.8
 var player = null
 
 @onready var rotation_st = $RotationShootTimer
@@ -269,28 +269,28 @@ func attack_sequence():
 				amount_to_shoot = 10
 			rotational_shoot(mode, 100, time_to_shoot, amount_to_shoot, 100)	
 			custom_dir(PI)
-			await wait_for_timer(timer_vals[0]) 
+			await wait_for_timer(CRACKHEAD_SPEED) 
 			if i==2: 
 				mode = "flower"
 				amount_to_shoot = 20
 			rotational_shoot(mode, 100, time_to_shoot, amount_to_shoot, 100)	
 			custom_dir(PI/2)
-			await wait_for_timer(timer_vals[1]) 
+			await wait_for_timer(CRACKHEAD_SPEED) 
 			if i==2: 
 				mode = "flower"
 				amount_to_shoot = 30
 			rotational_shoot(mode, 100, time_to_shoot, amount_to_shoot, 100)	
 			custom_dir(0)
-			await wait_for_timer(timer_vals[2]) 
+			await wait_for_timer(CRACKHEAD_SPEED) 
 			if i==2: 
 				mode = "flower"
 				amount_to_shoot = 40
 			rotational_shoot(mode, 100, time_to_shoot, amount_to_shoot, 100)	
 			custom_dir((3*PI)/2)
-			await wait_for_timer(timer_vals[3])
+			await wait_for_timer(CRACKHEAD_SPEED)
 			rotational_shoot("green&blue", 100, time_to_shoot, amount_to_shoot, 100)	
 			custom_dir(PI)
-			await wait_for_timer(timer_vals[4])
+			await wait_for_timer(CRACKHEAD_SPEED)
 			speed_factor += .3
 			time_to_shoot -= 0.05
 			amount_to_shoot *= 2
@@ -299,77 +299,82 @@ func attack_sequence():
 				timer_vals[j] /= speed_factor
 	elif build_up:
 		star_shot(50, 0.1, 0)
-		await wait_for_timer(0.5)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		custom_dir(PI)
 		speed = 10
-		await wait_for_timer(0.5)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		speed = 0
 		rotational_shoot2("target", 100, 0.1, 30, 50)
 		rotational_shoot("blue", 100, 0.1, 30, 50)
-		await wait_for_timer(1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		rotational_shoot("green", 100, 0.1, 30, 100)
-		await wait_for_timer(0.5)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		custom_dir(0)
 		speed = 10
-		await wait_for_timer(1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		speed = 0
 		rotational_shoot2("target", 100, 0.1, 20, 50)
 		rotational_shoot("blue", 100, 0.1, 30, 50)
-		await wait_for_timer(1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		rotational_shoot("green", 100, 0.1, 30, 100)
-		await wait_for_timer(0.2)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		position.x = 200
-		await wait_for_timer(0.2)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		position.x = 850
 		position.y = 350
 		star_shot(50, 0.1, 0)
-		await wait_for_timer(0.5)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		custom_dir(PI)
 		speed = 10
-		await wait_for_timer(0.5)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		speed = 0
 		rotational_shoot2("target", 100, 0.1, 30, 50)
 		rotational_shoot("blue", 100, 0.1, 30, 50)
-		await wait_for_timer(1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		rotational_shoot("green", 100, 0.1, 30, 100)
-		await wait_for_timer(0.5)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		custom_dir(0)
 		speed = 10
-		await wait_for_timer(1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		speed = 0
 		rotational_shoot2("target", 100, 0.1, 10, 50)
 		rotational_shoot("blue", 100, 0.1, 30, 50)
-		await wait_for_timer(1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		rotational_shoot("green", 100, 0.1, 30, 100)
-		await wait_for_timer(1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		position.x = 200
-		await wait_for_timer(0.1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		position.x = 800
-		await wait_for_timer(0.1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		position.x = 500
-		await wait_for_timer(0.1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		position.y = 500
-		await wait_for_timer(0.1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		position.x = 200
 		position.y = 800
-		await wait_for_timer(.1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		position.x = 1000
 		position.y = 300
-		await wait_for_timer(0.1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		position.x = 1500
 		position.y = 800
-		await wait_for_timer(0.1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		position.x = 1300
 		position.y = 100
-		await wait_for_timer(0.1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		position.x = 300
 		position.y = 500
-		await wait_for_timer(0.1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		position.x = 1200
 		position.y = 800
-		await wait_for_timer(0.1)
+		await wait_for_timer(CRACKHEAD_SPEED)
 		position.x = 850
 		position.y = 350
+		# for reading
+		await  wait_for_timer(15)
+		get_parent().check_reading()
+		get_tree().quit()
+		# end of reading
 		queue_free()
 	
 	elif yabai:
