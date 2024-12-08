@@ -7,10 +7,8 @@ var frame_rate_readings: Array[float]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	BulletPool.startup()
-	for i in BulletPool.leaf_pool:
-		get_tree().root.call_deferred("add_child", i)
-	LeafBullet.viewport_rect = get_viewport_rect()
+	var bullet_pool := BulletPool.new()
+	add_child(bullet_pool)
 	var player = player_scene.instantiate()
 	player.position.x = 1030
 	player.position.y = 970

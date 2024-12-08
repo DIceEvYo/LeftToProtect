@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://doy7obdeh3hqo"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/Bullets/ItazuraFlame.gd" id="1_yvnoa"]
-[ext_resource type="Texture2D" uid="uid://d3tvwqugp1kkw" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-0.png" id="2_dr6yt"]
-[ext_resource type="Texture2D" uid="uid://w0bhoj40jc77" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-1.png" id="3_cq272"]
-[ext_resource type="Texture2D" uid="uid://b1yitaior4162" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-2.png" id="4_4fg5k"]
+[ext_resource type="Texture2D" uid="uid://d037ywxa5pg8l" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-0.png" id="2_dr6yt"]
+[ext_resource type="Texture2D" uid="uid://cvk1j0banr40u" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-1.png" id="3_cq272"]
+[ext_resource type="Texture2D" uid="uid://rkjkg5dj4al6" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-2.png" id="4_4fg5k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yrcvv"]
 animations = [{
@@ -29,7 +29,6 @@ height = 12.0
 [node name="ItazuraFlame" type="Node2D"]
 position = Vector2(51, 48)
 script = ExtResource("1_yvnoa")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.5, 4.5)

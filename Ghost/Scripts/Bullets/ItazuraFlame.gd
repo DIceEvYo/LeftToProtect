@@ -1,6 +1,7 @@
 extends Node2D
 
-var speed = 800
+const speed = 800
+var dead := false
 var GhostBullet = preload("res://Ghost/Scenes/Bullets/GravityBullet.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -13,9 +14,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position += transform.x * speed * delta
-	#Removes bullet when it leaves the screen.
-	#if !get_viewport_rect().has_point(position):
-	#	queue_free()
 
 
 func _on_switch_timer_timeout():
@@ -23,4 +21,19 @@ func _on_switch_timer_timeout():
 	gbullet.position = position
 	gbullet.position.x = position.x
 	get_parent().add_child(gbullet)
-	queue_free()
+	_dead()
+
+
+func reset() -> void:
+	if not dead:
+		print("increase limit")
+	dead = false
+	position = Vector2.ZERO
+	set_process(true)
+	visible = true
+
+
+func _dead() -> void:
+	set_process(false)
+	visible = false
+	dead = true

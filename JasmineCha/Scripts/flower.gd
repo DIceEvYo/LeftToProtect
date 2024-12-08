@@ -7,8 +7,6 @@ var new_rotation = 0
 @onready var rotation_st = %RotationShootTimer
 @onready var rotater = %Rotater
 
-var leaf_scene = preload("res://JasmineCha/Scenes/Bullets/leafBullet.tscn")
-var itazura_flame_scene = preload("res://Ghost/Scenes/Bullets/ItazuraFlameBullet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -59,20 +57,24 @@ func _on_rotation_shoot_timer_timeout():
 
 func _on_bakudan_timer_timeout():
 	var tree := get_tree()
-	var itazura_flame = itazura_flame_scene.instantiate()
-	tree.root.add_child(itazura_flame)
+	var itazura_flame = BulletPool.itazura_flame_pool[BulletPool.next_itazura_flame]
+	itazura_flame.reset()
+	BulletPool.next_itazura_flame += 1
 	itazura_flame.position = position
 	itazura_flame.rotation = 2 * PI
-	itazura_flame = itazura_flame_scene.instantiate()
-	tree.root.add_child(itazura_flame)
+	itazura_flame = BulletPool.itazura_flame_pool[BulletPool.next_itazura_flame]
+	itazura_flame.reset()
+	BulletPool.next_itazura_flame += 1
 	itazura_flame.position = position
 	itazura_flame.rotation = (3 * PI)/2
-	itazura_flame = itazura_flame_scene.instantiate()
-	tree.root.add_child(itazura_flame)
+	itazura_flame = BulletPool.itazura_flame_pool[BulletPool.next_itazura_flame]
+	itazura_flame.reset()
+	BulletPool.next_itazura_flame += 1
 	itazura_flame.position = position
 	itazura_flame.rotation = (PI)/2
-	itazura_flame = itazura_flame_scene.instantiate()
-	tree.root.add_child(itazura_flame)
+	itazura_flame = BulletPool.itazura_flame_pool[BulletPool.next_itazura_flame]
+	itazura_flame.reset()
+	BulletPool.next_itazura_flame += 1
 	itazura_flame.position = position
 	itazura_flame.rotation = PI
 	queue_free()
