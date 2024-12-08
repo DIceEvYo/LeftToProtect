@@ -7,6 +7,7 @@ var frame_rate_readings: Array[float]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	LeafBullet.viewport_rect = get_viewport_rect()
 	var player = player_scene.instantiate()
 	player.position.x = 1030
 	player.position.y = 970
@@ -83,5 +84,9 @@ func check_reading() -> void:
 	print("lowest framerate: " + str(min))
 	
 	#reading without improvements
-	#average: 48.9
+	#average: 48.6
 	#min: 1
+	
+	#reading with leaf bullet simplified
+	#average framerate: 52.8936582664082
+	#lowest framerate: 1
