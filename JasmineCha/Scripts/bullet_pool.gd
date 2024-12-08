@@ -5,7 +5,7 @@ class_name BulletPool
 static var leaf_scene = preload("res://JasmineCha/Scenes/Bullets/leafBullet.tscn")
 static var itazura_flame_scene = preload("res://Ghost/Scenes/Bullets/ItazuraFlameBullet.tscn")
 static var leaf_count_max := 250
-static var itazura_flame_max := 100
+static var itazura_flame_max := 400
 static var leaf_pool: Array[LeafBullet]
 static var itazura_flame_pool: Array[Node2D]
 static var next_leaf := 0:

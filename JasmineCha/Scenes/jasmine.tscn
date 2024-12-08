@@ -34,15 +34,16 @@ frame_progress = 0.149446
 one_shot = true
 
 [node name="RotationShootTimer" type="Timer" parent="."]
-wait_time = 0.105
+wait_time = 0.2
+one_shot = true
+
+[node name="Rotater2" type="Node2D" parent="."]
+
+[node name="RotationShootTimer2" type="Timer" parent="."]
+wait_time = 0.051
 one_shot = true
 
 [node name="Rotater" type="Node2D" parent="."]
-scale = Vector2(1.06838, 1)
-
-[node name="RotationShootTimer2" type="Timer" parent="."]
-wait_time = 0.049
-one_shot = true
 
 [connection signal="timeout" from="RotationShootTimer" to="." method="_on_rotation_shoot_timer_timeout"]
 [connection signal="timeout" from="RotationShootTimer2" to="." method="_on_rotation_shoot_timer_2_timeout"]

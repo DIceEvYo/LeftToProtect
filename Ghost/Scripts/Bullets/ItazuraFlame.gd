@@ -26,6 +26,7 @@ func _on_switch_timer_timeout():
 
 func reset() -> void:
 	if not dead:
+		return
 		print("increase limit")
 	dead = false
 	position = Vector2.ZERO

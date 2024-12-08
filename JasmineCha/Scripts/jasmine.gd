@@ -24,6 +24,7 @@ var player = null
 @onready var rotation_st = $RotationShootTimer
 @onready var rotation_st2 = $RotationShootTimer2
 @onready var rotater = $Rotater
+@onready var rotater2 = $Rotater2
 @onready var tree := get_tree()
 
 #Bullets
@@ -159,10 +160,10 @@ func _on_rotation_shoot_timer_timeout():
 			green1.position = position
 			green1.rotation = s.global_rotation
 			green_blue_toggle = !green_blue_toggle
-		rotater.remove_child(s)
+		s.queue_free()
 
 func _on_rotation_shoot_timer_2_timeout():
-	for s in rotater.get_children():
+	for s in rotater2.get_children():
 		if(bullet_type2 == "green&blue"):
 			if (green_blue_toggle):
 				var blue = blue_scene.instantiate()
@@ -233,7 +234,7 @@ func _on_rotation_shoot_timer_2_timeout():
 			green1.position = position
 			green1.rotation = s.global_rotation
 			green_blue_toggle = !green_blue_toggle
-		rotater.remove_child(s)
+		s.queue_free()
 
 
 		
