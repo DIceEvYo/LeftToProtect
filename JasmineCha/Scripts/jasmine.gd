@@ -22,6 +22,7 @@ var center = Vector2(960, 550)
 var radius = 100
 const CRACKHEAD_SPEED = 0.8
 var player = null
+var start := false
 
 @onready var rotation_st = $RotationShootTimer
 @onready var rotation_st2 = $RotationShootTimer2
@@ -71,6 +72,8 @@ func shoot_timer(duration):
 	await $ShootTimer.timeout    #Wait until the timeout signal is emitted
 
 func rotational_shoot(mode, set_rotate_speed, shoot_timer_wait_time, amount_to_shoot, radius):
+	if start:
+		await timer_done
 	bullet_type = mode
 	rotate_speed = set_rotate_speed
 	var rotate_step = 2*PI/amount_to_shoot
@@ -80,8 +83,9 @@ func rotational_shoot(mode, set_rotate_speed, shoot_timer_wait_time, amount_to_s
 		spawn_point.position = pos
 		spawn_point.rotation = pos.angle()
 		rotater.add_child(spawn_point)
+	start = true
 	rotation_st.start()
-	await timer_done
+	
 
 
 func rotational_shoot2(mode, set_rotate_speed, shoot_timer_wait_time, amount_to_shoot, radius):
@@ -169,6 +173,7 @@ func _on_rotation_shoot_timer_timeout() -> void:
 			green1.rotation = s.global_rotation
 			green_blue_toggle = !green_blue_toggle
 		s.queue_free()
+	start = false
 	timer_done.emit()
 
 func _on_rotation_shoot_timer_2_timeout():
