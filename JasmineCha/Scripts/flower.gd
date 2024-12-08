@@ -3,18 +3,18 @@ extends Node2D
 const speed = 500
 var rotate_speed = 100
 var new_rotation = 0
-@onready var rotation_st = $RotationShootTimer
-@onready var rotater = $Rotater
+@onready var rotation_st = %RotationShootTimer
+@onready var rotater = %Rotater
 
 var leaf_scene = preload("res://JasmineCha/Scenes/Bullets/leafBullet.tscn")
 var itazura_flame_scene = preload("res://Ghost/Scenes/Bullets/ItazuraFlameBullet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimatedSprite2D.play("default")
+	%AnimatedSprite2D.play("default")
 	set_as_top_level(true)
 	rotational_shoot(1000, 0.1, 20, 100) 
-	$BakudanTimer.start(1)
+	%BakudanTimer.start(1)
 
 func rotational_shoot(set_rotate_speed, shoot_timer_wait_time, amount_to_shoot, radius):
 	rotate_speed = set_rotate_speed
@@ -25,7 +25,6 @@ func rotational_shoot(set_rotate_speed, shoot_timer_wait_time, amount_to_shoot, 
 		spawn_point.position = pos
 		spawn_point.rotation = pos.angle()
 		rotater.add_child(spawn_point)
-	rotation_st.wait_time = rotation_st.wait_time
 	rotation_st.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,9 +41,10 @@ func _on_area_2d_body_entered(body):
 
 func _on_rotation_shoot_timer_timeout():
 	var count = 0
+	var tree := get_tree()
 	for s in rotater.get_children():
 		var leaf = leaf_scene.instantiate()
-		get_tree().root.add_child(leaf)
+		tree.root.add_child(leaf)
 		leaf.position = position
 		leaf.rotation = s.global_rotation
 		if count == 1: leaf.leaf_type = "red"
@@ -56,20 +56,21 @@ func _on_rotation_shoot_timer_timeout():
 
 
 func _on_bakudan_timer_timeout():
+	var tree := get_tree()
 	var itazura_flame = itazura_flame_scene.instantiate()
-	get_tree().root.add_child(itazura_flame)
+	tree.root.add_child(itazura_flame)
 	itazura_flame.position = position
 	itazura_flame.rotation = 2 * PI
 	itazura_flame = itazura_flame_scene.instantiate()
-	get_tree().root.add_child(itazura_flame)
+	tree.root.add_child(itazura_flame)
 	itazura_flame.position = position
 	itazura_flame.rotation = (3 * PI)/2
 	itazura_flame = itazura_flame_scene.instantiate()
-	get_tree().root.add_child(itazura_flame)
+	tree.root.add_child(itazura_flame)
 	itazura_flame.position = position
 	itazura_flame.rotation = (PI)/2
 	itazura_flame = itazura_flame_scene.instantiate()
-	get_tree().root.add_child(itazura_flame)
+	tree.root.add_child(itazura_flame)
 	itazura_flame.position = position
 	itazura_flame.rotation = PI
 	queue_free()

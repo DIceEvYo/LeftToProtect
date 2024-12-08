@@ -24,6 +24,7 @@ var player = null
 @onready var rotation_st = $RotationShootTimer
 @onready var rotation_st2 = $RotationShootTimer2
 @onready var rotater = $Rotater
+@onready var tree := get_tree()
 
 #Bullets
 var blue_scene = preload("res://JasmineCha/Scenes/Bullets/blueBullet.tscn")
@@ -91,33 +92,33 @@ func _on_rotation_shoot_timer_timeout():
 		if(bullet_type == "green&blue"):
 			if (green_blue_toggle):
 				var blue = blue_scene.instantiate()
-				get_tree().root.add_child(blue)
+				tree.root.add_child(blue)
 				blue.position = position
 				blue.rotation = s.global_rotation
 			else:
 				var green = green_scene.instantiate()
-				get_tree().root.add_child(green)
+				tree.root.add_child(green)
 				green.position = position
 				green.rotation = s.global_rotation
 			green_blue_toggle = !green_blue_toggle
 		if(bullet_type == "flower"):
 			var flower = flower_scene.instantiate()
-			get_tree().root.add_child(flower)
+			tree.root.add_child(flower)
 			flower.position = position
 			flower.rotation = s.global_rotation
 		if(bullet_type == "blue"):
 			var blue = blue_scene.instantiate()
-			get_tree().root.add_child(blue)
+			tree.root.add_child(blue)
 			blue.position = position
 			blue.rotation = s.global_rotation
 		if(bullet_type == "green"):
 			var green = green_scene.instantiate()
-			get_tree().root.add_child(green)
+			tree.root.add_child(green)
 			green.position = position
 			green.rotation = s.global_rotation
 		if(bullet_type == "purple"):
 			var purple = purple_scene.instantiate()
-			get_tree().root.add_child(purple)
+			tree.root.add_child(purple)
 			purple.position = position
 			purple.rotation = s.global_rotation
 		if(bullet_type == "target"):
@@ -125,36 +126,36 @@ func _on_rotation_shoot_timer_timeout():
 			target_leaf.position = position
 			target_leaf.direction = global_position.direction_to(player.global_position)
 			await shoot_timer(.1)
-			get_tree().root.add_child(target_leaf)
+			tree.root.add_child(target_leaf)
 		if(bullet_type == "green&blueburst"):
 			var blue1 = blue_scene.instantiate()
-			get_tree().root.add_child(blue1)
+			tree.root.add_child(blue1)
 			blue1.position = position
 			blue1.rotation = s.global_rotation
 			await shoot_timer(.05)
 			if (green_blue_toggle):
 				var blue = blue_scene.instantiate()
-				get_tree().root.add_child(blue)
+				tree.root.add_child(blue)
 				blue.position = position
 				blue.rotation = s.global_rotation
 				await shoot_timer(.05)
 				var green = green_scene.instantiate()
-				get_tree().root.add_child(green)
+				tree.root.add_child(green)
 				green.position = position
 				green.rotation = s.global_rotation
 			else:
 				var green = green_scene.instantiate()
-				get_tree().root.add_child(green)
+				tree.root.add_child(green)
 				green.position = position
 				green.rotation = s.global_rotation
 				await shoot_timer(.05)
 				var blue = blue_scene.instantiate()
-				get_tree().root.add_child(blue)
+				tree.root.add_child(blue)
 				blue.position = position
 				blue.rotation = s.global_rotation
 			await shoot_timer(.05)
 			var green1 = green_scene.instantiate()
-			get_tree().root.add_child(green1)
+			tree.root.add_child(green1)
 			green1.position = position
 			green1.rotation = s.global_rotation
 			green_blue_toggle = !green_blue_toggle
@@ -165,33 +166,33 @@ func _on_rotation_shoot_timer_2_timeout():
 		if(bullet_type2 == "green&blue"):
 			if (green_blue_toggle):
 				var blue = blue_scene.instantiate()
-				get_tree().root.add_child(blue)
+				tree.root.add_child(blue)
 				blue.position = position
 				blue.rotation = s.global_rotation
 			else:
 				var green = green_scene.instantiate()
-				get_tree().root.add_child(green)
+				tree.root.add_child(green)
 				green.position = position
 				green.rotation = s.global_rotation
 			green_blue_toggle = !green_blue_toggle
 		if(bullet_type2 == "purple"):
 			var purple = purple_scene.instantiate()
-			get_tree().root.add_child(purple)
+			tree.root.add_child(purple)
 			purple.position = position
 			purple.rotation = s.global_rotation
 		if(bullet_type2 == "flower"):
 			var flower = flower_scene.instantiate()
-			get_tree().root.add_child(flower)
+			tree.root.add_child(flower)
 			flower.position = position
 			flower.rotation = s.global_rotation
 		if(bullet_type2 == "blue"):
 			var blue = blue_scene.instantiate()
-			get_tree().root.add_child(blue)
+			tree.root.add_child(blue)
 			blue.position = position
 			blue.rotation = s.global_rotation
 		if(bullet_type2 == "green"):
 			var green = green_scene.instantiate()
-			get_tree().root.add_child(green)
+			tree.root.add_child(green)
 			green.position = position
 			green.rotation = s.global_rotation
 		if(bullet_type2 == "target"):
@@ -199,36 +200,36 @@ func _on_rotation_shoot_timer_2_timeout():
 			target_leaf.position = position
 			target_leaf.direction = global_position.direction_to(player.global_position)
 			await shoot_timer(.1)
-			get_tree().root.add_child(target_leaf)
+			tree.root.add_child(target_leaf)
 		if(bullet_type2 == "green&blueburst"):
 			var blue1 = blue_scene.instantiate()
-			get_tree().root.add_child(blue1)
+			tree.root.add_child(blue1)
 			blue1.position = position
 			blue1.rotation = s.global_rotation
 			await shoot_timer(.05)
 			if (green_blue_toggle):
 				var blue = blue_scene.instantiate()
-				get_tree().root.add_child(blue)
+				tree.root.add_child(blue)
 				blue.position = position
 				blue.rotation = s.global_rotation
 				await shoot_timer(.05)
 				var green = green_scene.instantiate()
-				get_tree().root.add_child(green)
+				tree.root.add_child(green)
 				green.position = position
 				green.rotation = s.global_rotation
 			else:
 				var green = green_scene.instantiate()
-				get_tree().root.add_child(green)
+				tree.root.add_child(green)
 				green.position = position
 				green.rotation = s.global_rotation
 				await shoot_timer(.05)
 				var blue = blue_scene.instantiate()
-				get_tree().root.add_child(blue)
+				tree.root.add_child(blue)
 				blue.position = position
 				blue.rotation = s.global_rotation
 			await shoot_timer(.05)
 			var green1 = green_scene.instantiate()
-			get_tree().root.add_child(green1)
+			tree.root.add_child(green1)
 			green1.position = position
 			green1.rotation = s.global_rotation
 			green_blue_toggle = !green_blue_toggle

@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://x10q5l56xp1y"]
 
 [ext_resource type="Script" path="res://JasmineCha/Scripts/flower.gd" id="1_ytq1s"]
-[ext_resource type="Texture2D" uid="uid://dt6yppw8o3dy3" path="res://JasmineCha/Sprites/Bullets/flower.png" id="2_igxtv"]
-[ext_resource type="Texture2D" uid="uid://p2aseutwm31s" path="res://JasmineCha/Sprites/Bullets/flower - Copy.png" id="3_1xl77"]
-[ext_resource type="Texture2D" uid="uid://ugquffbs7mq1" path="res://JasmineCha/Sprites/Bullets/flower - Copy (2).png" id="4_t20ow"]
-[ext_resource type="Texture2D" uid="uid://d1eep3x0abuvm" path="res://JasmineCha/Sprites/Bullets/flower - Copy (3).png" id="5_n8fcc"]
+[ext_resource type="Texture2D" uid="uid://2b8upm7gllk" path="res://JasmineCha/Sprites/Bullets/flower.png" id="2_igxtv"]
+[ext_resource type="Texture2D" uid="uid://bdqbiehdpevvr" path="res://JasmineCha/Sprites/Bullets/flower - Copy.png" id="3_1xl77"]
+[ext_resource type="Texture2D" uid="uid://4tm8b4skstiv" path="res://JasmineCha/Sprites/Bullets/flower - Copy (2).png" id="4_t20ow"]
+[ext_resource type="Texture2D" uid="uid://dahcu5iknmmvd" path="res://JasmineCha/Sprites/Bullets/flower - Copy (3).png" id="5_n8fcc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o62t5"]
 animations = [{
@@ -29,22 +29,22 @@ animations = [{
 [node name="Flower" type="Node2D"]
 position = Vector2(724, 366)
 script = ExtResource("1_ytq1s")
-metadata/_edit_group_ = true
-
-[node name="WaitTimer" type="Timer" parent="."]
-one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_o62t5")
 frame_progress = 0.181165
 
 [node name="BakudanTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 
 [node name="Rotater" type="Node2D" parent="."]
+unique_name_in_owner = true
 scale = Vector2(1.06838, 1)
 
 [node name="RotationShootTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 
 [connection signal="timeout" from="BakudanTimer" to="." method="_on_bakudan_timer_timeout"]
 [connection signal="timeout" from="RotationShootTimer" to="." method="_on_rotation_shoot_timer_timeout"]
