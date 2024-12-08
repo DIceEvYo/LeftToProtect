@@ -29,12 +29,13 @@ animation = &"idle"
 frame_progress = 0.149446
 
 [node name="WaitTimer" type="Timer" parent="."]
+wait_time = 0.105
 
 [node name="ShootTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="RotationShootTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.11
 one_shot = true
 
 [node name="Rotater2" type="Node2D" parent="."]

@@ -1,5 +1,7 @@
 extends Node2D
 
+signal timer_done()
+
 var speed = 2
 var speed_factor = 1
 var dir = Vector2.ZERO
@@ -35,8 +37,12 @@ var thorn_scene = preload("res://JasmineCha/Scenes/Bullets/thornBullet.tscn")
 var target_leaf_scene = preload("res://JasmineCha/Scenes/Bullets/target_leafBullet.tscn")
 var purple_scene = preload("res://JasmineCha/Scenes/Bullets/reverseBullet.tscn")
 
+func _on_timer_done() -> void:
+	pass
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	timer_done.connect(_on_timer_done)
 	$AnimatedSprite2D.play("idle")
 	attack_sequence()
 
@@ -75,7 +81,9 @@ func rotational_shoot(mode, set_rotate_speed, shoot_timer_wait_time, amount_to_s
 		spawn_point.rotation = pos.angle()
 		rotater.add_child(spawn_point)
 	rotation_st.start()
-	
+	await timer_done
+
+
 func rotational_shoot2(mode, set_rotate_speed, shoot_timer_wait_time, amount_to_shoot, radius):
 	bullet_type2 = mode
 	rotate_speed = set_rotate_speed
@@ -88,7 +96,7 @@ func rotational_shoot2(mode, set_rotate_speed, shoot_timer_wait_time, amount_to_
 		rotater.add_child(spawn_point)
 	rotation_st2.start()
 
-func _on_rotation_shoot_timer_timeout():
+func _on_rotation_shoot_timer_timeout() -> void:
 	for s in rotater.get_children():
 		if(bullet_type == "green&blue"):
 			if (green_blue_toggle):
@@ -161,6 +169,7 @@ func _on_rotation_shoot_timer_timeout():
 			green1.rotation = s.global_rotation
 			green_blue_toggle = !green_blue_toggle
 		s.queue_free()
+	timer_done.emit()
 
 func _on_rotation_shoot_timer_2_timeout():
 	for s in rotater2.get_children():
