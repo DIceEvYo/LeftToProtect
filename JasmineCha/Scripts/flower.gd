@@ -3,6 +3,7 @@ extends Node2D
 const speed = 500
 var rotate_speed = 100
 var new_rotation = 0
+
 @onready var rotation_st = %RotationShootTimer
 @onready var rotater = %Rotater
 
@@ -43,8 +44,9 @@ func _on_rotation_shoot_timer_timeout():
 	var count = 0
 	var tree := get_tree()
 	for s in rotater.get_children():
-		var leaf = leaf_scene.instantiate()
-		tree.root.add_child(leaf)
+		var leaf = BulletPool.leaf_pool[BulletPool.next_leaf]
+		leaf.reset()
+		BulletPool.next_leaf += 1
 		leaf.position = position
 		leaf.rotation = s.global_rotation
 		if count == 1: leaf.leaf_type = "red"
