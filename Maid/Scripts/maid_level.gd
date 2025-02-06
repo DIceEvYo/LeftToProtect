@@ -19,12 +19,12 @@ func _ready() -> void:
 	maid.position.y = 150
 	maid.player = player
 	var revolving_bg = revolving_background_scene.instantiate()
-	revolving_bg.limit = 10
+	revolving_bg.limit = 15
 	add_child(revolving_bg)
 	add_child(player)
 	add_child(maid)
 	$BackgroundMusic.play()
-	await $BackgroundMusic.stop()
+	await $BackgroundMusic.finished
 	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

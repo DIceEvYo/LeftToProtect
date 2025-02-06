@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ch8wjmffcdin0"]
 
-[ext_resource type="Texture2D" uid="uid://dflqtnf3an3v" path="res://Background/bg-art.png" id="1_4qpj1"]
+[ext_resource type="Texture2D" uid="uid://bjhyv1taeuybx" path="res://Background/bg-art.png" id="1_4qpj1"]
 [ext_resource type="Script" path="res://Background/Scripts/static_bg.gd" id="2_udfrh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ilkss"]

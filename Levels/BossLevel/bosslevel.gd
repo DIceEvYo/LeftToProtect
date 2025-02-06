@@ -2,9 +2,14 @@ extends Node2D
 
 var player_scene = preload("res://Player/player.tscn")
 var jasmine_scene = load("res://JasmineCha/Scenes/jasmine.tscn")
+var dialog_scene = load("res://JasmineCha/Scenes/boss_dialog.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var dialog = dialog_scene.instantiate()
+	add_child(dialog)
+	await dialog.tree_exited
+	
 	var player = player_scene.instantiate()
 	player.position.x = 1030
 	player.position.y = 970

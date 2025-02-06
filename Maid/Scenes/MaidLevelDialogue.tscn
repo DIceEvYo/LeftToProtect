@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxc3fjx74adm0"]
+[gd_scene load_steps=10 format=3 uid="uid://cxc3fjx74adm0"]
 
-[ext_resource type="Texture2D" uid="uid://bup5m1arpeubd" path="res://Ghost/Sprites/Dialog/Box.png" id="1_mudsm"]
+[ext_resource type="Texture2D" uid="uid://po1fmvws6wr6" path="res://Ghost/Sprites/Dialog/Box.png" id="1_mudsm"]
 [ext_resource type="Script" path="res://Maid/Scripts/maidleveldialogue.gd" id="1_tm237"]
-[ext_resource type="AudioStream" uid="uid://b0wfip7bt4q2g" path="res://Ghost/Music/PhantomMemory.wav" id="3_65gk4"]
-[ext_resource type="AudioStream" uid="uid://dfus7n4hg1bym" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_88wcn"]
+[ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="2_ds67h"]
+[ext_resource type="Script" path="res://JasmineCha/Scenes/MaidIllust.gd" id="2_st38i"]
+[ext_resource type="AudioStream" uid="uid://bri15a32lmil2" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="3_vafaj"]
+[ext_resource type="AudioStream" uid="uid://bc8lv26hoqu23" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_88wcn"]
+[ext_resource type="AudioStream" uid="uid://ct5m7w2g2rt27" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="5_2xkf8"]
+[ext_resource type="AudioStream" uid="uid://bq7x8t2a8wt6c" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="7_6w27i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_audlo"]
 animations = [{
@@ -28,10 +32,12 @@ script = ExtResource("1_tm237")
 [node name="MaidIllust" type="Sprite2D" parent="."]
 position = Vector2(-400, -200)
 scale = Vector2(0.8, 0.8)
+script = ExtResource("2_st38i")
 
 [node name="GhostIllust" type="Sprite2D" parent="."]
 position = Vector2(200, -250)
 scale = Vector2(0.323, 0.323)
+script = ExtResource("2_ds67h")
 
 [node name="GolemIllust" type="Sprite2D" parent="."]
 
@@ -58,6 +64,7 @@ text = "Momoko"
 
 [node name="GhostName" type="RichTextLabel" parent="."]
 z_index = 1
+layout_mode = 0
 offset_left = -679.0
 offset_top = -147.0
 offset_right = -192.0
@@ -68,6 +75,7 @@ text = "Yuuki Sentaku"
 
 [node name="GolemName" type="RichTextLabel" parent="."]
 z_index = 1
+layout_mode = 0
 offset_left = -679.0
 offset_top = -147.0
 offset_right = -272.0
@@ -86,8 +94,28 @@ sprite_frames = SubResource("SpriteFrames_audlo")
 
 [node name="DialogueBGM" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-960, -857)
-stream = ExtResource("3_65gk4")
+stream = ExtResource("3_vafaj")
+volume_db = -5.0
 
 [node name="Voice" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_88wcn")
 volume_db = -20.0
+
+[node name="Voice2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2xkf8")
+volume_db = -15.445
+
+[node name="Voice3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6w27i")
+volume_db = -10.631
+
+[node name="SkipButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 748.0
+offset_top = -828.0
+offset_right = 789.0
+offset_bottom = -797.0
+scale = Vector2(4.759, 3.679)
+text = "Skip"
+
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]

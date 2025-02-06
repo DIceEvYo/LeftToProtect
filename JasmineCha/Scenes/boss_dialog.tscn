@@ -1,0 +1,168 @@
+[gd_scene load_steps=17 format=3 uid="uid://de8tyu6emjuhs"]
+
+[ext_resource type="Script" path="res://JasmineCha/Scenes/boss_dialog.gd" id="1_aii3t"]
+[ext_resource type="Texture2D" uid="uid://po1fmvws6wr6" path="res://Ghost/Sprites/Dialog/Box.png" id="2_w8px1"]
+[ext_resource type="AudioStream" uid="uid://bri15a32lmil2" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="3_p6nr0"]
+[ext_resource type="AudioStream" uid="uid://bc8lv26hoqu23" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_awnan"]
+[ext_resource type="AudioStream" uid="uid://cjvydgjc7ntga" path="res://JasmineCha/Background/okocchaalt.mp3" id="4_x2oc2"]
+[ext_resource type="AudioStream" uid="uid://ct5m7w2g2rt27" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="5_387kb"]
+[ext_resource type="AudioStream" uid="uid://bq7x8t2a8wt6c" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="6_pebgu"]
+[ext_resource type="AudioStream" uid="uid://r87e6encua66" path="res://JasmineCha/Background/jascream.mp3" id="7_is6ie"]
+[ext_resource type="Texture2D" uid="uid://btlw1mnmsfp7j" path="res://JasmineCha/Background/tea-house.png" id="7_n02gh"]
+[ext_resource type="Texture2D" uid="uid://bxklsytkgdh8n" path="res://Maid/Sprites/MaidIllustrations/maidillus_love.png" id="8_vse0t"]
+[ext_resource type="Texture2D" uid="uid://bmm87h858otm8" path="res://Ghost/Illustrations/angry/. . ..png" id="9_fi0tx"]
+[ext_resource type="Script" path="res://JasmineCha/Scenes/MaidIllust.gd" id="9_y0oq6"]
+[ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="10_6y764"]
+[ext_resource type="Texture2D" uid="uid://bbcc2esvpfqor" path="res://JasmineCha/Background/Jasmine.png" id="11_wd03l"]
+[ext_resource type="Script" path="res://JasmineCha/Scenes/Jasmine2.gd" id="12_40rgm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1itt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w8px1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BossDialog" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_aii3t")
+
+[node name="Dialogue" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 270.0
+offset_top = 774.0
+offset_right = 1625.0
+offset_bottom = 1004.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 51
+
+[node name="SkipButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1691.0
+offset_top = 45.0
+offset_right = 1732.0
+offset_bottom = 76.0
+scale = Vector2(4.759, 3.679)
+text = "Skip"
+
+[node name="MaidName" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 266.566
+offset_top = 673.925
+offset_right = 673.566
+offset_bottom = 771.925
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 70
+text = "Momoko"
+
+[node name="GhostName" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 266.566
+offset_top = 673.925
+offset_right = 753.566
+offset_bottom = 771.925
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 70
+text = "Yuuki Sentaku"
+
+[node name="GolemName" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 266.566
+offset_top = 673.925
+offset_right = 673.566
+offset_bottom = 771.925
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 70
+text = "Golem"
+
+[node name="GolemMinion" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 267.0
+offset_top = 674.0
+offset_right = 893.0
+offset_bottom = 775.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 70
+text = "Golem Minion"
+
+[node name="Jasmine" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 266.566
+offset_top = 673.925
+offset_right = 673.566
+offset_bottom = 771.925
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 70
+text = "Jasmine"
+
+[node name="DialogueBox" type="AnimatedSprite2D" parent="."]
+position = Vector2(945.566, 820.925)
+scale = Vector2(2.312, 1.171)
+sprite_frames = SubResource("SpriteFrames_r1itt")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="MaidVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_awnan")
+volume_db = -20.0
+
+[node name="GhostVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_387kb")
+volume_db = -15.445
+
+[node name="GolemVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_pebgu")
+volume_db = -10.631
+
+[node name="JasmineVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_is6ie")
+volume_db = -14.847
+
+[node name="Tea-house" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(911, 1325)
+scale = Vector2(8.89046, 11.7168)
+texture = ExtResource("7_n02gh")
+
+[node name="MaidIllust" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(227, 578)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_vse0t")
+script = ExtResource("9_y0oq6")
+
+[node name="GhostIllust" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(1500, 540)
+scale = Vector2(0.323, 0.323)
+texture = ExtResource("9_fi0tx")
+script = ExtResource("10_6y764")
+
+[node name="Jasmine2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(839, 539)
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("11_wd03l")
+script = ExtResource("12_40rgm")
+
+[node name="DialogueBGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p6nr0")
+volume_db = -6.933
+
+[node name="DialogueBGM2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_x2oc2")
+
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
