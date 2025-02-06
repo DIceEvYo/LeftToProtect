@@ -1,18 +1,18 @@
 [gd_scene load_steps=21 format=3 uid="uid://ckivw7x1wkiuv"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/DialogSystem.gd" id="1_2kx7h"]
-[ext_resource type="Texture2D" uid="uid://bup5m1arpeubd" path="res://Ghost/Sprites/Dialog/Box.png" id="1_4oouj"]
-[ext_resource type="AudioStream" uid="uid://dfus7n4hg1bym" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="2_bkqnw"]
-[ext_resource type="FontFile" uid="uid://hoclv0sfl4pa" path="res://Ghost/Fonts/Akronim-Regular.ttf" id="2_f574k"]
-[ext_resource type="FontFile" uid="uid://dmr220w6yewak" path="res://Ghost/Fonts/YujiBoku-Regular.ttf" id="3_bqdob"]
-[ext_resource type="AudioStream" uid="uid://b0wfip7bt4q2g" path="res://Ghost/Music/PhantomMemory.wav" id="4_v2pad"]
+[ext_resource type="Texture2D" uid="uid://po1fmvws6wr6" path="res://Ghost/Sprites/Dialog/Box.png" id="1_4oouj"]
+[ext_resource type="FontFile" uid="uid://vtbwcqcgdcnn" path="res://Ghost/Fonts/YujiBoku-Regular.ttf" id="3_bqdob"]
+[ext_resource type="AudioStream" uid="uid://ct5m7w2g2rt27" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="4_afety"]
+[ext_resource type="AudioStream" uid="uid://cbq6ka8n6bslv" path="res://Ghost/Music/PhantomMemory.wav" id="4_v2pad"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="5_7aeq0"]
-[ext_resource type="FontFile" uid="uid://b0rf0yqvqvi6a" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_rt3m0"]
-[ext_resource type="Texture2D" uid="uid://wjat67ukce5h" path="res://Ghost/Illustrations/serious/seriously.png" id="6_tjst8"]
+[ext_resource type="AudioStream" uid="uid://bq7x8t2a8wt6c" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="5_djbjl"]
+[ext_resource type="FontFile" uid="uid://baymydlna28lc" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_rt3m0"]
+[ext_resource type="Texture2D" uid="uid://denu8fijb7gqx" path="res://Ghost/Illustrations/serious/seriously.png" id="6_tjst8"]
 [ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="10_ig25j"]
-[ext_resource type="Texture2D" uid="uid://cww2ut2jn2m7o" path="res://Player/Sprites/GolemSprite-0002.png" id="11_q8ixv"]
-[ext_resource type="Texture2D" uid="uid://dwa1rxnsvj522" path="res://Player/Sprites/GolemSprite-0003.png" id="12_q1cbx"]
-[ext_resource type="Texture2D" uid="uid://dpumnykig4p67" path="res://Player/Sprites/GolemSprite-0004.png" id="13_o1n4t"]
+[ext_resource type="Texture2D" uid="uid://bk5ovpdssgy6q" path="res://Player/Sprites/GolemSprite-0002.png" id="11_q8ixv"]
+[ext_resource type="Texture2D" uid="uid://byyvpcimloams" path="res://Player/Sprites/GolemSprite-0003.png" id="12_q1cbx"]
+[ext_resource type="Texture2D" uid="uid://bdt2bpfienit2" path="res://Player/Sprites/GolemSprite-0004.png" id="13_o1n4t"]
 [ext_resource type="Script" path="res://Ghost/Scenes/MiniGolemThrow.gd" id="14_rcmgb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_am7qi"]
@@ -111,36 +111,35 @@ metadata/_edit_group_ = true
 [node name="Name_en" type="RichTextLabel" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = -679.0
-offset_top = -147.0
-offset_right = -272.0
-offset_bottom = -49.0
+offset_left = -686.0
+offset_top = -171.0
+offset_right = -35.0
+offset_bottom = -60.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("2_f574k")
 theme_override_font_sizes/normal_font_size = 76
 text = "Yuuki Sentaku"
 
-[node name="Name_en2" type="RichTextLabel" parent="."]
+[node name="Golem" type="RichTextLabel" parent="."]
 z_index = 1
-offset_left = -679.0
-offset_top = -147.0
-offset_right = -272.0
-offset_bottom = -49.0
+layout_mode = 0
+offset_left = -683.0
+offset_top = -169.0
+offset_right = -159.0
+offset_bottom = -56.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("2_f574k")
 theme_override_font_sizes/normal_font_size = 76
 text = "Golem"
 
-[node name="Name_en3" type="RichTextLabel" parent="."]
+[node name="GolemMinion" type="RichTextLabel" parent="."]
 z_index = 1
-offset_left = -679.0
-offset_top = -147.0
-offset_right = -272.0
-offset_bottom = -49.0
+layout_mode = 0
+offset_left = -684.0
+offset_top = -173.0
+offset_right = -72.0
+offset_bottom = -58.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("2_f574k")
 theme_override_font_sizes/normal_font_size = 76
-text = "GolemMinion"
+text = "Golem Minion"
 
 [node name="Name_jp" type="RichTextLabel" parent="."]
 z_index = 1
@@ -155,7 +154,11 @@ theme_override_font_sizes/normal_font_size = 65
 text = "幽鬼爓魄"
 
 [node name="Voice" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_bkqnw")
+stream = ExtResource("4_afety")
+volume_db = -25.0
+
+[node name="Voice2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_djbjl")
 volume_db = -20.0
 
 [node name="Dialog" type="RichTextLabel" parent="."]
@@ -165,7 +168,6 @@ offset_left = -674.0
 offset_top = -53.0
 offset_right = 681.0
 offset_bottom = 177.0
-theme_override_fonts/normal_font = ExtResource("2_f574k")
 theme_override_font_sizes/normal_font_size = 51
 
 [node name="DialogJP" type="RichTextLabel" parent="."]
@@ -207,4 +209,15 @@ frame = 3
 frame_progress = 0.914027
 script = ExtResource("14_rcmgb")
 
+[node name="SkipButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 748.0
+offset_top = -828.0
+offset_right = 789.0
+offset_bottom = -797.0
+scale = Vector2(4.759, 3.679)
+text = "Skip"
+
 [connection signal="finished" from="Voice" to="." method="_on_voice_finished"]
+[connection signal="finished" from="Voice2" to="." method="_on_voice_finished"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]

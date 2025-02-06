@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://nahiaanmaaht"]
+[gd_scene load_steps=15 format=3 uid="uid://nahiaanmaaht"]
 
 [ext_resource type="Script" path="res://Levels/TutorialLevel/Scripts/TutorialDialogSystem.gd" id="1_h8c1m"]
-[ext_resource type="AudioStream" uid="uid://b17njy3ig0pg5" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_j05gu"]
-[ext_resource type="FontFile" uid="uid://dso6vjo56337y" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_blfry"]
-[ext_resource type="AudioStream" uid="uid://8mnnfspux5u2" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="5_i57ns"]
-[ext_resource type="Texture2D" uid="uid://d4ivtrlfj7ia2" path="res://Ghost/Sprites/Dialog/Box.png" id="6_ql6uo"]
+[ext_resource type="AudioStream" uid="uid://bq7x8t2a8wt6c" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="2_17o52"]
+[ext_resource type="FontFile" uid="uid://baymydlna28lc" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_blfry"]
+[ext_resource type="AudioStream" uid="uid://bri15a32lmil2" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="5_i57ns"]
+[ext_resource type="AudioStream" uid="uid://cwh01e0li5sqf" path="res://Background/ElegantGarden.mp3" id="6_lic20"]
+[ext_resource type="Texture2D" uid="uid://po1fmvws6wr6" path="res://Ghost/Sprites/Dialog/Box.png" id="6_ql6uo"]
 [ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="6_wkhw7"]
+[ext_resource type="AudioStream" uid="uid://cj57cy7mahi3s" path="res://Levels/TutorialLevel/Music_SoundStuff/SwiftWindOfTheForest.mp3" id="7_lrjli"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="9_txhm0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_am7qi"]
@@ -126,8 +128,8 @@ theme_override_font_sizes/normal_font_size = 70
 text = "Golem Minion"
 
 [node name="Voice" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_j05gu")
-volume_db = -20.0
+stream = ExtResource("2_17o52")
+volume_db = -10.0
 
 [node name="Dialog" type="RichTextLabel" parent="."]
 z_index = 1
@@ -155,9 +157,14 @@ frame_progress = 0.791521
 
 [node name="DialogueBG" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_i57ns")
+volume_db = -5.0
 
 [node name="DialogueBG2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_i57ns")
+stream = ExtResource("6_lic20")
+volume_db = -10.0
+
+[node name="DialogueBG3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_lrjli")
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -178,4 +185,14 @@ scale = Vector2(5, 5)
 texture = ExtResource("6_wkhw7")
 script = ExtResource("9_txhm0")
 
+[node name="SkipButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 748.0
+offset_top = -828.0
+offset_right = 789.0
+offset_bottom = -797.0
+scale = Vector2(4.75851, 3.67878)
+text = "Skip"
+
 [connection signal="finished" from="Voice" to="." method="_on_voice_finished"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
