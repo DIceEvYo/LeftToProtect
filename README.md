@@ -1,3 +1,5 @@
+Note: When downloading project for the first time it seems you need to manually reimport SwiftWindOfTheForst, HereComesTheGuildMembers, and ElegantGarden for them to loop. 
+
 # LeftToProtect 
 Fall 2024 Game Jam Project
 
