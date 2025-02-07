@@ -44,7 +44,7 @@ func load_dialogue():
 		"N-NOT AT ALL! OF COURSE NOT! HAHAHA! (Sorry Golem-kyun..!)"
 	]
 	dia_8 = [
-		"GOLEM.. GOLEM-KUN!"
+		"G-GOLEM-KUN!"
 	]
 	dia_9 = [
 		"AS A CERTIFIED MAID, I CAN'T ALLOW THIS BEHAVIOR TO CONTINUE!"
