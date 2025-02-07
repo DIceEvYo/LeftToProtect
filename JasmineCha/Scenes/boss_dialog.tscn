@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://r87e6encua66" path="res://JasmineCha/Background/jascream.mp3" id="7_is6ie"]
 [ext_resource type="Texture2D" uid="uid://btlw1mnmsfp7j" path="res://JasmineCha/Background/tea-house.png" id="7_n02gh"]
 [ext_resource type="Texture2D" uid="uid://bxklsytkgdh8n" path="res://Maid/Sprites/MaidIllustrations/maidillus_love.png" id="8_vse0t"]
-[ext_resource type="Texture2D" uid="uid://bmm87h858otm8" path="res://Ghost/Illustrations/angry/. . ..png" id="9_fi0tx"]
+[ext_resource type="Texture2D" uid="uid://bmm87h858otm8" path="res://Ghost/Illustrations/angry/. . ..PNG" id="9_fi0tx"]
 [ext_resource type="Script" path="res://JasmineCha/Scenes/MaidIllust.gd" id="9_y0oq6"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="10_6y764"]
 [ext_resource type="Texture2D" uid="uid://bbcc2esvpfqor" path="res://JasmineCha/Background/Jasmine.png" id="11_wd03l"]
