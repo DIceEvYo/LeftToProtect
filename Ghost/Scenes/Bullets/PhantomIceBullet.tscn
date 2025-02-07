@@ -1,10 +1,13 @@
 [gd_scene load_steps=8 format=3 uid="uid://6tkb611hby83"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/Bullets/PhantomIce.gd" id="1_8e5gx"]
-[ext_resource type="Texture2D" uid="uid://cjr2togyg0cfy" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-0.png" id="2_uk58n"]
-[ext_resource type="Texture2D" uid="uid://df75oafe2mhgq" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-1.png" id="3_faewv"]
-[ext_resource type="Texture2D" uid="uid://7l5jlbpb5gc7" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-2.png" id="4_00ke2"]
-[ext_resource type="Texture2D" uid="uid://b1r7qurylvkdj" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-3.png" id="5_j28uh"]
+[ext_resource type="Texture2D" uid="uid://wbept2e2yueq" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-0.png" id="2_uk58n"]
+[ext_resource type="Texture2D" uid="uid://dsaqddh63t5om" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-1.png" id="3_faewv"]
+[ext_resource type="Texture2D" uid="uid://cokd24we5p0bk" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-2.png" id="4_00ke2"]
+[ext_resource type="Texture2D" uid="uid://ckehgb2r3glmi" path="res://Ghost/Sprites/Bullets/PhantomIce/phantom-ice-3.png" id="5_j28uh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d35p6"]
+radius = 4.24555
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywee3"]
 animations = [{
@@ -26,21 +29,16 @@ animations = [{
 "speed": 14.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d35p6"]
-radius = 4.24555
-
-[node name="PhantomIce" type="Node2D"]
+[node name="PhantomIce" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_8e5gx")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(4.5, 4.5)
+shape = SubResource("CircleShape2D_d35p6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_ywee3")
 animation = &"ice"
 frame_progress = 0.280593
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(4.5, 4.5)
-shape = SubResource("CircleShape2D_d35p6")

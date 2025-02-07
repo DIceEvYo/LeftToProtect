@@ -10,7 +10,7 @@ var direction : Vector2 = Vector2.ZERO
 var screen_size
 
 # Player stats
-var health = 50
+var health = 150
 var invincible = false
 
 ########################### Player abilities.
@@ -47,7 +47,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position = position.clamp(Vector2.ZERO, screen_size)
+	position = position.clamp(Vector2(20,50), screen_size*.99)
 	# Changes direction based on selected direction (set in Project Settings -> Input map.)
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
