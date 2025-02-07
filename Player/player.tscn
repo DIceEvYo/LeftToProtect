@@ -1,10 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://dr0mq7pb3fqgx"]
+[gd_scene load_steps=19 format=3 uid="uid://dr0mq7pb3fqgx"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_cbm76"]
 [ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="2_v0uyh"]
 [ext_resource type="Script" path="res://Player/Scripts/state_idle.gd" id="3_6s2qx"]
 [ext_resource type="Script" path="res://Player/Scripts/player_state_machine.gd" id="3_jk55v"]
 [ext_resource type="Script" path="res://Player/Scripts/state_walk.gd" id="4_rcqbb"]
+[ext_resource type="Texture2D" uid="uid://l4fcljncpr55" path="res://Player/progbar.png" id="6_ydyyp"]
+[ext_resource type="Texture2D" uid="uid://cc4b8jo36r2hf" path="res://Player/progbar2.png" id="7_8onas"]
+[ext_resource type="Script" path="res://Levels/BossLevel/TextureProgressBar.gd" id="8_qx4e8"]
 
 [sub_resource type="Animation" id="Animation_3jnvy"]
 length = 0.001
@@ -192,6 +195,19 @@ one_shot = true
 position = Vector2(0, -20)
 scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_ascc1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+offset_left = 29.0
+offset_top = 30.0
+offset_right = 69.0
+offset_bottom = 70.0
+scale = Vector2(21.3343, 30.7562)
+texture_under = ExtResource("6_ydyyp")
+texture_progress = ExtResource("7_8onas")
+script = ExtResource("8_qx4e8")
+player = NodePath("../..")
 
 [connection signal="body_entered" from="Player" to="." method="_on_player_body_entered"]
 [connection signal="timeout" from="Invincible_Frame_Timer" to="." method="_on_invincible_frame_timer_timeout"]
