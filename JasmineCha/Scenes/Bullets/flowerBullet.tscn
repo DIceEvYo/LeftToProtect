@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://x10q5l56xp1y"]
+[gd_scene load_steps=8 format=3 uid="uid://x10q5l56xp1y"]
 
 [ext_resource type="Script" path="res://JasmineCha/Scripts/flower.gd" id="1_ytq1s"]
-[ext_resource type="Texture2D" uid="uid://dt6yppw8o3dy3" path="res://JasmineCha/Sprites/Bullets/flower.png" id="2_igxtv"]
-[ext_resource type="Texture2D" uid="uid://p2aseutwm31s" path="res://JasmineCha/Sprites/Bullets/flower - Copy.png" id="3_1xl77"]
-[ext_resource type="Texture2D" uid="uid://ugquffbs7mq1" path="res://JasmineCha/Sprites/Bullets/flower - Copy (2).png" id="4_t20ow"]
-[ext_resource type="Texture2D" uid="uid://d1eep3x0abuvm" path="res://JasmineCha/Sprites/Bullets/flower - Copy (3).png" id="5_n8fcc"]
+[ext_resource type="Texture2D" uid="uid://dcugyo565sohb" path="res://JasmineCha/Sprites/Bullets/flower.png" id="2_igxtv"]
+[ext_resource type="Texture2D" uid="uid://bpjbl6ghg6b5e" path="res://JasmineCha/Sprites/Bullets/flower - Copy.png" id="3_1xl77"]
+[ext_resource type="Texture2D" uid="uid://4u5ce5143mum" path="res://JasmineCha/Sprites/Bullets/flower - Copy (2).png" id="4_t20ow"]
+[ext_resource type="Texture2D" uid="uid://bwh6me52rrhcu" path="res://JasmineCha/Sprites/Bullets/flower - Copy (3).png" id="5_n8fcc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o62t5"]
 animations = [{
@@ -26,7 +26,10 @@ animations = [{
 "speed": 13.0
 }]
 
-[node name="Flower" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_nno05"]
+radius = 75.1665
+
+[node name="Flower" type="Area2D" groups=["Enemy"]]
 position = Vector2(724, 366)
 script = ExtResource("1_ytq1s")
 metadata/_edit_group_ = true
@@ -45,6 +48,9 @@ frame_progress = 0.181165
 scale = Vector2(1.06838, 1)
 
 [node name="RotationShootTimer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nno05")
 
 [connection signal="timeout" from="BakudanTimer" to="." method="_on_bakudan_timer_timeout"]
 [connection signal="timeout" from="RotationShootTimer" to="." method="_on_rotation_shoot_timer_timeout"]

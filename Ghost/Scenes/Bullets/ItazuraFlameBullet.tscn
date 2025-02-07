@@ -1,9 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://doy7obdeh3hqo"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/Bullets/ItazuraFlame.gd" id="1_yvnoa"]
-[ext_resource type="Texture2D" uid="uid://d3tvwqugp1kkw" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-0.png" id="2_dr6yt"]
-[ext_resource type="Texture2D" uid="uid://w0bhoj40jc77" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-1.png" id="3_cq272"]
-[ext_resource type="Texture2D" uid="uid://b1yitaior4162" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-2.png" id="4_4fg5k"]
+[ext_resource type="Texture2D" uid="uid://bgfuwq2a3axgc" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-0.png" id="2_dr6yt"]
+[ext_resource type="Texture2D" uid="uid://csb0p7oly4hcl" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-1.png" id="3_cq272"]
+[ext_resource type="Texture2D" uid="uid://c11vhxe27m5q4" path="res://Ghost/Sprites/Bullets/ItazuraFlame/itazura-flame-2.png" id="4_4fg5k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4txb"]
+radius = 3.55556
+height = 12.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yrcvv"]
 animations = [{
@@ -22,14 +26,14 @@ animations = [{
 "speed": 11.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4txb"]
-radius = 3.55556
-height = 12.0
-
-[node name="ItazuraFlame" type="Node2D"]
+[node name="ItazuraFlame" type="Area2D" groups=["Enemy"]]
 position = Vector2(51, 48)
 script = ExtResource("1_yvnoa")
 metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(4.5, 4.5)
+shape = SubResource("CapsuleShape2D_l4txb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.5, 4.5)
@@ -40,12 +44,5 @@ frame_progress = 0.805409
 [node name="SwitchTimer" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(4.5, 4.5)
-shape = SubResource("CapsuleShape2D_l4txb")
 
 [connection signal="timeout" from="SwitchTimer" to="." method="_on_switch_timer_timeout"]

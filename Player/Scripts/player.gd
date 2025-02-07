@@ -47,6 +47,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	position = position.clamp(Vector2.ZERO, screen_size)
 	# Changes direction based on selected direction (set in Project Settings -> Input map.)
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -237,7 +238,7 @@ func _on_invincible_frame_timer_timeout() -> void:
 	
 # When called, kills the player and reloads the page.
 func kill() -> void:
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://Title Screen/title_screen.tscn")
 	return
 	
 	
@@ -263,8 +264,26 @@ func take_damage() -> void:
 
 
 # Kills/refreshes player/scene when 'Maid' or 'bullet' object interacts with Player.
-func _on_player_body_entered(body: RigidBody2D) -> void:
-	if "Maid" in body.name or "Bullet" in body.name:
+func _on_player_body_entered(body) -> void:
+	if body.is_in_group("Enemy"):
+		# Checks if invincible
+		if invincible:
+			return
+		# Mitigate damage if has shield.
+		elif shield_active:
+			shield_active = false
+			return
+		else:
+			take_damage()
+			
+		if health <= 0:
+			kill()
+		
+	return
+
+
+func _on_player_area_entered(area):
+	if area.is_in_group("Enemy"):
 		# Checks if invincible
 		if invincible:
 			return

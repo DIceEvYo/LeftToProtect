@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dipdbjwjbxf5l"]
+[gd_scene load_steps=6 format=3 uid="uid://dipdbjwjbxf5l"]
 
 [ext_resource type="Script" path="res://JasmineCha/Scripts/reverse_bullet.gd" id="1_jgjge"]
-[ext_resource type="Texture2D" uid="uid://c7t1in74g4rs3" path="res://JasmineCha/Sprites/Bullets/purple-bullet.png" id="2_pmk50"]
-[ext_resource type="Texture2D" uid="uid://d2iem1hnjpffq" path="res://JasmineCha/Sprites/Bullets/red-bullet.png" id="3_pg6ue"]
+[ext_resource type="Texture2D" uid="uid://dma1xa2jj51jk" path="res://JasmineCha/Sprites/Bullets/purple-bullet.png" id="2_pmk50"]
+[ext_resource type="Texture2D" uid="uid://cxwt12r5tdvjb" path="res://JasmineCha/Sprites/Bullets/red-bullet.png" id="3_pg6ue"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8o4pu"]
 animations = [{
@@ -23,11 +23,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ReverseBullet" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8dkru"]
+radius = 26.0
+height = 70.0
+
+[node name="ReverseBullet" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_jgjge")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_8o4pu")
 
 [node name="WaitTimer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_8dkru")

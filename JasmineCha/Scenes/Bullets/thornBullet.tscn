@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjjjiwfxp6ghl"]
+[gd_scene load_steps=5 format=3 uid="uid://cjjjiwfxp6ghl"]
 
 [ext_resource type="Script" path="res://JasmineCha/Scripts/blue.gd" id="1_bg1m7"]
-[ext_resource type="Texture2D" uid="uid://cbjgu3vvttgbc" path="res://JasmineCha/Sprites/Bullets/thorn.png" id="2_0cuvf"]
+[ext_resource type="Texture2D" uid="uid://dy4k3als3gqgd" path="res://JasmineCha/Sprites/Bullets/thorn.png" id="2_0cuvf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cfiea"]
 animations = [{
@@ -14,10 +14,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Thorn" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebkx0"]
+size = Vector2(43.9918, 20)
+
+[node name="Thorn" type="Area2D" groups=["Enemy"]]
 scale = Vector2(1.06838, 1)
 script = ExtResource("1_bg1m7")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_cfiea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.467998, 0)
+shape = SubResource("RectangleShape2D_ebkx0")

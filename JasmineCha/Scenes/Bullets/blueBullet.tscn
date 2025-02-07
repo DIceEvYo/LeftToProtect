@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6iplyrbae36m"]
+[gd_scene load_steps=5 format=3 uid="uid://c6iplyrbae36m"]
 
 [ext_resource type="Script" path="res://JasmineCha/Scripts/blue.gd" id="1_pe4w3"]
-[ext_resource type="Texture2D" uid="uid://dyf7hq40qd605" path="res://JasmineCha/Sprites/Bullets/blue-bullet.png" id="2_oxm1m"]
+[ext_resource type="Texture2D" uid="uid://uarkknoxigrd" path="res://JasmineCha/Sprites/Bullets/blue-bullet.png" id="2_oxm1m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1fshc"]
 animations = [{
@@ -14,9 +14,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Blue" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yw8yu"]
+radius = 21.0
+height = 60.0
+
+[node name="Blue" type="Area2D" groups=["Enemy"]]
+disable_mode = 1
 script = ExtResource("1_pe4w3")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(7, 7)
 sprite_frames = SubResource("SpriteFrames_1fshc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_yw8yu")
