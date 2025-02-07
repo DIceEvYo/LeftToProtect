@@ -1,15 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmjv1k1thabtf"]
+[gd_scene load_steps=4 format=3 uid="uid://cmjv1k1thabtf"]
 
 [ext_resource type="Script" path="res://Maid/Scripts/MaidBullet4.gd" id="1_5e3ud"]
-[ext_resource type="Texture2D" uid="uid://d074impobnklj" path="res://Maid/Sprites/Maid_Bullets/MaidBullet4.png" id="2_nkm21"]
+[ext_resource type="Texture2D" uid="uid://djfpg4i7hpksx" path="res://Maid/Sprites/Maid_Bullets/MaidBullet4.png" id="2_nkm21"]
 
-[node name="MaidBullet4" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ky4j3"]
+radius = 6.4
+height = 20.0
+
+[node name="MaidBullet4" type="Area2D" groups=["Enemy"]]
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_5e3ud")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_nkm21")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_ky4j3")

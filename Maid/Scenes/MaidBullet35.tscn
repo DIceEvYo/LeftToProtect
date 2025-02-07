@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://clbxbkhrbux53"]
+[gd_scene load_steps=7 format=3 uid="uid://clbxbkhrbux53"]
 
 [ext_resource type="Script" path="res://Maid/Scripts/MaidBullet35.gd" id="1_wo8jq"]
-[ext_resource type="Texture2D" uid="uid://cpxrw3hi4bfe3" path="res://Maid/Sprites/Maid_Bullets/MaidBullet35.png" id="2_5ly0t"]
+[ext_resource type="Texture2D" uid="uid://bipjcnu24fde" path="res://Maid/Sprites/Maid_Bullets/MaidBullet35.png" id="2_5ly0t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xg0pj"]
 atlas = ExtResource("2_5ly0t")
@@ -25,14 +25,17 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="MaidBullet35" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_rg2aa"]
+radius = 21.095
+
+[node name="MaidBullet35" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_wo8jq")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_lbhpl")
 frame_progress = 0.608007
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rg2aa")

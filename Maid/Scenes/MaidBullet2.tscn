@@ -1,15 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://doh2x7m4t2evk"]
+[gd_scene load_steps=4 format=3 uid="uid://doh2x7m4t2evk"]
 
 [ext_resource type="Script" path="res://Maid/Scripts/MaidBullet2.gd" id="1_1hg71"]
-[ext_resource type="Texture2D" uid="uid://1okgtutylsir" path="res://Maid/Sprites/Maid_Bullets/maidbullet2.png" id="2_bfbvc"]
+[ext_resource type="Texture2D" uid="uid://c7vhlvikbneag" path="res://Maid/Sprites/Maid_Bullets/maidbullet2.png" id="2_bfbvc"]
 
-[node name="MaidBullet2" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_vpi3f"]
+radius = 20.6155
+
+[node name="MaidBullet2" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_1hg71")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("2_bfbvc")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vpi3f")

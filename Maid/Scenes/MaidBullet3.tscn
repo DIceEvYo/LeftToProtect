@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddw25nvp0vn5j"]
+[gd_scene load_steps=4 format=3 uid="uid://ddw25nvp0vn5j"]
 
 [ext_resource type="Script" path="res://Maid/Scripts/MaidBullet3.gd" id="1_u54bw"]
-[ext_resource type="Texture2D" uid="uid://b1p2plh8mlxqp" path="res://Maid/Sprites/Maid_Bullets/maidbullet3.png" id="2_yeg86"]
+[ext_resource type="Texture2D" uid="uid://qibanxqdcumu" path="res://Maid/Sprites/Maid_Bullets/maidbullet3.png" id="2_yeg86"]
 
-[node name="MaidBullet3" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_go2sl"]
+size = Vector2(157, 113)
+
+[node name="MaidBullet3" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_u54bw")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(6, 6)
@@ -14,8 +18,8 @@ texture = ExtResource("2_yeg86")
 wait_time = 0.2
 one_shot = true
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_go2sl")
 
 [connection signal="timeout" from="KiraKiraTimer" to="." method="_on_kira_kira_timer_timeout"]
