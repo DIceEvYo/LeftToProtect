@@ -3,6 +3,8 @@ extends Node2D
 var player_scene = preload("res://Player/player.tscn")
 var jasmine_scene = load("res://JasmineCha/Scenes/jasmine.tscn")
 var dialog_scene = load("res://JasmineCha/Scenes/boss_dialog.tscn")
+var game_over = preload("res://Levels/rip/game_over.tscn")
+var god = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,6 +28,7 @@ func _ready():
 	jasmine1.speed = -2
 	add_child(jasmine)
 	add_child(jasmine1)
+	god = true
 	$BackgroundMusic.play()
 	await wait_for_timer(32)
 	remove_child(jasmine)
@@ -62,11 +65,16 @@ func _ready():
 	await wait_for_timer(43)
 	remove_child(jasmine)
 	remove_child(jasmine1)
+	god = false
 	queue_free()
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if(god):
+		_on_player_death()
+
+func _on_player_death():
+	if(get_node("Player") == null):
+		get_tree().change_scene_to_file.bind("res://Levels/rip/game_over.tscn").call_deferred()
 
 func wait_for_timer(duration):
 	$WaitTimer.start(duration)  #Start the timer with the specified duration

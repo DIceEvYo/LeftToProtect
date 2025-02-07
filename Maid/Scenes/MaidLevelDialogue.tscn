@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxc3fjx74adm0"]
+[gd_scene load_steps=11 format=3 uid="uid://cxc3fjx74adm0"]
 
-[ext_resource type="Texture2D" uid="uid://po1fmvws6wr6" path="res://Ghost/Sprites/Dialog/Box.png" id="1_mudsm"]
+[ext_resource type="Texture2D" uid="uid://3rtdhsxdp0gf" path="res://Ghost/Sprites/Dialog/Box.png" id="1_mudsm"]
 [ext_resource type="Script" path="res://Maid/Scripts/maidleveldialogue.gd" id="1_tm237"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="2_ds67h"]
 [ext_resource type="Script" path="res://JasmineCha/Scenes/MaidIllust.gd" id="2_st38i"]
-[ext_resource type="AudioStream" uid="uid://bri15a32lmil2" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="3_vafaj"]
-[ext_resource type="AudioStream" uid="uid://bc8lv26hoqu23" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_88wcn"]
-[ext_resource type="AudioStream" uid="uid://ct5m7w2g2rt27" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="5_2xkf8"]
-[ext_resource type="AudioStream" uid="uid://bq7x8t2a8wt6c" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="7_6w27i"]
+[ext_resource type="AudioStream" uid="uid://cujqovq3dqmvn" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="3_vafaj"]
+[ext_resource type="AudioStream" uid="uid://cnryhxuxf638g" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_88wcn"]
+[ext_resource type="AudioStream" uid="uid://bvwlcvpe6q18w" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="5_2xkf8"]
+[ext_resource type="AudioStream" uid="uid://fvocbsc7uvej" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="7_6w27i"]
+[ext_resource type="Texture2D" uid="uid://cpqdfjewtotb5" path="res://Background/bg-art.png" id="9_dyvmk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_audlo"]
 animations = [{
@@ -117,5 +118,44 @@ offset_right = 789.0
 offset_bottom = -797.0
 scale = Vector2(4.759, 3.679)
 text = "Skip"
+
+[node name="Bg-art" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.878431)
+z_index = -2
+position = Vector2(-1924, -2810)
+scale = Vector2(15, 15)
+texture = ExtResource("9_dyvmk")
+
+[node name="Bg-art2" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.529412)
+z_index = -2
+position = Vector2(1210, -3216.5)
+scale = Vector2(15, 15)
+texture = ExtResource("9_dyvmk")
+
+[node name="Bg-art3" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.529412)
+z_index = -2
+position = Vector2(-223, -3182.5)
+scale = Vector2(15, 15)
+texture = ExtResource("9_dyvmk")
+
+[node name="Bg-art4" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.529412)
+z_index = -2
+position = Vector2(440, -3912.5)
+scale = Vector2(15, 15)
+texture = ExtResource("9_dyvmk")
+
+[node name="Bg-art5" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.529412)
+z_index = -2
+position = Vector2(-404, -3714.5)
+scale = Vector2(15, 15)
+texture = ExtResource("9_dyvmk")
 
 [connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]

@@ -10,7 +10,8 @@ var direction : Vector2 = Vector2.ZERO
 var screen_size
 
 # Player stats
-var health = 150
+var max = 20
+var health = max
 var invincible = false
 
 ########################### Player abilities.
@@ -21,6 +22,7 @@ var shield_cooldown = false
 ###### 2. Spinning Golem bullet. Comes out spinning, every enemy bullet it hits increases its size. 
 var spinning_bullet = preload("res://Player/SpinningPlayerBullet.tscn")
 var spinning_bullet_cooldown = false
+var game_over = preload("res://Levels/rip/game_over.tscn")
 
 ###### 3. Spawn Golem 'Power Rangers.' Spawn single baby golem that follows and shoots at enemy. Despawns after 15 seconds.
 var golem_spawner = preload("res://Player/BabyGolem.tscn")
@@ -238,8 +240,7 @@ func _on_invincible_frame_timer_timeout() -> void:
 	
 # When called, kills the player and reloads the page.
 func kill() -> void:
-	get_tree().change_scene_to_file("res://Title Screen/title_screen.tscn")
-	return
+	queue_free()
 	
 	
 func take_damage() -> void:

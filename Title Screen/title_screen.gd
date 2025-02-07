@@ -6,7 +6,6 @@ var title_image = preload("res://Title Screen/Title Image.png")
 
 func _on_start_button_pressed():	
 	await get_tree().change_scene_to_file("res://Levels/LevelManager/LevelManager.tscn")
-	queue_free()
 	
 
 func _ready(): 

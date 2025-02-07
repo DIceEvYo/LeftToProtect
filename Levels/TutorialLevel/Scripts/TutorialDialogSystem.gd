@@ -218,7 +218,7 @@ func _ready():
 	
 	# Change positions and scale of both Golem and Golem Minion.
 	golem1.position.x = 0
-	golem1.position.y = -400
+	golem1.position.y = -500
 	golem1.scale.x = 1
 	golem1.scale.y = 1
 	
@@ -235,8 +235,10 @@ func _ready():
 	await read_dialog(dialog_20)
 	
 	$Golem_Minion.modulate.a = 0
-	golem1.set_process(true)
-	golem1.set_physics_process(true)
+	#golem1.set_process(true)
+	#golem1.set_physics_process(true)
+	#golem1.position.x = 0
+	#golem1.position.y = -500
 	
 	await move_entered
 	#$Transition_Time.start()
@@ -249,8 +251,8 @@ func _ready():
 	await read_dialog(dialog_21)
 	
 	#$Golem_Minion.modulate.a = 0
-	golem1.set_process(true)
-	golem1.set_physics_process(true)
+	#golem1.set_process(true)
+	#golem1.set_physics_process(true)
 	
 	#await shoot_entered
 	$Golem_Minion.modulate.a = 100

@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp45nox0bowtg"]
+
+[ext_resource type="Script" path="res://Levels/rip/game_over.gd" id="1_nsfgh"]
+[ext_resource type="Texture2D" uid="uid://3rtdhsxdp0gf" path="res://Ghost/Sprites/Dialog/Box.png" id="2_tu0o1"]
+[ext_resource type="AudioStream" uid="uid://fvocbsc7uvej" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="3_i4ob3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4dow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tu0o1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_nsfgh")
+
+[node name="GolemName" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 271.501
+offset_top = 704.0
+offset_right = 678.501
+offset_bottom = 802.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 70
+text = "Golem"
+
+[node name="GolemMinion" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 271.501
+offset_top = 704.0
+offset_right = 759.501
+offset_bottom = 800.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 70
+text = "Golem Minion"
+
+[node name="Dialogue" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 276.501
+offset_top = 798.0
+offset_right = 1631.5
+offset_bottom = 1028.0
+theme_override_font_sizes/normal_font_size = 51
+
+[node name="Dialog_Box" type="AnimatedSprite2D" parent="."]
+position = Vector2(950.501, 851)
+scale = Vector2(2.31231, 1.17143)
+sprite_frames = SubResource("SpriteFrames_f4dow")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="GolemVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_i4ob3")
+volume_db = -10.631

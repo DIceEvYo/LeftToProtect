@@ -4,6 +4,8 @@ var player_scene = preload("res://Player/player.tscn")
 var revolving_background_scene = preload("res://Background/Scenes/revolving_bg.tscn")
 var maid_scene = preload("res://Maid/Scenes/Maid.tscn")
 var dialog_scene = preload("res://Maid/Scenes/MaidLevelDialogue.tscn")
+var game_over = preload("res://Levels/rip/game_over.tscn")
+var god = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,10 +25,16 @@ func _ready() -> void:
 	add_child(revolving_bg)
 	add_child(player)
 	add_child(maid)
+	god = true
 	$BackgroundMusic.play()
 	await $BackgroundMusic.finished
+	god = false
 	queue_free()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _process(delta):
+	if(god):
+		_on_player_death()
+
+func _on_player_death():
+	if(get_node("Player") == null):
+		get_tree().change_scene_to_file.bind("res://Levels/rip/game_over.tscn").call_deferred()

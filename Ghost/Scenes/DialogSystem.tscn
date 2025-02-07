@@ -1,19 +1,20 @@
-[gd_scene load_steps=21 format=3 uid="uid://ckivw7x1wkiuv"]
+[gd_scene load_steps=22 format=3 uid="uid://ckivw7x1wkiuv"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/DialogSystem.gd" id="1_2kx7h"]
-[ext_resource type="Texture2D" uid="uid://po1fmvws6wr6" path="res://Ghost/Sprites/Dialog/Box.png" id="1_4oouj"]
-[ext_resource type="FontFile" uid="uid://vtbwcqcgdcnn" path="res://Ghost/Fonts/YujiBoku-Regular.ttf" id="3_bqdob"]
-[ext_resource type="AudioStream" uid="uid://ct5m7w2g2rt27" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="4_afety"]
-[ext_resource type="AudioStream" uid="uid://cbq6ka8n6bslv" path="res://Ghost/Music/PhantomMemory.wav" id="4_v2pad"]
+[ext_resource type="Texture2D" uid="uid://3rtdhsxdp0gf" path="res://Ghost/Sprites/Dialog/Box.png" id="1_4oouj"]
+[ext_resource type="FontFile" uid="uid://cjp8pnyro2xvi" path="res://Ghost/Fonts/YujiBoku-Regular.ttf" id="3_bqdob"]
+[ext_resource type="AudioStream" uid="uid://bvwlcvpe6q18w" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="4_afety"]
+[ext_resource type="AudioStream" uid="uid://b0qs1728rs0wq" path="res://Ghost/Music/PhantomMemory.wav" id="4_v2pad"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="5_7aeq0"]
-[ext_resource type="AudioStream" uid="uid://bq7x8t2a8wt6c" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="5_djbjl"]
-[ext_resource type="FontFile" uid="uid://baymydlna28lc" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_rt3m0"]
-[ext_resource type="Texture2D" uid="uid://denu8fijb7gqx" path="res://Ghost/Illustrations/serious/seriously.PNG" id="6_tjst8"]
+[ext_resource type="AudioStream" uid="uid://fvocbsc7uvej" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="5_djbjl"]
+[ext_resource type="FontFile" uid="uid://jqadeb8xo3tg" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_rt3m0"]
+[ext_resource type="Texture2D" uid="uid://diiyr1rjay555" path="res://Ghost/Illustrations/serious/seriously.PNG" id="6_tjst8"]
 [ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="10_ig25j"]
-[ext_resource type="Texture2D" uid="uid://bk5ovpdssgy6q" path="res://Player/Sprites/GolemSprite-0002.png" id="11_q8ixv"]
-[ext_resource type="Texture2D" uid="uid://byyvpcimloams" path="res://Player/Sprites/GolemSprite-0003.png" id="12_q1cbx"]
-[ext_resource type="Texture2D" uid="uid://bdt2bpfienit2" path="res://Player/Sprites/GolemSprite-0004.png" id="13_o1n4t"]
+[ext_resource type="Texture2D" uid="uid://cglhw7olj7012" path="res://Player/Sprites/GolemSprite-0002.png" id="11_q8ixv"]
+[ext_resource type="Texture2D" uid="uid://d3aj7qyeha51b" path="res://Player/Sprites/GolemSprite-0003.png" id="12_q1cbx"]
+[ext_resource type="Texture2D" uid="uid://t6t1q8orjdqd" path="res://Player/Sprites/GolemSprite-0004.png" id="13_o1n4t"]
 [ext_resource type="Script" path="res://Ghost/Scenes/MiniGolemThrow.gd" id="14_rcmgb"]
+[ext_resource type="Texture2D" uid="uid://cpqdfjewtotb5" path="res://Background/bg-art.png" id="15_xhwel"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_am7qi"]
 animations = [{
@@ -217,6 +218,41 @@ offset_right = 789.0
 offset_bottom = -797.0
 scale = Vector2(4.759, 3.679)
 text = "Skip"
+
+[node name="Bg-art" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.529412)
+z_index = -2
+position = Vector2(-2379, -2447.5)
+scale = Vector2(15, 15)
+texture = ExtResource("15_xhwel")
+
+[node name="Bg-art2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.529412)
+z_index = -2
+position = Vector2(-3886, -2383.5)
+scale = Vector2(15, 15)
+texture = ExtResource("15_xhwel")
+
+[node name="Bg-art3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.529412)
+z_index = -2
+position = Vector2(-5319, -2349.5)
+scale = Vector2(15, 15)
+texture = ExtResource("15_xhwel")
+
+[node name="Bg-art4" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.529412)
+z_index = -2
+position = Vector2(-4656, -3079.5)
+scale = Vector2(15, 15)
+texture = ExtResource("15_xhwel")
+
+[node name="Bg-art5" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.529412)
+z_index = -2
+position = Vector2(-5500, -2881.5)
+scale = Vector2(15, 15)
+texture = ExtResource("15_xhwel")
 
 [connection signal="finished" from="Voice" to="." method="_on_voice_finished"]
 [connection signal="finished" from="Voice2" to="." method="_on_voice_finished"]

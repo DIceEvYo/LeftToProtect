@@ -1,11 +1,11 @@
 extends Node2D
 
+@export var player: Player
 var title_image = preload("res://Title Screen/title_screen.tscn")
 var tutorial_scene = preload("res://Levels/TutorialLevel/TutorialDialogSystem.tscn")
 var ghost_level_scene = preload("res://Levels/GhostLevel/ghost_level.tscn")
 var maid_level_scene = preload("res://Maid/Scenes/maid_level.tscn")
 var boss_level_scene = preload("res://Levels/BossLevel/bosslevel.tscn")
-
 
 func _ready(): 
 	var tutorial = tutorial_scene.instantiate()
@@ -23,4 +23,3 @@ func _ready():
 	var title = title_image.instantiate()
 	add_child(title)
 	await title.tree_exited
-	

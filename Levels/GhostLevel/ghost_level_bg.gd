@@ -4,6 +4,8 @@ var player_scene = preload("res://Player/player.tscn")
 var ghost_scene = load("res://Ghost/Scenes/ghost.tscn")
 var dialog_scene = preload("res://Ghost/Scenes/DialogSystem.tscn")
 var revolving_bg_scene = preload("res://Background/Scenes/revolving_bg.tscn")
+var game_over = preload("res://Levels/rip/game_over.tscn")
+var god = false
 
 func _ready():
 	
@@ -24,17 +26,26 @@ func _ready():
 	await wait_for_timer(1)
 	add_child(ghost)
 	add_child(player)
+	god = true
 	$BackgroundMusic.play()
 	await $BackgroundMusic.finished
+	god = false
 	ghost.modulate.a -= 1
 	player.modulate.a -= 1
 	await wait_for_timer(2)
 	remove_child(ghost)
 	remove_child(player)
 	queue_free()
-
+	
 func _process(delta):
-	pass
+	if(god):
+		_on_player_death()
+
+func _on_player_death():
+	if(get_node("Player") == null):
+		get_tree().change_scene_to_file.bind("res://Levels/rip/game_over.tscn").call_deferred()
+		
+
 
 func attack_sequence():
 	#Dialogue stuff
