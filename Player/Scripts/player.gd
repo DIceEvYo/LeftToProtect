@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 signal hit 
-# BEN testing lol chinchin
+signal healthChanged
+
 # His method of doing this. Apparently not important. Is default direction of player(?).
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
@@ -251,6 +252,7 @@ func take_damage() -> void:
 		return
 	else:
 		health -= 10
+		healthChanged.emit()
 		invincibility_frame()
 		
 	if health <= 0:

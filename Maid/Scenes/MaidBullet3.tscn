@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ddw25nvp0vn5j"]
 
 [ext_resource type="Script" path="res://Maid/Scripts/MaidBullet3.gd" id="1_u54bw"]
-[ext_resource type="Texture2D" uid="uid://bswig8l3pgqc5" path="res://Maid/Sprites/Maid_Bullets/maidbullet3.png" id="2_yeg86"]
+[ext_resource type="Texture2D" uid="uid://b1p2plh8mlxqp" path="res://Maid/Sprites/Maid_Bullets/maidbullet3.png" id="2_yeg86"]
 
 [node name="MaidBullet3" type="Node2D"]
 script = ExtResource("1_u54bw")
