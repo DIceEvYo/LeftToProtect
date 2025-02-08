@@ -10,7 +10,7 @@ var direction : Vector2 = Vector2.ZERO
 var screen_size
 
 # Player stats
-var max = 70
+var max = Score.hp
 var health = max
 var invincible = false
 

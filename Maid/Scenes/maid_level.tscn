@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dn7lylootqy2y"]
 
 [ext_resource type="Script" path="res://Maid/Scripts/maid_level.gd" id="1_4j1hj"]
-[ext_resource type="AudioStream" uid="uid://5nw4fodq0pr" path="res://Maid/Music/MoeMoeChuu.mp3" id="2_2gtr8"]
+[ext_resource type="AudioStream" uid="uid://bnn0nix1lxtg2" path="res://Maid/Music/MoeMoeChuu.mp3" id="2_2gtr8"]
 
 [node name="MaidLevel" type="Node2D"]
 script = ExtResource("1_4j1hj")

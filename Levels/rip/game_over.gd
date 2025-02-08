@@ -64,4 +64,4 @@ func speech(text):
 		dialogue_sys.add_text(c)
 
 func _on_skip_button_pressed():
-	queue_free()
+	get_tree().change_scene_to_file.bind("res://Title Screen/title_screen.tscn").call_deferred()

@@ -68,11 +68,11 @@ func load_dialog():
 	# Golem
 	dialog_1 = [
 		"...DIRT.",
-		"DIRT BE MINE ❤️... ME BIG PASSION 🤪🔥",
-		"ME WANNA BE ONE WIT’ DA DIRT 😌🤲😩",
-		"ME WANNA TELL DA 🌍😎",
+		"DIRT BE MINE... ME BIG PASSION",
+		"ME WANNA BE ONE WIT’ DA DIRT",
+		"ME WANNA TELL DA WORLD",
 		"DIRT COOL.",
-		"DIRT. DIRT. DIRRRT ❤️"
+		"DIRT. DIRT. DIRRRT <3"
 		
 		#"ME ❤️ DIRT 😍✨",
 		#"DIRT BE MINE ❤️... ME BIG PASSION 🤪🔥",
