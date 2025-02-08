@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://ctqqfkdvifbh6"]
 
 [ext_resource type="Script" path="res://Levels/BossLevel/bosslevel.gd" id="1_8d3dd"]
-[ext_resource type="AudioStream" uid="uid://c5mb2nvc5x3tq" path="res://JasmineCha/Music/Sacrificial Tea Ceremony 2.mp3" id="2_k1w4g"]
-[ext_resource type="Texture2D" uid="uid://puo4tl8n7a6h" path="res://JasmineCha/Background/tea-house.png" id="4_ck0dy"]
+[ext_resource type="AudioStream" uid="uid://ce4ijqmv5gexm" path="res://JasmineCha/Music/Sacrificial Tea Ceremony 2.mp3" id="2_k1w4g"]
+[ext_resource type="Texture2D" uid="uid://b40c2do0vhvrc" path="res://JasmineCha/Background/tea-house.png" id="4_ck0dy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f1luo"]
 animations = [{

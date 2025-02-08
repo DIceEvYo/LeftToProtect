@@ -183,14 +183,16 @@ func target_bullets(bullets_to_shoot, shoot_delay):
 			await shoot_timer(shoot_delay)
 			var omurice = MaidBullet.instantiate()
 			omurice.position = position
-			omurice.dir = global_position.direction_to(player.global_position)
+			if(not(player == null)):
+				omurice.dir = global_position.direction_to(player.global_position)
 			get_parent().add_child(omurice)
 	elif bullet == MaidBullet4:
 		for i in range(bullets_to_shoot):
 			await shoot_timer(shoot_delay)
 			var soda = MaidBullet4.instantiate()
 			soda.position = position
-			soda.dir = global_position.direction_to(player.global_position)
+			if(not(player == null)):
+				soda.dir = global_position.direction_to(player.global_position)
 			get_parent().add_child(soda)
 
 func fight():

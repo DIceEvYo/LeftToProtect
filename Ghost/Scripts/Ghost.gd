@@ -431,11 +431,13 @@ func target_shot(bullets_to_shoot, shoot_delay, pos_offset):
 		var target_bullet_l = targetted_bullet_scene.instantiate()
 		target_bullet_l.position = position
 		target_bullet_l.position.x = position.x+pos_offset
-		target_bullet_l.direction = global_position.direction_to(player.global_position)
+		if(not(player == null)):
+			target_bullet_l.direction = global_position.direction_to(player.global_position)
 		var target_bullet_r = targetted_bullet_scene.instantiate()
 		target_bullet_r.position = position
 		target_bullet_r.position.x = position.x-pos_offset
-		target_bullet_r.direction = global_position.direction_to(player.global_position)
+		if(not(player == null)):
+			target_bullet_r.direction = global_position.direction_to(player.global_position)
 		get_parent().add_child(target_bullet_l)
 		get_parent().add_child(target_bullet_r)
 		
@@ -538,8 +540,9 @@ func targetted_starfish(bullets_to_shoot, shoot_delay, pos_offset):
 		get_parent().add_child(target_bullet_tr)
 		#get_parent().add_child(target_bullet_dl)
 		#get_parent().add_child(target_bullet_dr)
-		target_bullet_tl.direction += global_position.direction_to(player.global_position)
-		target_bullet_tr.direction += global_position.direction_to(player.global_position)
+		if(not(player == null)):
+			target_bullet_tl.direction += global_position.direction_to(player.global_position)
+			target_bullet_tr.direction += global_position.direction_to(player.global_position)
 		#target_bullet_dl.direction -= global_position.direction_to(player.global_position)
 		#target_bullet_dr.direction -= global_position.direction_to(player.global_position)
 

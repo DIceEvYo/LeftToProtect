@@ -127,7 +127,8 @@ func _on_rotation_shoot_timer_timeout():
 		if(bullet_type == "target"):
 			var target_leaf = target_leaf_scene.instantiate()
 			target_leaf.position = position
-			target_leaf.direction = global_position.direction_to(player.global_position)
+			if(not(player == null)):
+				target_leaf.direction = global_position.direction_to(player.global_position)
 			await shoot_timer(.1)
 			get_tree().root.add_child(target_leaf)
 		if(bullet_type == "green&blueburst"):
@@ -201,7 +202,8 @@ func _on_rotation_shoot_timer_2_timeout():
 		if(bullet_type2 == "target"):
 			var target_leaf = target_leaf_scene.instantiate()
 			target_leaf.position = position
-			target_leaf.direction = global_position.direction_to(player.global_position)
+			if(not(player == null)):
+				target_leaf.direction = global_position.direction_to(player.global_position)
 			await shoot_timer(.1)
 			get_tree().root.add_child(target_leaf)
 		if(bullet_type2 == "green&blueburst"):

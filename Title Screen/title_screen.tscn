@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7axt5ftaoffc"]
 
 [ext_resource type="Script" path="res://Title Screen/title_screen.gd" id="1_ad2l4"]
-[ext_resource type="Texture2D" uid="uid://clmbd06j1aw3f" path="res://Title Screen/Title Image.png" id="2_mbeo3"]
-[ext_resource type="Texture2D" uid="uid://cpqdfjewtotb5" path="res://Background/bg-art.png" id="3_mn31b"]
-[ext_resource type="AudioStream" uid="uid://b4nxoukl8ysaa" path="res://Background/ElegantGarden.mp3" id="4_1e4dv"]
+[ext_resource type="Texture2D" uid="uid://7b2ex46stp3a" path="res://Title Screen/Title Image.png" id="2_mbeo3"]
+[ext_resource type="Texture2D" uid="uid://da4iw0vmi1onk" path="res://Background/bg-art.png" id="3_mn31b"]
+[ext_resource type="AudioStream" uid="uid://bwsoc2bcfc8rb" path="res://Background/ElegantGarden.mp3" id="4_1e4dv"]
 
 [sub_resource type="FontFile" id="FontFile_8plam"]
 cache/0/16/0/ascent = 0.0
