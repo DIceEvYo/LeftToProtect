@@ -21,33 +21,29 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hejlh"]
 height = 21.8517
 
-[node name="Ghost" type="RigidBody2D"]
+[node name="Ghost" type="RigidBody2D" groups=["Enemy"]]
 position = Vector2(960, 111)
 scale = Vector2(0.936, 1)
-collision_layer = 8
-collision_mask = 5
+collision_layer = 0
+collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_bxn27")
 metadata/_edit_group_ = true
 
-[node name="Rotater" type="Node2D" parent="."]
-scale = Vector2(1.06838, 1)
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 5
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_n1vui")
 animation = &"idle"
 frame_progress = 0.261636
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 0
 position = Vector2(3.2052, 0)
 scale = Vector2(4.55263, -4.94242)
 shape = SubResource("CapsuleShape2D_hejlh")
+
+[node name="Rotater" type="Node2D" parent="."]
+scale = Vector2(1.06838, 1)
 
 [node name="WaitTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -60,7 +56,17 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+light_mask = 0
+position = Vector2(3.2052, 0)
+scale = Vector2(4.55263, -4.94242)
+shape = SubResource("CapsuleShape2D_hejlh")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="timeout" from="WaitTimer" to="." method="_on_timer_3_timeout"]
 [connection signal="timeout" from="ShootTimer2" to="." method="_on_shoot_timer_2_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -12,6 +12,10 @@ func _ready():
 	add_child(dialog)
 	await dialog.tree_exited
 	
+	var score_disp = preload("res://score_label.tscn")
+	var score_disp_i = score_disp.instantiate()
+	add_child(score_disp_i)
+	
 	var player = player_scene.instantiate()
 	player.position.x = 1030
 	player.position.y = 970
@@ -66,6 +70,8 @@ func _ready():
 	remove_child(jasmine)
 	remove_child(jasmine1)
 	god = false
+	Score.score += player.health
+	remove_child(score_disp_i)
 	queue_free()
 	
 func _process(delta):

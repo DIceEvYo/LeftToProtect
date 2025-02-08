@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://beohtq5vcsqgb"]
+[gd_scene load_steps=8 format=3 uid="uid://beohtq5vcsqgb"]
 
 [ext_resource type="Script" path="res://Player/Scripts/SpinningGolemBullet.gd" id="1_3fof4"]
 [ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="2_wwt7t"]
-[ext_resource type="Texture2D" uid="uid://b1iyflvvitmr1" path="res://Player/Sprites/GolemSprite-0002.png" id="3_v8rm6"]
-[ext_resource type="Texture2D" uid="uid://xqo51nbots4w" path="res://Player/Sprites/GolemSprite-0003.png" id="4_gjyxk"]
-[ext_resource type="Texture2D" uid="uid://dtsxd4to5humm" path="res://Player/Sprites/GolemSprite-0004.png" id="5_4jcji"]
+[ext_resource type="Texture2D" uid="uid://bvfw4qqqsu7l1" path="res://Player/Sprites/GolemSprite-0002.png" id="3_v8rm6"]
+[ext_resource type="Texture2D" uid="uid://bs0g2r5ajlawn" path="res://Player/Sprites/GolemSprite-0003.png" id="4_gjyxk"]
+[ext_resource type="Texture2D" uid="uid://b5fvthvgrnuyv" path="res://Player/Sprites/GolemSprite-0004.png" id="5_4jcji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sl6qv"]
 size = Vector2(61, 62)
@@ -34,12 +34,9 @@ animations = [{
 "speed": 60.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fygim"]
-size = Vector2(61, 62)
-
-[node name="SpinningPlayerBullet" type="RigidBody2D"]
-collision_layer = 4
-collision_mask = 24
+[node name="SpinningPlayerBullet" type="RigidBody2D" groups=["PB"]]
+collision_layer = 6
+collision_mask = 26
 script = ExtResource("1_3fof4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -49,13 +46,3 @@ shape = SubResource("RectangleShape2D_sl6qv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rrhcq")
 animation = &"spinning_golem_bullet"
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 24
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_fygim")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

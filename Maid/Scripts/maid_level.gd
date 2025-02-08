@@ -13,6 +13,10 @@ func _ready() -> void:
 	add_child(dialog)
 	await dialog.tree_exited
 	
+	var score_disp = preload("res://score_label.tscn")
+	var score_disp_i = score_disp.instantiate()
+	add_child(score_disp_i)
+	
 	var player = player_scene.instantiate()
 	player.position.x = 960
 	player.position.y = 800
@@ -29,6 +33,8 @@ func _ready() -> void:
 	$BackgroundMusic.play()
 	await $BackgroundMusic.finished
 	god = false
+	Score.score += player.health
+	remove_child(score_disp_i)
 	queue_free()
 
 func _process(delta):

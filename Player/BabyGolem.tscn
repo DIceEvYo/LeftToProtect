@@ -4,21 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="2_8gxdd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27j3a"]
-size = Vector2(1976, 1666)
+size = Vector2(30, 60)
 
-[node name="BabyGolem" type="RigidBody2D"]
+[node name="BabyGolem" type="RigidBody2D" groups=["PB"]]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_gqilq")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_27j3a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_8gxdd")
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(5, -3)
-shape = SubResource("RectangleShape2D_27j3a")
 
 [node name="Shoot_Delay" type="Timer" parent="."]
 wait_time = 2.0

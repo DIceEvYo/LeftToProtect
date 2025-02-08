@@ -6,10 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mopg8"]
 size = Vector2(32, 61)
 
-[node name="Bullet" type="RigidBody2D"]
-collision_layer = 4
-collision_mask = 8
+[node name="Bullet" type="RigidBody2D" groups=["PB"]]
+collision_layer = 6
+collision_mask = 10
 script = ExtResource("1_xwlmo")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)

@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal hit
+
 var GhostBullet = preload("res://Ghost/Scenes/Bullets/GravityBullet.tscn")
 
 var player = null
@@ -38,7 +40,7 @@ var shoot_limit = 5
 func _ready():
 	#Finds size of game window
 	screen_size = get_viewport_rect().size
-	$Area2D/AnimatedSprite2D.play("idle")
+	$AnimatedSprite2D.play("idle")
 	randomize()
 	attack_sequence()
 	#change_dir()
@@ -562,14 +564,26 @@ func take_damage() -> void:
 	health -= 10
 	
 	
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if "Bullet" == body.name:
-		# Reduce health.
-		take_damage()
-		
-	# Calls for player to take damage.
-	elif "Player" == body.name:
-		body.take_damage()
-		
-	if health <= 0:
-		kill()
+#func _on_area_2d_body_entered(body: Node2D) -> void:
+	#if "Bullet" == body.name:
+		## Reduce health.
+		#take_damage()
+		#
+	## Calls for player to take damage.
+	#elif "Player" == body.name:
+		#body.take_damage()
+		#
+	#if health <= 0:
+		#kill()
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("PB"):
+		Score.score += 10
+		hit.emit()
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("PB"):
+		Score.score += 10
+		hit.emit()

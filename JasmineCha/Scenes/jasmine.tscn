@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://y73nwrrjx57y"]
 
-[ext_resource type="Texture2D" uid="uid://d36xnq47rn8l4" path="res://JasmineCha/Sprites/jasmine-cha.png" id="1_duqev"]
+[ext_resource type="Texture2D" uid="uid://j88lly35gobr" path="res://JasmineCha/Sprites/jasmine-cha.png" id="1_duqev"]
 [ext_resource type="Script" path="res://JasmineCha/Scripts/jasmine.gd" id="1_ff27l"]
-[ext_resource type="Texture2D" uid="uid://ckp2t7dte6qws" path="res://JasmineCha/Sprites/jasmine-cha-1.png" id="2_d108f"]
+[ext_resource type="Texture2D" uid="uid://cvii666wxof7l" path="res://JasmineCha/Sprites/jasmine-cha-1.png" id="2_d108f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3wmcd"]
 animations = [{
@@ -22,8 +22,10 @@ animations = [{
 radius = 55.0
 height = 148.0
 
-[node name="Jasmine" type="CharacterBody2D" groups=["Enemy"]]
+[node name="Jasmine" type="Area2D" groups=["Enemy"]]
 position = Vector2(850, 350)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_ff27l")
 metadata/_edit_group_ = true
 
@@ -52,5 +54,7 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_voqr3")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="RotationShootTimer" to="." method="_on_rotation_shoot_timer_timeout"]
 [connection signal="timeout" from="RotationShootTimer2" to="." method="_on_rotation_shoot_timer_2_timeout"]

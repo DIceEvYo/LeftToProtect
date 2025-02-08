@@ -13,7 +13,7 @@ func load_dialogue():
 	dialogue_sys = $Dialogue
 	dia_0 = [
 		"My my sonny, it appears you got a skill issue",
-		"How disappointing.",
+		str(Score.score) + " points? How disappointing.",
 		"Get good."
 	]
 	dia_1 = [

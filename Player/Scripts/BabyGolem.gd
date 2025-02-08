@@ -39,22 +39,24 @@ func _process(delta: float) -> void:
 		get_node("Overlap_Check").start()
 		overlap_check = false
 		
-		# Get's overlapping areas. Will detect maid. Can get position there.
-		enemies = get_child(1).get_overlapping_areas()
+		## Get's overlapping areas. Will detect maid. Can get position there.
+		#enemies = get_child(1).get_overlapping_areas()
 
 	# Prevents firing if no enemy in vicinity.
-	if enemies.is_empty():
-		process = false
+	#if enemies.is_empty():
+		#process = false
 		
 	# Allows firing, sets target, and sets linear velocity of bullet.
 	else:	
 		process = true
-		target = enemies[0]
+		if (not(target==null)):
+			target = enemies[0]
 		linear_velocity = direction * movement_speed
 		
 		# Fixes problem with "freed"
-		if is_instance_valid(target):
-			direction = (target.global_position - position).normalized()
+		if (not(target==null)):
+			if is_instance_valid(target):
+				direction = (target.global_position - position).normalized()
 	
 
 
@@ -68,8 +70,9 @@ func _physics_process( delta : float ) -> void:
 			pass
 		else:
 			# Fixes problem with "freed"
-			if is_instance_valid(target):
-				fire()
+			if (not(target==null)):
+				if is_instance_valid(target):
+					fire()
 	
 	
 func fire():
@@ -79,12 +82,13 @@ func fire():
 	bullet_instance = bullet.instantiate()
 	
 	# Calculates direction of enemy.
-	bullet_instance.direction = (target.global_position - position).normalized()
+	if (not(target==null)):
+		bullet_instance.direction = (target.global_position - position).normalized()
 	
-	# Bullet placed at player position before added to scene (check def later)
-	bullet_instance.position = position
-	get_parent().add_child(bullet_instance)
-	get_node("Shoot_Delay").start()
+		# Bullet placed at player position before added to scene (check def later)
+		bullet_instance.position = position
+		get_parent().add_child(bullet_instance)
+		get_node("Shoot_Delay").start()
 	shoot_cooldown = true
 
 

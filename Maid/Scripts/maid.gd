@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal hit
+
 var player = null
 var MaidBullet = preload("res://Maid/Scenes/MaidBullet.tscn")
 var MaidBullet4 = preload("res://Maid/Scenes/MaidBullet4.tscn")
@@ -131,19 +133,6 @@ func take_damage( value : int ) -> void:
 	print(value)
 	health -= value
 	
-	if health <= 0:
-		kill()
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if "Bullet" in body.name:
-		
-		# Reduce health.
-		take_damage(10)
-		
-	# Calls for player to take damage.
-	elif "Player" == body.name:
-		body.take_damage()
-		
 	if health <= 0:
 		kill()
 
@@ -313,8 +302,16 @@ func fight():
 			$AnimatedSprite2D.play("special_static")
 	await wait_for_timer(0.2)
 	$AnimatedSprite2D.play("default")
-		
-		
-		
 	
-	
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("PB"):
+		Score.score += 10
+		hit.emit()
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("PB"):
+		Score.score += 10
+		hit.emit()

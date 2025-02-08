@@ -1,4 +1,6 @@
-extends Node2D
+extends Area2D
+
+signal hit
 
 var speed = 2
 var speed_factor = 1
@@ -482,4 +484,13 @@ func attack_sequence():
 			for j in range(timer_vals.size()):
 				timer_vals[j] /= speed_factor
 
+func _on_area_entered(area):
+	if area.is_in_group("PB"):
+		Score.score += 10
+		hit.emit()
 
+
+func _on_body_entered(body):
+	if body.is_in_group("PB"):
+		Score.score += 10
+		hit.emit()

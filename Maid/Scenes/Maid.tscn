@@ -1,9 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://bgqkv5qtr6hj1"]
 
 [ext_resource type="Script" path="res://Maid/Scripts/maid.gd" id="1_nsybm"]
-[ext_resource type="Texture2D" uid="uid://dhm014yxnv5qo" path="res://Maid/Sprites/maididle.png" id="2_i3psy"]
-[ext_resource type="Texture2D" uid="uid://dykses1bcg6e4" path="res://Maid/Sprites/maidspecial.png" id="3_y51d2"]
-[ext_resource type="Texture2D" uid="uid://cysyye1vm0hfx" path="res://Maid/Sprites/maidspecialstatic.png" id="4_bvqby"]
+[ext_resource type="Texture2D" uid="uid://bk76sj8l30jq0" path="res://Maid/Sprites/maididle.png" id="2_i3psy"]
+[ext_resource type="Texture2D" uid="uid://ods4d78s06tr" path="res://Maid/Sprites/maidspecial.png" id="3_y51d2"]
+[ext_resource type="Texture2D" uid="uid://xp4pih0cga4u" path="res://Maid/Sprites/maidspecialstatic.png" id="4_bvqby"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gksph"]
+radius = 54.487
+height = 108.974
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uqm3y"]
 atlas = ExtResource("2_i3psy")
@@ -61,19 +65,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gksph"]
-radius = 54.487
-height = 108.974
-
 [node name="Maid" type="RigidBody2D"]
 z_index = 1
 position = Vector2(1004, 112)
 scale = Vector2(0.936, 0.936)
-collision_layer = 8
-collision_mask = 5
+collision_layer = 0
+collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_nsybm")
 metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+position = Vector2(2.13684, 0)
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_gksph")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.5, 4.5)
@@ -93,16 +99,17 @@ one_shot = true
 [node name="Rotater" type="Node2D" parent="."]
 scale = Vector2(1.06838, 1.06838)
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 5
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 light_mask = 0
-position = Vector2(2.13678, 0)
+position = Vector2(2.13684, 0)
+scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_gksph")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

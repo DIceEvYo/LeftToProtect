@@ -7,11 +7,14 @@ var revolving_bg_scene = preload("res://Background/Scenes/revolving_bg.tscn")
 var game_over = preload("res://Levels/rip/game_over.tscn")
 var god = false
 
-func _ready():
-	
+func _ready(): 
 	var dialog = dialog_scene.instantiate()
 	add_child(dialog)
 	await dialog.tree_exited
+	
+	var score_disp = preload("res://score_label.tscn")
+	var score_disp_i = score_disp.instantiate()
+	add_child(score_disp_i)
 	
 	var revolving_bg = revolving_bg_scene.instantiate()
 	revolving_bg.limit = 14
@@ -34,7 +37,9 @@ func _ready():
 	player.modulate.a -= 1
 	await wait_for_timer(2)
 	remove_child(ghost)
+	Score.score += player.health
 	remove_child(player)
+	remove_child(score_disp_i)
 	queue_free()
 	
 func _process(delta):
