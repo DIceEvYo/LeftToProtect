@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtpkwtlujolgd"]
+
+[ext_resource type="Script" path="res://Levels/final.gd" id="1_ltukg"]
+[ext_resource type="Texture2D" uid="uid://dj6rc3boc8xmo" path="res://Ghost/Sprites/Dialog/Box.png" id="2_im3ok"]
+[ext_resource type="AudioStream" uid="uid://bc3amkn6rg6fn" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="3_8tom3"]
+[ext_resource type="AudioStream" uid="uid://dkva03rif0745" path="res://JasmineCha/Background/jascream.mp3" id="4_nvrts"]
+[ext_resource type="Texture2D" uid="uid://bjwwpn67obyly" path="res://JasmineCha/Background/Jasmine.png" id="5_vhako"]
+[ext_resource type="Script" path="res://JasmineCha/Scenes/Jasmine2.gd" id="6_42c2i"]
+[ext_resource type="Texture2D" uid="uid://b40c2do0vhvrc" path="res://JasmineCha/Background/tea-house.png" id="7_6lob5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dbgl5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_im3ok")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="final" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ltukg")
+
+[node name="Dialogue" type="RichTextLabel" parent="."]
+z_index = 1
+offset_left = 270.0
+offset_top = 774.0
+offset_right = 1625.0
+offset_bottom = 1004.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 51
+
+[node name="SkipButton" type="Button" parent="."]
+offset_left = 1691.0
+offset_top = 45.0
+offset_right = 1732.0
+offset_bottom = 76.0
+scale = Vector2(4.759, 3.679)
+text = "Skip"
+
+[node name="Jasmine" type="RichTextLabel" parent="."]
+z_index = 1
+offset_left = 266.566
+offset_top = 673.925
+offset_right = 673.566
+offset_bottom = 771.925
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 70
+text = "Jasmine"
+
+[node name="DialogueBox" type="AnimatedSprite2D" parent="."]
+position = Vector2(945.566, 820.925)
+scale = Vector2(2.312, 1.171)
+sprite_frames = SubResource("SpriteFrames_dbgl5")
+
+[node name="GolemVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8tom3")
+volume_db = -10.631
+
+[node name="JasmineVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nvrts")
+volume_db = -14.847
+
+[node name="Jasmine2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(839, 539)
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("5_vhako")
+script = ExtResource("6_42c2i")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Tea-house" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(911, 1325)
+scale = Vector2(8.89046, 11.7168)
+texture = ExtResource("7_6lob5")

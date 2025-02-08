@@ -6,6 +6,7 @@ var tutorial_scene = preload("res://Levels/TutorialLevel/TutorialDialogSystem.ts
 var ghost_level_scene = preload("res://Levels/GhostLevel/ghost_level.tscn")
 var maid_level_scene = preload("res://Maid/Scenes/maid_level.tscn")
 var boss_level_scene = preload("res://Levels/BossLevel/bosslevel.tscn")
+var final_scene = preload("res://Levels/final.tscn")
 
 func _ready(): 
 	Score.score = 0
@@ -21,6 +22,9 @@ func _ready():
 	var boss_level = boss_level_scene.instantiate()
 	add_child(boss_level)
 	await boss_level.tree_exited
+	var final = final_scene.instantiate()
+	add_child(final)
+	await final.tree_exited
 	var title = title_image.instantiate()
 	add_child(title)
 	await title.tree_exited
