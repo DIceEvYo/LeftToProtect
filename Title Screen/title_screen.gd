@@ -6,7 +6,10 @@ func _on_start_button_pressed():
 	await get_tree().change_scene_to_file("res://Levels/LevelManager/LevelManager.tscn")
 	
 
-func _ready(): 
+func _ready():
+	Score.lang = "en"
+	Score.score = 0
+	Score.minilvl = 0 
 	$TitleImage.texture = load("res://Title Screen/Title Image.png")
 	var revolving_bg = bg_scene.instantiate()
 	revolving_bg.limit = 300
@@ -29,12 +32,15 @@ func _on_option_button_item_selected(index):
 
 
 func _on_ghost_pressed():
+	Score.minilvl = 1
 	await get_tree().change_scene_to_file("res://Levels/GhostLevel/ghost_level.tscn")
 
 func _on_maid_pressed():
+	Score.minilvl = 2
 	await get_tree().change_scene_to_file("res://Maid/Scenes/maid_level.tscn")
 
 func _on_boss_pressed():
+	Score.minilvl = 3
 	await get_tree().change_scene_to_file("res://Levels/BossLevel/bosslevel.tscn")
 
 

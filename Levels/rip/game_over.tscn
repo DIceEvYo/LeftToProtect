@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dp45nox0bowtg"]
 
 [ext_resource type="Script" path="res://Levels/rip/game_over.gd" id="1_nsfgh"]
-[ext_resource type="Texture2D" uid="uid://dehw1mjr8ujv3" path="res://Ghost/Sprites/Dialog/Box.png" id="2_tu0o1"]
-[ext_resource type="AudioStream" uid="uid://bxfi1v5xhxue2" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="3_i4ob3"]
+[ext_resource type="Texture2D" uid="uid://cxu1pr16q1ma" path="res://Ghost/Sprites/Dialog/Box.png" id="2_tu0o1"]
+[ext_resource type="AudioStream" uid="uid://ogc4sigwfgk" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="3_i4ob3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f4dow"]
 animations = [{
@@ -66,10 +66,10 @@ volume_db = -10.631
 
 [node name="Skip Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1706.0
-offset_top = 27.0
-offset_right = 1747.0
-offset_bottom = 58.0
+offset_left = 1640.0
+offset_top = 25.0
+offset_right = 1681.0
+offset_bottom = 56.0
 scale = Vector2(4.16, 4.16)
 text = "Skip"
 

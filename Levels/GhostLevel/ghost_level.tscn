@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dk5lifukbd4o7"]
 
 [ext_resource type="Script" path="res://Levels/GhostLevel/ghost_level_bg.gd" id="1_nnrf6"]
-[ext_resource type="AudioStream" uid="uid://bi7h4s6b35j0y" path="res://Ghost/Music/NightXPhantom.mp3" id="2_m03up"]
+[ext_resource type="AudioStream" uid="uid://buqtr0r6t315y" path="res://Ghost/Music/NightXPhantom.mp3" id="2_m03up"]
 
 [node name="GhostLevel" type="Node2D"]
 script = ExtResource("1_nnrf6")

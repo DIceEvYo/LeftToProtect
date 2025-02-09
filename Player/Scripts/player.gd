@@ -62,18 +62,18 @@ func _physics_process(delta):
 		fire("shoot")
 		
 	# Activates shield if player presses E.
-	if Input.is_action_just_pressed("shield"):
-		shield()
-		
-	if Input.is_action_just_pressed("spinning_bullet"):
-		fire("spinning_bullet")
-		
-	if Input.is_action_just_pressed("spawn_golems"):
-		golem_spawn()
-		
-	if Input.is_action_just_pressed("heat_seeking_golems"):
-		pass
-		
+	#if Input.is_action_just_pressed("shield"):
+		#shield()
+		#
+	#if Input.is_action_just_pressed("spinning_bullet"):
+		#fire("spinning_bullet")
+		#
+	#if Input.is_action_just_pressed("spawn_golems"):
+		#golem_spawn()
+		#
+	#if Input.is_action_just_pressed("heat_seeking_golems"):
+		#pass
+		#
 	move_and_slide()
 	
 	
@@ -130,16 +130,16 @@ func fire( attack : String ):
 		# New regular bullet.
 		bullet_instance = bullet.instantiate()
 		
-	elif attack == "spinning_bullet":
-		if spinning_bullet_cooldown == true:
-			print("Sping cooldown.")
-			return
-		# New spinning bullet.
-		bullet_instance = spinning_bullet.instantiate()
-		spinning_bullet_cooldown = true
-		get_node("Spinning_Bullet_Timer").start()
-	
-	# Calculates direction of mouse position.
+	#elif attack == "spinning_bullet":
+		#if spinning_bullet_cooldown == true:
+			#print("Sping cooldown.")
+			#return
+		## New spinning bullet.
+		#bullet_instance = spinning_bullet.instantiate()
+		#spinning_bullet_cooldown = true
+		#get_node("Spinning_Bullet_Timer").start()
+	#
+	## Calculates direction of mouse position.
 	var target_position = get_global_mouse_position()
 	bullet_instance.direction = (target_position - position).normalized()
 	
@@ -151,58 +151,58 @@ func fire( attack : String ):
 	
 	
 ######### Golem first ability. Creates sheild that blocks one attack. Destroyed afterwards. Can take 3-5 seconds to create another.
-func shield() -> void:
-	if shield_cooldown:
-		print("Shield on cooldown.")
-		return
-	
-	shield_active = true
-	shield_cooldown = true
-	modulate = Color(1, 1, 0)
-	print("Shield activated.")
-	get_node("Shield_Cooldown_Timer").start()
-	return
-	
-	
-func _on_shield_cooldown_timer_timeout() -> void:
-	# Cooldown is 5 seconds.
-	shield_cooldown = false
-	print("Shield ready.")
-	return
-	
+#func shield() -> void:
+	#if shield_cooldown:
+		#print("Shield on cooldown.")
+		#return
+	#
+	#shield_active = true
+	#shield_cooldown = true
+	#modulate = Color(1, 1, 0)
+	#print("Shield activated.")
+	#get_node("Shield_Cooldown_Timer").start()
+	#return
+	#
+	#
+#func _on_shield_cooldown_timer_timeout() -> void:
+	## Cooldown is 5 seconds.
+	#shield_cooldown = false
+	#print("Shield ready.")
+	#return
+	#
 
 ######## Golem second ability. A spinning golem bullet is shot, and grows bigger the more enemy bullets it absorbs.
-func spinning_golem_bullet() -> void:
-	fire("spinning_bullet")
-	return
-	
-	
-func _on_spinning_bullet_timer_timeout() -> void:
-	# Cooldown is 5 seconds.
-	spinning_bullet_cooldown = false
-	print("Spin ready.")
-	return
+#func spinning_golem_bullet() -> void:
+	#fire("spinning_bullet")
+	#return
+	#
+	#
+#func _on_spinning_bullet_timer_timeout() -> void:
+	## Cooldown is 5 seconds.
+	#spinning_bullet_cooldown = false
+	#print("Spin ready.")
+	#return
 
 	
 ######## Golem third ability. Spawns baby golem that moves towards enemy while shooting at them. Despawns after 15 seconds.
-func golem_spawn() -> void:
-	if golem_spawner_cooldown:
-		print("Baby golem on cooldown.")
-		return
-		
-	var golem = golem_spawner.instantiate()
-	
-	golem.position = position
-	golem.direction = (golem.position - position).normalized()
-	
-	# Bullet placed at player position before added to scene (check def later)
-	golem.position = position
-	get_parent().add_child(golem)
-	
-	get_node("Baby_Golem_Timer").start()
-	golem_spawner_cooldown = true
-	return
-	
+#func golem_spawn() -> void:
+	#if golem_spawner_cooldown:
+		#print("Baby golem on cooldown.")
+		#return
+		#
+	#var golem = golem_spawner.instantiate()
+	#
+	#golem.position = position
+	#golem.direction = (golem.position - position).normalized()
+	#
+	## Bullet placed at player position before added to scene (check def later)
+	#golem.position = position
+	#get_parent().add_child(golem)
+	#
+	#get_node("Baby_Golem_Timer").start()
+	#golem_spawner_cooldown = true
+	#return
+	#
 	
 func _on_baby_golem_timer_timeout() -> void:
 	golem_spawner_cooldown = false
@@ -215,18 +215,21 @@ func _on_baby_golem_timer_timeout() -> void:
 # Called when player is hita. Stays invincible for a bit.
 func invincibility_frame() -> void:
 	invincible = true
-	get_node("Invincible_Frame_Timer").start()
+	#get_node("Invincible_Frame_Timer").start()
 	
 	# Flashes for duration of invincibility.
 	for flash in range(10): 
-		if is_inside_tree():
-			$Player/Sprite2D.visible = false
-			await get_tree().create_timer(0.1).timeout  # Wait briefly
-			$Player/Sprite2D.visible = true
-			await get_tree().create_timer(0.1).timeout  # Wait briefly
-			$Player/Sprite2D.visible = false
-			await get_tree().create_timer(0.1).timeout  # Wait briefly
-			$Player/Sprite2D.visible = true
+		#if is_inside_tree():
+		$Player/Sprite2D.visible = false
+		$Timer.start(0.1)
+		await $Timer.timeout  # Wait briefly
+		$Player/Sprite2D.visible = true
+		$Timer.start(0.1)
+		await $Timer.timeout  # Wait briefly
+		$Player/Sprite2D.visible = false
+		$Timer.start(0.1)
+		await $Timer.timeout  # Wait briefly
+		$Player/Sprite2D.visible = true
 
 	return
 	
@@ -248,10 +251,10 @@ func take_damage() -> void:
 	if invincible:
 		return
 	# Mitigate damage if has shield.
-	elif shield_active:
-		shield_active = false
-		modulate = Color(1, 1, 1)
-		return
+	#elif shield_active:
+		#shield_active = false
+		#modulate = Color(1, 1, 1)
+		#return
 	else:
 		health -= 10
 		healthChanged.emit()

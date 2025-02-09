@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://cxc3fjx74adm0"]
 
-[ext_resource type="Texture2D" uid="uid://dehw1mjr8ujv3" path="res://Ghost/Sprites/Dialog/Box.png" id="1_mudsm"]
+[ext_resource type="Texture2D" uid="uid://cxu1pr16q1ma" path="res://Ghost/Sprites/Dialog/Box.png" id="1_mudsm"]
 [ext_resource type="Script" path="res://Maid/Scripts/maidleveldialogue.gd" id="1_tm237"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="2_ds67h"]
 [ext_resource type="Script" path="res://JasmineCha/Scenes/MaidIllust.gd" id="2_st38i"]
-[ext_resource type="AudioStream" uid="uid://dy5pp63s0ltx4" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="3_vafaj"]
-[ext_resource type="AudioStream" uid="uid://dkeai7vas2p3d" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_88wcn"]
-[ext_resource type="AudioStream" uid="uid://byunj2f8d7c5d" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="5_2xkf8"]
-[ext_resource type="AudioStream" uid="uid://bxfi1v5xhxue2" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="7_6w27i"]
-[ext_resource type="Texture2D" uid="uid://cqk20nr7ujic1" path="res://Background/bg-art.png" id="9_dyvmk"]
+[ext_resource type="AudioStream" uid="uid://bhbcj1hd6t40q" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="3_vafaj"]
+[ext_resource type="AudioStream" uid="uid://cwa5lwvciucip" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_88wcn"]
+[ext_resource type="AudioStream" uid="uid://cb4ulupnnl10d" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="5_2xkf8"]
+[ext_resource type="AudioStream" uid="uid://ogc4sigwfgk" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="7_6w27i"]
+[ext_resource type="Texture2D" uid="uid://dcyl3sr45hifh" path="res://Background/bg-art.png" id="9_dyvmk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_audlo"]
 animations = [{

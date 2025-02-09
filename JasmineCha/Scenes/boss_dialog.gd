@@ -7,6 +7,7 @@ var ghost_facial_expression
 var jas_facial_expression
 var golem
 var boss
+var time
 
 var dialogue_sys
 var dia_0
@@ -34,6 +35,7 @@ func load_dialogue():
 		$GolemMinion.text = "ゴーレムのミニオン"
 		$Jasmine.text = "ジャスミンちゃん"
 		$SkipButton.text = "スキップ"
+		time = .065
 		dia_0 = [
 		"。。。"
 		]
@@ -59,7 +61,7 @@ func load_dialogue():
 			"しかし、運のいいことに、俺の前に三人のターゲットが現れやがったみたいだな～あらあら～"
 		]
 		dia_8 = [
-			"実は俺を含めれば四人だ。クローンたちなら、もっとだ。"
+			"いや、俺を含めれば四人だ。クローンたちなら、もっとだ。"
 		]
 		dia_9 = [
 			"そう？素敵だな～じゃあ、ぶっ壊す準備はできてんだろうな～"
@@ -86,6 +88,7 @@ func load_dialogue():
 		$GolemMinion.text = "Golem Minion"
 		$Jasmine.text = "Jasmine"
 		$SkipButton.text = "Skip"
+		time = .045
 		dia_0 = [
 			"I..."
 		]
@@ -271,23 +274,22 @@ func _ready():
 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+signal continue_dialog
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("shoot"):
+		continue_dialog.emit()
 
 func read_dialogue(dialogue):
 	for line in dialogue:
 		dialogue_sys.clear()
 		await speech(line)
-		$Timer.start(1.5)
-		await $Timer.timeout
+		await continue_dialog
 		dialogue_sys.clear()
 
 func speech(text):
 	for c in text:
 		voice.play()
-		$Timer.start(.045)
+		$Timer.start(time)
 		await $Timer.timeout
 		dialogue_sys.add_text(c)
 

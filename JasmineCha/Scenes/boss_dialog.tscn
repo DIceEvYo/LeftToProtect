@@ -1,19 +1,19 @@
 [gd_scene load_steps=17 format=3 uid="uid://de8tyu6emjuhs"]
 
 [ext_resource type="Script" path="res://JasmineCha/Scenes/boss_dialog.gd" id="1_aii3t"]
-[ext_resource type="Texture2D" uid="uid://dehw1mjr8ujv3" path="res://Ghost/Sprites/Dialog/Box.png" id="2_w8px1"]
-[ext_resource type="AudioStream" uid="uid://dy5pp63s0ltx4" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="3_p6nr0"]
-[ext_resource type="AudioStream" uid="uid://dkeai7vas2p3d" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_awnan"]
-[ext_resource type="AudioStream" uid="uid://cwpn37fqmv3xg" path="res://JasmineCha/Background/okocchaalt.mp3" id="4_x2oc2"]
-[ext_resource type="AudioStream" uid="uid://byunj2f8d7c5d" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="5_387kb"]
-[ext_resource type="AudioStream" uid="uid://bxfi1v5xhxue2" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="6_pebgu"]
-[ext_resource type="AudioStream" uid="uid://bvo4pw214d2h0" path="res://JasmineCha/Background/jascream.mp3" id="7_is6ie"]
-[ext_resource type="Texture2D" uid="uid://clscd0wd7uknd" path="res://JasmineCha/Background/tea-house.png" id="7_n02gh"]
-[ext_resource type="Texture2D" uid="uid://dgovaj5lbtmc2" path="res://Maid/Sprites/MaidIllustrations/maidillus_love.png" id="8_vse0t"]
-[ext_resource type="Texture2D" uid="uid://bqlhd5piphgsg" path="res://Ghost/Illustrations/angry/. . ..PNG" id="9_fi0tx"]
+[ext_resource type="Texture2D" uid="uid://cxu1pr16q1ma" path="res://Ghost/Sprites/Dialog/Box.png" id="2_w8px1"]
+[ext_resource type="AudioStream" uid="uid://bhbcj1hd6t40q" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="3_p6nr0"]
+[ext_resource type="AudioStream" uid="uid://cwa5lwvciucip" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_awnan"]
+[ext_resource type="AudioStream" uid="uid://cfxv35xtc82pp" path="res://JasmineCha/Background/okocchaalt.mp3" id="4_x2oc2"]
+[ext_resource type="AudioStream" uid="uid://cb4ulupnnl10d" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="5_387kb"]
+[ext_resource type="AudioStream" uid="uid://ogc4sigwfgk" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="6_pebgu"]
+[ext_resource type="AudioStream" uid="uid://488ng3s4f5yt" path="res://JasmineCha/Background/jascream.mp3" id="7_is6ie"]
+[ext_resource type="Texture2D" uid="uid://dbbwmq6jyt68f" path="res://JasmineCha/Background/tea-house.png" id="7_n02gh"]
+[ext_resource type="Texture2D" uid="uid://sgfu1ocwf1l8" path="res://Maid/Sprites/MaidIllustrations/maidillus_love.png" id="8_vse0t"]
+[ext_resource type="Texture2D" uid="uid://xbviq13jhhff" path="res://Ghost/Illustrations/angry/. . ..PNG" id="9_fi0tx"]
 [ext_resource type="Script" path="res://JasmineCha/Scenes/MaidIllust.gd" id="9_y0oq6"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="10_6y764"]
-[ext_resource type="Texture2D" uid="uid://dx4iip15sf2as" path="res://JasmineCha/Background/Jasmine.png" id="11_wd03l"]
+[ext_resource type="Texture2D" uid="uid://dfk2buoec05bb" path="res://JasmineCha/Background/Jasmine.png" id="11_wd03l"]
 [ext_resource type="Script" path="res://JasmineCha/Scenes/Jasmine2.gd" id="12_40rgm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1itt"]
@@ -46,9 +46,9 @@ theme_override_font_sizes/normal_font_size = 51
 
 [node name="SkipButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1691.0
+offset_left = 1627.0
 offset_top = 45.0
-offset_right = 1732.0
+offset_right = 1668.0
 offset_bottom = 76.0
 scale = Vector2(4.759, 3.679)
 text = "Skip"
@@ -100,10 +100,10 @@ text = "Golem Minion"
 [node name="Jasmine" type="RichTextLabel" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 266.566
-offset_top = 673.925
-offset_right = 673.566
-offset_bottom = 771.925
+offset_left = 267.0
+offset_top = 674.0
+offset_right = 1030.0
+offset_bottom = 794.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 70
 text = "Jasmine"

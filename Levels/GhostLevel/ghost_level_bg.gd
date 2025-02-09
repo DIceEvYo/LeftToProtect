@@ -40,7 +40,10 @@ func _ready():
 	Score.score += player.health
 	remove_child(player)
 	remove_child(score_disp_i)
-	queue_free()
+	if Score.minilvl > 0:
+		await get_tree().change_scene_to_file("res://Levels/final.tscn")
+	else:
+		queue_free()
 	
 func _process(delta):
 	if(god):

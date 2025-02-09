@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7axt5ftaoffc"]
 
 [ext_resource type="Script" path="res://Title Screen/title_screen.gd" id="1_ad2l4"]
-[ext_resource type="Texture2D" uid="uid://b7ctcapwsail" path="res://Title Screen/Title Image.png" id="2_mbeo3"]
-[ext_resource type="Texture2D" uid="uid://cqk20nr7ujic1" path="res://Background/bg-art.png" id="3_mn31b"]
-[ext_resource type="AudioStream" uid="uid://dy2lc2s4dpkqy" path="res://Background/ElegantGarden.mp3" id="4_1e4dv"]
+[ext_resource type="Texture2D" uid="uid://bwwklry3f6pym" path="res://Title Screen/Title Image.png" id="2_mbeo3"]
+[ext_resource type="Texture2D" uid="uid://dcyl3sr45hifh" path="res://Background/bg-art.png" id="3_mn31b"]
+[ext_resource type="AudioStream" uid="uid://judrq2cwhasi" path="res://Background/ElegantGarden.mp3" id="4_1e4dv"]
 
 [node name="Title Screen" type="Control"]
 layout_mode = 3
