@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7axt5ftaoffc"]
+[gd_scene load_steps=7 format=3 uid="uid://b7axt5ftaoffc"]
 
 [ext_resource type="Script" path="res://Title Screen/title_screen.gd" id="1_ad2l4"]
+[ext_resource type="FontFile" uid="uid://f61n4ons5do8" path="res://NotoSansJP-VariableFont_wght.ttf" id="2_7b8vv"]
 [ext_resource type="Texture2D" uid="uid://bwwklry3f6pym" path="res://Title Screen/Title Image.png" id="2_mbeo3"]
 [ext_resource type="Texture2D" uid="uid://dcyl3sr45hifh" path="res://Background/bg-art.png" id="3_mn31b"]
+[ext_resource type="Theme" uid="uid://c7brj75yxy4o7" path="res://font.tres" id="3_visbw"]
 [ext_resource type="AudioStream" uid="uid://judrq2cwhasi" path="res://Background/ElegantGarden.mp3" id="4_1e4dv"]
 
 [node name="Title Screen" type="Control"]
@@ -33,14 +35,19 @@ offset_top = -522.16
 offset_right = -225.72
 offset_bottom = -491.16
 scale = Vector2(6, 6)
+theme_override_fonts/font = ExtResource("2_7b8vv")
 text = "Story Mode"
 
 [node name="OptionButton" type="OptionButton" parent="CanvasLayer"]
-offset_left = 734.0
-offset_top = 590.0
-offset_right = 921.0
-offset_bottom = 621.0
+offset_left = 719.0
+offset_top = 575.0
+offset_right = 916.0
+offset_bottom = 609.0
 scale = Vector2(2.95283, 2.95283)
+auto_translate = false
+localize_numeral_system = false
+theme = ExtResource("3_visbw")
+theme_override_fonts/font = ExtResource("2_7b8vv")
 item_count = 6
 selected = 0
 allow_reselect = true
@@ -58,35 +65,43 @@ popup/item_5/text = "Hardcore (10 HP)"
 popup/item_5/id = 5
 
 [node name="Ghost" type="Button" parent="CanvasLayer"]
-offset_left = 729.0
-offset_top = 706.0
-offset_right = 783.0
-offset_bottom = 737.0
+offset_left = 722.0
+offset_top = 704.0
+offset_right = 782.0
+offset_bottom = 739.0
 scale = Vector2(2.96, 2.96)
+theme_override_fonts/font = ExtResource("2_7b8vv")
 text = "Ghost"
 
 [node name="Maid" type="Button" parent="CanvasLayer"]
-offset_left = 941.0
-offset_top = 701.0
-offset_right = 988.0
-offset_bottom = 732.0
-scale = Vector2(3.28002, 3.28002)
+offset_left = 919.0
+offset_top = 704.0
+offset_right = 979.0
+offset_bottom = 739.0
+scale = Vector2(2.96, 2.96)
+theme_override_fonts/font = ExtResource("2_7b8vv")
 text = "Maid"
 
 [node name="Boss" type="Button" parent="CanvasLayer"]
-offset_left = 1136.0
-offset_top = 700.0
-offset_right = 1180.0
-offset_bottom = 731.0
-scale = Vector2(3.36001, 3.36001)
+offset_left = 1123.0
+offset_top = 704.0
+offset_right = 1183.0
+offset_bottom = 739.0
+scale = Vector2(2.96, 2.96)
+theme_override_fonts/font = ExtResource("2_7b8vv")
 text = "Boss"
 
 [node name="OptionButton2" type="OptionButton" parent="CanvasLayer"]
 offset_right = 45.0
 offset_bottom = 20.0
 scale = Vector2(2.36, 2.36)
+auto_translate = false
+localize_numeral_system = false
+theme = ExtResource("3_visbw")
+theme_override_fonts/font = ExtResource("2_7b8vv")
 item_count = 2
 selected = 0
+allow_reselect = true
 popup/item_0/text = "English"
 popup/item_0/id = 0
 popup/item_1/text = "日本語"

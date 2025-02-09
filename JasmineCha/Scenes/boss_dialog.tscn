@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://de8tyu6emjuhs"]
+[gd_scene load_steps=18 format=3 uid="uid://de8tyu6emjuhs"]
 
 [ext_resource type="Script" path="res://JasmineCha/Scenes/boss_dialog.gd" id="1_aii3t"]
+[ext_resource type="FontFile" uid="uid://f61n4ons5do8" path="res://NotoSansJP-VariableFont_wght.ttf" id="2_5gahy"]
 [ext_resource type="Texture2D" uid="uid://cxu1pr16q1ma" path="res://Ghost/Sprites/Dialog/Box.png" id="2_w8px1"]
 [ext_resource type="AudioStream" uid="uid://bhbcj1hd6t40q" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="3_p6nr0"]
 [ext_resource type="AudioStream" uid="uid://cwa5lwvciucip" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_awnan"]
@@ -10,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://488ng3s4f5yt" path="res://JasmineCha/Background/jascream.mp3" id="7_is6ie"]
 [ext_resource type="Texture2D" uid="uid://dbbwmq6jyt68f" path="res://JasmineCha/Background/tea-house.png" id="7_n02gh"]
 [ext_resource type="Texture2D" uid="uid://sgfu1ocwf1l8" path="res://Maid/Sprites/MaidIllustrations/maidillus_love.png" id="8_vse0t"]
-[ext_resource type="Texture2D" uid="uid://xbviq13jhhff" path="res://Ghost/Illustrations/angry/. . ..PNG" id="9_fi0tx"]
+[ext_resource type="Texture2D" uid="uid://xbviq13jhhff" path="res://Ghost/Illustrations/angry/. . ..png" id="9_fi0tx"]
 [ext_resource type="Script" path="res://JasmineCha/Scenes/MaidIllust.gd" id="9_y0oq6"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="10_6y764"]
 [ext_resource type="Texture2D" uid="uid://dfk2buoec05bb" path="res://JasmineCha/Background/Jasmine.png" id="11_wd03l"]
@@ -42,47 +43,52 @@ offset_top = 774.0
 offset_right = 1625.0
 offset_bottom = 1004.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_5gahy")
 theme_override_font_sizes/normal_font_size = 51
 
 [node name="SkipButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1627.0
+offset_left = 1535.0
 offset_top = 45.0
-offset_right = 1668.0
-offset_bottom = 76.0
+offset_right = 1576.0
+offset_bottom = 77.0
 scale = Vector2(4.759, 3.679)
+theme_override_fonts/font = ExtResource("2_5gahy")
 text = "Skip"
 
 [node name="MaidName" type="RichTextLabel" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 266.566
-offset_top = 673.925
-offset_right = 673.566
-offset_bottom = 771.925
+offset_left = 267.0
+offset_top = 674.0
+offset_right = 838.0
+offset_bottom = 818.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_5gahy")
 theme_override_font_sizes/normal_font_size = 70
 text = "Momoko"
 
 [node name="GhostName" type="RichTextLabel" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 266.566
-offset_top = 673.925
-offset_right = 753.566
-offset_bottom = 771.925
+offset_left = 267.0
+offset_top = 674.0
+offset_right = 938.0
+offset_bottom = 836.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_5gahy")
 theme_override_font_sizes/normal_font_size = 70
 text = "Yuuki Sentaku"
 
 [node name="GolemName" type="RichTextLabel" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 266.566
-offset_top = 673.925
-offset_right = 673.566
-offset_bottom = 771.925
+offset_left = 267.0
+offset_top = 674.0
+offset_right = 882.0
+offset_bottom = 846.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_5gahy")
 theme_override_font_sizes/normal_font_size = 70
 text = "Golem"
 
@@ -91,9 +97,10 @@ z_index = 1
 layout_mode = 0
 offset_left = 267.0
 offset_top = 674.0
-offset_right = 893.0
-offset_bottom = 775.0
+offset_right = 961.0
+offset_bottom = 823.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_5gahy")
 theme_override_font_sizes/normal_font_size = 70
 text = "Golem Minion"
 
@@ -105,6 +112,7 @@ offset_top = 674.0
 offset_right = 1030.0
 offset_bottom = 794.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_5gahy")
 theme_override_font_sizes/normal_font_size = 70
 text = "Jasmine"
 

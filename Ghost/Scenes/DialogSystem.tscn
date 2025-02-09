@@ -1,19 +1,20 @@
-[gd_scene load_steps=21 format=3 uid="uid://ckivw7x1wkiuv"]
+[gd_scene load_steps=22 format=3 uid="uid://ckivw7x1wkiuv"]
 
 [ext_resource type="Script" path="res://Ghost/Scripts/DialogSystem.gd" id="1_2kx7h"]
-[ext_resource type="Texture2D" uid="uid://dehw1mjr8ujv3" path="res://Ghost/Sprites/Dialog/Box.png" id="1_4oouj"]
-[ext_resource type="AudioStream" uid="uid://byunj2f8d7c5d" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="4_afety"]
-[ext_resource type="AudioStream" uid="uid://dfjspccp0x8th" path="res://Ghost/Music/PhantomMemory.wav" id="4_v2pad"]
+[ext_resource type="Texture2D" uid="uid://cxu1pr16q1ma" path="res://Ghost/Sprites/Dialog/Box.png" id="1_4oouj"]
+[ext_resource type="FontFile" uid="uid://f61n4ons5do8" path="res://NotoSansJP-VariableFont_wght.ttf" id="2_brnda"]
+[ext_resource type="AudioStream" uid="uid://cb4ulupnnl10d" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="4_afety"]
+[ext_resource type="AudioStream" uid="uid://dbuxkpc1armjj" path="res://Ghost/Music/PhantomMemory.wav" id="4_v2pad"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="5_7aeq0"]
-[ext_resource type="AudioStream" uid="uid://bxfi1v5xhxue2" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="5_djbjl"]
-[ext_resource type="FontFile" uid="uid://bxvsayf0bvxqh" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_rt3m0"]
-[ext_resource type="Texture2D" uid="uid://crk1s2rea74pl" path="res://Ghost/Illustrations/serious/seriously.PNG" id="6_tjst8"]
+[ext_resource type="AudioStream" uid="uid://ogc4sigwfgk" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="5_djbjl"]
+[ext_resource type="FontFile" uid="uid://csce4y6meygdo" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_rt3m0"]
+[ext_resource type="Texture2D" uid="uid://c1cwxt37pkt3x" path="res://Ghost/Illustrations/serious/seriously.PNG" id="6_tjst8"]
 [ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="10_ig25j"]
-[ext_resource type="Texture2D" uid="uid://cnpljbjok8oew" path="res://Player/Sprites/GolemSprite-0002.png" id="11_q8ixv"]
-[ext_resource type="Texture2D" uid="uid://40dttbtq5i6g" path="res://Player/Sprites/GolemSprite-0003.png" id="12_q1cbx"]
-[ext_resource type="Texture2D" uid="uid://c0wdqibrl2np7" path="res://Player/Sprites/GolemSprite-0004.png" id="13_o1n4t"]
+[ext_resource type="Texture2D" uid="uid://mu4davsf24gk" path="res://Player/Sprites/GolemSprite-0002.png" id="11_q8ixv"]
+[ext_resource type="Texture2D" uid="uid://bjeihd1v7qdub" path="res://Player/Sprites/GolemSprite-0003.png" id="12_q1cbx"]
+[ext_resource type="Texture2D" uid="uid://ccif2da3idwme" path="res://Player/Sprites/GolemSprite-0004.png" id="13_o1n4t"]
 [ext_resource type="Script" path="res://Ghost/Scenes/MiniGolemThrow.gd" id="14_rcmgb"]
-[ext_resource type="Texture2D" uid="uid://cqk20nr7ujic1" path="res://Background/bg-art.png" id="15_xhwel"]
+[ext_resource type="Texture2D" uid="uid://dcyl3sr45hifh" path="res://Background/bg-art.png" id="15_xhwel"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_am7qi"]
 animations = [{
@@ -116,6 +117,7 @@ offset_top = -171.0
 offset_right = -35.0
 offset_bottom = -60.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_brnda")
 theme_override_font_sizes/normal_font_size = 76
 text = "Yuuki"
 
@@ -127,6 +129,7 @@ offset_top = -169.0
 offset_right = -159.0
 offset_bottom = -56.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_brnda")
 theme_override_font_sizes/normal_font_size = 76
 text = "Golem"
 
@@ -138,6 +141,7 @@ offset_top = -173.0
 offset_right = -72.0
 offset_bottom = -58.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_brnda")
 theme_override_font_sizes/normal_font_size = 76
 text = "Golem Minion"
 
@@ -156,6 +160,7 @@ offset_left = -674.0
 offset_top = -53.0
 offset_right = 681.0
 offset_bottom = 177.0
+theme_override_fonts/normal_font = ExtResource("2_brnda")
 theme_override_font_sizes/normal_font_size = 51
 
 [node name="DialogJP" type="RichTextLabel" parent="."]
@@ -204,6 +209,7 @@ offset_top = -827.0
 offset_right = 522.0
 offset_bottom = -796.0
 scale = Vector2(4.759, 3.679)
+theme_override_fonts/font = ExtResource("2_brnda")
 text = "Skip"
 
 [node name="Bg-art" type="Sprite2D" parent="."]

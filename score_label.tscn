@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://sb8ji8f1nkay"]
+[gd_scene load_steps=3 format=3 uid="uid://sb8ji8f1nkay"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager/scorelabel.gd" id="1_fr0ea"]
+[ext_resource type="FontFile" uid="uid://f61n4ons5do8" path="res://NotoSansJP-VariableFont_wght.ttf" id="1_s4e8j"]
 
 [node name="ScoreLabel" type="Label"]
 offset_left = 864.0
@@ -8,5 +9,6 @@ offset_top = 21.0
 offset_right = 925.0
 offset_bottom = 44.0
 scale = Vector2(3.626, 3.626)
+theme_override_fonts/font = ExtResource("1_s4e8j")
 text = "Score: 0"
 script = ExtResource("1_fr0ea")

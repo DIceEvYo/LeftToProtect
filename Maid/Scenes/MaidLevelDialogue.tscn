@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxc3fjx74adm0"]
+[gd_scene load_steps=12 format=3 uid="uid://cxc3fjx74adm0"]
 
 [ext_resource type="Texture2D" uid="uid://cxu1pr16q1ma" path="res://Ghost/Sprites/Dialog/Box.png" id="1_mudsm"]
 [ext_resource type="Script" path="res://Maid/Scripts/maidleveldialogue.gd" id="1_tm237"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://JasmineCha/Scenes/MaidIllust.gd" id="2_st38i"]
 [ext_resource type="AudioStream" uid="uid://bhbcj1hd6t40q" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="3_vafaj"]
 [ext_resource type="AudioStream" uid="uid://cwa5lwvciucip" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_88wcn"]
+[ext_resource type="FontFile" uid="uid://f61n4ons5do8" path="res://NotoSansJP-VariableFont_wght.ttf" id="4_alw1p"]
 [ext_resource type="AudioStream" uid="uid://cb4ulupnnl10d" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="5_2xkf8"]
 [ext_resource type="AudioStream" uid="uid://ogc4sigwfgk" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="7_6w27i"]
 [ext_resource type="Texture2D" uid="uid://dcyl3sr45hifh" path="res://Background/bg-art.png" id="9_dyvmk"]
@@ -50,6 +51,7 @@ offset_top = -53.0
 offset_right = 681.0
 offset_bottom = 177.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("4_alw1p")
 theme_override_font_sizes/normal_font_size = 51
 
 [node name="MaidName" type="RichTextLabel" parent="."]
@@ -57,9 +59,10 @@ z_index = 1
 layout_mode = 0
 offset_left = -679.0
 offset_top = -147.0
-offset_right = -272.0
-offset_bottom = -49.0
+offset_right = -168.0
+offset_bottom = 1.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("4_alw1p")
 theme_override_font_sizes/normal_font_size = 70
 text = "Momoko"
 
@@ -68,9 +71,10 @@ z_index = 1
 layout_mode = 0
 offset_left = -679.0
 offset_top = -147.0
-offset_right = -192.0
-offset_bottom = -49.0
+offset_right = -88.0
+offset_bottom = 29.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("4_alw1p")
 theme_override_font_sizes/normal_font_size = 70
 text = "Yuuki Sentaku"
 
@@ -79,9 +83,10 @@ z_index = 1
 layout_mode = 0
 offset_left = -679.0
 offset_top = -147.0
-offset_right = -272.0
-offset_bottom = -49.0
+offset_right = -160.0
+offset_bottom = 7.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("4_alw1p")
 theme_override_font_sizes/normal_font_size = 70
 text = "Golem"
 
@@ -117,6 +122,7 @@ offset_top = -821.0
 offset_right = 635.0
 offset_bottom = -790.0
 scale = Vector2(4.759, 3.679)
+theme_override_fonts/font = ExtResource("4_alw1p")
 text = "Skip"
 
 [node name="Bg-art" type="Sprite2D" parent="."]

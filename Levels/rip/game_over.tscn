@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp45nox0bowtg"]
+[gd_scene load_steps=6 format=3 uid="uid://dp45nox0bowtg"]
 
 [ext_resource type="Script" path="res://Levels/rip/game_over.gd" id="1_nsfgh"]
 [ext_resource type="Texture2D" uid="uid://cxu1pr16q1ma" path="res://Ghost/Sprites/Dialog/Box.png" id="2_tu0o1"]
+[ext_resource type="FontFile" uid="uid://f61n4ons5do8" path="res://NotoSansJP-VariableFont_wght.ttf" id="2_vculm"]
 [ext_resource type="AudioStream" uid="uid://ogc4sigwfgk" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="3_i4ob3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f4dow"]
@@ -25,22 +26,24 @@ script = ExtResource("1_nsfgh")
 [node name="GolemName" type="RichTextLabel" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 271.501
+offset_left = 272.0
 offset_top = 704.0
-offset_right = 678.501
-offset_bottom = 802.0
+offset_right = 1149.0
+offset_bottom = 914.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_vculm")
 theme_override_font_sizes/normal_font_size = 70
 text = "Golem"
 
 [node name="GolemMinion" type="RichTextLabel" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 271.501
+offset_left = 272.0
 offset_top = 704.0
-offset_right = 759.501
-offset_bottom = 800.0
+offset_right = 1132.0
+offset_bottom = 926.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_vculm")
 theme_override_font_sizes/normal_font_size = 70
 text = "Golem Minion"
 
@@ -51,6 +54,7 @@ offset_left = 276.501
 offset_top = 798.0
 offset_right = 1631.5
 offset_bottom = 1028.0
+theme_override_fonts/normal_font = ExtResource("2_vculm")
 theme_override_font_sizes/normal_font_size = 51
 
 [node name="Dialog_Box" type="AnimatedSprite2D" parent="."]
@@ -66,11 +70,12 @@ volume_db = -10.631
 
 [node name="Skip Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1640.0
-offset_top = 25.0
-offset_right = 1681.0
-offset_bottom = 56.0
+offset_left = 1536.0
+offset_top = 21.0
+offset_right = 1577.0
+offset_bottom = 53.0
 scale = Vector2(4.16, 4.16)
+theme_override_fonts/font = ExtResource("2_vculm")
 text = "Skip"
 
 [connection signal="pressed" from="Skip Button" to="." method="_on_skip_button_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtpkwtlujolgd"]
+[gd_scene load_steps=10 format=3 uid="uid://dtpkwtlujolgd"]
 
 [ext_resource type="Script" path="res://Levels/final.gd" id="1_ltukg"]
+[ext_resource type="FontFile" uid="uid://f61n4ons5do8" path="res://NotoSansJP-VariableFont_wght.ttf" id="2_4oobc"]
 [ext_resource type="Texture2D" uid="uid://cxu1pr16q1ma" path="res://Ghost/Sprites/Dialog/Box.png" id="2_im3ok"]
 [ext_resource type="AudioStream" uid="uid://ogc4sigwfgk" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="3_8tom3"]
 [ext_resource type="AudioStream" uid="uid://488ng3s4f5yt" path="res://JasmineCha/Background/jascream.mp3" id="4_nvrts"]
@@ -34,15 +35,17 @@ offset_top = 774.0
 offset_right = 1625.0
 offset_bottom = 1004.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_4oobc")
 theme_override_font_sizes/normal_font_size = 51
 
 [node name="SkipButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1691.0
+offset_left = 1535.0
 offset_top = 45.0
-offset_right = 1732.0
-offset_bottom = 76.0
+offset_right = 1607.0
+offset_bottom = 77.0
 scale = Vector2(4.759, 3.679)
+theme_override_fonts/font = ExtResource("2_4oobc")
 text = "Skip"
 
 [node name="Jasmine" type="RichTextLabel" parent="."]
@@ -53,6 +56,7 @@ offset_top = 674.0
 offset_right = 1038.0
 offset_bottom = 794.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_4oobc")
 theme_override_font_sizes/normal_font_size = 70
 text = "Jasmine"
 
