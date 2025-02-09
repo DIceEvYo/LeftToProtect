@@ -48,6 +48,7 @@ func _on_option_button_2_item_selected(index):
 	if index == 1: 
 		Score.lang = "jp"
 		$TitleImage.texture = load("res://Title Screen/Title ImageJP.png")
+		$CanvasLayer/Quit.text = "終了"
 		$CanvasLayer/StartButton.text = "ストーリー"
 		$CanvasLayer/Ghost.text = "幽霊"
 		$CanvasLayer/Maid.text = "メード"
@@ -62,6 +63,7 @@ func _on_option_button_2_item_selected(index):
 		Score.lang = "en"
 		$TitleImage.texture = load("res://Title Screen/Title Image.png")
 		$CanvasLayer/StartButton.text = "Story Mode"
+		$CanvasLayer/Quit.text = "Quit"
 		$CanvasLayer/Ghost.text = "Ghost"
 		$CanvasLayer/Maid.text = "Maid"
 		$CanvasLayer/Boss.text = "Boss"
@@ -71,3 +73,7 @@ func _on_option_button_2_item_selected(index):
 		$CanvasLayer/OptionButton.set_item_text(3, "Difficult (150 HP)")
 		$CanvasLayer/OptionButton.set_item_text(4, "Insane (70 HP)")
 		$CanvasLayer/OptionButton.set_item_text(5, "Hardcore (10 HP)")
+
+
+func _on_quit_pressed():
+	get_tree().quit()

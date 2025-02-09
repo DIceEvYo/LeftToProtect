@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmp178beqbh56"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_g82dq"]
+[ext_resource type="Theme" uid="uid://c7brj75yxy4o7" path="res://font.tres" id="2_w7md0"]
+[ext_resource type="FontFile" uid="uid://f61n4ons5do8" path="res://NotoSansJP-VariableFont_wght.ttf" id="3_l6r4v"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 550.0
+offset_right = 590.0
+offset_bottom = 40.0
+script = ExtResource("1_g82dq")
+
+[node name="Container" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 56.0
+offset_right = 285.0
+offset_bottom = 228.0
+scale = Vector2(5.20451, 5.20451)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="Language" type="OptionButton" parent="Container/VBoxContainer"]
+layout_mode = 2
+auto_translate = false
+localize_numeral_system = false
+theme = ExtResource("2_w7md0")
+theme_override_fonts/font = ExtResource("3_l6r4v")
+item_count = 2
+selected = 0
+allow_reselect = true
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "日本語"
+popup/item_1/id = 1
+
+[node name="Continue" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Retry" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+text = "Retry"
+
+[node name="MainMenu" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+text = "Menu"
+
+[node name="Quit" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="item_selected" from="Container/VBoxContainer/Language" to="." method="_on_language_item_selected"]
+[connection signal="pressed" from="Container/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

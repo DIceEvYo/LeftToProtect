@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="5_7aeq0"]
 [ext_resource type="AudioStream" uid="uid://ogc4sigwfgk" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="5_djbjl"]
 [ext_resource type="FontFile" uid="uid://csce4y6meygdo" path="res://Ghost/Fonts/ReggaeOne-Regular.ttf" id="5_rt3m0"]
-[ext_resource type="Texture2D" uid="uid://c1cwxt37pkt3x" path="res://Ghost/Illustrations/serious/seriously.PNG" id="6_tjst8"]
+[ext_resource type="Texture2D" uid="uid://c1cwxt37pkt3x" path="res://Ghost/Illustrations/serious/seriously.png" id="6_tjst8"]
 [ext_resource type="Texture2D" uid="uid://c7hss1ojutfmy" path="res://Player/Sprites/GolemSprite-0001.png" id="10_ig25j"]
 [ext_resource type="Texture2D" uid="uid://mu4davsf24gk" path="res://Player/Sprites/GolemSprite-0002.png" id="11_q8ixv"]
 [ext_resource type="Texture2D" uid="uid://bjeihd1v7qdub" path="res://Player/Sprites/GolemSprite-0003.png" id="12_q1cbx"]

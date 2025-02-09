@@ -107,6 +107,15 @@ popup/item_0/id = 0
 popup/item_1/text = "日本語"
 popup/item_1/id = 1
 
+[node name="Quit" type="Button" parent="CanvasLayer"]
+offset_left = 1736.0
+offset_top = 6.0
+offset_right = 1778.0
+offset_bottom = 38.0
+scale = Vector2(3.28, 3.28)
+theme_override_fonts/font = ExtResource("2_7b8vv")
+text = "Quit"
+
 [node name="TitleImage" type="Sprite2D" parent="."]
 position = Vector2(1007, 462)
 texture = ExtResource("2_mbeo3")
@@ -128,3 +137,4 @@ autoplay = true
 [connection signal="pressed" from="CanvasLayer/Maid" to="." method="_on_maid_pressed"]
 [connection signal="pressed" from="CanvasLayer/Boss" to="." method="_on_boss_pressed"]
 [connection signal="item_selected" from="CanvasLayer/OptionButton2" to="." method="_on_option_button_2_item_selected"]
+[connection signal="pressed" from="CanvasLayer/Quit" to="." method="_on_quit_pressed"]
