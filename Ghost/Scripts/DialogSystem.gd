@@ -2,6 +2,7 @@ extends Control
 
 var jp = false
 var facial_expression
+var time
 
 var dialog_sys
 var dialog_1
@@ -24,24 +25,26 @@ var dialog_13
 var dialog_14
 
 func load_dialog():
-	if jp:
-		$Name_en.modulate.a = 0
-		dialog_sys = $DialogJP
+	if Score.lang == "jp":
+		time = 0.065
+		$Name_en.text = "ゆうき"
+		$Golem.text = "ゴーレム"
+		$GolemMinion.text = "ゴーレムのミニオン"
+		$SkipButton.text = "スキップ"
+		dialog_sys = $Dialog
 		dialog_1 = [
-		"スースー",
-		"スースー。。。",
-		"。。。んん？ なに？ いや。。 もっと5分。。。",
-		"。。。スースー",
-		"。。。 スースー?"
+			"スースー",
+			"。。。んん？ なに？ いや。。 もっと5分。。。",
+			"。。。?",
 		]
 		dialog_2 = [
 			"へえええ!?!?",
 		]
 		dialog_3 = [
-			"あんた一体誰！？",	
+			"あんた一体誰だ！？"	
 		]
 		dialog_4 = [
-			"え-!? ずっと寝ているって見たんだか、あんた！？",
+			"えっ!? ずっと寝ているって見たんだか、あんた！？",
 		]
 		dialog_4_5 = [
 			"変な奴だな。。。でもいや！"
@@ -50,22 +53,46 @@ func load_dialog():
 			"僕はただ。。。 あの。。その。。。"
 		]
 		dialog_5 = [
-			"あんたの能力を試していたんだ！ あんたがここにいたのはずっと知っていたんだ！！！",
+			"ただあんたの能力を試していたんだ！ あんたがここにいたのはずっと知っていたんだよー！",
 		]
 		dialog_5_1 = [
 			"僕は無敵だ！",
 		]
 		dialog_5_2 = [
-			"そうだ！そうだ！ 騙されてしまったんだな、あんた！",
+			"土は敵としても？",
 		]
 		dialog_6 = [
-			"ずっと寝ることでもしていねえぞ！"
+			"土？ 何を言っているんだろうっ？"
 		]
 		dialog_7 = [
-			"Anyway... What brings a nonhuman to the underrealm?"
+			"(土を投げる)"
+		]
+		dialog_8 = [
+			"。。たった今、投げられたのは。。土？"
+		]
+		dialog_9 = [
+			"土。"
+		]
+		dialog_10 = [
+		"そうよ～そういう物を投げた～もっと欲しいの？"	
+		]
+		dialog_11 = [
+			"きも！きも！きも！きもー！",
+			"あんたらがめっちゃきもっ！",
+			"来るな!!!!"
+		]
+		dialog_12 = [
+			"実際、彼女が言いたかったのは「うおお！僕にいっぱい投げてくれ！」"
+		]
+		dialog_13 = [
+			"いやああああ！！！！"
 		]
 	else:
-		$Name_jp.modulate.a = 0
+		time = 0.04
+		$Name_en.text = "Yuuki"
+		$Golem.text = "Golem"
+		$GolemMinion.text = "Golem Minion"
+		$SkipButton.text = "Skip"
 		dialog_sys = $Dialog
 		dialog_1 = [
 			"Zzz...",
@@ -252,27 +279,26 @@ func _ready():
 	while ($Dialog_Box.modulate.a>0):
 		$Dialog_Box.modulate.a -= 0.05
 		$Name_en.modulate.a -= 0.05
-		$Name_jp.modulate.a -= 0.05
 		$Timer.start(.01)
 		await $Timer.timeout
 	queue_free()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+signal continue_dialog
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("shoot"):
+		continue_dialog.emit()
 
 func read_dialog(dialog):
 	for line in dialog:
 		dialog_sys.clear()
 		await speech(line)
-		$Timer.start(1.5)
-		await $Timer.timeout
+		await continue_dialog
 		dialog_sys.clear()
 
 func speech(text):
 	for c in text:
 		$Voice.play()
-		$Timer.start(.065)
+		$Timer.start(time)
 		await $Timer.timeout
 		dialog_sys.add_text(c)	
 		
@@ -280,8 +306,7 @@ func read_dialog2(dialog):
 	for line in dialog:
 		dialog_sys.clear()
 		await speech2(line)
-		$Timer.start(1.5)
-		await $Timer.timeout
+		await continue_dialog
 		dialog_sys.clear()
 
 func speech2(text):
@@ -295,8 +320,7 @@ func read_dialog3(dialog):
 	for line in dialog:
 		dialog_sys.clear()
 		await speech(line)
-		$Timer.start(.75)
-		await $Timer.timeout
+		await continue_dialog
 		dialog_sys.clear()
 
 func speech3(text):

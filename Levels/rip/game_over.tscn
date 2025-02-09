@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dp45nox0bowtg"]
 
 [ext_resource type="Script" path="res://Levels/rip/game_over.gd" id="1_nsfgh"]
-[ext_resource type="Texture2D" uid="uid://dj6rc3boc8xmo" path="res://Ghost/Sprites/Dialog/Box.png" id="2_tu0o1"]
-[ext_resource type="AudioStream" uid="uid://bc3amkn6rg6fn" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="3_i4ob3"]
+[ext_resource type="Texture2D" uid="uid://dehw1mjr8ujv3" path="res://Ghost/Sprites/Dialog/Box.png" id="2_tu0o1"]
+[ext_resource type="AudioStream" uid="uid://bxfi1v5xhxue2" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="3_i4ob3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f4dow"]
 animations = [{
@@ -63,3 +63,14 @@ sprite_frames = SubResource("SpriteFrames_f4dow")
 [node name="GolemVoice" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_i4ob3")
 volume_db = -10.631
+
+[node name="Skip Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1706.0
+offset_top = 27.0
+offset_right = 1747.0
+offset_bottom = 58.0
+scale = Vector2(4.16, 4.16)
+text = "Skip"
+
+[connection signal="pressed" from="Skip Button" to="." method="_on_skip_button_pressed"]

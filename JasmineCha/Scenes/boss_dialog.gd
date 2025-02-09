@@ -27,51 +27,110 @@ var dia_14
 
 func load_dialogue():
 	dialogue_sys = $Dialogue
-	dia_0 = [
-		"I..."
-	]
-	dia_1 = [
-		"I can't hurt him!"
-	]
-	dia_2 = [
-		"GOLEM-KYUN IS TOO CUTE-!!!"
-	]
-	dia_3 = [
-		"What is with you weirdos!? I don't want to be part of this-! I wanna go home!!"
-	]
-	dia_4 = [
-		"Luckily for you, it appears you have reached a home~"
-	]
-	dia_5 = [
-		"HAH-?!"
-	]
-	dia_6 = [
-		"Although I must say I'm not in a pleasant mood after all the needless ruckus going on outside."
-	]
-	dia_7 = [
-		"Fortunantly, it seems three free targets have appeared before me~"
-	]
-	dia_8 = [
-		"Actually, it's four if you include me, more if you consider the clones."
-	]
-	dia_9 = [
-		"Really? That sounds delightful~ Well, I hope you're all ready to be crushed~"
-	]
-	dia_10 = [
-		"EEEEK!!!"
-	]
-	dia_11 = [
-		"Golem-kyun heheheh..."
-	]
-	dia_12 = [
-		"Eh."
-	]
-	dia_13 = [
-		"Dirt."
-	]
-	dia_14 = [
-		"W e l c o m e    t o   t h e   t e a   h o u s e"
-	]
+	if Score.lang == "jp":
+		$MaidName.text = "ももこ"
+		$GhostName.text = "ゆうき"
+		$GolemName.text = "ゴーレム"
+		$GolemMinion.text = "ゴーレムのミニオン"
+		$Jasmine.text = "ジャスミンちゃん"
+		$SkipButton.text = "スキップ"
+		dia_0 = [
+		"。。。"
+		]
+		dia_1 = [
+			"傷つけるなんて、できませんわ！"
+		]
+		dia_2 = [
+			"ゴレムきゅんは可愛らしすぎて、胸がいっぱいでございます！"
+		]
+		dia_3 = [
+			"変なあんたらは何なんだ！？こんな関係に参加したくねぇ！家に帰りたい！！"
+		]
+		dia_4 = [
+			"あら、家に帰りたいかしら？運がいいじゃん、ちょうど家に着いたところみたいだね"
+		]
+		dia_5 = [
+			"ハッ？！"
+		]
+		dia_6 = [
+			"けど、お前らのうるせぇでたらめのせいで、気分は全然愉快じゃねぇ。"
+		]
+		dia_7 = [
+			"しかし、運のいいことに、俺の前に三人のターゲットが現れやがったみたいだな～あらあら～"
+		]
+		dia_8 = [
+			"実は俺を含めれば四人だ。クローンたちなら、もっとだ。"
+		]
+		dia_9 = [
+			"そう？素敵だな～じゃあ、ぶっ壊す準備はできてんだろうな～"
+		]
+		dia_10 = [
+			"きゃっ！！！"
+		]
+		dia_11 = [
+			"ゴレムきゅん～えへへ"
+		]
+		dia_12 = [
+			"どうでもいい。"
+		]
+		dia_13 = [
+			"土。"
+		]
+		dia_14 = [
+			"よ　う　こ　そ　、　お　茶　の　店　へ"
+		]
+	else:
+		$MaidName.text = "Momoko"
+		$GhostName.text = "Yuuki"
+		$GolemName.text = "Golem"
+		$GolemMinion.text = "Golem Minion"
+		$Jasmine.text = "Jasmine"
+		$SkipButton.text = "Skip"
+		dia_0 = [
+			"I..."
+		]
+		dia_1 = [
+			"I can't hurt him!"
+		]
+		dia_2 = [
+			"GOLEM-KYUN IS TOO CUTE-!!!"
+		]
+		dia_3 = [
+			"What is with you weirdos!? I don't want to be part of this-! I wanna go home!!"
+		]
+		dia_4 = [
+			"Luckily for you, it appears you have reached a home~"
+		]
+		dia_5 = [
+			"HAH-?!"
+		]
+		dia_6 = [
+			"Although I must say I'm not in a pleasant mood after all the needless ruckus going on outside."
+		]
+		dia_7 = [
+			"Fortunantly, it seems three free targets have appeared before me~"
+		]
+		dia_8 = [
+			"Actually, it's four if you include me, more if you consider the clones."
+		]
+		dia_9 = [
+			"Really? That sounds delightful~ Well, I hope you're all ready to be crushed~"
+		]
+		dia_10 = [
+			"EEEEK!!!"
+		]
+		dia_11 = [
+			"Golem-kyun heheheh..."
+		]
+		dia_12 = [
+			"Eh."
+		]
+		dia_13 = [
+			"Dirt."
+		]
+		dia_14 = [
+			"W e l c o m e    t o   t h e   t e a   h o u s e"
+		]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
