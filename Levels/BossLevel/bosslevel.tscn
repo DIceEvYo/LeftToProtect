@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctqqfkdvifbh6"]
+[gd_scene load_steps=7 format=3 uid="uid://ctqqfkdvifbh6"]
 
 [ext_resource type="Script" path="res://Levels/BossLevel/bosslevel.gd" id="1_8d3dd"]
 [ext_resource type="AudioStream" uid="uid://bkuuww54r8o2s" path="res://JasmineCha/Music/Sacrificial Tea Ceremony 2.mp3" id="2_k1w4g"]
 [ext_resource type="Texture2D" uid="uid://dbbwmq6jyt68f" path="res://JasmineCha/Background/tea-house.png" id="4_ck0dy"]
+[ext_resource type="PackedScene" uid="uid://bmp178beqbh56" path="res://menu.tscn" id="4_ur01h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f1luo"]
 animations = [{
@@ -57,3 +58,19 @@ sprite_frames = SubResource("SpriteFrames_f4ff1")
 animation = &"cloud1"
 
 [node name="WaitTimer" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+process_priority = 7
+process_thread_group = 1
+process_thread_group_order = 7
+process_thread_messages = 1
+layer = 2
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("4_ur01h")]
+process_priority = 8
+process_physics_priority = 8
+process_thread_group_order = 8
+process_thread_messages = 1
+top_level = true
+z_index = 10

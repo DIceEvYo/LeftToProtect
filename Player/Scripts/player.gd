@@ -215,7 +215,7 @@ func _on_baby_golem_timer_timeout() -> void:
 # Called when player is hita. Stays invincible for a bit.
 func invincibility_frame() -> void:
 	invincible = true
-	#get_node("Invincible_Frame_Timer").start()
+	$Invincible_Frame_Timer.start(3)
 	
 	# Flashes for duration of invincibility.
 	for flash in range(10): 

@@ -1,10 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk5lifukbd4o7"]
+[gd_scene load_steps=4 format=3 uid="uid://dk5lifukbd4o7"]
 
 [ext_resource type="Script" path="res://Levels/GhostLevel/ghost_level_bg.gd" id="1_nnrf6"]
 [ext_resource type="AudioStream" uid="uid://buqtr0r6t315y" path="res://Ghost/Music/NightXPhantom.mp3" id="2_m03up"]
+[ext_resource type="PackedScene" uid="uid://bmp178beqbh56" path="res://menu.tscn" id="3_krohw"]
 
 [node name="GhostLevel" type="Node2D"]
 script = ExtResource("1_nnrf6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+process_priority = 7
+process_thread_group = 1
+process_thread_group_order = 7
+process_thread_messages = 1
+layer = 2
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("3_krohw")]
+process_priority = 8
+process_physics_priority = 8
+process_thread_group_order = 8
+process_thread_messages = 1
+top_level = true
+z_index = 10
 
 [node name="WaitTimer" type="Timer" parent="."]
 one_shot = true

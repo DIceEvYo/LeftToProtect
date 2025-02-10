@@ -1,32 +1,52 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	get_tree().paused = true
-
-func _on_language_item_selected(index):
-	if index == 1: 
-		Score.lang = "jp"
+	if Score.lang == "jp":
+		$CanvasLayer/Container/VBoxContainer/Quit.text = "終了"
+		$CanvasLayer/Container/VBoxContainer/MainMenu.text = "メインメニュー"
+		$CanvasLayer/Container/VBoxContainer/Retry.text = "リトライ"
+		$CanvasLayer/Container/VBoxContainer/Continue.text = "コンティニュー"
 	else:
-		Score.lang = "en"
+		$CanvasLayer/Container/VBoxContainer/Quit.text = "Quit"
+		$CanvasLayer/Container/VBoxContainer/MainMenu.text = "Main Menu"
+		$CanvasLayer/Container/VBoxContainer/Retry.text = "Retry"
+		$CanvasLayer/Container/VBoxContainer/Continue.text = "Continue"
+	resume()
 
+func pause():
+	get_tree().paused = true
+	$ColorRect.visible = true
+	$ColorRect2.visible = true
+	$CanvasLayer/Container.visible = true
+	
+func resume():
+	get_tree().paused = false
+	$ColorRect.visible = false
+	$ColorRect2.visible = false
+	$CanvasLayer/Container.visible = false
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("menu") and !get_tree().paused:
+		pause()
+	elif event.is_action_pressed("menu") and get_tree().paused:
+		resume()
 
 func _on_continue_pressed():
-	get_tree().paused = false
-	queue_free()
+	resume()
 
 
 func _on_retry_pressed():
-	get_tree().paused = true
+	resume()
+	if Score.minilvl == 0:
+		Score.score = 0
 	get_tree().reload_current_scene()
 
 
 func _on_quit_pressed():
-	get_tree().paused = true
+	resume()
 	get_tree().quit()
 
 
 func _on_main_menu_pressed():
-	get_tree().paused = true
+	resume()
 	get_tree().change_scene_to_file("res://Title Screen/title_screen.tscn")

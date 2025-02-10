@@ -1,10 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn7lylootqy2y"]
+[gd_scene load_steps=4 format=3 uid="uid://dn7lylootqy2y"]
 
 [ext_resource type="Script" path="res://Maid/Scripts/maid_level.gd" id="1_4j1hj"]
 [ext_resource type="AudioStream" uid="uid://c8xpj6uu06yjd" path="res://Maid/Music/MoeMoeChuu.mp3" id="2_2gtr8"]
+[ext_resource type="PackedScene" uid="uid://bmp178beqbh56" path="res://menu.tscn" id="3_1rc5g"]
 
 [node name="MaidLevel" type="Node2D"]
 script = ExtResource("1_4j1hj")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_2gtr8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+process_priority = 7
+process_thread_group = 1
+process_thread_group_order = 7
+process_thread_messages = 1
+layer = 2
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("3_1rc5g")]
+process_priority = 8
+process_physics_priority = 8
+process_thread_group_order = 8
+process_thread_messages = 1
+top_level = true
+z_index = 10
