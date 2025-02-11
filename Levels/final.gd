@@ -13,6 +13,7 @@ func load_dialogue():
 	dialogue_sys = $Dialogue
 	if Score.minilvl == 0:
 		if Score.lang == "jp":
+			$SkipButton.text = "スキップ"
 			$Jasmine.text = "ジャスミンちゃん"
 			dia_0 = [
 				"ふう、すっきりした！"
@@ -24,6 +25,7 @@ func load_dialogue():
 				"ファイナルスコア： " + str(Score.total_score) + "。おめでとう！"
 			]
 		else:
+			$SkipButton.text = "Skip"
 			$Jasmine.text = "Jasmine"
 			dia_0 = [
 				"Well, that was refreshing!"
@@ -36,6 +38,7 @@ func load_dialogue():
 			]
 	elif Score.minilvl == 3:
 		if Score.lang == "jp":
+			$SkipButton.text = "スキップ"
 			$Jasmine.text = "ジャスミンちゃん"
 			dia_0 = [
 				"俺を訪ねてくれたんだね～"
@@ -48,6 +51,7 @@ func load_dialogue():
 			]
 		else:
 			$Jasmine.text = "Jasmine"
+			$SkipButton.text = "Skip"
 			dia_0 = [
 				"So you decided visit me~"
 			]
@@ -60,6 +64,7 @@ func load_dialogue():
 	elif Score.minilvl == 2:
 		if Score.lang == "jp":
 			$Jasmine.text = "ジャスミンちゃん"
+			$SkipButton.text = "スキップ"
 			dia_0 = [
 				"ももこを訪ねてくれたんだね～"
 			]
@@ -71,6 +76,7 @@ func load_dialogue():
 			]
 		else:
 			$Jasmine.text = "Jasmine"
+			$SkipButton.text = "Skip"
 			dia_0 = [
 				"So you decided to give Momoko a visit~"
 			]
@@ -83,6 +89,7 @@ func load_dialogue():
 	elif Score.minilvl == 1:
 		if Score.lang == "jp":
 			$Jasmine.text = "ジャスミンちゃん"
+			$SkipButton.text = "スキップ"
 			dia_0 = [
 				"ゆうきを訪ねてくれたんだね～"
 			]
@@ -94,6 +101,7 @@ func load_dialogue():
 			]
 		else:
 			$Jasmine.text = "Jasmine"
+			$SkipButton.text = "Skip"
 			dia_0 = [
 				"So you decided to give Yuuki a visit~"
 			]
