@@ -8,6 +8,7 @@ var god = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Score.score = 0
 	var dialog = dialog_scene.instantiate()
 	add_child(dialog)
 	await dialog.tree_exited
@@ -71,6 +72,7 @@ func _ready():
 	remove_child(jasmine1)
 	god = false
 	Score.score += player.health
+	Score.total_score += Score.score
 	remove_child(score_disp_i)
 	if Score.minilvl > 0:
 		await get_tree().change_scene_to_file("res://Levels/final.tscn")

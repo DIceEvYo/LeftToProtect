@@ -17,7 +17,7 @@ func load_dialogue():
 		$"Skip Button".text = "スキップ"
 		dia_0 = [
 		"もう着いたか？そのスキルじゃ問題だな。",
-		"たった" + str(Score.score) + "点だけ？ガッカリだ。",
+		"たった" + str(Score.total_score + Score.score) + "点だけ？ガッカリだ。",
 		"うまくなれ"
 		]
 		dia_1 = [

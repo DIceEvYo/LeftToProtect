@@ -21,7 +21,7 @@ func load_dialogue():
 				"プレイしてくれてありがとうな～！"
 			]
 			dia_2 = [
-				"ファイナルスコア： " + str(Score.score) + "。おめでとう！"
+				"ファイナルスコア： " + str(Score.total_score) + "。おめでとう！"
 			]
 		else:
 			$Jasmine.text = "Jasmine"
@@ -32,7 +32,7 @@ func load_dialogue():
 				"Thanks for playing!"
 			]
 			dia_2 = [
-				"Final Score: " + str(Score.score) + ". Congrats!"
+				"Final Score: " + str(Score.total_score) + ". Congrats!"
 			]
 	elif Score.minilvl == 3:
 		if Score.lang == "jp":
@@ -44,7 +44,7 @@ func load_dialogue():
 				"感動しちゃった～"
 			]
 			dia_2 = [
-				"スコア： " + str(Score.score) + "。いいね～"
+				"スコア： " + str(Score.total_score) + "。いいね～"
 			]
 		else:
 			$Jasmine.text = "Jasmine"
@@ -55,7 +55,7 @@ func load_dialogue():
 				"I'm flattered~"
 			]
 			dia_2 = [
-				"Score: " + str(Score.score) + ". Well done!"
+				"Score: " + str(Score.total_score) + ". Well done!"
 			]
 	elif Score.minilvl == 2:
 		if Score.lang == "jp":
@@ -67,7 +67,7 @@ func load_dialogue():
 				"かわいいものが好きだなんて知らなかった～"
 			]
 			dia_2 = [
-				"スコア： " + str(Score.score) + "。いいね～"
+				"スコア： " + str(Score.total_score) + "。いいね～"
 			]
 		else:
 			$Jasmine.text = "Jasmine"
@@ -78,7 +78,7 @@ func load_dialogue():
 				"I didn't knew you liked cute things~"
 			]
 			dia_2 = [
-				"Score: " + str(Score.score) + ". Well done!"
+				"Score: " + str(Score.total_score) + ". Well done!"
 			]
 	elif Score.minilvl == 1:
 		if Score.lang == "jp":
@@ -90,7 +90,7 @@ func load_dialogue():
 				"彼女は、完璧なターゲットじゃないか？"
 			]
 			dia_2 = [
-				"スコア： " + str(Score.score) + "。いいね～"
+				"スコア： " + str(Score.total_score) + "。いいね～"
 			]
 		else:
 			$Jasmine.text = "Jasmine"
@@ -101,7 +101,7 @@ func load_dialogue():
 				"She makes for a great target wouldn't you agree~?"
 			]
 			dia_2 = [
-				"Score: " + str(Score.score) + ". Well done!"
+				"Score: " + str(Score.total_score) + ". Well done!"
 			]
 
 # Called when the node enters the scene tree for the first time.

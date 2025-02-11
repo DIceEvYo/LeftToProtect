@@ -37,8 +37,6 @@ func _on_continue_pressed():
 
 func _on_retry_pressed():
 	resume()
-	if Score.minilvl == 0:
-		Score.score = 0
 	get_tree().reload_current_scene()
 
 

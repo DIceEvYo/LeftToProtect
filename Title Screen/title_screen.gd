@@ -10,6 +10,8 @@ func _ready():
 	Score.lang = "en"
 	Score.score = 0
 	Score.minilvl = 0 
+	Score.hp = 500
+	Score.total_score = 0
 	$TitleImage.texture = load("res://Title Screen/Title Image.png")
 	var revolving_bg = bg_scene.instantiate()
 	revolving_bg.limit = 300

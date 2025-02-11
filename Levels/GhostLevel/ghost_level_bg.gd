@@ -8,6 +8,7 @@ var game_over = preload("res://Levels/rip/game_over.tscn")
 var god = false
 
 func _ready(): 
+	Score.score = 0
 	var dialog = dialog_scene.instantiate()
 	add_child(dialog)
 	await dialog.tree_exited
@@ -40,6 +41,7 @@ func _ready():
 	Score.score += player.health
 	remove_child(player)
 	remove_child(score_disp_i)
+	Score.total_score += Score.score
 	if Score.minilvl > 0:
 		await get_tree().change_scene_to_file("res://Levels/final.tscn")
 	else:
