@@ -1,5 +1,7 @@
 extends Control
 
+signal restart
+
 func _ready():
 	if Score.lang == "jp":
 		$CanvasLayer/Container/VBoxContainer/Quit.text = "終了"
@@ -37,7 +39,13 @@ func _on_continue_pressed():
 
 func _on_retry_pressed():
 	resume()
-	get_tree().reload_current_scene()
+	if Score.minilvl > 0:
+		get_tree().reload_current_scene()
+	else:
+		restart.emit()
+	
+	
+	
 
 
 func _on_quit_pressed():

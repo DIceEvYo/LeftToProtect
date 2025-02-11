@@ -25,3 +25,5 @@ process_thread_group_order = 8
 process_thread_messages = 1
 top_level = true
 z_index = 10
+
+[connection signal="restart" from="CanvasLayer/Control" to="." method="_on_control_restart"]

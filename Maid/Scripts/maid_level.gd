@@ -10,6 +10,7 @@ var god = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Score.score = 0
+	Score.lvl = 2
 	var dialog = dialog_scene.instantiate()
 	add_child(dialog)
 	await dialog.tree_exited
@@ -37,6 +38,7 @@ func _ready() -> void:
 	Score.score += player.health
 	Score.total_score += Score.score
 	remove_child(score_disp_i)
+	Score.lvl = 0
 	if Score.minilvl > 0:
 		await get_tree().change_scene_to_file("res://Levels/final.tscn")
 	else:
@@ -49,3 +51,7 @@ func _process(delta):
 func _on_player_death():
 	if(get_node("Player") == null):
 		get_tree().change_scene_to_file.bind("res://Levels/rip/game_over.tscn").call_deferred()
+
+
+func _on_control_restart():
+	queue_free()

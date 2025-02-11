@@ -9,6 +9,7 @@ var god = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Score.score = 0
+	Score.lvl = 3
 	var dialog = dialog_scene.instantiate()
 	add_child(dialog)
 	await dialog.tree_exited
@@ -74,6 +75,7 @@ func _ready():
 	Score.score += player.health
 	Score.total_score += Score.score
 	remove_child(score_disp_i)
+	Score.lvl = 0
 	if Score.minilvl > 0:
 		await get_tree().change_scene_to_file("res://Levels/final.tscn")
 	else:
@@ -90,3 +92,7 @@ func _on_player_death():
 func wait_for_timer(duration):
 	$WaitTimer.start(duration)  #Start the timer with the specified duration
 	await $WaitTimer.timeout    #Wait until the timeout signal is emitted
+
+
+func _on_control_restart():
+	queue_free()

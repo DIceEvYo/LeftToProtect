@@ -28,3 +28,5 @@ one_shot = true
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_m03up")
+
+[connection signal="restart" from="CanvasLayer/Control" to="." method="_on_control_restart"]
