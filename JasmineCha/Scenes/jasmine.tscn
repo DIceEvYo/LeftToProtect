@@ -48,7 +48,7 @@ one_shot = true
 scale = Vector2(1.06838, 1)
 
 [node name="RotationShootTimer2" type="Timer" parent="."]
-wait_time = 0.049
+wait_time = 0.05
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

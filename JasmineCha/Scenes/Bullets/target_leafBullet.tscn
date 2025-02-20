@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://coquy0gucqid6"]
 
 [ext_resource type="Script" path="res://JasmineCha/Scripts/target_leaf.gd" id="1_feq7v"]
-[ext_resource type="Texture2D" uid="uid://ble38dopcq3r7" path="res://JasmineCha/Sprites/Bullets/leafpink.png" id="2_r8k5t"]
+[ext_resource type="Texture2D" uid="uid://c7d21r8oaabiq" path="res://JasmineCha/Sprites/Bullets/leafpink.png" id="2_r8k5t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f5ki6"]
 animations = [{

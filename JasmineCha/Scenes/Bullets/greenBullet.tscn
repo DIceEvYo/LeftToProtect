@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dx1wqg3qwusps"]
 
 [ext_resource type="Script" path="res://JasmineCha/Scripts/blue.gd" id="1_qa78t"]
-[ext_resource type="Texture2D" uid="uid://dr5rranv65tp5" path="res://JasmineCha/Sprites/Bullets/green-bullet.png" id="2_5fkru"]
+[ext_resource type="Texture2D" uid="uid://0a6gbb40spin" path="res://JasmineCha/Sprites/Bullets/green-bullet.png" id="2_5fkru"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qjwuo"]
 animations = [{

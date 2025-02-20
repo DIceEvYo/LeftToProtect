@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dipdbjwjbxf5l"]
 
 [ext_resource type="Script" path="res://JasmineCha/Scripts/reverse_bullet.gd" id="1_jgjge"]
-[ext_resource type="Texture2D" uid="uid://dma1xa2jj51jk" path="res://JasmineCha/Sprites/Bullets/purple-bullet.png" id="2_pmk50"]
-[ext_resource type="Texture2D" uid="uid://cxwt12r5tdvjb" path="res://JasmineCha/Sprites/Bullets/red-bullet.png" id="3_pg6ue"]
+[ext_resource type="Texture2D" uid="uid://cs7vqgwxlqk2e" path="res://JasmineCha/Sprites/Bullets/purple-bullet.png" id="2_pmk50"]
+[ext_resource type="Texture2D" uid="uid://bccf6g47gkh72" path="res://JasmineCha/Sprites/Bullets/red-bullet.png" id="3_pg6ue"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8o4pu"]
 animations = [{
