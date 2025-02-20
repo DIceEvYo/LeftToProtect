@@ -1,20 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://de8tyu6emjuhs"]
+[gd_scene load_steps=17 format=3 uid="uid://de8tyu6emjuhs"]
 
 [ext_resource type="Script" path="res://JasmineCha/Scenes/boss_dialog.gd" id="1_aii3t"]
-[ext_resource type="FontFile" uid="uid://f61n4ons5do8" path="res://NotoSansJP-VariableFont_wght.ttf" id="2_5gahy"]
-[ext_resource type="Texture2D" uid="uid://cxu1pr16q1ma" path="res://Ghost/Sprites/Dialog/Box.png" id="2_w8px1"]
-[ext_resource type="AudioStream" uid="uid://bhbcj1hd6t40q" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="3_p6nr0"]
-[ext_resource type="AudioStream" uid="uid://cwa5lwvciucip" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_awnan"]
-[ext_resource type="AudioStream" uid="uid://cfxv35xtc82pp" path="res://JasmineCha/Background/okocchaalt.mp3" id="4_x2oc2"]
-[ext_resource type="AudioStream" uid="uid://cb4ulupnnl10d" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="5_387kb"]
-[ext_resource type="AudioStream" uid="uid://ogc4sigwfgk" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="6_pebgu"]
-[ext_resource type="AudioStream" uid="uid://488ng3s4f5yt" path="res://JasmineCha/Background/jascream.mp3" id="7_is6ie"]
-[ext_resource type="Texture2D" uid="uid://dbbwmq6jyt68f" path="res://JasmineCha/Background/tea-house.png" id="7_n02gh"]
-[ext_resource type="Texture2D" uid="uid://sgfu1ocwf1l8" path="res://Maid/Sprites/MaidIllustrations/maidillus_love.png" id="8_vse0t"]
-[ext_resource type="Texture2D" uid="uid://xbviq13jhhff" path="res://Ghost/Illustrations/angry/. . ..png" id="9_fi0tx"]
+[ext_resource type="FontFile" uid="uid://dbptwkasrtd3d" path="res://NotoSansJP-VariableFont_wght.ttf" id="2_5gahy"]
+[ext_resource type="Texture2D" uid="uid://dymmbfwcuohxq" path="res://Ghost/Sprites/Dialog/Box.png" id="2_w8px1"]
+[ext_resource type="AudioStream" uid="uid://cisamruvuv4ps" path="res://Levels/TutorialLevel/Music_SoundStuff/Here Comes The Guild Members.mp3" id="3_p6nr0"]
+[ext_resource type="AudioStream" uid="uid://bechr0g5xgt72" path="res://Ghost/Sounds/Ghost_Normal.mp3" id="4_awnan"]
+[ext_resource type="AudioStream" uid="uid://b42jwtpa3u02x" path="res://JasmineCha/Background/okocchaalt.mp3" id="4_x2oc2"]
+[ext_resource type="AudioStream" uid="uid://dmhnrdnlquv51" path="res://Levels/TutorialLevel/Music_SoundStuff/maidvoice.mp3" id="5_387kb"]
+[ext_resource type="AudioStream" uid="uid://bkp322nt3dgvt" path="res://Levels/TutorialLevel/Music_SoundStuff/talking.mp3" id="6_pebgu"]
+[ext_resource type="AudioStream" uid="uid://b42un56kh6kqs" path="res://JasmineCha/Background/jascream.mp3" id="7_is6ie"]
+[ext_resource type="Texture2D" uid="uid://cxhjxbttecmfd" path="res://JasmineCha/Background/tea-house.png" id="7_n02gh"]
+[ext_resource type="Texture2D" uid="uid://dnwj32wtsassg" path="res://Maid/Sprites/MaidIllustrations/maidillus_love.png" id="8_vse0t"]
 [ext_resource type="Script" path="res://JasmineCha/Scenes/MaidIllust.gd" id="9_y0oq6"]
 [ext_resource type="Script" path="res://Ghost/Scripts/FloatingCharacter.gd" id="10_6y764"]
-[ext_resource type="Texture2D" uid="uid://dfk2buoec05bb" path="res://JasmineCha/Background/Jasmine.png" id="11_wd03l"]
+[ext_resource type="Texture2D" uid="uid://bkqesieefws4j" path="res://JasmineCha/Background/Jasmine.png" id="11_wd03l"]
 [ext_resource type="Script" path="res://JasmineCha/Scenes/Jasmine2.gd" id="12_40rgm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1itt"]
@@ -156,7 +155,6 @@ script = ExtResource("9_y0oq6")
 z_index = -2
 position = Vector2(1500, 540)
 scale = Vector2(0.323, 0.323)
-texture = ExtResource("9_fi0tx")
 script = ExtResource("10_6y764")
 
 [node name="Jasmine2" type="Sprite2D" parent="."]

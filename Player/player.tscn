@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://Player/Scripts/state_idle.gd" id="3_6s2qx"]
 [ext_resource type="Script" path="res://Player/Scripts/player_state_machine.gd" id="3_jk55v"]
 [ext_resource type="Script" path="res://Player/Scripts/state_walk.gd" id="4_rcqbb"]
-[ext_resource type="Texture2D" uid="uid://c7a0b7gifpcss" path="res://Player/progbar.png" id="6_ydyyp"]
-[ext_resource type="Texture2D" uid="uid://x046cormkxc5" path="res://Player/progbar2.png" id="7_8onas"]
+[ext_resource type="Texture2D" uid="uid://bcim0wa0orx7t" path="res://Player/progbar.png" id="6_ydyyp"]
+[ext_resource type="Texture2D" uid="uid://mel7tn2tfcd6" path="res://Player/progbar2.png" id="7_8onas"]
 [ext_resource type="Script" path="res://Levels/BossLevel/TextureProgressBar.gd" id="8_qx4e8"]
 
 [sub_resource type="Animation" id="Animation_3jnvy"]

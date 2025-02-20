@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://sb8ji8f1nkay"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager/scorelabel.gd" id="1_fr0ea"]
-[ext_resource type="FontFile" uid="uid://f61n4ons5do8" path="res://NotoSansJP-VariableFont_wght.ttf" id="1_s4e8j"]
+[ext_resource type="FontFile" uid="uid://dbptwkasrtd3d" path="res://NotoSansJP-VariableFont_wght.ttf" id="1_s4e8j"]
 
 [node name="ScoreLabel" type="Label"]
 offset_left = 864.0
